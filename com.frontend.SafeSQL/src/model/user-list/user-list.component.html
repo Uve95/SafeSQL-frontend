@@ -1,0 +1,24 @@
+<li><a routerLink="/first-component" routerLinkActive="active" ariaCurrentWhenActive="page"></a>
+<h2> User List</h2>
+<table class = "table table-striped">
+    <thead>
+        <tr>
+            <th>email</th>
+            <th>name</th>
+            <th>surname</th>
+
+        </tr>
+    </thead>
+    <!-- El bucle recorre cada usuario de users-->
+    <!-- Este archivo html está asociado a su respectivo .ts -->
+    <!-- users es una propiedad definida en el .ts users: User[]-->
+    <tbody>
+        <tr *ngFor = "let u of users">
+            <!-- {{}} Es interpolación para acceder a los campos -->
+            <td>{{u.email}}</td>
+            <td>{{u.name}}</td>
+            <td>{{u.surname}}</td>
+
+        </tr>
+    </tbody>
+</table>
