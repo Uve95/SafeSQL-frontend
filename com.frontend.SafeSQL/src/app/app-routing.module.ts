@@ -2,16 +2,30 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { UserListComponent } from 'src/model/user-list/user-list.component';
-import { HomeComponent } from './home/home.component';
+import { RegisterUserComponent } from '../model/register-user/register-user.component';
+import { UpdateUserComponent } from '../model/update-user/update-user.component';
+import { LoginComponent } from '../model/login/login.component';
 
 const routes: Routes = [  
 { 
-  path: 'login', 
+  path: 'userList', 
   component: UserListComponent
 },
 {
   path: '', 
-  component: HomeComponent
+  component: LoginComponent
+},
+{
+  path: 'update-user/:email', 
+  component: UpdateUserComponent
+},
+{
+  path: 'user/register', 
+  component: RegisterUserComponent
+},
+{
+  path: 'user/login', 
+  component: LoginComponent
 }
 
 ];

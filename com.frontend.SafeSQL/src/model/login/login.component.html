@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+</head>
+
+<body>
+	<section class="h-100">
+		<div class="container h-100">
+			<div class="row justify-content-sm-center h-100">
+				<div class="col-xxl-4 col-xl-5 col-lg-5 col-md-7 col-sm-9">
+					<div class="text-center my-5">
+						<img src="https://getbootstrap.com/docs/5.0/assets/brand/bootstrap-logo.svg" alt="logo" width="100">
+					</div>
+					<div class="card shadow-lg">
+						<div class="card-body p-5">
+							<form  [formGroup]="loginForm" (ngSubmit)="onSubmit()"
+								autocomplete="off">
+
+								<!-- *****************INPUT CORREO***************** -->
+
+								<div class="mb-3">
+									<label class="mb-2 text-muted" for="email">Dirección de correo electronico</label>
+									<input type="text" id="surname" name="email"  formControlName="email" class="form-control">
+
+								</div>
+
+								<!-- *****************INPUT CONTRASEÑA***************** -->
+
+								<div class="mb-3">
+									<div class="text-end" style="font-size: small">
+										<a href="forgot.html"  >
+											¿Has olvidado tu contraseña?
+										</a>
+									</div>
+
+									<label class="mb-2 text-muted" for="email">Contraseña</label>
+									<input type="text" id="password" name="password" formControlName="password" class="form-control">
+								</div>
+
+
+                                <div class="mb-3 text-center lg">
+
+                                <button type="submit" class=" btn btn-primary ms-auto form-control">
+                                    Iniciar sesión
+                                </button>
+							</div>
+
+							<div class="mb-3 text-center lg">
+
+
+							<div class="alert alert-danger" *ngIf="msgError"> Correo electronico o contraseña incorrecta</div>
+						</div>
+
+							</form>
+                            </div>
+
+
+						</div>
+
+					</div>
+					<div class="text-center mt-5 text-muted">
+						Copyright &copy; 2017-2021 &mdash; Your Company 
+					</div>
+				</div>
+			</div>
+	</section>
+
+	<script src="js/login.js"></script>
+</body>
+</html>

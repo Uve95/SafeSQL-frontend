@@ -1,11 +1,12 @@
-<li><a routerLink="/first-component" routerLinkActive="active" ariaCurrentWhenActive="page"></a>
 <h2> User List</h2>
 <table class = "table table-striped">
-    <thead>
+    <thead class="table-dark">
         <tr>
-            <th>email</th>
             <th>name</th>
             <th>surname</th>
+            <th>email</th>
+            <th>password</th>
+
 
         </tr>
     </thead>
@@ -13,11 +14,17 @@
     <!-- Este archivo html está asociado a su respectivo .ts -->
     <!-- users es una propiedad definida en el .ts users: User[]-->
     <tbody>
-        <tr *ngFor = "let u of users">
+        <tr *ngFor = "let user of users">
             <!-- {{}} Es interpolación para acceder a los campos -->
-            <td>{{u.email}}</td>
-            <td>{{u.name}}</td>
-            <td>{{u.surname}}</td>
+            <td>{{user.name}}</td>
+            <td>{{user.surname}}</td>
+            <td>{{user.email}}</td>
+            <td>{{user.password}}</td>
+
+
+
+            <button (click)= "updateUser(user.email)" class="btn btn-info"> Edit </button>
+            <button (click)= "deleteUser(user.email)" class="btn btn-info"> Delete </button>
 
         </tr>
     </tbody>
