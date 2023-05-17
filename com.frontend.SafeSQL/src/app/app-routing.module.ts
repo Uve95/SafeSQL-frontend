@@ -5,6 +5,7 @@ import { UserListComponent } from 'src/model/user-list/user-list.component';
 import { RegisterUserComponent } from '../model/register-user/register-user.component';
 import { UpdateUserComponent } from '../model/update-user/update-user.component';
 import { LoginComponent } from '../model/login/login.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 
 const routes: Routes = [  
 { 
@@ -26,6 +27,10 @@ const routes: Routes = [
 {
   path: 'user/login', 
   component: LoginComponent
+},
+{
+  path: 'user/forgotPassword', 
+  component: ForgotPasswordComponent
 }
 
 ];

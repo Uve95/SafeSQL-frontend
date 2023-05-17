@@ -8,11 +8,14 @@ import { User } from './user';
 })
 
 export class UserService {
+[x: string]: any;
 //Endpoint del Backend
 private backendURL: string = "http://localhost:8080/user";
 private saveUserURL: string = "http://localhost:8080/user/userSave";
 private listUsersURL: string = "http://localhost:8080/user/userList";
 private loginUserURL: string = "http://localhost:8080/user/login";
+private forgotPasswordURL: string = "http://localhost:8080/user/forgotPassword";
+
 
 
 
@@ -42,5 +45,9 @@ deleteUser(email:string): Observable<Object>{
 }
 findAllUsers(): Observable<User[]>{
   return this.httpClient.get<User[]>(`${this.listUsersURL}`);
+}
+
+forgotPassword(info:string): Observable<Object>{
+  return this.httpClient.post<User[]>(`${this.forgotPasswordURL}`, info);
 }
 }
