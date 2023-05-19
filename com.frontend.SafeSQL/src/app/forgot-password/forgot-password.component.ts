@@ -40,10 +40,11 @@ export class ForgotPasswordComponent {
   }
 
   forgotPassword(){
-    this.userService.forgotPassword(this.forgotPassForm.value).subscribe(dato=>{
-      console.log(dato);
-      
-    }, error => console.log(error));
+    this.userService.forgotPassword(this.forgotPassForm.value).subscribe(result => this.gotoUserList());
+  }
+ 
+  gotoUserList() {
+    this.router.navigate(['/userList']);
   }
 
 }
