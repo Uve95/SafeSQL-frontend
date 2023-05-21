@@ -8,13 +8,14 @@ import { User } from './user';
 })
 
 export class UserService {
-[x: string]: any;
-//Endpoint del Backend
+
+  //Endpoint del Backend
 private backendURL: string = "http://localhost:8080/user";
 private saveUserURL: string = "http://localhost:8080/user/userSave";
 private listUsersURL: string = "http://localhost:8080/user/userList";
 private loginUserURL: string = "http://localhost:8080/user/login";
 private forgotPasswordURL: string = "http://localhost:8080/user/forgotPassword";
+private changePasswordURL: string = "http://localhost:8080/user/changePassword";
 
 
 
@@ -22,7 +23,7 @@ private forgotPasswordURL: string = "http://localhost:8080/user/forgotPassword";
    
 constructor(
   //HttpClient para proporcionar métodos que reciben datos del backend
-  private httpClient: HttpClient
+  private httpClient: HttpClient,
   ) { }
 
 //Methods
@@ -49,5 +50,10 @@ findAllUsers(): Observable<User[]>{
 
 forgotPassword(info:string): Observable<Object>{
   return this.httpClient.post<User[]>(`${this.forgotPasswordURL}`, info);
+}
+
+changePassword( info:string, email:string): Observable<Object>{
+
+  return this.httpClient.post<User[]>(`${this.changePasswordURL}`, [email, info]);
 }
 }

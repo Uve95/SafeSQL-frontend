@@ -40,11 +40,11 @@ export class ForgotPasswordComponent {
   }
 
   forgotPassword(){
-    this.userService.forgotPassword(this.forgotPassForm.value).subscribe(result => this.gotoUserList());
+    this.userService.forgotPassword(this.forgotPassForm.value).subscribe(result => this.gotoHome());
   }
  
-  gotoUserList() {
-    this.router.navigate(['/userList']);
+  gotoHome() {
+    this.router.navigate(['/']);
   }
 
 }

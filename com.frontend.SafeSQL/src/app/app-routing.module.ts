@@ -6,6 +6,7 @@ import { RegisterUserComponent } from '../model/register-user/register-user.comp
 import { UpdateUserComponent } from '../model/update-user/update-user.component';
 import { LoginComponent } from '../model/login/login.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { ChangePasswordComponent } from './change-password/change-password.component';
 
 const routes: Routes = [  
 { 
@@ -32,7 +33,11 @@ const routes: Routes = [
   path: 'user/forgotPassword', 
   component: ForgotPasswordComponent
 }
-
+,
+{
+  path: 'user/changePassword/:email', 
+  component: ChangePasswordComponent
+}
 ];
 
 @NgModule({

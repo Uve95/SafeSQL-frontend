@@ -10,6 +10,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UpdateUserComponent } from '../model/update-user/update-user.component';
 import { LoginComponent } from '../model/login/login.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { ChangePasswordComponent } from './change-password/change-password.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
     RegisterUserComponent,
     UpdateUserComponent,
     LoginComponent,
-    ForgotPasswordComponent
+    ForgotPasswordComponent,
+    ChangePasswordComponent
   ],
   imports: [
     BrowserModule,
