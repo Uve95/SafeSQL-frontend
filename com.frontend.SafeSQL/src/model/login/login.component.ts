@@ -43,16 +43,10 @@ export class LoginComponent implements OnInit{
       this.loginUsesr();
     }, err => {
 
-        this.msgError = err
+        this.msgError = true
     })
 }
 
-  showError(res: any) {
-    // Si el error es que ya existe ese id de empleado, mostrar el mensaje apropiado
-    // Una forma es manejar códigos de error
-    
-    this.error = 'El id de empleado está repetido';
-}
 
 loginUsesr(){
   this.router.navigate(['/userList']);

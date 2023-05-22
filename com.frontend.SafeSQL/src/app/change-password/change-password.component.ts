@@ -15,15 +15,18 @@ export class ChangePasswordComponent implements OnInit {
 
   user: User = new User();
   ChangePasswordForm: FormGroup;
-  email: any 
+  email: any
+  msgError: boolean;
+
 
   constructor(
     private userService: UserService,
     private router: Router,
     private readonly fb: FormBuilder,
-    private route:ActivatedRoute
+    private route: ActivatedRoute
 
-    
+
+
   ) {
 
 
@@ -34,8 +37,8 @@ export class ChangePasswordComponent implements OnInit {
   ngOnInit(): void {
 
     this.route.paramMap.subscribe(params => {
-      if(params.has("email")){
-        this.email = params.get("email") ;
+      if (params.has("email")) {
+        this.email = params.get("email");
       }
     })
     this.initForm();
@@ -67,13 +70,17 @@ export class ChangePasswordComponent implements OnInit {
 
   }
 
-  
-  changePassword(){
 
-    this.userService.changePassword(this.ChangePasswordForm.value['password'], this.email).subscribe(result => this.gotoChangePassword());
+  changePassword() {
+
+    this.userService.changePassword(this.ChangePasswordForm.value['password'], this.email).subscribe(dato => {
+      this.msgError = false
+
+    }, err => {
+
+      this.msgError = true
+    })
   }
- 
-  gotoChangePassword() {
-    this.router.navigate(['/']);
-  }
+
+
 }

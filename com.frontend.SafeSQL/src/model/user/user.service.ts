@@ -54,6 +54,6 @@ forgotPassword(info:string): Observable<Object>{
 
 changePassword( info:string, email:string): Observable<Object>{
 
-  return this.httpClient.post<User[]>(`${this.changePasswordURL}`, [email, info]);
+  return this.httpClient.post<User[]>(`${this.changePasswordURL}`, {'email':email, 'password':info});
 }
 }

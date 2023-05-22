@@ -11,6 +11,8 @@ import { UserService } from 'src/model/user/user.service';
 export class ForgotPasswordComponent {
 
   forgotPassForm: FormGroup;
+  msgError: boolean;
+
 
   constructor(
     private userService: UserService,
@@ -39,13 +41,16 @@ export class ForgotPasswordComponent {
     })
   }
 
-  forgotPassword(){
-    this.userService.forgotPassword(this.forgotPassForm.value).subscribe(result => this.gotoHome());
+  forgotPassword() {
+    this.userService.forgotPassword(this.forgotPassForm.value).subscribe(dato => {
+      this.msgError = false
+
+    }, err => {
+
+      this.msgError = true
+    })
   }
- 
-  gotoHome() {
-    this.router.navigate(['/']);
-  }
+
 
 }
 
