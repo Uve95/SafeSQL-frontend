@@ -11,7 +11,7 @@ export class UserService {
 
   //Endpoint del Backend
 private backendURL: string = "http://localhost:8080/user";
-private saveUserURL: string = "http://localhost:8080/user/userSave";
+private saveUserURL: string = "http://localhost:8080/user/register";
 private listUsersURL: string = "http://localhost:8080/user/userList";
 private loginUserURL: string = "http://localhost:8080/user/login";
 private forgotPasswordURL: string = "http://localhost:8080/user/forgotPassword";
