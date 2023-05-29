@@ -13,31 +13,33 @@ import { Router } from '@angular/router';
 
 export class UserListComponent implements OnInit {
  
-  users: User[];
+  users: Array<User>;
 
   constructor(private userService: UserService, private router:Router ) { }
  
   //De la documentación: A lifecycle hook that is called after Angular 
   //has initialized all data-bound properties of a directive.
   ngOnInit(): void {
-    this.getAllUser();
+    this.loadUsers();
   }
 
-  getAllUser(){
-    this.userService.findAllUsers().subscribe(dato =>{
+  loadUsers(){
+    this.userService.list().subscribe(dato =>{
       this.users=dato;
-    })
+    }),
+      (err: any) => {
+      console.log(err);
+    }
   }
 
-  updateUser(email:string){
-    this.router.navigate(['update-user',email]);
+  delete(email:String): void {
+    if (confirm('¿Estás seguro?')) {
+      this.userService.delete(email).subscribe(data => {
+        this.loadUsers();
+      });
+    }
   }
   
-  deleteUser(email:string){
-    this.userService.deleteUser(email).subscribe(dato =>{
-      console.log(dato);
-      this.getAllUser();
-    })
-  }
+
  
 }

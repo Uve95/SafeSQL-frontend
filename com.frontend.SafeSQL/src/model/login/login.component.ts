@@ -32,10 +32,10 @@ export class LoginComponent implements OnInit{
   }
 
   onSubmit() {
-    this.loginUser();
+    //this.loginUser();
   }
 
-  
+  /*
   loginUser(){
 
     this.userService.loginUser(this.loginForm.value).subscribe(dato=>{
@@ -47,7 +47,7 @@ export class LoginComponent implements OnInit{
     })
 }
 
-
+*/
 loginUsesr(){
   this.router.navigate(['/userList']);
 

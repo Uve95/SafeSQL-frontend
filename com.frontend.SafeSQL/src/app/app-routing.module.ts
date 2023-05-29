@@ -7,10 +7,11 @@ import { UpdateUserComponent } from '../model/update-user/update-user.component'
 import { LoginComponent } from '../model/login/login.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
+import { DetailsUserComponent } from './details-user/details-user.component';
 
 const routes: Routes = [  
 { 
-  path: 'userList', 
+  path: 'user/list', 
   component: UserListComponent
 },
 {
@@ -38,7 +39,15 @@ const routes: Routes = [
   path: 'user/changePassword/:email', 
   component: ChangePasswordComponent
 }
-
+,
+{
+  path: 'user/details/:email', 
+  component: DetailsUserComponent
+},
+{
+  path: 'user/update/:email', 
+  component: UpdateUserComponent
+}
 ];
 
 @NgModule({

@@ -1,0 +1,43 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+</head>
+
+<body>
+	<section class="h-100">
+		<div class="container h-100">
+			<div class="row justify-content-sm-center h-100">
+					<div class="text-center my-2">
+						<img src="./assets/SafeSQL.jpg" alt="logo"
+							width="150">
+					</div>
+					<div class="card shadow-lg">
+						<div class="card-body">
+							<h1 class="fs-4 card-title fw-bold mb-40 text-center ms-auto">Detalles {{user.nombre}}</h1>
+                            <div *ngIf="user">
+                                <div class="container">
+                                  <p><b>Nombre del producto: </b>{{user.email}}</p><br>
+                                  <p><b>Precio del producto: </b>{{user.name}} €</p>
+                                  <div>
+                                    <button class="btn btn-primary" (click)="volver()">Volver</button>
+                                  </div>
+                                </div>
+                              </div>
+
+						</div>
+
+					</div>
+					<div class="text-center mt-5 text-muted">
+						Copyright &copy; 2017-2021 &mdash; Your Company
+					</div>
+				</div>
+			</div>
+	</section>
+
+	<script src="js/login.js"></script>
+</body>
+
+</html>

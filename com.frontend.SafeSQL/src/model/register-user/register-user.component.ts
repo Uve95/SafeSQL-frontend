@@ -32,7 +32,7 @@ export class RegisterUserComponent implements OnInit {
 
 
   onSubmit() {
-    this.registerUser();
+    //this.registerUser();
   }
 
 
@@ -57,7 +57,7 @@ export class RegisterUserComponent implements OnInit {
       return false;
 
   }
-
+/*
   registerUser(){
     this.userService.registerUser(this.userForm.value).subscribe(dato=>{
       console.log(dato);
@@ -65,7 +65,7 @@ export class RegisterUserComponent implements OnInit {
 
     }, error => console.log(error));
   }
-
+*/
   updateListUser(){
     this.router.navigate(['/userList']);
   }

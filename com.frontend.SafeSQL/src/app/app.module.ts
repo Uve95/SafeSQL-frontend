@@ -11,6 +11,7 @@ import { UpdateUserComponent } from '../model/update-user/update-user.component'
 import { LoginComponent } from '../model/login/login.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
+import { DetailsUserComponent } from './details-user/details-user.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { ChangePasswordComponent } from './change-password/change-password.compo
     UpdateUserComponent,
     LoginComponent,
     ForgotPasswordComponent,
-    ChangePasswordComponent
+    ChangePasswordComponent,
+    DetailsUserComponent
   ],
   imports: [
     BrowserModule,

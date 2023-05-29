@@ -1,7 +1,10 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { User } from './user';
+
+const cabecera = {headers: new HttpHeaders({'Content-TYpe': 'application/json'})};
+
 
 @Injectable({
   providedIn: 'root'
@@ -10,25 +13,41 @@ import { User } from './user';
 export class UserService {
 
   //Endpoint del Backend
-private backendURL: string = "http://localhost:8080/user";
+/*private backendURL: string = "http://localhost:8080/user";
 private saveUserURL: string = "http://localhost:8080/user/register";
 private listUsersURL: string = "http://localhost:8080/user/userList";
 private loginUserURL: string = "http://localhost:8080/user/login";
 private forgotPasswordURL: string = "http://localhost:8080/user/forgotPassword";
 private changePasswordURL: string = "http://localhost:8080/user/changePassword";
+private listUser: string = "http://localhost:8080/user//user-list
+*/
 
+private listUser: string = "http://localhost:8080/api/users/"
 
+constructor(private httpClient: HttpClient) { }
 
-
-   
-constructor(
-  //HttpClient para proporcionar métodos que reciben datos del backend
-  private httpClient: HttpClient,
-  ) { }
 
 //Methods
 
-loginUser(info:string): Observable<Object>{
+public list(): Observable<User[]> {
+  return this.httpClient.get<User[]>(this.listUser + 'list', cabecera);
+}
+
+
+public details(email: String): Observable<User> {
+  return this.httpClient.get<User>(this.listUser + `details/${email}`, cabecera);
+}
+
+
+public update(email:String): Observable<any> {
+  return this.httpClient.put<any>(this.listUser + `update/${email}`, cabecera);
+}
+
+public delete(email: String): Observable<any> {
+  return this.httpClient.delete<any>(this.listUser + `delete/${email}`, cabecera);
+}
+
+/*loginUser(info:string): Observable<Object>{
 return this.httpClient.post(`${this.loginUserURL}`,info);
 }
 
@@ -56,4 +75,5 @@ changePassword( info:string, email:string): Observable<Object>{
 
   return this.httpClient.post<User[]>(`${this.changePasswordURL}`, {'email':email, 'password':info});
 }
+*/
 }

@@ -30,7 +30,7 @@ export class ForgotPasswordComponent {
 
 
   onSubmit() {
-    this.forgotPassword();
+    //this.forgotPassword();
   }
 
 
@@ -41,6 +41,7 @@ export class ForgotPasswordComponent {
     })
   }
 
+  /*
   forgotPassword() {
     this.userService.forgotPassword(this.forgotPassForm.value).subscribe(dato => {
       this.msgError = false
@@ -50,7 +51,7 @@ export class ForgotPasswordComponent {
       this.msgError = true
     })
   }
-
+*/
 
 }
 

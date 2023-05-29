@@ -1,31 +1,65 @@
-<h2> User List</h2>
-<table class = "table table-striped">
-    <thead class="table-dark">
-        <tr>
-            <th>name</th>
-            <th>surname</th>
-            <th>email</th>
-            <th>password</th>
 
+<!DOCTYPE html>
+<html lang="en">
 
-        </tr>
-    </thead>
-    <!-- El bucle recorre cada usuario de users-->
-    <!-- Este archivo html está asociado a su respectivo .ts -->
-    <!-- users es una propiedad definida en el .ts users: User[]-->
-    <tbody>
-        <tr *ngFor = "let user of users">
-            <!-- {{}} Es interpolación para acceder a los campos -->
-            <td>{{user.name}}</td>
-            <td>{{user.surname}}</td>
-            <td>{{user.email}}</td>
-            <td>{{user.password}}</td>
+<head>
 
+</head>
 
+<body>
+	<section class="h-100">
+		<div class="container h-100 ms-auto">
+			<div class="row justify-content-sm-center h-100">
+					<div class="text-center my-2">
+						<img src="./assets/SafeSQL.jpg" alt="logo"
+							width="150">
+					</div>
+					<div class="card shadow-lg ms-auto">
+						<div class="card-body">
+							<h1 class="fs-4 card-title fw-bold mb-40 text-center ms-auto">Gestión de usuarios</h1>
+							<table class="table table-dark ">
+                                <thead class="thead-light ">
+                                    <tr>   
+                                        <th>Nombre</th>
+                                        <th>Apellidos</th>
+                                        <th>Email</th>
+                                        <th>Ver</th>
+                                        <th>Editar</th>
+                                        <th>Eliminar</th>
+                                  </tr>   
+                            
+                            
+                                </thead>
+                                <!-- El bucle recorre cada usuario de users-->
+                                <!-- Este archivo html está asociado a su respectivo .ts -->
+                                <!-- users es una propiedad definida en el .ts users: User[]-->
+                                <tbody>
+                                    <tr *ngFor = "let user of users">
+                                        <!-- {{}} Es interpolación para acceder a los campos -->
+                                        <td class="table-light">{{user.name}}</td>
+                                        <td class="table-light">{{user.surname}}</td>
+                                        <td class="table-light">{{user.email}}</td>
+                            
+                            
+                            
+                                        <td class="table-light"><button class="btn btn-primary" routerLink="/user/details/{{user.email}}">Ver</button></td>
+                                        <td class="table-light"><button class="btn btn-warning"  routerLink="/user/update/{{user.email}}">Editar</button></td>
+                                        <td class="table-light"><button class="btn btn-danger"  (click)="delete(user.email)">Eliminar</button></td>
+                            
+                                    </tr>
+                                </tbody>
+                            </table>
+						</div>
 
-            <button (click)= "updateUser(user.email)" class="btn btn-info"> Edit </button>
-            <button (click)= "deleteUser(user.email)" class="btn btn-info"> Delete </button>
+					</div>
+					<div class="text-center mt-5 text-muted">
+						Copyright &copy; 2017-2021 &mdash; Your Company
+					</div>
+				</div>
+			</div>
+	</section>
 
-        </tr>
-    </tbody>
-</table>
+	<script src="js/login.js"></script>
+</body>
+
+</html>
