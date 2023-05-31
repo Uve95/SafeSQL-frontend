@@ -70,17 +70,17 @@ export class ChangePasswordComponent implements OnInit {
 
   }
 
-/*
-  changePassword() {
-
-    this.userService.changePassword(this.ChangePasswordForm.value['password'], this.email).subscribe(dato => {
-      this.msgError = false
-
-    }, err => {
-
-      this.msgError = true
-    })
-  }
-*/
+  /*
+    changePassword() {
+  
+      this.userService.changePassword(this.ChangePasswordForm.value['password'], this.email).subscribe(dato => {
+        this.msgError = false
+  
+      }, err => {
+  
+        this.msgError = true
+      })
+    }
+  */
 
 }

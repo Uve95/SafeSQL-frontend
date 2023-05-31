@@ -24,7 +24,7 @@
 
 								<div class="mb-3">
 									<label class="mb-2 text-muted" for="name">Nombre</label>
-									<input type="text" id="name" name="name" required formControlName="name" class="form-control">
+									<input type="text" id="name" name="name"  required formControlName="name" class="form-control">
 
 									<div *ngIf="userForm.get('name')?.touched && userForm.get('name')?.errors?.['required']"
 									class="text-danger"> Campo requerido</div>

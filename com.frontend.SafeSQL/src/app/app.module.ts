@@ -4,14 +4,14 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
-import { UserListComponent } from 'src/model/user-list/user-list.component';
-import { RegisterUserComponent } from '../model/register-user/register-user.component';
+import { UserListComponent } from 'src/assets/admin/user-list/user-list.component';
+import { RegisterUserComponent } from '../assets/user/register-user/register-user.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { UpdateUserComponent } from '../model/update-user/update-user.component';
 import { LoginComponent } from '../model/login/login.component';
-import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
-import { ChangePasswordComponent } from './change-password/change-password.component';
-import { DetailsUserComponent } from './details-user/details-user.component';
+import { ForgotPasswordComponent } from '../assets/user/forgot-password/forgot-password.component';
+import { ChangePasswordComponent } from '../assets/user/change-password/change-password.component';
+import { DetailsUserComponent } from '../assets/admin/details-user/details-user.component';
+import { UpdateUserComponent } from '../assets/admin/update-user/update-user.component';
 
 
 @NgModule({
@@ -19,11 +19,11 @@ import { DetailsUserComponent } from './details-user/details-user.component';
     AppComponent,
     UserListComponent,
     RegisterUserComponent,
-    UpdateUserComponent,
     LoginComponent,
     ForgotPasswordComponent,
     ChangePasswordComponent,
-    DetailsUserComponent
+    DetailsUserComponent,
+    UpdateUserComponent,
   ],
   imports: [
     BrowserModule,

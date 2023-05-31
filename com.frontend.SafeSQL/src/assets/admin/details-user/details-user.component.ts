@@ -22,12 +22,12 @@ export class DetailsUserComponent implements OnInit {
       this.user = data;
     },
       err => {
-        //this.router.navigate(['']);
+        this.router.navigate(['']);
       }
     );
   }
 
-  volver(): void {
+  back(): void {
     window.history.back();
   }
 

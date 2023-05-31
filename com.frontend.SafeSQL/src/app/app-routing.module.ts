@@ -3,11 +3,11 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { UserListComponent } from 'src/model/user-list/user-list.component';
 import { RegisterUserComponent } from '../model/register-user/register-user.component';
-import { UpdateUserComponent } from '../model/update-user/update-user.component';
 import { LoginComponent } from '../model/login/login.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
 import { DetailsUserComponent } from './details-user/details-user.component';
+import { UpdateUserComponent } from './update-user/update-user.component';
 
 const routes: Routes = [  
 { 
@@ -17,10 +17,6 @@ const routes: Routes = [
 {
   path: '', 
   component: LoginComponent
-},
-{
-  path: 'update-user/:email', 
-  component: UpdateUserComponent
 },
 {
   path: 'user/register', 

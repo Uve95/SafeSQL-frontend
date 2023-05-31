@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+</head>
+
+<body>
+	<section class="h-100">
+		<div class="container h-100">
+			<div class="row justify-content-sm-center h-100">
+				<div class="col-xxl-4 col-xl-5 col-lg-5 col-md-7 col-sm-9">
+					<div class="text-center my-2">
+						<img src="./assets/SafeSQL.jpg" alt="logo" width="150">
+					</div>
+					<div class="card shadow-lg">
+						<div class="card-body p-5">
+							<h1 class="fs-4 card-title fw-bold mb-40 text-center ms-auto">Actualizar el usuario
+								{{email}}</h1>
+
+							<form [formGroup]="userUpdate" (ngSubmit)="ngOnInit()" autocomplete="off">
+
+								<!-- *****************INPUT NAME***************** -->
+
+								<div class="mb-3">
+									<label class="mb-2 text-muted" for="name">Nombre</label>
+									<input type="text" id="name" name="name" placeholder={{this.user.name}}
+										formControlName="name" class="form-control">
+
+									<div *ngIf="userUpdate.get('name')?.touched && userUpdate.get('name')?.errors?.['required']"
+										class="text-danger"> Campo requerido</div>
+
+									<div *ngIf="userUpdate.get('name')?.touched && userUpdate.get('name')?.errors?.['minlength']"
+										class="text-danger"> Por favor, introduzca un nombre valido</div>
+								</div>
+
+
+								<!-- *****************INPUT APELLIDOS***************** -->
+
+								<div class="mb-3">
+									<label class="mb-2 text-muted" for="surname">Apellidos</label>
+									<input type="text" id="surname" name="surname" placeholder={{this.user.surname}}
+										formControlName="surname" class="form-control">
+
+
+									<div *ngIf="userUpdate.get('surname')?.touched && userUpdate.get('surname')?.errors?.['required']"
+										class="text-danger"> Campo requerido</div>
+
+									<div *ngIf="userUpdate.get('surname')?.touched && userUpdate.get('surname')?.errors?.['minlength']"
+										class="text-danger"> Por favor, introduzca un apellido valido</div>
+								</div>
+
+
+								<!-- *****************INPUT CORREO***************** -->
+
+								<div class="mb-3">
+									<label class="mb-2 text-muted" for="email">Dirección de correo electronico</label>
+									<input type="text" id="surname" name="email" placeholder={{this.user.email}}
+										formControlName="email" class="form-control" readonly>
+
+								</div>
+
+								<!-- *****************INPUT CONTRASEÑA***************** -->
+
+								<div class="mb-3">
+									<label class="mb-2 text-muted" for="email">Contraseña</label>
+									<input type="text" id="password" name="password" placeholder={{this.user.password}}
+										formControlName="password" class="form-control">
+
+
+									<div *ngIf="userUpdate.get('password')?.touched && userUpdate.get('password')?.errors?.['required']"
+										class="text-danger"> Campo requerido</div>
+
+									<div *ngIf="userUpdate.get('password')?.touched && userUpdate.get('password')?.errors?.['pattern']"
+										class="text-danger">
+										Por favor, introduzca una contraseña valida.
+										(Al menos un número, un caracter, una letra en mayúscula, una letra en minúscula
+										con una longitud entre 8 y 16 caracteres)</div>
+								</div>
+
+								<!-- *****************INPUT CONFIRMACIÓN CONTRASEÑA***************** -->
+
+								<div class="mb-3">
+									<label class="mb-2 text-muted" for="passwordConfirm">Confirme su contraseña</label>
+									<input type="text" id="passwordConfirm" name="passwordConfirm"
+										placeholder={{this.user.password}} formControlName="passwordConfirm"
+										class="form-control">
+
+
+									<div *ngIf="userUpdate.get('passwordConfirm')?.touched && userUpdate.get('passwordConfirm')?.errors?.['required'] "
+										class="text-danger"> Campo requerido</div>
+
+									<div *ngIf=" userUpdate.get('passwordConfirm')?.touched && !checkPasswords(userUpdate)"
+										class="text-danger">
+										Las contraseñas no coinciden</div>
+								</div>
+								<div class="mb-3">
+
+								<div class="text-center">
+									<button class=" btn btn-primary ms-auto form-control" type="submit"
+										(click)="updateUser()">
+										Actualizar usuario
+									</button>
+								</div>
+							</div>
+
+
+								<div class="mb-3">
+
+									<div class="alert alert-danger" *ngIf="msgError"> Los cambios no han sido guardados
+									</div>
+	
+									<div class="alert alert-success" *ngIf="msgError == false"> El usuario ha sido
+										actualizado correctamente
+	
+									</div>
+								</div>
+							</form>
+
+
+
+						</div>
+
+					</div>
+					<div class="text-center mt-5 text-muted">
+						Copyright &copy; 2017-2021 &mdash; Your Company
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<script src="js/login.js"></script>
+</body>
+
+</html>

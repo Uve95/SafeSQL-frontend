@@ -1,7 +1,7 @@
 import { OnInit } from '@angular/core';
 import { Component } from '@angular/core';
 import { User } from 'src/model/user/user';
-import { UserService } from '../user/user.service';
+import { UserService } from '../../../model/user/user.service';
 import { Router } from '@angular/router';
 ;
 
@@ -13,7 +13,7 @@ import { Router } from '@angular/router';
 
 export class UserListComponent implements OnInit {
  
-  users: Array<User>;
+  users: User[] = []
 
   constructor(private userService: UserService, private router:Router ) { }
  

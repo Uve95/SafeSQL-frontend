@@ -16,15 +16,20 @@
 					</div>
 					<div class="card shadow-lg">
 						<div class="card-body">
-							<h1 class="fs-4 card-title fw-bold mb-40 text-center ms-auto">Detalles {{user.nombre}}</h1>
+							<h1 class="fs-4 card-title fw-bold mb-40 text-center ms-auto">Detalles del usuario {{user.email}}</h1>
                             <div *ngIf="user">
                                 <div class="container">
-                                  <p><b>Nombre del producto: </b>{{user.email}}</p><br>
-                                  <p><b>Precio del producto: </b>{{user.name}} €</p>
-                                  <div>
-                                    <button class="btn btn-primary" (click)="volver()">Volver</button>
-                                  </div>
+                                  <p><b>Nombre del usuario: </b>{{user.name}}</p>
+								  <p><b>Apellido del usuario: </b>{{user.surname}}</p>
+                                  <p><b>Correo electronico del usuario: </b>{{user.email}}</p>
+								  <p><b>Token del usuario: </b>{{user.token}}</p>
                                 </div>
+
+								<div class="text-center">
+									<button class=" btn btn-primary" (click)="back()">
+										Volver
+									</button>
+								</div>
                               </div>
 
 						</div>

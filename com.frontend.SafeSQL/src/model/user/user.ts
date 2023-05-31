@@ -5,5 +5,6 @@ export class User {
     surname:string;
     password:string;
     passwordConfirm:string;
+    token:string;
 
 }

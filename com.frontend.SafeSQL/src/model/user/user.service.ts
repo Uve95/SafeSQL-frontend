@@ -22,7 +22,7 @@ private changePasswordURL: string = "http://localhost:8080/user/changePassword";
 private listUser: string = "http://localhost:8080/user//user-list
 */
 
-private listUser: string = "http://localhost:8080/api/users/"
+private listUser: string = "http://localhost:8080/api/user/"
 
 constructor(private httpClient: HttpClient) { }
 
@@ -30,17 +30,17 @@ constructor(private httpClient: HttpClient) { }
 //Methods
 
 public list(): Observable<User[]> {
-  return this.httpClient.get<User[]>(this.listUser + 'list', cabecera);
+  return this.httpClient.get<User[]>(`${this.listUser}`  + `list`);
 }
 
 
 public details(email: String): Observable<User> {
-  return this.httpClient.get<User>(this.listUser + `details/${email}`, cabecera);
+  return this.httpClient.get<User>(`${this.listUser}` + `details/${email}`, cabecera);
 }
 
 
-public update(email:String): Observable<any> {
-  return this.httpClient.put<any>(this.listUser + `update/${email}`, cabecera);
+public update(user:User, email:String): Observable<User> {
+  return this.httpClient.put<User>(this.listUser + `update/${email}`,user);
 }
 
 public delete(email: String): Observable<any> {
