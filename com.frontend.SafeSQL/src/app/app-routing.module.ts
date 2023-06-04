@@ -1,49 +1,60 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AppComponent } from './app.component';
-import { UserListComponent } from 'src/model/user-list/user-list.component';
-import { RegisterUserComponent } from '../model/register-user/register-user.component';
-import { LoginComponent } from '../model/login/login.component';
-import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
-import { ChangePasswordComponent } from './change-password/change-password.component';
-import { DetailsUserComponent } from './details-user/details-user.component';
-import { UpdateUserComponent } from './update-user/update-user.component';
+import { DetailsUserComponent } from 'src/assets/admin/details-user/details-user.component';
+import { UpdateUserComponent } from 'src/assets/admin/update-user/update-user.component';
+import { UserListComponent } from 'src/assets/admin/user-list/user-list.component';
+import { ChangePasswordComponent } from 'src/assets/user/change-password/change-password.component';
+import { ForgotPasswordComponent } from 'src/assets/user/forgot-password/forgot-password.component';
+import { RegisterUserComponent } from 'src/assets/user/register-user/register-user.component';
+import { LoginComponent } from 'src/model/login/login.component';
+import { AdminGuard } from 'src/model/user/admin.guard';
+import { UserGuard } from 'src/model/user/user.guard';
 
-const routes: Routes = [  
-{ 
-  path: 'user/list', 
-  component: UserListComponent
-},
-{
-  path: '', 
-  component: LoginComponent
-},
-{
-  path: 'user/register', 
-  component: RegisterUserComponent
-},
-{
-  path: 'user/login', 
-  component: LoginComponent
-},
-{
-  path: 'user/forgotPassword', 
-  component: ForgotPasswordComponent
-}
-,
-{
-  path: 'user/changePassword/:email', 
-  component: ChangePasswordComponent
-}
-,
-{
-  path: 'user/details/:email', 
-  component: DetailsUserComponent
-},
-{
-  path: 'user/update/:email', 
-  component: UpdateUserComponent
-}
+
+const routes: Routes = [
+
+  {
+    path: '',
+    component: LoginComponent
+  },
+
+  {
+    path: 'user/list',
+    component: UserListComponent,
+    canActivate:[AdminGuard]
+  },
+
+  {
+    path: 'user/register',
+    component: RegisterUserComponent
+  },
+
+  {
+    path: 'user/forgotPassword',
+    component: ForgotPasswordComponent,
+    canActivate:[UserGuard]
+
+  }
+  ,
+  {
+    path: 'user/changePassword/:email',
+    component: ChangePasswordComponent,
+    canActivate:[UserGuard]
+
+  }
+  ,
+  {
+    path: 'user/details/:email',
+    component: DetailsUserComponent,
+    canActivate:[AdminGuard]
+
+  },
+  {
+    path: 'user/update/:email',
+    component: UpdateUserComponent,
+    canActivate:[AdminGuard]
+
+  }
 ];
 
 @NgModule({

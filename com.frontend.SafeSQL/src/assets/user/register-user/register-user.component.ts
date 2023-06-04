@@ -1,6 +1,5 @@
-import { group } from '@angular/animations';
 import { Component, Input, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validator, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { User } from 'src/model/user/user';
 import { UserService } from 'src/model/user/user.service';
@@ -32,7 +31,7 @@ export class RegisterUserComponent implements OnInit {
 
 
   onSubmit() {
-    //this.registerUser();
+    this.registerUser();
   }
 
 
@@ -57,16 +56,21 @@ export class RegisterUserComponent implements OnInit {
       return false;
 
   }
-/*
-  registerUser(){
-    this.userService.registerUser(this.userForm.value).subscribe(dato=>{
-      console.log(dato);
-      this.updateListUser();
 
-    }, error => console.log(error));
+  registerUser() {
+    this.userService.register(this.userForm.value).subscribe(
+      (dato) => {
+        console.log(dato);
+        alert('Usuario guardado con exito');
+      }, (error) => {
+        console.log(error);
+        alert('Ha ocurrido un error en el sistema')
+      }
+    )
   }
-*/
-  updateListUser(){
-    this.router.navigate(['/userList']);
-  }
+
+
+updateListUser(){
+  this.router.navigate(['/userList']);
+}
 }

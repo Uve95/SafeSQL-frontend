@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { User } from './user';
 
 const cabecera = {headers: new HttpHeaders({'Content-TYpe': 'application/json'})};
@@ -12,6 +12,8 @@ const cabecera = {headers: new HttpHeaders({'Content-TYpe': 'application/json'})
 
 export class UserService {
 
+  public loginStatusSubject = new Subject<boolean>();
+
   //Endpoint del Backend
 /*private backendURL: string = "http://localhost:8080/user";
 private saveUserURL: string = "http://localhost:8080/user/register";
@@ -22,58 +24,110 @@ private changePasswordURL: string = "http://localhost:8080/user/changePassword";
 private listUser: string = "http://localhost:8080/user//user-list
 */
 
-private listUser: string = "http://localhost:8080/api/user/"
+private baseURL: string = "http://localhost:8080/"
+private userURL: string = "http://localhost:8080/api/user/"
+private adminURL: string = "http://localhost:8080/api/admin/"
+
 
 constructor(private httpClient: HttpClient) { }
 
 
-//Methods
+
+
+
+register(user:User): Observable<User>{
+  return this.httpClient.post<User>(this.userURL +`register`,user);
+  }
+
+
 
 public list(): Observable<User[]> {
-  return this.httpClient.get<User[]>(`${this.listUser}`  + `list`);
+  return this.httpClient.get<User[]>(`${this.baseURL}`  + `list`);
 }
 
 
 public details(email: String): Observable<User> {
-  return this.httpClient.get<User>(`${this.listUser}` + `details/${email}`, cabecera);
+  return this.httpClient.get<User>(`${this.baseURL}` + `details/${email}`, cabecera);
 }
 
 
 public update(user:User, email:String): Observable<User> {
-  return this.httpClient.put<User>(this.listUser + `update/${email}`,user);
+  return this.httpClient.put<User>(this.baseURL + `update/${email}`,user);
 }
 
 public delete(email: String): Observable<any> {
-  return this.httpClient.delete<any>(this.listUser + `delete/${email}`, cabecera);
+  return this.httpClient.delete<any>(this.baseURL + `delete/${email}`, cabecera);
 }
 
-/*loginUser(info:string): Observable<Object>{
-return this.httpClient.post(`${this.loginUserURL}`,info);
+
+
+public forgotPassword(user:User): Observable<Object>{
+  return this.httpClient.post<User>(this.userURL + `forgotPassword`, user);
 }
 
-registerUser(user:User): Observable<Object>{
-  return this.httpClient.post(`${this.saveUserURL}`,user);
-  }
+public changePassword( info:string, email:string): Observable<Object>{
+
+  return this.httpClient.post<User[]>(`${this.userURL}`, {'email':email, 'password':info});
+}
+
+
+//Login
+
+
+generateToken(user:any){
+  return this.httpClient.post(this.baseURL+ `generate-token`,user);
+    }
   
 
-updateUser(email:string,user:User): Observable<Object>{
-  return this.httpClient.put(`${this.backendURL}/${email}`,user);
+//Iniciamos sesion y lo almacenamos en localStorage (guardar el token por un tiempo para la sesion)
+
+public loginUser(token:any){
+
+  localStorage.setItem('token',token);
+
 }
 
-deleteUser(email:string): Observable<Object>{
-  return this.httpClient.delete(`${this.backendURL}/${email}`);
-}
-findAllUsers(): Observable<User[]>{
-  return this.httpClient.get<User[]>(`${this.listUsersURL}`);
+public isLoggedIn(){
+
+  let tokenStr = localStorage.getItem('token');
+  if(tokenStr == undefined || tokenStr == '' || tokenStr == null){
+    return false;
+  }
+
+  return true;
 }
 
-forgotPassword(info:string): Observable<Object>{
-  return this.httpClient.post<User[]>(`${this.forgotPasswordURL}`, info);
+
+public logout(){
+  localStorage.removeItem('token');
+  localStorage.removeItem('user');
+  return true;
 }
 
-changePassword( info:string, email:string): Observable<Object>{
-
-  return this.httpClient.post<User[]>(`${this.changePasswordURL}`, {'email':email, 'password':info});
+public getUserRole(){
+  let user = this.getUser();
+  return user.authorities[0].authority;
 }
-*/
+
+public getToken(){
+  return localStorage.getItem('token');
+}
+
+public setUser(user:any){
+  localStorage.setItem('user', JSON.stringify(user))
+}
+
+public getUser(){
+  let userStr = localStorage.getItem('user');
+
+  if(userStr != null){
+    return JSON.parse(userStr);
+  }else{
+    this.logout();
+  }
+}
+
+public getCurrentUser(){
+  return this.httpClient.get(this.baseURL + `actual-user`);
+}
 }

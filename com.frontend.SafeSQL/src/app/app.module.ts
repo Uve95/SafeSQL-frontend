@@ -1,40 +1,45 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { CommonModule } from "@angular/common";
+import { HttpClientModule } from "@angular/common/http";
+import { NgModule } from "@angular/core";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { BrowserModule } from "@angular/platform-browser";
+import { DetailsUserComponent } from "src/assets/admin/details-user/details-user.component";
+import { UpdateUserComponent } from "src/assets/admin/update-user/update-user.component";
+import { UserListComponent } from "src/assets/admin/user-list/user-list.component";
+import { ChangePasswordComponent } from "src/assets/user/change-password/change-password.component";
+import { ForgotPasswordComponent } from "src/assets/user/forgot-password/forgot-password.component";
+import { RegisterUserComponent } from "src/assets/user/register-user/register-user.component";
+import { AppRoutingModule } from "./app-routing.module";
+import { AppComponent } from "./app.component";
+import { LoginComponent } from "src/model/login/login.component";
+import { authInterceptorProviders } from "src/model/user/auth.interceptor";
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { HttpClientModule } from '@angular/common/http';
-import { UserListComponent } from 'src/assets/admin/user-list/user-list.component';
-import { RegisterUserComponent } from '../assets/user/register-user/register-user.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { LoginComponent } from '../model/login/login.component';
-import { ForgotPasswordComponent } from '../assets/user/forgot-password/forgot-password.component';
-import { ChangePasswordComponent } from '../assets/user/change-password/change-password.component';
-import { DetailsUserComponent } from '../assets/admin/details-user/details-user.component';
-import { UpdateUserComponent } from '../assets/admin/update-user/update-user.component';
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
+    LoginComponent,
     UserListComponent,
     RegisterUserComponent,
-    LoginComponent,
     ForgotPasswordComponent,
     ChangePasswordComponent,
     DetailsUserComponent,
     UpdateUserComponent,
+    
+
   ],
   imports: [
+    CommonModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule,
-    
+    ReactiveFormsModule    
   
   ],
-  providers: [],
+  providers: [authInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

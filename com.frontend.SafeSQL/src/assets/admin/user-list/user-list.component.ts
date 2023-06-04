@@ -3,7 +3,6 @@ import { Component } from '@angular/core';
 import { User } from 'src/model/user/user';
 import { UserService } from '../../../model/user/user.service';
 import { Router } from '@angular/router';
-;
 
 @Component({
   selector: 'app-user-list',
@@ -24,7 +23,7 @@ export class UserListComponent implements OnInit {
   }
 
   loadUsers(){
-    this.userService.list().subscribe(dato =>{
+    this.userService.list().subscribe((dato: User[]) =>{
       this.users=dato;
     }),
       (err: any) => {
@@ -34,7 +33,7 @@ export class UserListComponent implements OnInit {
 
   delete(email:String): void {
     if (confirm('¿Estás seguro?')) {
-      this.userService.delete(email).subscribe(data => {
+      this.userService.delete(email).subscribe(() => {
         this.loadUsers();
       });
     }
