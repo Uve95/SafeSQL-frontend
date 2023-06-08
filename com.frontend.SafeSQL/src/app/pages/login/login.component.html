@@ -21,8 +21,14 @@
 
 								<div class="mb-3">
 									<label class="mb-2 text-muted" for="email">Dirección de correo electronico</label>
-									<input type="text" id="surname" name="email" formControlName="email"
-										class="form-control">
+									<input type="text" id="email" name="email" formControlName="email"
+										class="form-control" required>
+
+									<div *ngIf="loginForm.get('email')?.touched && loginForm.get('email')?.errors?.['required']"
+										class="text-danger"> Campo requerido</div>
+
+									<div *ngIf="loginForm.get('email')?.touched && loginForm.get('email')?.errors?.['pattern']"
+										class="text-danger"> Por favor, introduzca un correo valido</div>
 
 								</div>
 
@@ -35,20 +41,30 @@
 										</a>
 									</div>
 
-									<label class="mb-2 text-muted" for="email">Contraseña</label>
+									<label class="mb-2 text-muted" for="password">Contraseña</label>
 									<input type="text" id="password" name="password" formControlName="password"
-										class="form-control">
+										class="form-control" required>
+
+									<div *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.errors?.['required']"
+										class="text-danger"> Campo requerido</div>
 								</div>
 
 
 								<div class="mb-3 text-center lg">
 
-									<button type="submit" class=" btn btn-primary ms-auto form-control">
+									<button type="submit" class=" btn btn-primary ms-auto form-control"
+										[disabled]="loginForm.invalid">
+
 										Iniciar sesión
 									</button>
 								</div>
+								<div class="mb-3">
 
-		
+									<div class="alert alert-danger" *ngIf="msgError"> Credenciales invalidas.
+									</div>
+
+								</div>
+
 
 							</form>
 						</div>

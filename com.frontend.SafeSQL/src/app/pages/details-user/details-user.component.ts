@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { User } from 'src/model/user/user';
-import { UserService } from 'src/model/user/user.service';
+import { User } from 'src/app/services/user/user';
+import { UserService } from 'src/app/services/user/user.service';
 
 @Component({
   selector: 'app-details-user',
@@ -20,6 +20,10 @@ export class DetailsUserComponent implements OnInit {
     const email = this.activatedRoute.snapshot.params['email'];
     this.userService.details(email).subscribe(data => {
       this.user = data;
+      this.user.email = data.email;
+      this.user.name = data.name;
+      this.user.surname = data.surname;
+      
     },
       err => {
         this.router.navigate(['']);

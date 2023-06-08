@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { UserService } from 'src/model/user/user.service';
+import { UserService } from 'src/app/services/user/user.service';
 import { FormsModule } from '@angular/forms';
 
 
@@ -40,13 +40,10 @@ export class LoginComponent implements OnInit {
   }
 
 
-
-
-
   initForm() {
 
     this.loginForm = this.fb.group({
-      email: ['',],
+      email: ['', [Validators.required, Validators.pattern("[a-zA-Z0-9!#$%&'*_+-]([\.]?[a-zA-Z0-9!#$%&'*_+-])+@[a-zA-Z0-9]([^@&%$\/()=?¿!.,:;]|\d)+[a-zA-Z0-9][\.][a-zA-Z]{2,4}([\.][a-zA-Z]{2})?")]],
       password: ['',],
     })
   }
@@ -62,12 +59,13 @@ export class LoginComponent implements OnInit {
         console.log(user);
 
         if (this.userService.getUserRole() == "USER") {
-          window.location.href = 'user/list';
-          //this.router.navigate([''])
+          //window.location.href = 'user/register';
+          this.router.navigate(['/user/home'])
           this.userService.loginStatusSubject.next(true);
 
         } else if (this.userService.getUserRole() == "ADMIN") {
-          window.location.href = 'user/forgotPassword';
+          //window.location.href = 'user/forgotPassword';
+          this.router.navigate(['/admin/list'])
           this.userService.loginStatusSubject.next(true);
 
         }else{

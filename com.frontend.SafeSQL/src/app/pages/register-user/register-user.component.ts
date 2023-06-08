@@ -1,8 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { User } from 'src/model/user/user';
-import { UserService } from 'src/model/user/user.service';
+import { User } from 'src/app/services/user/user';
+import { UserService } from 'src/app/services/user/user.service';
 
 
 @Component({
@@ -14,6 +14,8 @@ export class RegisterUserComponent implements OnInit {
 
   user: User = new User();
   userForm: FormGroup;
+  msgError: boolean;
+
 
   constructor(
     private userService: UserService,
@@ -59,18 +61,17 @@ export class RegisterUserComponent implements OnInit {
 
   registerUser() {
     this.userService.register(this.userForm.value).subscribe(
-      (dato) => {
-        console.log(dato);
-        alert('Usuario guardado con exito');
-      }, (error) => {
-        console.log(error);
-        alert('Ha ocurrido un error en el sistema')
-      }
-    )
+      dato => {
+        this.msgError = false
+
+      }, err => {
+
+        this.msgError = true
+      })
   }
 
 
-updateListUser(){
-  this.router.navigate(['/userList']);
-}
+  updateListUser() {
+    this.router.navigate(['/userList']);
+  }
 }

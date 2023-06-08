@@ -15,22 +15,20 @@
 					</div>
 					<div class="card shadow-lg">
 						<div class="card-body p-5">
-							<h1 class="fs-4 card-title fw-bold mb-40 text-center ms-auto">Actualizar el usuario
-								{{email}}</h1>
-
-							<form [formGroup]="userUpdate" (ngSubmit)="ngOnInit()" autocomplete="off">
+							<h1 class="fs-4 card-title fw-bold mb-4 text-center">Registro</h1>
+							<form [formGroup]="userForm" (ngSubmit)="onSubmit()" autocomplete="off">
 
 								<!-- *****************INPUT NAME***************** -->
 
 								<div class="mb-3">
 									<label class="mb-2 text-muted" for="name">Nombre</label>
-									<input type="text" id="name" name="name" placeholder={{this.user.name}}
-										formControlName="name" class="form-control">
+									<input type="text" id="name" name="name" required formControlName="name"
+										class="form-control">
 
-									<div *ngIf="userUpdate.get('name')?.touched && userUpdate.get('name')?.errors?.['required']"
+									<div *ngIf="userForm.get('name')?.touched && userForm.get('name')?.errors?.['required']"
 										class="text-danger"> Campo requerido</div>
 
-									<div *ngIf="userUpdate.get('name')?.touched && userUpdate.get('name')?.errors?.['minlength']"
+									<div *ngIf="userForm.get('name')?.touched && userForm.get('name')?.errors?.['minlength']"
 										class="text-danger"> Por favor, introduzca un nombre valido</div>
 								</div>
 
@@ -39,14 +37,14 @@
 
 								<div class="mb-3">
 									<label class="mb-2 text-muted" for="surname">Apellidos</label>
-									<input type="text" id="surname" name="surname" placeholder={{this.user.surname}}
-										formControlName="surname" class="form-control">
+									<input type="text" id="surname" name="surname" required formControlName="surname"
+										class="form-control">
 
 
-									<div *ngIf="userUpdate.get('surname')?.touched && userUpdate.get('surname')?.errors?.['required']"
+									<div *ngIf="userForm.get('surname')?.touched && userForm.get('surname')?.errors?.['required']"
 										class="text-danger"> Campo requerido</div>
 
-									<div *ngIf="userUpdate.get('surname')?.touched && userUpdate.get('surname')?.errors?.['minlength']"
+									<div *ngIf="userForm.get('surname')?.touched && userForm.get('surname')?.errors?.['minlength']"
 										class="text-danger"> Por favor, introduzca un apellido valido</div>
 								</div>
 
@@ -55,23 +53,29 @@
 
 								<div class="mb-3">
 									<label class="mb-2 text-muted" for="email">Dirección de correo electronico</label>
-									<input type="text" id="surname" name="email" placeholder={{this.user.email}}
-										formControlName="email" class="form-control" readonly>
+									<input type="text" id="surname" name="email" required formControlName="email"
+										class="form-control">
 
+
+									<div *ngIf="userForm.get('email')?.touched && userForm.get('email')?.errors?.['required']"
+										class="text-danger"> Campo requerido</div>
+
+									<div *ngIf="userForm.get('email')?.touched && userForm.get('email')?.errors?.['pattern']"
+										class="text-danger"> Por favor, introduzca un correo valido</div>
 								</div>
 
 								<!-- *****************INPUT CONTRASEÑA***************** -->
 
 								<div class="mb-3">
 									<label class="mb-2 text-muted" for="email">Contraseña</label>
-									<input type="text" id="password" name="password" placeholder={{this.user.password}}
-										formControlName="password" class="form-control">
+									<input type="text" id="password" name="password" required formControlName="password"
+										class="form-control">
 
 
-									<div *ngIf="userUpdate.get('password')?.touched && userUpdate.get('password')?.errors?.['required']"
+									<div *ngIf="userForm.get('password')?.touched && userForm.get('password')?.errors?.['required']"
 										class="text-danger"> Campo requerido</div>
 
-									<div *ngIf="userUpdate.get('password')?.touched && userUpdate.get('password')?.errors?.['pattern']"
+									<div *ngIf="userForm.get('password')?.touched && userForm.get('password')?.errors?.['pattern']"
 										class="text-danger">
 										Por favor, introduzca una contraseña valida.
 										(Al menos un número, un caracter, una letra en mayúscula, una letra en minúscula
@@ -82,43 +86,38 @@
 
 								<div class="mb-3">
 									<label class="mb-2 text-muted" for="passwordConfirm">Confirme su contraseña</label>
-									<input type="text" id="passwordConfirm" name="passwordConfirm"
-										placeholder={{this.user.password}} formControlName="passwordConfirm"
-										class="form-control">
+									<input type="text" id="passwordConfirm" name="passwordConfirm" required
+										formControlName="passwordConfirm" class="form-control">
 
 
-									<div *ngIf="userUpdate.get('passwordConfirm')?.touched && userUpdate.get('passwordConfirm')?.errors?.['required'] "
+									<div *ngIf="userForm.get('passwordConfirm')?.touched && userForm.get('passwordConfirm')?.errors?.['required'] "
 										class="text-danger"> Campo requerido</div>
 
-									<div *ngIf=" userUpdate.get('passwordConfirm')?.touched && !checkPasswords(userUpdate)"
+									<div *ngIf=" userForm.get('passwordConfirm')?.touched && !checkPasswords(userForm)"
 										class="text-danger">
 										Las contraseñas no coinciden</div>
 								</div>
-								<div class="mb-3">
 
-								<div class="text-center">
+
+								<div class="mb-3 text-center lg">
 									<button class=" btn btn-primary ms-auto form-control" type="submit"
-										(click)="updateUser()">
-										Actualizar usuario
+										[disabled]="userForm.invalid">
+										Registarse
 									</button>
 								</div>
-							</div>
 
+								<div class="mb-3 text-center lg">
 
-								<div class="mb-3">
-
-									<div class="alert alert-danger" *ngIf="msgError"> Los cambios no han sido guardados
+									<div class="alert alert-danger" *ngIf="msgError"> Ha surgido un problema. Intentelo de nuevo.
 									</div>
-	
-									<div class="alert alert-success" *ngIf="msgError == false"> El usuario ha sido
-										actualizado correctamente
-	
+									<div class="alert alert-success" *ngIf="msgError == false"> El usuario ha sido creado correctamente.
+										<a href="/">
+											Inicie sesión
+										</a>
 									</div>
+
 								</div>
 							</form>
-
-
-
 						</div>
 
 					</div>

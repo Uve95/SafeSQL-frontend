@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { UserService } from 'src/model/user/user.service';
+import { UserService } from 'src/app/services/user/user.service';
 
 @Component({
   selector: 'app-update-user',
@@ -13,6 +13,10 @@ export class UpdateUserComponent implements OnInit{
   user: any = null;
   userUpdate: FormGroup;
   email: String;
+  name : String;
+  surname : String;
+  password : String;
+
   msgError: boolean;
 
 
@@ -28,6 +32,11 @@ export class UpdateUserComponent implements OnInit{
       this.email = this.activatedRoute.snapshot.params['email'];
       this.userService.details(this.email).subscribe(data => {
         this.user = data;
+        this.name = data.name;
+        this.surname = data.surname;
+        this.password = data.password;
+        this.email = data.email;
+
       },
         err => {
           this.router.navigate(['']);
