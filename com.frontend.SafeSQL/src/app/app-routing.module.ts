@@ -49,13 +49,19 @@ const routes: Routes = [
   {
     path: 'user/forgotPassword',
     component: ForgotPasswordComponent,
-    canActivate:[UserGuard]
 
   }
   ,
   {
     path: 'user/changePassword/:email',
     component: ChangePasswordComponent,
+    canActivate:[UserGuard]
+
+  }
+  ,
+  {
+    path: 'user/update/:email',
+    component: UpdateUserComponent,
     canActivate:[UserGuard]
 
   }

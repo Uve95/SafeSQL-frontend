@@ -26,7 +26,7 @@ export class NavbarComponent implements OnInit {
     )
   }
 
-  public logout(){
+  public back(){
     this.userService.logout();
     window.location.reload();
   }
