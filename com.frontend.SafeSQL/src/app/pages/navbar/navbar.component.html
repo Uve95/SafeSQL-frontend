@@ -23,16 +23,19 @@
             <!-- Left links -->
 
             <div class="d-flex align-items-center">
-                <button type="button" class="btn btn-link px-3 me-2" routerLink="login" [hidden]="isLoggedIn">
+                <button type="button" class="btn btn-link px-3 me-2" routerLink="login" *ngIf = "!isLoggedIn">
                     Login
                 </button>
-                <button type="button" class="btn btn-success" routerLink="user/register" [hidden]="isLoggedIn">
+                <button type="button" class="btn btn-success" routerLink="user/register"  *ngIf = "!isLoggedIn">
                     Registrate
                 </button>
-                <button type="button" class="btn btn-success" routerLink="/user/update/{{user.email}}" [hidden]="!isLoggedIn">
+                <button type="button" class="btn btn-success" routerLink="user/update/{{user.email}}"  *ngIf = "isLoggedIn && userRole == 'USER'">
                     Mi cuenta
                 </button>
-                <button type="button" class="btn btn-success" (click)="back()" [hidden]="isLoggedIn">
+                <button type="button" class="btn btn-success" routerLink="admin/update/{{user.email}}"  *ngIf = "isLoggedIn && userRole == 'ADMIN'">
+                    Mi cuenta
+                </button>
+                <button type="button" class="btn btn-success" (click)="back()"  *ngIf = "isLoggedIn">
                     Salir
                 </button>
             </div>

@@ -47,7 +47,7 @@ export class ChangePasswordComponent implements OnInit {
 
 
   onSubmit() {
-    //this.changePassword();
+    this.changePassword();
   }
 
 
@@ -70,10 +70,10 @@ export class ChangePasswordComponent implements OnInit {
 
   }
 
-  /*
+  
     changePassword() {
   
-      this.userService.changePassword(this.ChangePasswordForm.value['password'], this.email).subscribe(dato => {
+      this.userService.changePassword(this.ChangePasswordForm.value['password'],this.ChangePasswordForm.value['token'], this.email).subscribe(dato => {
         this.msgError = false
   
       }, err => {
@@ -81,6 +81,6 @@ export class ChangePasswordComponent implements OnInit {
         this.msgError = true
       })
     }
-  */
+  
 
 }

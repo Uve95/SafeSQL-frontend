@@ -55,7 +55,6 @@ const routes: Routes = [
   {
     path: 'user/changePassword/:email',
     component: ChangePasswordComponent,
-    canActivate:[UserGuard]
 
   }
   ,
@@ -63,6 +62,13 @@ const routes: Routes = [
     path: 'user/update/:email',
     component: UpdateUserComponent,
     canActivate:[UserGuard]
+
+  }
+  ,
+  {
+    path: 'admin/update/:email',
+    component: UpdateUserComponent,
+    canActivate:[AdminGuard]
 
   }
   ,

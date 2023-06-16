@@ -11,6 +11,7 @@ export class NavbarComponent implements OnInit {
 
 
   isLoggedIn = false;
+  userRole:any = null;
   user:any = null;
 
   constructor(public userService:UserService) { }
@@ -18,6 +19,7 @@ export class NavbarComponent implements OnInit {
   ngOnInit(): void {
     this.isLoggedIn = this.userService.isLoggedIn();
     this.user = this.userService.getUser();
+    this.userRole = this.userService.getUserRole();
     this.userService.loginStatusSubject.asObservable().subscribe(
       data => {
         this.isLoggedIn = this.userService.isLoggedIn();
