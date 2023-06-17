@@ -53,7 +53,7 @@ const routes: Routes = [
   }
   ,
   {
-    path: 'user/changePassword/:email',
+    path: 'user/changePassword',
     component: ChangePasswordComponent,
 
   }

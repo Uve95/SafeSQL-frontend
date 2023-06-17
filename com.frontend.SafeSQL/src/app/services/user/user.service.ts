@@ -67,7 +67,7 @@ export class UserService {
 
   public changePassword(password: string, token: string, email: string): Observable<Object> {
 
-    return this.httpClient.post<User>(this.userURL + `changePassword/${email}`, { 'email': email, 'password': password, 'token': token });
+    return this.httpClient.post<User>(this.userURL + `changePassword`, { 'email': email, 'password': password, 'token': token });
   }
 
 
