@@ -15,14 +15,6 @@ export class UserService {
   public loginStatusSubject = new Subject<boolean>();
 
   //Endpoint del Backend
-  /*private backendURL: string = "http://localhost:8080/user";
-  private saveUserURL: string = "http://localhost:8080/user/register";
-  private listUsersURL: string = "http://localhost:8080/user/userList";
-  private loginUserURL: string = "http://localhost:8080/user/login";
-  private forgotPasswordURL: string = "http://localhost:8080/user/forgotPassword";
-  private changePasswordURL: string = "http://localhost:8080/user/changePassword";
-  private listUser: string = "http://localhost:8080/user//user-list
-  */
 
   private baseURL: string = "http://localhost:8080/"
   private userURL: string = "http://localhost:8080/api/user/"
@@ -47,7 +39,7 @@ export class UserService {
 
 
   public details(email: String): Observable<User> {
-    return this.httpClient.get<User>(`${this.adminURL}` + `details/${email}`, cabecera);
+    return this.httpClient.get<User>(this.adminURL+ `details/${email}`, cabecera);
   }
 
 
@@ -70,6 +62,10 @@ export class UserService {
     return this.httpClient.post<User>(this.userURL + `changePassword`, { 'email': email, 'password': password, 'token': token });
   }
 
+  public connectBD(cadena:String):Observable<User>{
+
+    return this.httpClient.post<User>(this.userURL + `connectBD`, cadena);
+  }
 
   //Login
 

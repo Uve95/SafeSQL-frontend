@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/user/user.service';
 
 @Component({
@@ -8,26 +10,52 @@ import { UserService } from 'src/app/services/user/user.service';
 })
 export class UserDashboardComponent implements OnInit {
 
+  conexionForm: FormGroup;
+  error: string;
+  msgError: boolean;
 
-  isLoggedIn = false;
-  user:any = null;
 
-  constructor(public userService:UserService) { }
+  constructor(
+    private userService: UserService,
+    private router: Router,
+    private readonly fb: FormBuilder
+  ) {
+  }
+
 
   ngOnInit(): void {
-    this.isLoggedIn = this.userService.isLoggedIn();
-    this.user = this.userService.getUser();
-    this.userService.loginStatusSubject.asObservable().subscribe(
-      data => {
-        this.isLoggedIn = this.userService.isLoggedIn();
-        this.user = this.userService.getUser();
-      }
-    )
+
+    this.initForm();
+
+
   }
 
-  public logout(){
-    this.userService.logout();
-    window.location.reload();
+  onSubmit() {
+
+    this.connectBD();
   }
 
+  connectBD() {
+    this.userService.connectBD(this.conexionForm.value['cadena']).subscribe(
+      dato => {
+        this.msgError = false;
+        console.log(dato)
+
+
+      }, err => {
+
+        this.msgError = true
+      })
+
+  }
+
+
+  initForm() {
+
+    this.conexionForm = this.fb.group({
+      cadena: ['', [Validators.required, Validators.pattern("^jdbc:sqlserver://[^;]+;databaseName=[^;]+;user=[^;]+;password=[^;]+;trustServerCertificate=true;$")]],
+    })
+
+  
+}
 }

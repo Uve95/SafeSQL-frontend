@@ -13,11 +13,12 @@ import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { LoginComponent } from "src/app/pages/login/login.component";
 import { authInterceptorProviders } from "src/app/services/user/auth.interceptor";
-import { AdminDashboardComponent } from './pages/admin-dashboard/admin-dashboard.component';
 import { UserDashboardComponent } from "./pages/user-dashboard/user-dashboard.component";
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatIconModule} from "@angular/material/icon";
 import { NavbarComponent } from './pages/navbar/navbar.component';
+import { ColorPickerModule } from "ngx-color-picker";
+import { NgChartsModule } from 'ng2-charts';
 
 
 
@@ -32,10 +33,8 @@ import { NavbarComponent } from './pages/navbar/navbar.component';
     ChangePasswordComponent,
     DetailsUserComponent,
     UpdateUserComponent,
-    AdminDashboardComponent,
     UserDashboardComponent,
-    NavbarComponent
-    
+    NavbarComponent,
 
   ],
   imports: [
@@ -46,7 +45,9 @@ import { NavbarComponent } from './pages/navbar/navbar.component';
     FormsModule,
     ReactiveFormsModule,
     MatToolbarModule,
-    MatIconModule
+    MatIconModule,
+    ColorPickerModule,
+    NgChartsModule
   
   ],
   providers: [authInterceptorProviders],

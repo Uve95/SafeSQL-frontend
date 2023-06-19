@@ -10,7 +10,6 @@ import { LoginComponent } from 'src/app/pages/login/login.component';
 import { AdminGuard } from 'src/app/services/user/admin.guard';
 import { UserGuard } from 'src/app/services/user/user.guard';
 import { UserDashboardComponent } from './pages/user-dashboard/user-dashboard.component';
-import { AdminDashboardComponent } from './pages/admin-dashboard/admin-dashboard.component';
 
 
 const routes: Routes = [
