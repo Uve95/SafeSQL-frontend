@@ -19,7 +19,7 @@ import {MatIconModule} from "@angular/material/icon";
 import { NavbarComponent } from './pages/navbar/navbar.component';
 import { ColorPickerModule } from "ngx-color-picker";
 import { NgChartsModule } from 'ng2-charts';
-
+import { UserChecklistComponent } from './pages/user-checklist/user-checklist.component';
 
 
 
@@ -35,6 +35,8 @@ import { NgChartsModule } from 'ng2-charts';
     UpdateUserComponent,
     UserDashboardComponent,
     NavbarComponent,
+    UserChecklistComponent,
+    
 
   ],
   imports: [
@@ -47,8 +49,8 @@ import { NgChartsModule } from 'ng2-charts';
     MatToolbarModule,
     MatIconModule,
     ColorPickerModule,
-    NgChartsModule
-  
+    NgChartsModule,
+    
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]

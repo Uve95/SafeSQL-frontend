@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<base href="/">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+
+	<link rel="icon" type="image/x-icon" href="favicon.ico">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+</head>
+
+<body>
+
+
+	<section class="h-100">
+		<div class="container h-100">
+			<div class="row justify-content-sm-center h-100">
+				<div class="col-xxl-4 col-xl-5 col-lg-5 col-md-7 col-sm-9">
+					<div class="card shadow-lg">
+						<div class="card-body p-5">
+							<h1 class="fs-4 card-title fw-bold mb-4 text-center ms-auto">Configure el análisis</h1>
+
+							<form [formGroup]="checklistForm" (ngSubmit)="onSubmit()" autocomplete="off">
+								<!-- *****************INPUT CHECKLIST CONFIGURACION***************** -->
+
+								<div class="accordion" id="accordion1">
+									<div class="accordion-item">
+										<h2 class="accordion-header" id="heading1">
+											<button class="accordion-button" type="button" data-bs-toggle="collapse"
+												data-bs-target="#collapse1" aria-expanded="true"
+												aria-controls="collapse1">
+												<label class="fw-bold h6">Configuración</label>
+											</button>
+										</h2>
+										<div id="collapse1" class="accordion-collapse collapse"
+											aria-labelledby="heading1" data-bs-parent="#accordion">
+											<div class="accordion-body">
+												<div class="form-check">
+													<input class="form-check-input" type="checkbox" value=""
+														id="flexCheckChecked" checked name="check1">
+													<label class="font-weight-normal h6" for="flexCheckChecked">
+														Modo de autenticación
+													</label>
+												</div>
+
+												<div class="form-check">
+													<input class="form-check-input" type="checkbox" value=""
+														id="flexCheckChecked" checked name="check2">
+													<label class="font-weight-normal h6" for="flexCheckChecked">
+														Existencia de troyanos
+													</label>
+												</div>
+
+												<div class="form-check">
+													<input class="form-check-input" type="checkbox" value=""
+														id="flexCheckChecked" checked name="check3">
+													<label class="font-weight-normal h6" for="flexCheckChecked">
+														Restricciones de acceso para procedimientos peligrosos
+													</label>
+												</div>
+
+											</div>
+										</div>
+									</div>
+
+
+									<!-- *****************INPUT RED***************** -->
+									<div class="accordion" id="accordion2">
+
+										<div class="accordion-item">
+											<h2 class="accordion-header" id="heading2">
+												<button class="accordion-button" type="button" data-bs-toggle="collapse"
+													data-bs-target="#collapse2" aria-expanded="true"
+													aria-controls="collapse2">
+
+													<label class="fw-bold h6">Red</label>
+												</button>
+											</h2>
+											<div id="collapse2" class="accordion-collapse collapse"
+												aria-labelledby="heading2" data-bs-parent="#accordion">
+												<div class="accordion-body">
+													<div class="form-check">
+														<input class="form-check-input" type="checkbox" value=""
+															id="flexCheckChecked" checked name="check4">
+														<label class="font-weight-normal h6" for="flexCheckChecked">
+															Cifrado de conexiones entrantes
+														</label>
+													</div>
+
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+
+								<!-- *****************INPUT CHECKLIST PERMISOS***************** -->
+								<div class="accordion" id="accordion3">
+									<div class="accordion-item">
+										<h2 class="accordion-header" id="heading3">
+											<button class="accordion-button" type="button" data-bs-toggle="collapse"
+												data-bs-target="#collapse3" aria-expanded="true"
+												aria-controls="collapse3">
+												<label class="fw-bold h6">Permisos</label>
+											</button>
+										</h2>
+										<div id="collapse3" class="accordion-collapse collapse"
+											aria-labelledby="heading3" data-bs-parent="#accordion">
+											<div class="accordion-body">
+												<div class="form-check">
+													<input class="form-check-input" type="checkbox" value=""
+														id="flexCheckChecked" checked name="check5">
+													<label class="font-weight-normal h6" for="flexCheckChecked">
+														Permisos asociados al usuario guest
+													</label>
+												</div>
+
+												<div class="form-check">
+													<input class="form-check-input" type="checkbox" value=""
+														id="flexCheckChecked" checked name="check6">
+													<label class="font-weight-normal h6" for="flexCheckChecked">
+														Permisos de la función base de datos publica
+													</label>
+												</div>
+
+											</div>
+										</div>
+									</div>
+								</div>
+
+
+
+								<!-- *****************INPUT CHECKLIST POLITICAS E INICIOS DE SESION***************** -->
+								<div class="accordion" id="accordion4">
+									<div class="accordion-item">
+										<h2 class="accordion-header" id="heading4">
+											<button class="accordion-button" type="button" data-bs-toggle="collapse"
+												data-bs-target="#collapse4" aria-expanded="true"
+												aria-controls="collapse4">
+												<label class="fw-bold h6">Políticas de contraseña y revision de inicios
+													de
+													sesión</label>
+											</button>
+										</h2>
+										<div id="collapse4" class="accordion-collapse collapse"
+											aria-labelledby="heading4" data-bs-parent="#accordion">
+											<div class="accordion-body">
+												<div class="form-check">
+													<input class="form-check-input" type="checkbox" value=""
+														id="flexCheckChecked" checked name="check7">
+													<label class="font-weight-normal h6" for="flexCheckChecked">
+														Contraseñas inseguras
+													</label>
+												</div>
+
+												<div class="form-check">
+													<input class="form-check-input" type="checkbox" value=""
+														id="flexCheckChecked" checked name="check8">
+													<label class="font-weight-normal h6" for="flexCheckChecked">
+														Revisiones periodicas de contraseñas no seguras
+													</label>
+												</div>
+
+												<div class="form-check">
+													<input class="form-check-input" type="checkbox" value=""
+														id="flexCheckChecked" checked name="check9">
+													<label class="font-weight-normal h6" for="flexCheckChecked">
+														Inicios de sesion sin politica segura </label>
+												</div>
+												<div class="form-check">
+													<input class="form-check-input" type="checkbox" value=""
+														id="flexCheckChecked" checked name="check10">
+													<label class="font-weight-normal h6" for="flexCheckChecked">
+														Inicios de sesion no utilizados
+													</label>
+												</div>
+
+												<div class="form-check">
+													<input class="form-check-input" type="checkbox" value=""
+														id="flexCheckChecked" checked name="check11">
+													<label class="font-weight-normal h6" for="flexCheckChecked">
+														Inicios de sesión fallidos </label>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<!-- *****************INPUT CHECKLIST MANTENIMIENTO***************** -->
+								<div class="accordion" id="accordion5">
+									<div class="accordion-item">
+										<h2 class="accordion-header" id="heading5">
+											<button class="accordion-button" type="button" data-bs-toggle="collapse"
+												data-bs-target="#collapse5" aria-expanded="true"
+												aria-controls="collapse5">
+												<label class="fw-bold h6">Mantenimiento</label>
+											</button>
+										</h2>
+										<div id="collapse5" class="accordion-collapse collapse"
+											aria-labelledby="heading5" data-bs-parent="#accordion">
+											<div class="accordion-body">
+												<div class="form-check">
+													<input class="form-check-input" type="checkbox" value=""
+														id="flexCheckChecked" checked name="check12">
+													<label class="font-weight-normal h6" for="flexCheckChecked">
+														Plan de mantenimiento
+													</label>
+												</div>
+
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<!-- *****************INPUT CHECKLIST DATOS SENSIBLES***************** -->
+								<div class="accordion" id="accordion6">
+									<div class="accordion-item">
+										<h2 class="accordion-header" id="heading6">
+											<button class="accordion-button" type="button" data-bs-toggle="collapse"
+												data-bs-target="#collapse6" aria-expanded="true"
+												aria-controls="collapse6">
+												<label class="fw-bold h6">Datos sensibles</label>
+											</button>
+										</h2>
+										<div id="collapse6" class="accordion-collapse collapse"
+											aria-labelledby="heading6" data-bs-parent="#accordion">
+											<div class="accordion-body">
+												<div class="form-check">
+													<input class="form-check-input" type="checkbox" value=""
+														id="flexCheckChecked" checked name="check13">
+													<label class="font-weight-normal h6" for="flexCheckChecked">
+														Datos sensibles
+													</label>
+												</div>
+
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<!-- *****************INPUT CHECKLIST ROLES***************** -->
+								<div class="accordion" id="accordion7">
+									<div class="accordion-item">
+										<h2 class="accordion-header" id="heading7">
+											<button class="accordion-button" type="button" data-bs-toggle="collapse"
+												data-bs-target="#collapse7" aria-expanded="true"
+												aria-controls="collapse7">
+												<label class="fw-bold h6">Roles</label>
+											</button>
+										</h2>
+										<div id="collapse7" class="accordion-collapse collapse"
+											aria-labelledby="heading7" data-bs-parent="#accordion">
+											<div class="accordion-body">
+												<div class="form-check">
+													<input class="form-check-input" type="checkbox" value=""
+														id="flexCheckChecked" checked name="check14">
+													<label class="font-weight-normal h6" for="flexCheckChecked">
+														Miembros con rol sysadmin
+													</label>
+												</div>
+
+
+
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="mb-3 text-center lg">
+
+									<button type="submit" class=" btn btn-primary ms-auto form-control" [disabled]="">
+
+										Iniciar analisis
+									</button>
+								</div>
+								<div class="mb-3">
+
+									<div class="alert alert-danger" *ngIf="msgError"> Error en la conexión. Intentelo de
+										nuevo
+									</div>
+
+								</div>
+
+
+							</form>
+						</div>
+
+					</div>
+
+				</div>
+
+			</div>
+			<div class="text-center mt-5 text-muted">
+				Copyright &copy; 2017-2021 &mdash; Your Company
+			</div>
+		</div>
+	</section>
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+		integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+		crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+		integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+		crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+		integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+		crossorigin="anonymous"></script>
+</body>
+
+</html>

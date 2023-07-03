@@ -10,6 +10,7 @@ import { LoginComponent } from 'src/app/pages/login/login.component';
 import { AdminGuard } from 'src/app/services/user/admin.guard';
 import { UserGuard } from 'src/app/services/user/user.guard';
 import { UserDashboardComponent } from './pages/user-dashboard/user-dashboard.component';
+import { UserChecklistComponent } from './pages/user-checklist/user-checklist.component';
 
 
 const routes: Routes = [
@@ -25,7 +26,13 @@ const routes: Routes = [
   {
     path: 'user/home',
     component: UserDashboardComponent,
-    canActivate:[UserGuard]
+    //canActivate:[UserGuard]
+
+  },
+  {
+    path: 'user/checklist',
+    component: UserChecklistComponent,
+    //canActivate:[UserGuard]
 
   },
   {
