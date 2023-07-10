@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/user/user.service';
+import { UserChecklistComponent } from '../user-checklist/user-checklist.component';
 
 @Component({
   selector: 'app-user-dashboard',
@@ -13,12 +14,14 @@ export class UserDashboardComponent implements OnInit {
   conexionForm: FormGroup;
   error: string;
   msgError: boolean;
+  checklist: UserChecklistComponent;
+
 
 
   constructor(
     private userService: UserService,
     private router: Router,
-    private readonly fb: FormBuilder
+    private readonly fb: FormBuilder,
   ) {
   }
 
@@ -26,8 +29,6 @@ export class UserDashboardComponent implements OnInit {
   ngOnInit(): void {
 
     this.initForm();
-
-
   }
 
   onSubmit() {
@@ -36,11 +37,12 @@ export class UserDashboardComponent implements OnInit {
   }
 
   connectBD() {
-    this.userService.connectBD(this.conexionForm.value['cadena']).subscribe(
+    this.userService.connectBD([this.conexionForm.value['cadena'],this.userService.getUser().email]).subscribe(
       dato => {
         this.msgError = false;
-        console.log(dato)
+        this.router.navigate(['user/checklist']);
 
+        //console.log(dato)
 
       }, err => {
 
@@ -58,4 +60,6 @@ export class UserDashboardComponent implements OnInit {
 
   
 }
+
+
 }

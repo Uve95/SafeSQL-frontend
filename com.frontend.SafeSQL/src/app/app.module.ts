@@ -19,7 +19,7 @@ import {MatIconModule} from "@angular/material/icon";
 import { NavbarComponent } from './pages/navbar/navbar.component';
 import { ColorPickerModule } from "ngx-color-picker";
 import { NgChartsModule } from 'ng2-charts';
-import { UserChecklistComponent } from './pages/user-checklist/user-checklist.component';
+import { UserChecklistComponent } from "./pages/user-checklist/user-checklist.component";
 
 
 
@@ -36,6 +36,7 @@ import { UserChecklistComponent } from './pages/user-checklist/user-checklist.co
     UserDashboardComponent,
     NavbarComponent,
     UserChecklistComponent,
+    
     
 
   ],

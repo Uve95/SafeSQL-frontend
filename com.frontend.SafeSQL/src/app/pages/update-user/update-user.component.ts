@@ -11,7 +11,7 @@ import { UserService } from 'src/app/services/user/user.service';
 export class UpdateUserComponent implements OnInit{
 
   user: any = null;
-  userUpdate: FormGroup;
+  userUpdateForm: FormGroup;
   email: String;
   name : String;
   surname : String;
@@ -48,7 +48,7 @@ export class UpdateUserComponent implements OnInit{
 
     initForm() {
 
-      this.userUpdate = this.fb.group({
+      this.userUpdateForm = this.fb.group({
         name: ['', [Validators.required, Validators.minLength(3)]],
         surname: ['', [Validators.required, Validators.minLength(3)]],
         password: ['', [Validators.required, Validators.pattern("(?=.*[! # $ % & ' ( ) * + , - . / : ; = > ? @ \  ^ _` { | } ~])(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,16}")]],
@@ -70,7 +70,7 @@ export class UpdateUserComponent implements OnInit{
 
   updateUser(): void {
     const email = this.activatedRoute.snapshot.params['email'];
-    this.userService.update(this.userUpdate.value, email).subscribe(dato=>{
+    this.userService.update(this.userUpdateForm.value, email).subscribe(dato=>{
       console.log(dato);
       this.msgError = false
 

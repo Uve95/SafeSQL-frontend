@@ -15,7 +15,7 @@
 							<h1 class="fs-4 card-title fw-bold mb-40 text-center ms-auto">Actualizar el usuario
 								{{email}}</h1>
 
-							<form [formGroup]="userUpdate" (ngSubmit)="ngOnInit()" autocomplete="off">
+							<form [formGroup]="userUpdateForm" (ngSubmit)="ngOnInit()" autocomplete="off">
 
 								<!-- *****************INPUT NAME***************** -->
 
@@ -24,10 +24,10 @@
 									<input type="text" id="name" name="name" placeholder={{name}} formControlName="name"
 										class="form-control">
 
-									<div *ngIf="userUpdate.get('name')?.touched && userUpdate.get('name')?.errors?.['required']"
+									<div *ngIf="userUpdateForm.get('name')?.touched && userUpdateForm.get('name')?.errors?.['required']"
 										class="text-danger"> Campo requerido</div>
 
-									<div *ngIf="userUpdate.get('name')?.touched && userUpdate.get('name')?.errors?.['minlength']"
+									<div *ngIf="userUpdateForm.get('name')?.touched && userUpdateForm.get('name')?.errors?.['minlength']"
 										class="text-danger"> Por favor, introduzca un nombre valido</div>
 								</div>
 
@@ -40,10 +40,10 @@
 										formControlName="surname" class="form-control">
 
 
-									<div *ngIf="userUpdate.get('surname')?.touched && userUpdate.get('surname')?.errors?.['required']"
+									<div *ngIf="userUpdateForm.get('surname')?.touched && userUpdateForm.get('surname')?.errors?.['required']"
 										class="text-danger"> Campo requerido</div>
 
-									<div *ngIf="userUpdate.get('surname')?.touched && userUpdate.get('surname')?.errors?.['minlength']"
+									<div *ngIf="userUpdateForm.get('surname')?.touched && userUpdateForm.get('surname')?.errors?.['minlength']"
 										class="text-danger"> Por favor, introduzca un apellido valido</div>
 								</div>
 
@@ -65,10 +65,10 @@
 										formControlName="password" class="form-control">
 
 
-									<div *ngIf="userUpdate.get('password')?.touched && userUpdate.get('password')?.errors?.['required']"
+									<div *ngIf="userUpdateForm.get('password')?.touched && userUpdateForm.get('password')?.errors?.['required']"
 										class="text-danger"> Campo requerido</div>
 
-									<div *ngIf="userUpdate.get('password')?.touched && userUpdate.get('password')?.errors?.['pattern']"
+									<div *ngIf="userUpdateForm.get('password')?.touched && userUpdateForm.get('password')?.errors?.['pattern']"
 										class="text-danger">
 										Por favor, introduzca una contraseña valida.
 										(Al menos un número, un caracter, una letra en mayúscula, una letra en minúscula
@@ -83,10 +83,10 @@
 										placeholder={{password}} formControlName="passwordConfirm" class="form-control">
 
 
-									<div *ngIf="userUpdate.get('passwordConfirm')?.touched && userUpdate.get('passwordConfirm')?.errors?.['required'] "
+									<div *ngIf="userUpdateForm.get('passwordConfirm')?.touched && userUpdateForm.get('passwordConfirm')?.errors?.['required'] "
 										class="text-danger"> Campo requerido</div>
 
-									<div *ngIf=" userUpdate.get('passwordConfirm')?.touched && !checkPasswords(userUpdate)"
+									<div *ngIf=" userUpdateForm.get('passwordConfirm')?.touched && !checkPasswords(userUpdateForm)"
 										class="text-danger">
 										Las contraseñas no coinciden</div>
 								</div>

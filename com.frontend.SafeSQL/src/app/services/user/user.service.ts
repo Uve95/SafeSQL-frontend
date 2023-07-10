@@ -24,14 +24,9 @@ export class UserService {
   constructor(private httpClient: HttpClient) { }
 
 
-
-
-
   register(user: User): Observable<User> {
     return this.httpClient.post<User>(this.userURL + `register`, user);
   }
-
-
 
   public list(): Observable<User[]> {
     return this.httpClient.get<User[]>(`${this.adminURL}` + `list`);
@@ -39,7 +34,7 @@ export class UserService {
 
 
   public details(email: String): Observable<User> {
-    return this.httpClient.get<User>(this.adminURL+ `details/${email}`, cabecera);
+    return this.httpClient.get<User>(this.adminURL + `details/${email}`, cabecera);
   }
 
 
@@ -51,8 +46,6 @@ export class UserService {
     return this.httpClient.delete<any>(this.adminURL + `delete/${email}`, cabecera);
   }
 
-
-
   public forgotPassword(user: User): Observable<Object> {
     return this.httpClient.post<User>(this.userURL + `forgotPassword`, user);
   }
@@ -62,10 +55,21 @@ export class UserService {
     return this.httpClient.post<User>(this.userURL + `changePassword`, { 'email': email, 'password': password, 'token': token });
   }
 
-  public connectBD(cadena:String):Observable<User>{
+  public connectBD(info: String []): Observable<User> {
 
-    return this.httpClient.post<User>(this.userURL + `connectBD`, cadena);
+    return this.httpClient.post<User>(this.userURL + `connectBD`, info);
   }
+
+  public checklist(listchecks:boolean[], info:string): Observable<any> {
+ 
+      var infos:String[] = [];
+      infos.push(String(listchecks));
+      infos.push(info);
+
+      return this.httpClient.post<any>(this.userURL + `checklist`, infos);
+  }
+
+
 
   //Login
 
@@ -73,7 +77,6 @@ export class UserService {
   generateToken(user: any) {
     return this.httpClient.post(this.baseURL + `generate-token`, user);
   }
-
 
   //Iniciamos sesion y lo almacenamos en localStorage (guardar el token por un tiempo para la sesion)
 
