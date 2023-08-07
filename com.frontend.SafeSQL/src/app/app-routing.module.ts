@@ -11,6 +11,7 @@ import { AdminGuard } from 'src/app/services/user/admin.guard';
 import { UserGuard } from 'src/app/services/user/user.guard';
 import { UserDashboardComponent } from './pages/user-dashboard/user-dashboard.component';
 import { UserChecklistComponent } from './pages/user-checklist/user-checklist.component';
+import { LineChartComponent } from './pages/line-chart/line-chart.component';
 
 
 const routes: Routes = [
@@ -88,6 +89,11 @@ const routes: Routes = [
     path: 'admin/update/:email',
     component: UpdateUserComponent,
     canActivate:[AdminGuard]
+
+  },
+  {
+    path: 'prueba',
+    component: LineChartComponent,
 
   }
 ];

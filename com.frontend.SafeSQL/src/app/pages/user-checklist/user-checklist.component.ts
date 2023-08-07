@@ -29,9 +29,10 @@ export class UserChecklistComponent implements OnInit {
   check12: boolean = true;
   check13: boolean = true;
   check14: boolean = true;
+  check15: boolean = true;
 
   listchecks: boolean[] = [
-    this.check1, this.check2, this.check3, this.check4, this.check5, this.check6, this.check7, this.check8, this.check9, this.check10, this.check11, this.check12, this.check13, this.check14
+    this.check1, this.check2, this.check3, this.check4, this.check5, this.check6, this.check7, this.check8, this.check9, this.check10, this.check11, this.check12, this.check13, this.check14, this.check15
   ]
 
 
@@ -165,10 +166,18 @@ export class UserChecklistComponent implements OnInit {
 
     }
 
+    if (id == "check15") {
+      if (event.target.checked) {
+        this.listchecks[14] = true;
+      } else {
+        this.listchecks[14] = false;
+      }
+
+    }
     if (this.listchecks[0] == false && this.listchecks[1] == false && this.listchecks[2] == false && this.listchecks[3] == false && this.listchecks[4] == false
       && this.listchecks[5] == false && this.listchecks[6] == false && this.listchecks[7] == false && this.listchecks[8] == false
       && this.listchecks[9] == false && this.listchecks[10] == false && this.listchecks[11] == false && this.listchecks[12] == false
-      && this.listchecks[13] == false) {
+      && this.listchecks[13] == false && this.listchecks[14] == false) {
 
       this.msgOpt = true;
 
@@ -206,7 +215,9 @@ export class UserChecklistComponent implements OnInit {
       check11: ['', [Validators.required,]],
       check12: ['', [Validators.required,]],
       check13: ['', [Validators.required,]],
-      check14: ['', [Validators.required,]]
+      check14: ['', [Validators.required,]],
+      check15: ['', [Validators.required,]]
+
 
     })
   }
@@ -225,10 +236,13 @@ export class UserChecklistComponent implements OnInit {
     this.userService.checklist(this.listchecks,this.userService.getUser().email).subscribe(
       dato => {
         this.msgError = false
+        let info:String[] = dato;
+        console.log(dato)
 
       }, err => {
 
         this.msgError = true
+        
       })
   }
 

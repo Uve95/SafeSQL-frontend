@@ -28,7 +28,7 @@
 							<form [formGroup]="checklistForm" (ngSubmit)="onSubmit()" autocomplete="off">
 								<!-- *****************INPUT CHECKLIST CONFIGURACION***************** -->
 
-								<div class="accordion" id="accordion1" >
+								<div class="accordion" id="accordion1">
 									<div class="accordion-item">
 										<h2 class="accordion-header" id="heading1">
 											<button class="accordion-button" type="button" data-bs-toggle="collapse"
@@ -41,24 +41,24 @@
 											aria-labelledby="heading1" data-bs-parent="#accordion">
 											<div class="accordion-body">
 												<div class="form-check">
-													<input class="form-check-input" type="checkbox"
-														checked name="check1" (change)="checks($event, 'check1')" id = "check1">
+													<input class="form-check-input" type="checkbox" checked
+														name="check1" (change)="checks($event, 'check1')" id="check1">
 													<label class="font-weight-normal h6" for="flexCheckChecked">
 														Modo de autenticación
 													</label>
 												</div>
 
 												<div class="form-check">
-													<input class="form-check-input" type="checkbox"
-														checked name="check2" (change)="checks($event, 'check2')" id = "check2">
+													<input class="form-check-input" type="checkbox" checked
+														name="check2" (change)="checks($event, 'check2')" id="check2">
 													<label class="font-weight-normal h6" for="flexCheckChecked">
 														Existencia de troyanos
 													</label>
 												</div>
 
 												<div class="form-check">
-													<input class="form-check-input" type="checkbox"
-														checked name="check3" (change)="checks($event, 'check3')" id = "check3">
+													<input class="form-check-input" type="checkbox" checked
+														name="check3" (change)="checks($event, 'check3')" id="check3">
 													<label class="font-weight-normal h6" for="flexCheckChecked">
 														Restricciones de acceso para procedimientos peligrosos
 													</label>
@@ -85,8 +85,9 @@
 												aria-labelledby="heading2" data-bs-parent="#accordion">
 												<div class="accordion-body">
 													<div class="form-check">
-														<input class="form-check-input" type="checkbox"
-														checked name="check4" (change)="checks($event, 'check4')" id = "check4">
+														<input class="form-check-input" type="checkbox" checked
+															name="check4" (change)="checks($event, 'check4')"
+															id="check4">
 														<label class="font-weight-normal h6" for="flexCheckChecked">
 															Cifrado de conexiones entrantes
 														</label>
@@ -113,16 +114,16 @@
 											aria-labelledby="heading3" data-bs-parent="#accordion">
 											<div class="accordion-body">
 												<div class="form-check">
-													<input class="form-check-input" type="checkbox"
-														checked name="check5" (change)="checks($event, 'check5')" id = "check5">
+													<input class="form-check-input" type="checkbox" checked
+														name="check5" (change)="checks($event, 'check5')" id="check5">
 													<label class="font-weight-normal h6" for="flexCheckChecked">
 														Permisos asociados al usuario guest
 													</label>
 												</div>
 
 												<div class="form-check">
-													<input class="form-check-input" type="checkbox"
-														checked name="check6" (change)="checks($event, 'check6')" id = "check6">
+													<input class="form-check-input" type="checkbox" checked
+														name="check6" (change)="checks($event, 'check6')" id="check6">
 													<label class="font-weight-normal h6" for="flexCheckChecked">
 														Permisos de la función base de datos publica
 													</label>
@@ -135,54 +136,73 @@
 
 
 
-								<!-- *****************INPUT CHECKLIST POLITICAS E INICIOS DE SESION***************** -->
+								<!-- *****************INPUT CHECKLIST POLITICAS ***************** -->
 								<div class="accordion" id="accordion4">
 									<div class="accordion-item">
 										<h2 class="accordion-header" id="heading4">
 											<button class="accordion-button" type="button" data-bs-toggle="collapse"
 												data-bs-target="#collapse4" aria-expanded="true"
 												aria-controls="collapse4">
-												<label class="fw-bold h6">Políticas de contraseña y revision de inicios
-													de
-													sesión</label>
+												<label class="fw-bold h6">Políticas de contraseña </label>
 											</button>
 										</h2>
 										<div id="collapse4" class="accordion-collapse collapse"
 											aria-labelledby="heading4" data-bs-parent="#accordion">
 											<div class="accordion-body">
 												<div class="form-check">
-													<input class="form-check-input" type="checkbox"
-														checked name="check7" (change)="checks($event, 'check7')" id = "check7">
+													<input class="form-check-input" type="checkbox" checked
+														name="check7" (change)="checks($event, 'check7')" id="check7">
 													<label class="font-weight-normal h6" for="flexCheckChecked">
 														Contraseñas inseguras
 													</label>
 												</div>
 
 												<div class="form-check">
-													<input class="form-check-input" type="checkbox"
-														checked name="check8" (change)="checks($event, 'check8')" id = "check8">
+													<input class="form-check-input" type="checkbox" checked
+														name="check8" (change)="checks($event, 'check8')" id="check8">
 													<label class="font-weight-normal h6" for="flexCheckChecked">
 														Revisiones periodicas de contraseñas no seguras
 													</label>
 												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<!-- *****************INPUT CHECKLIST INICIOS DE SESIÓN ***************** -->
+								<div class="accordion" id="accordion5">
+									<div class="accordion-item">
+										<h2 class="accordion-header" id="heading5">
+											<button class="accordion-button" type="button" data-bs-toggle="collapse"
+												data-bs-target="#collapse5" aria-expanded="true"
+												aria-controls="collapse4">
+												<label class="fw-bold h6">Revision de inicios de sesión</label>
+											</button>
+										</h2>
+										<div id="collapse5" class="accordion-collapse collapse"
+											aria-labelledby="heading5" data-bs-parent="#accordion">
+											<div class="accordion-body">
+
 
 												<div class="form-check">
-													<input class="form-check-input" type="checkbox"
-														checked name="check9" (change)="checks($event, 'check9')" id = "check9">
+													<input class="form-check-input" type="checkbox" checked
+														name="check9" (change)="checks($event, 'check9')" id="check9">
 													<label class="font-weight-normal h6" for="flexCheckChecked">
 														Inicios de sesion sin politica segura </label>
 												</div>
 												<div class="form-check">
-													<input class="form-check-input" type="checkbox"
-														checked name="check10" (change)="checks($event, 'check10')" id = "check10">
+													<input class="form-check-input" type="checkbox" checked
+														name="check10" (change)="checks($event, 'check10')"
+														id="check10">
 													<label class="font-weight-normal h6" for="flexCheckChecked">
 														Inicios de sesion no utilizados
 													</label>
 												</div>
 
 												<div class="form-check">
-													<input class="form-check-input" type="checkbox"
-														checked name="check11" (change)="checks($event, 'check11')" id = "check11">
+													<input class="form-check-input" type="checkbox" checked
+														name="check11" (change)="checks($event, 'check11')"
+														id="check11">
 													<label class="font-weight-normal h6" for="flexCheckChecked">
 														Inicios de sesión fallidos </label>
 												</div>
@@ -192,21 +212,22 @@
 								</div>
 
 								<!-- *****************INPUT CHECKLIST MANTENIMIENTO***************** -->
-								<div class="accordion" id="accordion5">
+								<div class="accordion" id="accordion6">
 									<div class="accordion-item">
-										<h2 class="accordion-header" id="heading5">
+										<h2 class="accordion-header" id="heading6">
 											<button class="accordion-button" type="button" data-bs-toggle="collapse"
-												data-bs-target="#collapse5" aria-expanded="true"
-												aria-controls="collapse5">
+												data-bs-target="#collapse6" aria-expanded="true"
+												aria-controls="collapse6">
 												<label class="fw-bold h6">Mantenimiento</label>
 											</button>
 										</h2>
-										<div id="collapse5" class="accordion-collapse collapse"
-											aria-labelledby="heading5" data-bs-parent="#accordion">
+										<div id="collapse6" class="accordion-collapse collapse"
+											aria-labelledby="heading6" data-bs-parent="#accordion">
 											<div class="accordion-body">
 												<div class="form-check">
-													<input class="form-check-input" type="checkbox"
-														checked name="check12" (change)="checks($event, 'check12')" id = "check12">
+													<input class="form-check-input" type="checkbox" checked
+														name="check12" (change)="checks($event, 'check12')"
+														id="check12">
 													<label class="font-weight-normal h6" for="flexCheckChecked">
 														Plan de mantenimiento
 													</label>
@@ -220,46 +241,57 @@
 								<!-- *****************INPUT CHECKLIST DATOS SENSIBLES***************** -->
 								<div class="accordion" id="accordion6">
 									<div class="accordion-item">
-										<h2 class="accordion-header" id="heading6">
-											<button class="accordion-button" type="button" data-bs-toggle="collapse"
-												data-bs-target="#collapse6" aria-expanded="true"
-												aria-controls="collapse6">
-												<label class="fw-bold h6">Datos sensibles</label>
-											</button>
-										</h2>
-										<div id="collapse6" class="accordion-collapse collapse"
-											aria-labelledby="heading6" data-bs-parent="#accordion">
-											<div class="accordion-body">
-												<div class="form-check">
-													<input class="form-check-input" type="checkbox"
-														checked name="check13" (change)="checks($event, 'check13')" id = "check13">
-													<label class="font-weight-normal h6" for="flexCheckChecked">
-														Datos sensibles
-													</label>
-												</div>
-
-											</div>
-										</div>
-									</div>
-								</div>
-
-								<!-- *****************INPUT CHECKLIST ROLES***************** -->
-								<div class="accordion" id="accordion7">
-									<div class="accordion-item">
 										<h2 class="accordion-header" id="heading7">
 											<button class="accordion-button" type="button" data-bs-toggle="collapse"
 												data-bs-target="#collapse7" aria-expanded="true"
 												aria-controls="collapse7">
-												<label class="fw-bold h6">Roles</label>
+												<label class="fw-bold h6">Datos sensibles</label>
 											</button>
 										</h2>
 										<div id="collapse7" class="accordion-collapse collapse"
 											aria-labelledby="heading7" data-bs-parent="#accordion">
 											<div class="accordion-body">
 												<div class="form-check">
+													<input class="form-check-input" type="checkbox" checked
+														name="check13" (change)="checks($event, 'check13')"
+														id="check13">
+													<label class="font-weight-normal h6" for="flexCheckChecked">
+														Datos sensibles
+													</label>
+												</div>
 
-													<input class="form-check-input" type="checkbox"
-														checked name="check14" (change)="checks($event, 'check14')" id = "check14">
+												<div class="form-check">
+													<input class="form-check-input" type="checkbox" checked
+														name="check14" (change)="checks($event, 'check14')"
+														id="check14">
+													<label class="font-weight-normal h6" for="flexCheckChecked">
+														Datos cifrados
+													</label>
+												</div>
+											</div>
+
+										</div>
+									</div>
+								</div>
+
+								<!-- *****************INPUT CHECKLIST ROLES***************** -->
+								<div class="accordion" id="accordion8">
+									<div class="accordion-item">
+										<h2 class="accordion-header" id="heading8">
+											<button class="accordion-button" type="button" data-bs-toggle="collapse"
+												data-bs-target="#collapse8" aria-expanded="true"
+												aria-controls="collapse8">
+												<label class="fw-bold h6">Roles</label>
+											</button>
+										</h2>
+										<div id="collapse8" class="accordion-collapse collapse"
+											aria-labelledby="heading8" data-bs-parent="#accordion">
+											<div class="accordion-body">
+												<div class="form-check">
+
+													<input class="form-check-input" type="checkbox" checked
+														name="check15" (change)="checks($event, 'check15')"
+														id="check15">
 
 													<label class="font-weight-normal h6" for="flexCheckChecked">
 														Miembros con rol sysadmin
@@ -301,7 +333,7 @@
 				Copyright &copy; 2017-2021 &mdash; Your Company
 			</div>
 		</div>
-		
+
 	</section>
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
 		integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
