@@ -20,7 +20,7 @@ import { NavbarComponent } from './pages/navbar/navbar.component';
 import { ColorPickerModule } from "ngx-color-picker";
 import { NgChartsModule } from 'ng2-charts';
 import { UserChecklistComponent } from "./pages/user-checklist/user-checklist.component";
-import { LineChartComponent } from "./pages/line-chart/line-chart.component";
+import { Graphics } from "./pages/graphics/graphics.component";
 
 
 
@@ -37,7 +37,7 @@ import { LineChartComponent } from "./pages/line-chart/line-chart.component";
     UserDashboardComponent,
     NavbarComponent,
     UserChecklistComponent ,
-    LineChartComponent  
+    Graphics  
     
 
   ],

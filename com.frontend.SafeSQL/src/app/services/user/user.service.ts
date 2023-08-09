@@ -13,7 +13,7 @@ const cabecera = { headers: new HttpHeaders({ 'Content-TYpe': 'application/json'
 export class UserService {
 
   public loginStatusSubject = new Subject<boolean>();
-
+  infoSelect: string[];
   //Endpoint del Backend
 
   private baseURL: string = "http://localhost:8080/"
@@ -62,7 +62,7 @@ export class UserService {
 
   public checklist(listchecks:boolean[], info:string): Observable<any> {
  
-      var infos:String[] = [];
+      let infos:String[] = [];
       infos.push(String(listchecks));
       infos.push(info);
 
@@ -70,6 +70,14 @@ export class UserService {
   }
 
 
+  setChecklist(info:string[]){
+    this.infoSelect = info;
+  }
+
+  getChecklist(){
+    
+    return this.infoSelect;
+  }
 
   //Login
 

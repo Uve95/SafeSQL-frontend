@@ -1,0 +1,105 @@
+<section class="h-100">
+  <div class="container h-100">
+    <div class="row justify-content-sm-center h-100">
+      <div class="container text-center">
+        <div class="card shadow-lg">
+          <div class="card-body p-5">
+            <h1 class="fs-4 card-title fw-bold mb-4 text-center ms-auto">Configure el analisis</h1>
+
+
+
+            <div class="row">
+              <div class="col fw-bold mb-4 ">Configuración
+
+                <div style="display: block; width: 100px; height: 100px;">
+
+                  <canvas baseChart class="chart" [data]="graphicRols()" [type]="doughnutChartType">
+                  </canvas>
+                </div>
+                <p class="fw-bold mb-4 text-success">{{this.checkConfig}}</p>
+
+              </div>
+
+              <div class="col fw-bold mb-4 ">Red
+                <div style="display: block; width: 100px; height: 100px;">
+
+                  <canvas baseChart class="chart" [data]="graphicRols" [type]="doughnutChartType">
+                  </canvas>
+                </div>
+                <p class="fw-bold mb-4 text-success">{{this.checkNetwork}}</p>
+
+
+              </div>
+
+              <div class="col fw-bold mb-4 ">Permisos
+
+                <div style="display: block; width: 100px; height: 100px;">
+
+                  <canvas baseChart class="chart" [data]="graphicRols" [type]="doughnutChartType">
+                  </canvas>
+                </div>
+                <p class="fw-bold mb-4 text-success">{{this.checkPermission}}</p>
+
+
+              </div>
+
+              <div class="col fw-bold mb-4 ">Políticas
+                <div style="display: block; width: 100px; height: 100px;">
+
+                  <canvas baseChart class="chart" [data]="graphicRols" [type]="doughnutChartType">
+                  </canvas>
+                </div>
+                <p class="fw-bold mb-4 text-success">{{this.checkPolicy}}</p>
+
+              </div>
+
+              <div class="col fw-bold mb-4 "> Sesiones
+                <div style="display: block; width: 100px; height: 100px;">
+
+                  <canvas baseChart class="chart" [data]="graphicRols" [type]="doughnutChartType">
+                  </canvas>
+                </div>
+                <p class="fw-bold mb-4 text-success">{{this.checkSession}}</p>
+
+
+              </div>
+              <div class="col fw-bold mb-4 ">Mantenimiento
+                <div style="display: block; width: 100px; height: 100px;">
+
+                  <canvas baseChart class="chart" [data]="graphicRols" [type]="doughnutChartType">
+                  </canvas>
+                </div>
+                <p class="fw-bold mb-4 text-success">{{this.checkMaintenance}}</p>
+
+              </div>
+
+              <div class="col fw-bold mb-4 ">Datos sensibles
+                <div style="display: block; width: 100px; height: 100px;">
+                  <canvas baseChart class="chart" [data]="graphicRols" [type]="doughnutChartType">
+                  </canvas>
+                </div>
+                <p class="fw-bold mb-4 text-success">{{this.checkSensitive}}</p>
+
+              </div>
+
+              <div class="col fw-bold mb-4 ">Roles
+                <div style="display: block; width: 100px; height: 100px;">
+
+                  <canvas baseChart class="chart" [data]="graphicRols" [type]="doughnutChartType">
+                  </canvas>
+                </div>
+                <p class="fw-bold mb-4 text-success">{{this.checkRols}}</p>
+
+              </div>
+
+
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+
+  </div>
+</section>

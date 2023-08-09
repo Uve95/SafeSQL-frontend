@@ -2,7 +2,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/user/user.service';
-import { UserDashboardComponent } from '../user-dashboard/user-dashboard.component';
+import { Graphics } from '../graphics/graphics.component';
 
 @Component({
   selector: 'app-user-checklist',
@@ -35,9 +35,6 @@ export class UserChecklistComponent implements OnInit {
     this.check1, this.check2, this.check3, this.check4, this.check5, this.check6, this.check7, this.check8, this.check9, this.check10, this.check11, this.check12, this.check13, this.check14, this.check15
   ]
 
-
-
-
   checks(event: any, id: string) {
 
     if (id == "check1") {
@@ -46,8 +43,8 @@ export class UserChecklistComponent implements OnInit {
       } else {
         this.listchecks[0] = false;
       }
-    } 
-    
+    }
+
     if (id == "check2") {
       if (event.target.checked) {
         this.listchecks[1] = true;
@@ -55,8 +52,8 @@ export class UserChecklistComponent implements OnInit {
         this.listchecks[1] = false;
       }
 
-    } 
-    
+    }
+
     if (id == "check3") {
       if (event.target.checked) {
         this.listchecks[2] = true;
@@ -64,8 +61,8 @@ export class UserChecklistComponent implements OnInit {
         this.listchecks[2] = false;
       }
 
-    } 
-    
+    }
+
     if (id == "check4") {
       if (event.target.checked) {
         this.listchecks[3] = true;
@@ -73,8 +70,8 @@ export class UserChecklistComponent implements OnInit {
         this.listchecks[3] = false;
       }
 
-    } 
-    
+    }
+
     if (id == "check5") {
       if (event.target.checked) {
         this.listchecks[4] = true;
@@ -82,8 +79,8 @@ export class UserChecklistComponent implements OnInit {
         this.listchecks[4] = false;
       }
 
-    } 
-    
+    }
+
     if (id == "check6") {
       if (event.target.checked) {
         this.listchecks[5] = true;
@@ -91,8 +88,8 @@ export class UserChecklistComponent implements OnInit {
         this.listchecks[5] = false;
       }
 
-    } 
-    
+    }
+
     if (id == "check7") {
       if (event.target.checked) {
         this.listchecks[6] = true;
@@ -100,8 +97,8 @@ export class UserChecklistComponent implements OnInit {
         this.listchecks[6] = false;
       }
 
-    } 
-    
+    }
+
     if (id == "check8") {
       if (event.target.checked) {
         this.listchecks[7] = true;
@@ -109,8 +106,8 @@ export class UserChecklistComponent implements OnInit {
         this.listchecks[7] = false;
       }
 
-    } 
-    
+    }
+
     if (id == "check9") {
       if (event.target.checked) {
         this.listchecks[8] = true;
@@ -119,7 +116,7 @@ export class UserChecklistComponent implements OnInit {
       }
 
     }
-    
+
     if (id == "check10") {
       if (event.target.checked) {
         this.listchecks[9] = true;
@@ -127,8 +124,8 @@ export class UserChecklistComponent implements OnInit {
         this.listchecks[9] = false;
       }
 
-    } 
-    
+    }
+
     if (id == "check11") {
       if (event.target.checked) {
         this.listchecks[10] = true;
@@ -136,8 +133,8 @@ export class UserChecklistComponent implements OnInit {
         this.listchecks[10] = false;
       }
 
-    } 
-    
+    }
+
     if (id == "check12") {
       if (event.target.checked) {
         this.listchecks[11] = true;
@@ -146,8 +143,8 @@ export class UserChecklistComponent implements OnInit {
       }
 
 
-    } 
-    
+    }
+
     if (id == "check13") {
       if (event.target.checked) {
         this.listchecks[12] = true;
@@ -155,8 +152,8 @@ export class UserChecklistComponent implements OnInit {
         this.listchecks[12] = false;
       }
 
-    } 
-    
+    }
+
     if (id == "check14") {
       if (event.target.checked) {
         this.listchecks[13] = true;
@@ -223,29 +220,28 @@ export class UserChecklistComponent implements OnInit {
   }
 
   onSubmit() {
-
-    console.log(this.listchecks);
-    console.log(this.userService.getUser().email)
     this.checklistUser();
   }
 
- 
+
 
   checklistUser() {
 
-    this.userService.checklist(this.listchecks,this.userService.getUser().email).subscribe(
+    this.userService.checklist(this.listchecks, this.userService.getUser().email).subscribe(
       dato => {
         this.msgError = false
-        let info:String[] = dato;
-        console.log(dato)
+        let info: string[] = dato;
+        this.userService.setChecklist(info);
+        this.router.navigate(['prueba']);
+
 
       }, err => {
 
         this.msgError = true
-        
+
       })
   }
 
-  
+
 
 }
