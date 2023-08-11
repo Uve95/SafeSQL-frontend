@@ -1,7 +1,9 @@
 {
   "dependencies": {
     "@popperjs/core": "^2.11.8",
+    "@types/chart.js": "^2.9.33",
     "bootstrap": "^4.6.2",
+    "chart.js": "^2.9.4",
     "jquery": "^3.4.1",
     "popper.js": "^1.16.1"
   }

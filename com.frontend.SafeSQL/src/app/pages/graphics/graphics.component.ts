@@ -5,6 +5,7 @@ import { BaseChartDirective } from 'ng2-charts';
 import DatalabelsPlugin from 'chartjs-plugin-datalabels';
 import { UserService } from 'src/app/services/user/user.service';
 import { Router } from '@angular/router';
+import { ColorFormats } from 'ngx-color-picker/lib/formats';
 
 
 @Component({
@@ -13,7 +14,6 @@ import { Router } from '@angular/router';
   styleUrls: ['./graphics.component.css'],
 })
 export class Graphics implements OnInit {
-  // Doughnut
 
 
   infoSelect: string[]
@@ -26,8 +26,7 @@ export class Graphics implements OnInit {
   checkMaintenance: string
   checkSensitive: string
   checkRols: string
-  dataRols:number
-
+  check1:string
 
   constructor(
     private userService: UserService,
@@ -35,6 +34,14 @@ export class Graphics implements OnInit {
   ) { }
 
 
+
+
+
+
+  ngOnInit(): void {
+  }
+
+  
   getChecklist() {
 
     console.log(this.userService.getChecklist())
@@ -43,232 +50,94 @@ export class Graphics implements OnInit {
 
   }
 
-
-  ngOnInit(): void {
-
-    this.graphicConfig();
-    this.graphicMaintenance();
-    this.graphicNetwork();
-    this.graphicPermission();
-    this.graphicPolicy();
-    this.graphicRols();
-    this.graphicSensitive();
-    this.graphicSession();
-
-  }
-  graphicConfig() {
-
+  getChecklist1():number {
     let aux: string[] = this.getChecklist();
 
-    let auxTotal = 3;
-    let auxOK = 0;
-
-    if (aux[0] == "-1")
-      auxTotal = auxTotal - 1;
-
-    if (aux[1] == "-1")
-      auxTotal = auxTotal - 1;
-
-    if (aux[2] == "-1")
-      auxTotal = auxTotal - 1;
-
-
-    if (aux[0] == "0")
-      auxOK = auxOK + 1;
-
-    if (aux[1] == "0")
-      auxOK = auxOK + 1;
-
-    if (aux[2] == "0")
-      auxOK = auxOK + 1;
-
-
-
-    this.checkConfig = auxOK + "/" + auxTotal;
-
+    return Number(aux[0])
   }
 
-  graphicNetwork() {
-
+  getChecklist2():number {
     let aux: string[] = this.getChecklist();
 
-    let auxTotal = 1;
-    let auxOK = 0;
-
-    if (aux[3] == "-1")
-      auxTotal = auxTotal - 1;
-
-    if (aux[3] == "0")
-      auxOK = auxOK + 1;
-
-    this.checkNetwork = auxOK + "/" + auxTotal;
-
+    return Number(aux[1])
   }
 
-
-  graphicPermission() {
-
+  getChecklist3():number {
     let aux: string[] = this.getChecklist();
 
-    let auxTotal = 2;
-    let auxOK = 0;
-
-    if (aux[4] == "-1")
-      auxTotal = auxTotal - 1;
-
-    if (aux[5] == "-1")
-      auxTotal = auxTotal - 1;
-
-    if (aux[4] == "0")
-      auxOK = auxOK + 1;
-
-    if (aux[5] == "0")
-      auxOK = auxOK + 1;
-
-    this.checkPermission = auxOK + "/" + auxTotal;
-
+    return Number(aux[2])
   }
 
-  graphicPolicy() {
-
+  getChecklist4():number {
     let aux: string[] = this.getChecklist();
 
-    let auxTotal = 2;
-    let auxOK = 0;
-
-    if (aux[6] == "-1")
-      auxTotal = auxTotal - 1;
-
-    if (aux[7] == "-1")
-      auxTotal = auxTotal - 1;
-
-    if (aux[6] == "0")
-      auxOK = auxOK + 1;
-
-    if (aux[7] == "0")
-      auxOK = auxOK + 1;
-
-    this.checkPolicy = auxOK + "/" + auxTotal;
-
+    return Number(aux[3])
   }
 
-  graphicSession() {
-
+  getChecklist5():number {
     let aux: string[] = this.getChecklist();
 
-    let auxTotal = 3;
-    let auxOK = 0;
-
-    if (aux[8] == "-1")
-      auxTotal = auxTotal - 1;
-
-    if (aux[9] == "-1")
-      auxTotal = auxTotal - 1;
-    if (aux[10] == "-1")
-      auxTotal = auxTotal - 1;
-
-    if (aux[8] == "0")
-      auxOK = auxOK + 1;
-
-    if (aux[9] == "0")
-      auxOK = auxOK + 1;
-    if (aux[10] == "0")
-      auxOK = auxOK + 1;
-
-    this.checkSession = auxOK + "/" + auxTotal;
-
+    return Number(aux[4])
   }
 
-  graphicMaintenance() {
-
+  getChecklist6():number {
     let aux: string[] = this.getChecklist();
 
-    let auxTotal = 1;
-    let auxOK = 0;
-
-    if (aux[11] == "-1")
-      auxTotal = auxTotal - 1;
-
-    if (aux[11] == "0")
-      auxOK = auxOK + 1;
-
-    this.checkMaintenance = auxOK + "/" + auxTotal;
-
+    return Number(aux[5])
   }
 
-  graphicSensitive() {
-
+  getChecklist7():number {
     let aux: string[] = this.getChecklist();
 
-    let auxTotal = 2;
-    let auxOK = 0;
-
-    if (aux[12] == "-1")
-      auxTotal = auxTotal - 1;
-
-    if (aux[13] == "-1")
-      auxTotal = auxTotal - 1;
-
-    if (aux[12] == "0")
-      auxOK = auxOK + 1;
-
-    if (aux[13] == "0")
-      auxOK = auxOK + 1;
-
-    this.checkSensitive = auxOK + "/" + auxTotal;
-
+    return Number(aux[6])
   }
 
-  graphicRols() {
-
+  getChecklist8():number {
     let aux: string[] = this.getChecklist();
 
-    let auxTotal = 1;
-    let auxOK = 0;
-
-    if (aux[14] == "-1")
-      auxTotal = auxTotal - 1;
-
-    if (aux[14] == "0")
-      auxOK = auxOK + 1;
-
-    this.checkRols = auxOK + "/" + auxTotal;
-    let auxdata = this.checkRols.split("/")
-    this.dataRols = Number(auxdata[0])
-
+    return Number(aux[7])
   }
 
-  doughnutChartDataConfig: ChartData<'doughnut'> = {
-    
+  getChecklist9():number {
+    let aux: string[] = this.getChecklist();
 
-    datasets: [ 
-
-      {
-        data: [this.da],
-        backgroundColor: 'green'
-      }
-    ],
-  };
-  public doughnutChartType: ChartType = 'doughnut';
-
-  // events
-  public chartClicked({
-    event,
-    active,
-  }: {
-    event: ChartEvent;
-    active: object[];
-  }): void {
-    console.log(event, active);
+    return Number(aux[8])
   }
 
-  public chartHovered({
-    event,
-    active,
-  }: {
-    event: ChartEvent;
-    active: object[];
-  }): void {
-    console.log(event, active);
+  getChecklist10():number {
+    let aux: string[] = this.getChecklist();
+
+    return Number(aux[9])
   }
+
+  getChecklist11():number {
+    let aux: string[] = this.getChecklist();
+
+    return Number(aux[10])
+  }
+
+  getChecklist12():number {
+    let aux: string[] = this.getChecklist();
+
+    return Number(aux[11])
+  }
+
+  getChecklist13():number {
+    let aux: string[] = this.getChecklist();
+
+    return Number(aux[12])
+  }
+
+  getChecklist14():number {
+    let aux: string[] = this.getChecklist();
+
+    return Number(aux[13])
+  }
+
+  getChecklist15():number {
+    let aux: string[] = this.getChecklist();
+
+    return Number(aux[14])
+  }
+
 }
