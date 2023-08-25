@@ -14,6 +14,8 @@ export class UserService {
 
   public loginStatusSubject = new Subject<boolean>();
   infoSelect: string[];
+  infoConnect:string [];
+
   //Endpoint del Backend
 
   private baseURL: string = "http://localhost:8080/"
@@ -55,14 +57,15 @@ export class UserService {
     return this.httpClient.post<User>(this.userURL + `changePassword`, { 'email': email, 'password': password, 'token': token });
   }
 
-  public connectBD(info: String []): Observable<User> {
+  public connectBD(info: string []): Observable<User> {
 
+    this.infoConnect = info;
     return this.httpClient.post<User>(this.userURL + `connectBD`, info);
   }
 
   public checklist(listchecks:boolean[], info:string): Observable<any> {
  
-      let infos:String[] = [];
+      let infos:string[] = [];
       infos.push(String(listchecks));
       infos.push(info);
 
@@ -70,17 +73,21 @@ export class UserService {
   }
 
 
-  setChecklist(info:string[]){
+  public setChecklist(info:string[]){
     this.infoSelect = info;
   }
 
-  getChecklist(){
+  public getChecklist(){
     
     return this.infoSelect;
   }
 
-  //Login
+  public getBDName(){
+  
+    return this.httpClient.get(this.userURL + `actual-bd`);
+  }
 
+  //Login
 
   generateToken(user: any) {
     return this.httpClient.post(this.baseURL + `generate-token`, user);

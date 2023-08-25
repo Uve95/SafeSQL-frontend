@@ -171,10 +171,11 @@ export class UserChecklistComponent implements OnInit {
       }
 
     }
-    if (this.listchecks[0] == false && this.listchecks[1] == false && this.listchecks[2] == false && this.listchecks[3] == false && this.listchecks[4] == false
+
+    if ( this.listchecks[0] == false && this.listchecks[1] == false && this.listchecks[2] == false && this.listchecks[3] == false && this.listchecks[4] == false
       && this.listchecks[5] == false && this.listchecks[6] == false && this.listchecks[7] == false && this.listchecks[8] == false
       && this.listchecks[9] == false && this.listchecks[10] == false && this.listchecks[11] == false && this.listchecks[12] == false
-      && this.listchecks[13] == false && this.listchecks[14] == false) {
+      && this.listchecks[13] == false && this.listchecks[14] == false)  {
 
       this.msgOpt = true;
 
@@ -201,6 +202,7 @@ export class UserChecklistComponent implements OnInit {
 
     this.checklistForm = this.fb.group({
       check1: ['', [Validators.required,]],
+      check2: ['', [Validators.required,]],
       check3: ['', [Validators.required,]],
       check4: ['', [Validators.required,]],
       check5: ['', [Validators.required,]],
@@ -220,6 +222,7 @@ export class UserChecklistComponent implements OnInit {
   }
 
   onSubmit() {
+    console.log(this.listchecks)
     this.checklistUser();
   }
 
