@@ -23,19 +23,19 @@
             <!-- Left links -->
 
             <div class="ml-auto">
-                <button type="button" class="btn btn-link px-3 me-2" routerLink="login" *ngIf = "!isLoggedIn">
+                <button type="button" class="btn btn-link px-3 me-2" routerLink="login" *ngIf = "!isLoggedIn()">
                     Login
                 </button>
-                <button type="button" class="btn btn-success" routerLink="user/register"  *ngIf = "!isLoggedIn">
+                <button type="button" class="btn btn-success" routerLink="user/register"  *ngIf = "!isLoggedIn()">
                     Registrate
                 </button>
-                <button type="button" class="btn btn-success" routerLink="user/update/{{user.email}}"  *ngIf = "isLoggedIn && userRole == 'USER'">
+                <button type="button" class="btn btn-success" routerLink="user/update/{{userEmail()}}" *ngIf = "isLoggedIn() && userRole() == 'USER'">
                     Mi cuenta
                 </button>
-                <button type="button" class="btn btn-success" routerLink="admin/update/{{user.email}}"  *ngIf = "isLoggedIn && userRole == 'ADMIN'">
+                <button type="button" class="btn btn-success" routerLink="admin/update/{{userEmail()}}"  *ngIf = "isLoggedIn() && userRole() == 'ADMIN'">
                     Mi cuenta
                 </button>
-                <button type="button" class="btn btn-success" (click)="back()"  *ngIf = "isLoggedIn">
+                <button type="button" class="btn btn-success" (click)="back()"  *ngIf = "isLoggedIn()">
                     Salir
                 </button>
             </div>

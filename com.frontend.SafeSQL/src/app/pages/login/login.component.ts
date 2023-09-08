@@ -56,7 +56,7 @@ export class LoginComponent implements OnInit {
       this.userService.loginUser(data.token);
       this.userService.getCurrentUser().subscribe((user: any) => {
         this.userService.setUser(user);
-        console.log(user);
+        console.log(this.userService.getUserRole());
 
         if (this.userService.getUserRole() == "USER") {
           //window.location.href = 'user/register';
