@@ -21,6 +21,7 @@ import { ColorPickerModule } from "ngx-color-picker";
 import { NgChartsModule } from 'ng2-charts';
 import { UserChecklistComponent } from "./pages/user-checklist/user-checklist.component";
 import { Graphics } from "./pages/graphics/graphics.component";
+import { UpdateAdminComponent } from './pages/update-admin/update-admin.component';
 
 
 
@@ -37,7 +38,8 @@ import { Graphics } from "./pages/graphics/graphics.component";
     UserDashboardComponent,
     NavbarComponent,
     UserChecklistComponent ,
-    Graphics  
+    Graphics,
+    UpdateAdminComponent  
     
 
   ],

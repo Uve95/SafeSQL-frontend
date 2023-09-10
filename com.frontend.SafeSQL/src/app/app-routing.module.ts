@@ -12,6 +12,7 @@ import { UserGuard } from 'src/app/services/user/user.guard';
 import { UserDashboardComponent } from './pages/user-dashboard/user-dashboard.component';
 import { UserChecklistComponent } from './pages/user-checklist/user-checklist.component';
 import { Graphics } from './pages/graphics/graphics.component';
+import { UpdateAdminComponent } from './pages/update-admin/update-admin.component';
 
 
 const routes: Routes = [
@@ -27,7 +28,7 @@ const routes: Routes = [
   {
     path: 'user/home',
     component: UserDashboardComponent,
-    //canActivate:[UserGuard]
+    canActivate:[UserGuard]
 
   },
   {
@@ -70,11 +71,12 @@ const routes: Routes = [
     component: UpdateUserComponent,
     canActivate:[UserGuard]
 
+
   }
   ,
   {
     path: 'admin/update/:email',
-    component: UpdateUserComponent,
+    component: UpdateAdminComponent,
     canActivate:[AdminGuard]
 
   }
@@ -85,12 +87,7 @@ const routes: Routes = [
     canActivate:[AdminGuard]
 
   },
-  {
-    path: 'admin/update/:email',
-    component: UpdateUserComponent,
-    canActivate:[AdminGuard]
 
-  },
   {
     path: 'prueba',
     component: Graphics,

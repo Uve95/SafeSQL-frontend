@@ -10,6 +10,7 @@ import { UserService } from 'src/app/services/user/user.service';
 
 export class NavbarComponent implements OnInit {
 
+  user: any = null;
 
   //isLoggedIn = false;
   //userRole:any = null;
@@ -44,23 +45,25 @@ export class NavbarComponent implements OnInit {
 
   }
 
-  public userRole():string{
+  public userRole(){
 
-    console.log(this.userService.getUserRole())
-
-    if(this.userService.getUserRole() == "ADMIN"){
-      return "ADMIN";
+    console.log()
+    if(localStorage.getItem("rol")?.replace(/['"]+/g, '') == "ADMIN"){
+      return 'ADMIN';
     }else{
-      return "USER";
+      return 'USER';
     }
+    
 
   }
 
-  public userEmail():string{
-    return this.userService.getUser().email;
+  public userEmail(){
+    console.log(localStorage.getItem("email")?.replace(/['"]+/g, ''))
+    return localStorage.getItem("email")?.replace(/['"]+/g, '');
   }
 
   public back() {
+    localStorage.clear();
     this.userService.logout();
     //window.location.reload();
     this.router.navigate(['']);

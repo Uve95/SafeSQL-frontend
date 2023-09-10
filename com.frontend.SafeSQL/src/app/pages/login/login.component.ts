@@ -18,7 +18,8 @@ export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   error: string;
   msgError: boolean;
-
+  showPassword:boolean = false;
+  hidePassword:boolean = true;
 
   constructor(
     private userService: UserService,
@@ -39,6 +40,27 @@ export class LoginComponent implements OnInit {
     this.generateToken();
   }
 
+  show(event: any){
+    if(event){
+    this.showPassword = true;
+    this.hidePassword = false;
+    }else{
+      this.showPassword = false;
+      this.hidePassword = true;
+    }
+
+  }
+
+  hide(event: any){
+    if(event){
+    this.showPassword = false;
+    this.hidePassword = true;
+    }else{
+      this.showPassword = true;
+      this.hidePassword = false;
+    }
+
+  }
 
   initForm() {
 
@@ -56,14 +78,15 @@ export class LoginComponent implements OnInit {
       this.userService.loginUser(data.token);
       this.userService.getCurrentUser().subscribe((user: any) => {
         this.userService.setUser(user);
-        console.log(this.userService.getUserRole());
+        console.log(user);
 
         if (this.userService.getUserRole() == "USER") {
           //window.location.href = 'user/register';
           this.router.navigate(['/user/home'])
           this.userService.loginStatusSubject.next(true);
 
-        } else if (this.userService.getUserRole() == "ADMIN") {
+        } 
+         else if (this.userService.getUserRole() == "ADMIN") {
           //window.location.href = 'user/forgotPassword';
           this.router.navigate(['/admin/list'])
           this.userService.loginStatusSubject.next(true);

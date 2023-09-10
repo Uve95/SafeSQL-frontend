@@ -4,14 +4,14 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from 'src/app/services/user/user.service';
 
 @Component({
-  selector: 'app-update-user',
-  templateUrl: './update-user.component.html',
-  styleUrls: ['./update-user.component.css']
+  selector: 'app-update-admin',
+  templateUrl: './update-admin.component.html',
+  styleUrls: ['./update-admin.component.css']
 })
-export class UpdateUserComponent implements OnInit{
+export class UpdateAdminComponent implements OnInit{
 
   user: any = null;
-  userUpdateForm: FormGroup;
+  adminUpdateForm: FormGroup;
   email: String;
   name : String;
   surname : String;
@@ -48,7 +48,7 @@ export class UpdateUserComponent implements OnInit{
 
     initForm() {
 
-      this.userUpdateForm = this.fb.group({
+      this.adminUpdateForm = this.fb.group({
         name: ['', [Validators.required, Validators.minLength(3)]],
         surname: ['', [Validators.required, Validators.minLength(3)]],
         password: ['', [Validators.required, Validators.pattern("(?=.*[! # $ % & ' ( ) * + , - . / : ; = > ? @ \  ^ _` { | } ~])(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,16}")]],
@@ -70,7 +70,7 @@ export class UpdateUserComponent implements OnInit{
 
   updateUser(): void {
     const email = this.activatedRoute.snapshot.params['email'];
-    this.userService.updateUser(this.userUpdateForm.value, email).subscribe(dato=>{
+    this.userService.updateAdmin(this.adminUpdateForm.value, email).subscribe(dato=>{
       console.log(dato);
       this.msgError = false
 

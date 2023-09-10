@@ -40,8 +40,12 @@ export class UserService {
   }
 
 
-  public update(user: User, email: String): Observable<User> {
+  public updateAdmin(user: User, email: String): Observable<User> {
     return this.httpClient.put<User>(this.adminURL + `update/${email}`, user);
+  }
+
+  public updateUser(user: User, email: String): Observable<User> {
+    return this.httpClient.post<User>(this.userURL + `update/${email}`, user);
   }
 
   public delete(email: String): Observable<any> {
@@ -115,6 +119,7 @@ export class UserService {
   public logout() {
     localStorage.removeItem('token');
     localStorage.removeItem('user');
+
     return true;
   }
 
@@ -128,7 +133,11 @@ export class UserService {
   }
 
   public setUser(user: any) {
-    localStorage.setItem('user', JSON.stringify(user))
+    localStorage.setItem('user', JSON.stringify(user));
+    localStorage.setItem('rol', JSON.stringify(user.authorities[0].authority));
+    localStorage.setItem('email', JSON.stringify(user.email));
+
+
   }
 
   public getUser() {
