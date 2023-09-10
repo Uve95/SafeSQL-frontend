@@ -34,7 +34,6 @@ export class UpdateAdminComponent implements OnInit{
         this.user = data;
         this.name = data.name;
         this.surname = data.surname;
-        this.password = data.password;
         this.email = data.email;
 
       },
