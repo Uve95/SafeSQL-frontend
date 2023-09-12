@@ -2,7 +2,6 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/user/user.service';
-import { Graphics } from '../graphics/graphics.component';
 
 @Component({
   selector: 'app-user-checklist',
@@ -235,7 +234,7 @@ export class UserChecklistComponent implements OnInit {
         this.msgError = false
         let info: string[] = dato;
         this.userService.setChecklist(info);
-        this.router.navigate(['prueba']);
+        this.router.navigate(['user/report']);
 
 
       }, err => {

@@ -11,8 +11,8 @@ import { AdminGuard } from 'src/app/services/user/admin.guard';
 import { UserGuard } from 'src/app/services/user/user.guard';
 import { UserDashboardComponent } from './pages/user-dashboard/user-dashboard.component';
 import { UserChecklistComponent } from './pages/user-checklist/user-checklist.component';
-import { Graphics } from './pages/graphics/graphics.component';
 import { UpdateAdminComponent } from './pages/update-admin/update-admin.component';
+import { ReportComponent } from './pages/report/report.component';
 
 
 const routes: Routes = [
@@ -26,27 +26,37 @@ const routes: Routes = [
     component: LoginComponent
   },
   {
-    path: 'user/home',
+    path: 'user/dashboard',
     component: UserDashboardComponent,
-    canActivate:[UserGuard]
+    canActivate: [UserGuard]
 
-  },
+  }
+  ,
+
+  {
+    path: 'user/report',
+    component: ReportComponent,
+    canActivate: [UserGuard]
+
+
+  }
+  ,
   {
     path: 'user/checklist',
     component: UserChecklistComponent,
-    //canActivate:[UserGuard]
+    canActivate: [UserGuard]
 
   },
   {
     path: 'admin/admin',
     component: UserListComponent,
-    canActivate:[AdminGuard]
+    canActivate: [AdminGuard]
 
   },
   {
     path: 'admin/list',
     component: UserListComponent,
-    canActivate:[AdminGuard]
+    canActivate: [AdminGuard]
   },
 
   {
@@ -69,7 +79,7 @@ const routes: Routes = [
   {
     path: 'user/update/:email',
     component: UpdateUserComponent,
-    canActivate:[UserGuard]
+    canActivate: [UserGuard]
 
 
   }
@@ -77,22 +87,17 @@ const routes: Routes = [
   {
     path: 'admin/update/:email',
     component: UpdateAdminComponent,
-    canActivate:[AdminGuard]
+    canActivate: [AdminGuard]
 
   }
   ,
   {
     path: 'admin/details/:email',
     component: DetailsUserComponent,
-    canActivate:[AdminGuard]
-
-  },
-
-  {
-    path: 'prueba',
-    component: Graphics,
+    canActivate: [AdminGuard]
 
   }
+
 ];
 
 @NgModule({

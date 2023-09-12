@@ -47,7 +47,6 @@ export class NavbarComponent implements OnInit {
 
   public userRole(){
 
-    console.log()
     if(localStorage.getItem("rol")?.replace(/['"]+/g, '') == "ADMIN"){
       return 'ADMIN';
     }else{
@@ -58,7 +57,6 @@ export class NavbarComponent implements OnInit {
   }
 
   public userEmail(){
-    console.log(localStorage.getItem("email")?.replace(/['"]+/g, ''))
     return localStorage.getItem("email")?.replace(/['"]+/g, '');
   }
 

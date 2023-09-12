@@ -20,8 +20,13 @@ import { NavbarComponent } from './pages/navbar/navbar.component';
 import { ColorPickerModule } from "ngx-color-picker";
 import { NgChartsModule } from 'ng2-charts';
 import { UserChecklistComponent } from "./pages/user-checklist/user-checklist.component";
-import { Graphics } from "./pages/graphics/graphics.component";
+import { GraphicsComponent } from "./pages/graphics/graphics.component";
 import { UpdateAdminComponent } from './pages/update-admin/update-admin.component';
+import { ReportComponent } from './pages/report/report.component';
+import { ReportOKComponent } from './pages/report-ok/report-ok.component';
+import { ReportNOKComponent } from "./pages/report-nok/report-nok.component";
+
+
 
 
 
@@ -38,9 +43,11 @@ import { UpdateAdminComponent } from './pages/update-admin/update-admin.componen
     UserDashboardComponent,
     NavbarComponent,
     UserChecklistComponent ,
-    Graphics,
-    UpdateAdminComponent  
-    
+    GraphicsComponent,
+    UpdateAdminComponent,
+    ReportComponent,
+    ReportOKComponent,
+    ReportNOKComponent  
 
   ],
   imports: [
@@ -54,10 +61,13 @@ import { UpdateAdminComponent } from './pages/update-admin/update-admin.componen
     MatIconModule,
     ColorPickerModule,
     NgChartsModule,
+    
 
     
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule { 
+
+}

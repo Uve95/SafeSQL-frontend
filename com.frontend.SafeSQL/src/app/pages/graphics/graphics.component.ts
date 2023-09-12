@@ -13,7 +13,7 @@ import { ColorFormats } from 'ngx-color-picker/lib/formats';
   templateUrl: './graphics.component.html',
   styleUrls: ['./graphics.component.css'],
 })
-export class Graphics implements OnInit {
+export class GraphicsComponent implements OnInit {
 
 
   infoSelect: string[]
