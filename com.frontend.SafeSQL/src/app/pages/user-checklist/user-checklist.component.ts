@@ -14,46 +14,22 @@ export class UserChecklistComponent implements OnInit {
   msgError: boolean;
   msgOpt: boolean = false;
 
-  check1: boolean = true;
-  check2: boolean = true;
-  check3: boolean = true;
-  check4: boolean = true;
-  check5: boolean = true;
-  check6: boolean = true;
-  check7: boolean = true;
-  check8: boolean = true;
-  check9: boolean = true;
-  check10: boolean = true;
-  check11: boolean = true;
-  check12: boolean = true;
-  check13: boolean = true;
-  check14: boolean = true;
-  check15: boolean = true;
+  listchecks: boolean[] = Array.from({ length: 71 }, () => true);
 
-  listchecks: boolean[] = [
-    this.check1, this.check2, this.check3, this.check4, this.check5, this.check6, this.check7, this.check8, this.check9, this.check10, this.check11, this.check12, this.check13, this.check14, this.check15
-  ]
 
   checks(event: any, id: string) {
 
-    if (id == "check1") {
-      if (event.target.checked) {
-        this.listchecks[0] = true;
-      } else {
-        this.listchecks[0] = false;
-      }
-    }
+    //Configuración
 
-    if (id == "check2") {
+    if (id == "check1") {
       if (event.target.checked) {
         this.listchecks[1] = true;
       } else {
         this.listchecks[1] = false;
       }
-
     }
 
-    if (id == "check3") {
+    if (id == "check2") {
       if (event.target.checked) {
         this.listchecks[2] = true;
       } else {
@@ -62,7 +38,7 @@ export class UserChecklistComponent implements OnInit {
 
     }
 
-    if (id == "check4") {
+    if (id == "check3") {
       if (event.target.checked) {
         this.listchecks[3] = true;
       } else {
@@ -71,7 +47,7 @@ export class UserChecklistComponent implements OnInit {
 
     }
 
-    if (id == "check5") {
+    if (id == "check4") {
       if (event.target.checked) {
         this.listchecks[4] = true;
       } else {
@@ -80,7 +56,7 @@ export class UserChecklistComponent implements OnInit {
 
     }
 
-    if (id == "check6") {
+    if (id == "check5") {
       if (event.target.checked) {
         this.listchecks[5] = true;
       } else {
@@ -89,43 +65,9 @@ export class UserChecklistComponent implements OnInit {
 
     }
 
-    if (id == "check7") {
-      if (event.target.checked) {
-        this.listchecks[6] = true;
-      } else {
-        this.listchecks[6] = false;
-      }
-
-    }
-
-    if (id == "check8") {
-      if (event.target.checked) {
-        this.listchecks[7] = true;
-      } else {
-        this.listchecks[7] = false;
-      }
-
-    }
-
-    if (id == "check9") {
-      if (event.target.checked) {
-        this.listchecks[8] = true;
-      } else {
-        this.listchecks[8] = false;
-      }
-
-    }
+    //Red
 
     if (id == "check10") {
-      if (event.target.checked) {
-        this.listchecks[9] = true;
-      } else {
-        this.listchecks[9] = false;
-      }
-
-    }
-
-    if (id == "check11") {
       if (event.target.checked) {
         this.listchecks[10] = true;
       } else {
@@ -134,53 +76,131 @@ export class UserChecklistComponent implements OnInit {
 
     }
 
-    if (id == "check12") {
+    //Permisos
+
+    if (id == "check20") {
       if (event.target.checked) {
-        this.listchecks[11] = true;
+        this.listchecks[20] = true;
       } else {
-        this.listchecks[11] = false;
+        this.listchecks[20] = false;
+      }
+
+    }
+
+    if (id == "check21") {
+      if (event.target.checked) {
+        this.listchecks[21] = true;
+      } else {
+        this.listchecks[21] = false;
+      }
+
+    }
+
+    //Politica de contraseñas
+
+    if (id == "check30") {
+      if (event.target.checked) {
+        this.listchecks[30] = true;
+      } else {
+        this.listchecks[30] = false;
+      }
+
+    }
+
+    if (id == "check31") {
+      if (event.target.checked) {
+        this.listchecks[31] = true;
+      } else {
+        this.listchecks[31] = false;
+      }
+
+    }
+
+    //Revision de inicios de sesion
+
+    if (id == "check40") {
+      if (event.target.checked) {
+        this.listchecks[40] = true;
+      } else {
+        this.listchecks[40] = false;
+      }
+
+    }
+
+    if (id == "check41") {
+      if (event.target.checked) {
+        this.listchecks[41] = true;
+      } else {
+        this.listchecks[41] = false;
       }
 
 
     }
 
-    if (id == "check13") {
+    if (id == "check42") {
       if (event.target.checked) {
-        this.listchecks[12] = true;
+        this.listchecks[42] = true;
       } else {
-        this.listchecks[12] = false;
+        this.listchecks[42] = false;
       }
 
     }
 
-    if (id == "check14") {
+    //Mantenimiento
+
+    if (id == "check50") {
       if (event.target.checked) {
-        this.listchecks[13] = true;
+        this.listchecks[50] = true;
       } else {
-        this.listchecks[13] = false;
+        this.listchecks[50] = false;
       }
 
     }
 
-    if (id == "check15") {
+    //Datos sensibles
+
+    if (id == "check60") {
       if (event.target.checked) {
-        this.listchecks[14] = true;
+        this.listchecks[60] = true;
       } else {
-        this.listchecks[14] = false;
+        this.listchecks[60] = false;
+      }
+    }
+
+    if (id == "check61") {
+      if (event.target.checked) {
+        this.listchecks[61] = true;
+      } else {
+        this.listchecks[61] = false;
       }
 
     }
 
-    if ( this.listchecks[0] == false && this.listchecks[1] == false && this.listchecks[2] == false && this.listchecks[3] == false && this.listchecks[4] == false
-      && this.listchecks[5] == false && this.listchecks[6] == false && this.listchecks[7] == false && this.listchecks[8] == false
-      && this.listchecks[9] == false && this.listchecks[10] == false && this.listchecks[11] == false && this.listchecks[12] == false
-      && this.listchecks[13] == false && this.listchecks[14] == false)  {
+    //Roles
+
+    if (id == "check70") {
+      if (event.target.checked) {
+        this.listchecks[70] = true;
+      } else {
+        this.listchecks[70] = false;
+      }
+
+    }
+
+
+    if (this.listchecks[1] == false && this.listchecks[2] == false && this.listchecks[3] == false && this.listchecks[4] == false
+      && this.listchecks[5] == false && this.listchecks[6] == false && this.listchecks[10] == false && this.listchecks[20] == false && this.listchecks[21] == false
+      && this.listchecks[30] == false && this.listchecks[31] == false && this.listchecks[40] == false && this.listchecks[41] == false
+      && this.listchecks[42] == false && this.listchecks[50] == false && this.listchecks[60] == false && this.listchecks[61] == false && this.listchecks[70] == false
+    ) {
 
       this.msgOpt = true;
 
     } else {
       this.msgOpt = false;
     }
+
+    console.log(this.listchecks)
   }
 
   constructor(
@@ -193,7 +213,8 @@ export class UserChecklistComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.initForm();
+    this.initForm()
+    console.log(this.listchecks)
 
   }
 
@@ -205,23 +226,22 @@ export class UserChecklistComponent implements OnInit {
       check3: ['', [Validators.required,]],
       check4: ['', [Validators.required,]],
       check5: ['', [Validators.required,]],
-      check6: ['', [Validators.required,]],
-      check7: ['', [Validators.required,]],
-      check8: ['', [Validators.required,]],
-      check9: ['', [Validators.required,]],
       check10: ['', [Validators.required,]],
-      check11: ['', [Validators.required,]],
-      check12: ['', [Validators.required,]],
-      check13: ['', [Validators.required,]],
-      check14: ['', [Validators.required,]],
-      check15: ['', [Validators.required,]]
+      check20: ['', [Validators.required,]],
+      check21: ['', [Validators.required,]],
+      check30: ['', [Validators.required,]],
+      check40: ['', [Validators.required,]],
+      check41: ['', [Validators.required,]],
+      check42: ['', [Validators.required,]],
+      check50: ['', [Validators.required,]],
+      check61: ['', [Validators.required,]],
+      check70: ['', [Validators.required,]]
 
 
     })
   }
 
   onSubmit() {
-    console.log(this.listchecks)
     this.checklistUser();
   }
 
@@ -229,10 +249,11 @@ export class UserChecklistComponent implements OnInit {
 
   checklistUser() {
 
+    console.log(this.listchecks.values)
     this.userService.checklist(this.listchecks, this.userService.getUser().email).subscribe(
       dato => {
         this.msgError = false
-        let info: string[] = dato;
+        let info: any = dato;
         this.userService.setChecklist(info);
         this.router.navigate(['user/report']);
 

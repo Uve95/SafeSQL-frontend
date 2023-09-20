@@ -14,6 +14,7 @@
             <td>Modo de autenticación</td>
 
             <td>
+
                 <div *ngIf="this.getChecklist1()==1">
                     <img src="./assets/NOK.jpg" height="30" width="30" loading="lazy" />
                 </div>
@@ -49,8 +50,10 @@
             </td>
         </tr>
         <tr>
-            <th scope="row">Red</th>
-            <td>Cifrado de conexiones entrantes</td>
+
+        <tr>
+            <th scope="row"></th>
+            <td>Auditorias de acceso</td>
             <td>
 
                 <div *ngIf="this.getChecklist4()==1">
@@ -62,8 +65,9 @@
             </td>
         </tr>
         <tr>
-            <th scope="row">Permisos</th>
-            <td>Permisos asociados al usuario guest</td>
+        <tr>
+            <th scope="row"></th>
+            <td>Actualizaciones SQL Server</td>
             <td>
 
                 <div *ngIf="this.getChecklist5()==1">
@@ -75,60 +79,9 @@
             </td>
         </tr>
         <tr>
-            <th scope="row"></th>
-            <td>Permisos de la función base de datos publica</td>
-            <td>
-
-                <div *ngIf="this.getChecklist6()==1">
-                    <img src="./assets/NOK.jpg" height="30" width="30" loading="lazy" />
-                </div>
-                <div *ngIf="this.getChecklist6()==-1" class="text-danger">
-                    <img src="./assets/WARNING.jpg" height="30" width="30" loading="lazy" />
-                </div>
-            </td>
-        </tr>
         <tr>
-            <th scope="row">Políticas de contraseñas</th>
-            <td>Contraseñas inseguras</td>
-            <td>
-
-                <div *ngIf="this.getChecklist7()==1">
-                    <img src="./assets/NOK.jpg" height="30" width="30" loading="lazy" />
-                </div>
-                <div *ngIf="this.getChecklist7()==-1" class="text-danger">
-                    <img src="./assets/WARNING.jpg" height="30" width="30" loading="lazy" />
-                </div>
-            </td>
-        </tr>
-        <tr>
-            <th scope="row"></th>
-            <td>Revisiones periodicas de contraseñas no seguras</td>
-            <td>
-
-                <div *ngIf="this.getChecklist8()==1">
-                    <img src="./assets/NOK.jpg" height="30" width="30" loading="lazy" />
-                </div>
-                <div *ngIf="this.getChecklist8()==-1" class="text-danger">
-                    <img src="./assets/WARNING.jpg" height="30" width="30" loading="lazy" />
-                </div>
-            </td>
-        </tr>
-        <tr>
-            <th scope="row">Revisión de inicios de sesión</th>
-            <td>Inicios de sesion sin politica segura</td>
-            <td>
-
-                <div *ngIf="this.getChecklist9()==1">
-                    <img src="./assets/NOK.jpg" height="30" width="30" loading="lazy" />
-                </div>
-                <div *ngIf="this.getChecklist9()==-1" class="text-danger">
-                    <img src="./assets/WARNING.jpg" height="30" width="30" loading="lazy" />
-                </div>
-            </td>
-        </tr>
-        <tr>
-            <th scope="row"></th>
-            <td>Inicios de sesion no utilizados</td>
+            <th scope="row">Red</th>
+            <td>Cifrado de conexiones entrantes</td>
             <td>
 
                 <div *ngIf="this.getChecklist10()==1">
@@ -140,14 +93,92 @@
             </td>
         </tr>
         <tr>
+            <th scope="row">Permisos</th>
+            <td>Permisos asociados al usuario guest</td>
+            <td>
+
+                <div *ngIf="this.getChecklist20()==1">
+                    <img src="./assets/NOK.jpg" height="30" width="30" loading="lazy" />
+                </div>
+                <div *ngIf="this.getChecklist20()==-1" class="text-danger">
+                    <img src="./assets/WARNING.jpg" height="30" width="30" loading="lazy" />
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row"></th>
+            <td>Permisos de la función base de datos publica</td>
+            <td>
+
+                <div *ngIf="this.getChecklist21()==1">
+                    <img src="./assets/NOK.jpg" height="30" width="30" loading="lazy" />
+                </div>
+                <div *ngIf="this.getChecklist21()==-1" class="text-danger">
+                    <img src="./assets/WARNING.jpg" height="30" width="30" loading="lazy" />
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row">Políticas de contraseñas</th>
+            <td>Contraseñas inseguras</td>
+            <td>
+
+                <div *ngIf="this.getChecklist30()==1">
+                    <img src="./assets/NOK.jpg" height="30" width="30" loading="lazy" />
+                </div>
+                <div *ngIf="this.getChecklist30()==-1" class="text-danger">
+                    <img src="./assets/WARNING.jpg" height="30" width="30" loading="lazy" />
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row"></th>
+            <td>Revisiones periodicas de contraseñas no seguras</td>
+            <td>
+
+                <div *ngIf="this.getChecklist31()==1">
+                    <img src="./assets/NOK.jpg" height="30" width="30" loading="lazy" />
+                </div>
+                <div *ngIf="this.getChecklist31()==-1" class="text-danger">
+                    <img src="./assets/WARNING.jpg" height="30" width="30" loading="lazy" />
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row">Revisión de inicios de sesión</th>
+            <td>Inicios de sesion sin politica segura</td>
+            <td>
+
+                <div *ngIf="this.getChecklist40()==1">
+                    <img src="./assets/NOK.jpg" height="30" width="30" loading="lazy" />
+                </div>
+                <div *ngIf="this.getChecklist40()==-1" class="text-danger">
+                    <img src="./assets/WARNING.jpg" height="30" width="30" loading="lazy" />
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row"></th>
+            <td>Inicios de sesion no utilizados</td>
+            <td>
+
+                <div *ngIf="this.getChecklist41()==1">
+                    <img src="./assets/NOK.jpg" height="30" width="30" loading="lazy" />
+                </div>
+                <div *ngIf="this.getChecklist41()==-1" class="text-danger">
+                    <img src="./assets/WARNING.jpg" height="30" width="30" loading="lazy" />
+                </div>
+            </td>
+        </tr>
+        <tr>
             <th scope="row"></th>
             <td>Inicios de sesión fallidos</td>
             <td>
 
-                <div *ngIf="this.getChecklist11()==1">
+                <div *ngIf="this.getChecklist42()==1">
                     <img src="./assets/NOK.jpg" height="30" width="30" loading="lazy" />
                 </div>
-                <div *ngIf="this.getChecklist11()==-1" class="text-danger">
+                <div *ngIf="this.getChecklist42()==-1" class="text-danger">
                     <img src="./assets/WARNING.jpg" height="30" width="30" loading="lazy" />
                 </div>
             </td>
@@ -157,10 +188,10 @@
             <td>Plan de mantenimiento</td>
             <td>
 
-                <div *ngIf="this.getChecklist12()==1">
+                <div *ngIf="this.getChecklist50()==1">
                     <img src="./assets/NOK.jpg" height="30" width="30" loading="lazy" />
                 </div>
-                <div *ngIf="this.getChecklist12()==-1" class="text-danger">
+                <div *ngIf="this.getChecklist50()==-1" class="text-danger">
                     <img src="./assets/WARNING.jpg" height="30" width="30" loading="lazy" />
                 </div>
             </td>
@@ -170,10 +201,10 @@
             <td>Datos sensibles</td>
             <td>
 
-                <div *ngIf="this.getChecklist13()==1">
+                <div *ngIf="this.getChecklist60()==1">
                     <img src="./assets/NOK.jpg" height="30" width="30" loading="lazy" />
                 </div>
-                <div *ngIf="this.getChecklist13()==-1" class="text-danger">
+                <div *ngIf="this.getChecklist60()==-1" class="text-danger">
                     <img src="./assets/WARNING.jpg" height="30" width="30" loading="lazy" />
                 </div>
             </td>
@@ -183,10 +214,10 @@
             <td>Datos cifrados</td>
             <td>
 
-                <div *ngIf="this.getChecklist14()==1">
+                <div *ngIf="this.getChecklist61()==1">
                     <img src="./assets/NOK.jpg" height="30" width="30" loading="lazy" />
                 </div>
-                <div *ngIf="this.getChecklist14()==-1" class="text-danger">
+                <div *ngIf="this.getChecklist61()==-1" class="text-danger">
                     <img src="./assets/WARNING.jpg" height="30" width="30" loading="lazy" />
                 </div>
             </td>
@@ -195,11 +226,10 @@
             <th scope="row">Roles</th>
             <td>Miembros con rol sysadmin</td>
             <td>
-
-                <div *ngIf="this.getChecklist15()==1">
+                <div *ngIf="this.getChecklist70()==1">
                     <img src="./assets/NOK.jpg" height="30" width="30" loading="lazy" />
                 </div>
-                <div *ngIf="this.getChecklist15()==-1" class="text-danger">
+                <div *ngIf="this.getChecklist70()==-1" class="text-danger">
                     <img src="./assets/WARNING.jpg" height="30" width="30" loading="lazy" />
                 </div>
             </td>

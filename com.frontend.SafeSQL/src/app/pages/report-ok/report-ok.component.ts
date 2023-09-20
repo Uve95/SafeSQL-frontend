@@ -78,29 +78,6 @@ export class ReportOKComponent implements OnInit {
     return Number(aux[5])
   }
 
-  getChecklist6():number {
-    let aux: string[] = this.getChecklist();
-
-    return Number(aux[6])
-  }
-
-  getChecklist7():number {
-    let aux: string[] = this.getChecklist();
-
-    return Number(aux[7])
-  }
-
-  getChecklist8():number {
-    let aux: string[] = this.getChecklist();
-
-    return Number(aux[8])
-  }
-
-  getChecklist9():number {
-    let aux: string[] = this.getChecklist();
-
-    return Number(aux[9])
-  }
 
   getChecklist10():number {
     let aux: string[] = this.getChecklist();
@@ -108,33 +85,70 @@ export class ReportOKComponent implements OnInit {
     return Number(aux[10])
   }
 
-  getChecklist11():number {
+  getChecklist20():number {
     let aux: string[] = this.getChecklist();
 
-    return Number(aux[11])
+    return Number(aux[20])
   }
 
-  getChecklist12():number {
+  getChecklist21():number {
     let aux: string[] = this.getChecklist();
 
-    return Number(aux[12])
+    return Number(aux[21])
   }
 
-  getChecklist13():number {
+  getChecklist30():number {
     let aux: string[] = this.getChecklist();
 
-    return Number(aux[13])
+    return Number(aux[30])
   }
 
-  getChecklist14():number {
+  getChecklist31():number {
     let aux: string[] = this.getChecklist();
 
-    return Number(aux[14])
+    return Number(aux[31])
   }
 
-  getChecklist15():number {
+  getChecklist40():number {
     let aux: string[] = this.getChecklist();
 
-    return Number(aux[15])
+    return Number(aux[40])
+  }
+
+  getChecklist41():number {
+    let aux: string[] = this.getChecklist();
+
+    return Number(aux[41])
+  }
+
+  getChecklist42():number {
+    let aux: string[] = this.getChecklist();
+
+    return Number(aux[42])
+  }
+
+  getChecklist50():number {
+    let aux: string[] = this.getChecklist();
+
+    return Number(aux[50])
+  }
+
+  getChecklist60():number {
+    let aux: string[] = this.getChecklist();
+
+    return Number(aux[60])
+  }
+
+  
+  getChecklist61():number {
+    let aux: string[] = this.getChecklist();
+
+    return Number(aux[61])
+  }
+
+  getChecklist70():number {
+    let aux: string[] = this.getChecklist();
+
+    return Number(aux[70])
   }
 }

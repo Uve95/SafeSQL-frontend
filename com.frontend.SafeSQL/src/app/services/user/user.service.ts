@@ -67,13 +67,13 @@ export class UserService {
     return this.httpClient.post<User>(this.userURL + `connectBD`, info);
   }
 
-  public checklist(listchecks:boolean[], info:string): Observable<any> {
+  public checklist(listchecks:boolean[], info:string): Observable<any[]> {
  
       let infos:string[] = [];
       infos.push(String(listchecks));
       infos.push(info);
 
-      return this.httpClient.post<any>(this.userURL + `checklist`, infos);
+      return this.httpClient.post<any[]>(this.userURL + `checklist`, infos);
   }
 
 

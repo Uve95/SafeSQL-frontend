@@ -1,1 +1,23 @@
-.navbar{padding: 1%}
+.h-100 {
+  padding: 0%
+}
+
+.card {
+  padding: 0%;
+  margin-top: 5%;
+}
+
+
+.btn.btn-success, 
+.btn.btn-link {
+  color: white;
+  border-color: white;
+  background-color: inherit;
+}
+
+.navbar.navbar-expand-lg{
+  color: #ffffff;
+  background-image: url('\src\assets\fondo.jpg');
+  border-color: purple;
+
+}

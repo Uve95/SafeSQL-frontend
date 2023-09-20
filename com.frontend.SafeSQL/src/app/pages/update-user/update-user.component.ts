@@ -34,7 +34,6 @@ export class UpdateUserComponent implements OnInit{
         this.user = data;
         this.name = data.name;
         this.surname = data.surname;
-        this.password = data.password;
         this.email = data.email;
 
       },
@@ -82,7 +81,7 @@ export class UpdateUserComponent implements OnInit{
   }
 
   back(): void {
-    window.history.back();
+    this.router.navigate(['/user/dashboard']);
   }
 
 }

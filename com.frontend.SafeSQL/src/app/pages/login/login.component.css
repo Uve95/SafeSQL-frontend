@@ -1,2 +1,27 @@
-.h-100{padding: 0%}
-.card{padding: 0%; margin-top: 5%;}
+.h-100 {
+    padding: 0%
+}
+
+.card {
+    padding: 0%;
+    margin-top: 20%;
+    margin-right: 0%;
+    margin-left: 0%;
+
+
+}
+
+body {
+    background-image: url('\src\assets\fondo.jpg');
+    background-size: auto;
+    /* Ajusta la imagen al tamaño de la ventana del navegador */
+    background-repeat: no-repeat;
+    /* Evita que la imagen se repita */
+}
+
+.btn.btn-primary,
+.btn.btn-primary.active {
+    color: #ffffff;
+    background-color: purple;
+    border-color: purple;
+}
