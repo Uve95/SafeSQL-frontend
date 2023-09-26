@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from 'src/app/services/user/user.service';
 
 @Component({
@@ -11,6 +11,9 @@ import { UserService } from 'src/app/services/user/user.service';
 export class NavbarComponent implements OnInit {
 
   user: any = null;
+  token: any;
+  name: string;
+  surname: string;
 
   //isLoggedIn = false;
   //userRole:any = null;
@@ -18,6 +21,7 @@ export class NavbarComponent implements OnInit {
 
   constructor(
     private userService: UserService,
+    private activatedRoute: ActivatedRoute,
     private router: Router,
   ) {
   }
@@ -56,8 +60,11 @@ export class NavbarComponent implements OnInit {
 
   }
 
-  public userEmail(){
-    return localStorage.getItem("email")?.replace(/['"]+/g, '');
+  public userToken(){
+
+    this.token = this.userService.getUser().token;
+    console.log(this.token)
+    return this.token;
   }
 
   public back() {

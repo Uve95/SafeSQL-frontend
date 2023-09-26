@@ -61,7 +61,7 @@
 
 								<div class="mb-3">
 									<label class="mb-2 text-muted" for="email">Contraseña</label>
-									<input type="password" id="password" name="password" placeholder={{password}}
+									<input type="password" id="password" name="password" placeholder="****"
 										formControlName="password" class="form-control">
 
 
@@ -79,8 +79,8 @@
 
 								<div class="mb-3">
 									<label class="mb-2 text-muted" for="passwordConfirm">Confirme su contraseña</label>
-									<input type="password" id="passwordConfirm" name="passwordConfirm"
-										placeholder={{password}} formControlName="passwordConfirm" class="form-control">
+									<input type="password" id="passwordConfirm" name="passwordConfirm" placeholder="****"
+										formControlName="passwordConfirm" class="form-control">
 
 
 									<div *ngIf="adminUpdateForm.get('passwordConfirm')?.touched && adminUpdateForm.get('passwordConfirm')?.errors?.['required'] "

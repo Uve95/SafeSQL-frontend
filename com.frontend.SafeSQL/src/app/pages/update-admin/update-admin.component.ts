@@ -16,6 +16,7 @@ export class UpdateAdminComponent implements OnInit{
   name : String;
   surname : String;
   password : String;
+  token:String
 
   msgError: boolean;
 
@@ -29,8 +30,8 @@ export class UpdateAdminComponent implements OnInit{
 
 
     ngOnInit() {
-      this.email = this.activatedRoute.snapshot.params['email'];
-      this.userService.details(this.email).subscribe(data => {
+      this.token = this.activatedRoute.snapshot.params['token'];
+      this.userService.details(this.token).subscribe(data => {
         this.user = data;
         this.name = data.name;
         this.surname = data.surname;

@@ -17,8 +17,8 @@ export class DetailsUserComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit() {
-    const email = this.activatedRoute.snapshot.params['email'];
-    this.userService.details(email).subscribe(data => {
+    const token = this.activatedRoute.snapshot.params['token'];
+    this.userService.details(token).subscribe(data => {
       this.user = data;
       this.user.email = data.email;
       this.user.name = data.name;

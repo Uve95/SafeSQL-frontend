@@ -77,7 +77,7 @@ const routes: Routes = [
   }
   ,
   {
-    path: 'user/update/:email',
+    path: 'user/update/:token',
     component: UpdateUserComponent,
     canActivate: [UserGuard]
 
@@ -85,14 +85,14 @@ const routes: Routes = [
   }
   ,
   {
-    path: 'admin/update/:email',
+    path: 'admin/update/:token',
     component: UpdateAdminComponent,
     canActivate: [AdminGuard]
 
   }
   ,
   {
-    path: 'admin/details/:email',
+    path: 'admin/details/:token',
     component: DetailsUserComponent,
     canActivate: [AdminGuard]
 
