@@ -2,24 +2,21 @@
 <html lang="en">
 
 <head>
-
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href=".\register-user.component.css" type="text/css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 
-<body>
-	<section class="h-100">
-		<div class="container h-100">
-			<div class="row justify-content-sm-center h-100">
-				<div class="col-xxl-4 col-xl-5 col-lg-5 col-md-7 col-sm-9">
-
-					<div class="card shadow-lg">
-						<div class="card-body p-5">
-							<h1 class="fs-4 card-title fw-bold mb-4 text-center">Registro</h1>
+	<div class="form container s-center">
+		
+							<h1 class="fs-4 card-title fw-bold mb-4 text-center label-white">Registro</h1>
 							<form [formGroup]="userForm" (ngSubmit)="onSubmit()" autocomplete="off">
 
 								<!-- *****************INPUT NAME***************** -->
 
 								<div class="mb-3">
-									<label class="mb-2 text-muted" for="name">Nombre</label>
+									<label class="label-white" for="name">Nombre</label>
 									<input type="text" id="name" name="name" required formControlName="name"
 										class="form-control">
 
@@ -34,7 +31,7 @@
 								<!-- *****************INPUT APELLIDOS***************** -->
 
 								<div class="mb-3">
-									<label class="mb-2 text-muted" for="surname">Apellidos</label>
+									<label class="label-white" for="surname">Apellidos</label>
 									<input type="text" id="surname" name="surname" required formControlName="surname"
 										class="form-control">
 
@@ -50,7 +47,7 @@
 								<!-- *****************INPUT CORREO***************** -->
 
 								<div class="mb-3">
-									<label class="mb-2 text-muted" for="email">Dirección de correo electronico</label>
+									<label class="label-white" for="email">Dirección de correo electronico</label>
 									<input type="text" id="surname" name="email" required formControlName="email"
 										class="form-control">
 
@@ -65,7 +62,7 @@
 								<!-- *****************INPUT CONTRASEÑA***************** -->
 
 								<div class="mb-3">
-									<label class="mb-2 text-muted" for="email">Contraseña</label>
+									<label class="label-white" for="email">Contraseña</label>
 									<input type="text" id="password" name="password" required formControlName="password"
 										class="form-control">
 
@@ -83,7 +80,7 @@
 								<!-- *****************INPUT CONFIRMACIÓN CONTRASEÑA***************** -->
 
 								<div class="mb-3">
-									<label class="mb-2 text-muted" for="passwordConfirm">Confirme su contraseña</label>
+									<label class="label-white" for="passwordConfirm">Confirme su contraseña</label>
 									<input type="text" id="passwordConfirm" name="passwordConfirm" required
 										formControlName="passwordConfirm" class="form-control">
 
@@ -116,18 +113,8 @@
 
 								</div>
 							</form>
-						</div>
 
 					</div>
-					<div class="text-center mt-5 text-muted">
-						Copyright &copy; 2017-2021 &mdash; Your Company
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-
-	<script src="js/login.js"></script>
-</body>
+					
 
 </html>

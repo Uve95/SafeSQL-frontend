@@ -4,100 +4,86 @@
 <head>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href=".\login.component.css" type="text/css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 
-<body>
-	<section class="h-100">
-		<div class="container h-100">
-			<div class="row justify-content-sm-center h-100">
-				<div class="col-xxl-4 col-xl-5 col-lg-5 col-md-7 col-sm-9">
-
-					<div class="card shadow-lg">
-						<div class="card-body p-5">
-							<form [formGroup]="loginForm" (ngSubmit)="onSubmit()" autocomplete="off">
-
-								<!-- *****************INPUT CORREO***************** -->
-
-								<div class="mb-3">
-									<label class="mb-2 text-muted" for="email">Dirección de correo electronico</label>
-									<input type="text" id="email" name="email" formControlName="email"
-										class="form-control" required>
-
-									<div *ngIf="loginForm.get('email')?.touched && loginForm.get('email')?.errors?.['required']"
-										class="text-danger"> Campo requerido</div>
-
-									<div *ngIf="loginForm.get('email')?.touched && loginForm.get('email')?.errors?.['pattern']"
-										class="text-danger"> Por favor, introduzca un correo valido</div>
-
-								</div>
-
-								<!-- *****************INPUT CONTRASEÑA***************** -->
-
-								<div class="mb-3">
-									<div class="text-end" style="font-size: small">
-										<a href="user/forgotPassword">
-											¿Has olvidado tu contraseña?
-										</a>
-									</div>
 
 
-									<label class="mb-2 text-muted" for="password">Contraseña</label>
+	<div class="form container s-center">
+
+		<form [formGroup]="loginForm" (ngSubmit)="onSubmit()" autocomplete="off">
+
+			<!-- *****************INPUT CORREO***************** -->
+
+			<div class="mb-3">
+				<label class="label-white" for="email">Dirección de correo electronico</label>
+				<input type="text" id="email" name="email" formControlName="email" class="form-control" required>
+
+				<div *ngIf="loginForm.get('email')?.touched && loginForm.get('email')?.errors?.['required']"
+					class="text-danger"> Campo requerido</div>
+
+				<div *ngIf="loginForm.get('email')?.touched && loginForm.get('email')?.errors?.['pattern']"
+					class="text-danger"> Por favor, introduzca un correo valido</div>
+
+			</div>
+
+			<!-- *****************INPUT CONTRASEÑA***************** -->
+
+			<div class="mb-3">
+				<div class="text-end" style="font-size: small">
+					<a href="user/forgotPassword">
+						¿Has olvidado tu contraseña?
+					</a>
+				</div>
 
 
-										<div class="input-group-append" *ngIf="this.showPassword == false">
-											<input type="password" id="password" name="password" formControlName="password"
-											class="form-control" required>
-											<button id="hidePassword" class="btn btn-primary" type="button"
-												(click)="this.show($event)" > <span
-													class="fa fa-eye-slash icon"></span>
-											</button>
-										</div>
+				<label class="label-white" for="password">Contraseña</label>
 
-										<div class="input-group-append" *ngIf="this.hidePassword == false">
-											<input type="text" id="password" name="password" formControlName="password"
-											class="form-control" required>
 
-											<button id="showPassword" class="btn btn-primary" type="button"
-												(click)="this.hide($event) "> <span
-													class="fa fa-eye icon"></span>
-											</button>
-										</div>
+				<div class="input-group-append" *ngIf="this.showPassword == false">
+					<input type="password" id="password" name="password" formControlName="password" class="form-control"
+						required>
+					<button id="hidePassword" class="btn btn-primary" type="button" (click)="this.show($event)">
+						<span class="fa fa-eye-slash icon"></span>
+					</button>
+				</div>
 
-										<div *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.errors?.['required']"
-											class="text-danger"> Campo requerido</div>
-									</div>
+				<div class="input-group-append" *ngIf="this.hidePassword == false">
+					<input type="text" id="password" name="password" formControlName="password" class="form-control"
+						required>
+
+					<button id="showPassword" class="btn btn-primary" type="button" (click)="this.hide($event) "> <span
+							class="fa fa-eye icon"></span>
+					</button>
+				</div>
+
+				<div *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.errors?.['required']"
+					class="text-danger"> Campo requerido</div>
+			</div>
 
 
 
-								<div class="mb-3 text-center lg">
+			<div class="mb-3 text-center lg">
 
-									<button type="submit" class=" btn btn-primary ms-auto form-control"
-										[disabled]="loginForm.invalid">
+				<button type="submit" class=" btn btn-primary ms-auto form-control" [disabled]="loginForm.invalid">
 
-										Iniciar sesión
-									</button>
-								</div>
-								<div class="mb-3">
+					Iniciar sesión
+				</button>
+			</div>
+			<div class="mb-3">
 
-									<div class="alert alert-danger" *ngIf="msgError"> Credenciales invalidas
-									</div>
-
-								</div>
-
-
-							</form>
-						</div>
-
-
-					</div>
-
+				<div class="alert alert-danger" *ngIf="msgError"> Credenciales invalidas
 				</div>
 
 			</div>
-		</div>
-	</section>
 
-</body>
 
-</html>
+		</form>
+
+
+	</div>
+
+
+
+

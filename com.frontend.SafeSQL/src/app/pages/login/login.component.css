@@ -1,27 +1,36 @@
-.h-100 {
-    padding: 0%
-}
-
-.card {
-    padding: 0%;
-    margin-top: 20%;
-    margin-right: 0%;
-    margin-left: 0%;
 
 
-}
+/* Definir la animación de movimiento llamada "movimiento-fondo" */
 
-body {
-    background-image: url('\src\assets\fondo.jpg');
-    background-size: auto;
-    /* Ajusta la imagen al tamaño de la ventana del navegador */
-    background-repeat: no-repeat;
-    /* Evita que la imagen se repita */
-}
 
 .btn.btn-primary,
 .btn.btn-primary.active {
-    color: #ffffff;
-    background-color: purple;
-    border-color: purple;
+  color: #ffffff;
+  background-color: #ff00ff; /* Rosa neón brillante */
+
+  border-color:#ff00ff; /* Rosa neón brillante */
+
+  border: 2px solid #ff00ff; /* Borde sólido de 2px de ancho y color azul (#007bff) */
+  padding: 10px 20px; /* Espacio alrededor del texto del botón */
+  color: rgb(255, 255, 255); /* Color del texto */
+  cursor: pointer; /* Cambiar el cursor al pasar el mouse */
 }
+
+
+.form {
+
+  width: 30%;
+  height: 40%;
+  margin-top: 5%;
+  border-radius: 30px; /* Radio de las esquinas redondeadas */
+  padding: 40px; /* Espacio alrededor del formulario */
+  background-color: rgba(0, 0, 0, 0.719); /* Fondo transparente negro */
+
+
+}
+
+.label-white {
+  color: white;
+}
+
+
