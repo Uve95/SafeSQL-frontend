@@ -13,25 +13,29 @@ import { UserDashboardComponent } from './pages/user-dashboard/user-dashboard.co
 import { UserChecklistComponent } from './pages/user-checklist/user-checklist.component';
 import { UpdateAdminComponent } from './pages/update-admin/update-admin.component';
 import { ReportComponent } from './pages/report/report.component';
+import { UserConnectionComponent } from './pages/user-connection/user-connection.component';
 
 
 const routes: Routes = [
+
 
   {
     path: '',
     component: LoginComponent
   },
   {
-    path: 'login',
-    component: LoginComponent
-  },
-  {
     path: 'user/dashboard',
     component: UserDashboardComponent,
-    canActivate: [UserGuard]
 
   }
   ,
+
+  {
+    path: 'user/connection',
+    component: UserConnectionComponent,
+    //canActivate: [UserGuard]
+
+  },
 
   {
     path: 'user/report',

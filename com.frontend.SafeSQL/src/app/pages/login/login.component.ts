@@ -74,7 +74,6 @@ export class LoginComponent implements OnInit {
   generateToken() {
 
     this.userService.generateToken(this.loginForm.value).subscribe((data: any) => {
-      console.log(data)
 
       this.userService.loginUser(data.token);
       this.userService.getCurrentUser().subscribe((user: any) => {
@@ -83,7 +82,7 @@ export class LoginComponent implements OnInit {
 
         if (this.userService.getUserRole() == "USER") {
           //window.location.href = 'user/register';
-          this.router.navigate(['/user/dashboard'])
+          this.router.navigate(['/user/connection'])
           this.userService.loginStatusSubject.next(true);
 
         } 

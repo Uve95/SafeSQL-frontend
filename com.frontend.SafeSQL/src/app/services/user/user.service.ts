@@ -15,6 +15,8 @@ export class UserService {
   public loginStatusSubject = new Subject<boolean>();
   infoSelect: string[];
   infoConnect:string [];
+  BDName: string;
+  dataLoaded:boolean= false;
 
   //Endpoint del Backend
 
@@ -86,9 +88,20 @@ export class UserService {
     return this.infoSelect;
   }
 
+  public setBDName(info:string){
+    this.BDName = info;
+  }
   public getBDName(){
   
-    return this.httpClient.get(this.userURL + `actual-bd`);
+    return this.BDName;
+  }
+
+  markDataAsLoaded() {
+    this.dataLoaded = true;
+  }
+
+  isDataLoaded(): boolean {
+    return this.dataLoaded;
   }
 
   //Login
@@ -130,6 +143,9 @@ export class UserService {
 
   public getToken() {
     return localStorage.getItem('token');
+  }
+  public getEmail() {
+    return localStorage.getItem('email');
   }
 
   public setUser(user: any) {

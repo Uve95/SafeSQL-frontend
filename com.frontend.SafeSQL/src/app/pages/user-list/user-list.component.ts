@@ -29,6 +29,8 @@ export class UserListComponent implements OnInit {
       (err: any) => {
       console.log(err);
     }
+    setTimeout(this.loadUsers, 1000);
+
   }
 
   delete(email:String): void {

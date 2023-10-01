@@ -8,113 +8,107 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 
-	<div class="form container s-center">
-		
-							<h1 class="fs-4 card-title fw-bold mb-4 text-center label-white">Registro</h1>
-							<form [formGroup]="userForm" (ngSubmit)="onSubmit()" autocomplete="off">
+<div class="form container s-center">
 
-								<!-- *****************INPUT NAME***************** -->
+	<h1 class="fs-4 card-title fw-bold mb-4 text-center label-white">Registro</h1>
+	<form [formGroup]="userForm" (ngSubmit)="onSubmit()" autocomplete="off">
 
-								<div class="mb-3">
-									<label class="label-white" for="name">Nombre</label>
-									<input type="text" id="name" name="name" required formControlName="name"
-										class="form-control">
+		<!-- *****************INPUT NAME***************** -->
 
-									<div *ngIf="userForm.get('name')?.touched && userForm.get('name')?.errors?.['required']"
-										class="text-danger"> Campo requerido</div>
+		<div class="mb-3">
+			<label class="label-white" for="name">Nombre</label>
+			<input type="text" id="name" name="name" required formControlName="name" class="form-control">
 
-									<div *ngIf="userForm.get('name')?.touched && userForm.get('name')?.errors?.['minlength']"
-										class="text-danger"> Por favor, introduzca un nombre valido</div>
-								</div>
+			<div *ngIf="userForm.get('name')?.touched && userForm.get('name')?.errors?.['required']"
+				class="text-danger"> Campo requerido</div>
 
-
-								<!-- *****************INPUT APELLIDOS***************** -->
-
-								<div class="mb-3">
-									<label class="label-white" for="surname">Apellidos</label>
-									<input type="text" id="surname" name="surname" required formControlName="surname"
-										class="form-control">
+			<div *ngIf="userForm.get('name')?.touched && userForm.get('name')?.errors?.['minlength']"
+				class="text-danger"> Por favor, introduzca un nombre valido</div>
+		</div>
 
 
-									<div *ngIf="userForm.get('surname')?.touched && userForm.get('surname')?.errors?.['required']"
-										class="text-danger"> Campo requerido</div>
+		<!-- *****************INPUT APELLIDOS***************** -->
 
-									<div *ngIf="userForm.get('surname')?.touched && userForm.get('surname')?.errors?.['minlength']"
-										class="text-danger"> Por favor, introduzca un apellido valido</div>
-								</div>
-
-
-								<!-- *****************INPUT CORREO***************** -->
-
-								<div class="mb-3">
-									<label class="label-white" for="email">Dirección de correo electronico</label>
-									<input type="text" id="surname" name="email" required formControlName="email"
-										class="form-control">
+		<div class="mb-3">
+			<label class="label-white" for="surname">Apellidos</label>
+			<input type="text" id="surname" name="surname" required formControlName="surname" class="form-control">
 
 
-									<div *ngIf="userForm.get('email')?.touched && userForm.get('email')?.errors?.['required']"
-										class="text-danger"> Campo requerido</div>
+			<div *ngIf="userForm.get('surname')?.touched && userForm.get('surname')?.errors?.['required']"
+				class="text-danger"> Campo requerido</div>
 
-									<div *ngIf="userForm.get('email')?.touched && userForm.get('email')?.errors?.['pattern']"
-										class="text-danger"> Por favor, introduzca un correo valido</div>
-								</div>
-
-								<!-- *****************INPUT CONTRASEÑA***************** -->
-
-								<div class="mb-3">
-									<label class="label-white" for="email">Contraseña</label>
-									<input type="text" id="password" name="password" required formControlName="password"
-										class="form-control">
+			<div *ngIf="userForm.get('surname')?.touched && userForm.get('surname')?.errors?.['minlength']"
+				class="text-danger"> Por favor, introduzca un apellido valido</div>
+		</div>
 
 
-									<div *ngIf="userForm.get('password')?.touched && userForm.get('password')?.errors?.['required']"
-										class="text-danger"> Campo requerido</div>
+		<!-- *****************INPUT CORREO***************** -->
 
-									<div *ngIf="userForm.get('password')?.touched && userForm.get('password')?.errors?.['pattern']"
-										class="text-danger">
-										Por favor, introduzca una contraseña valida.
-										(Al menos un número, un caracter, una letra en mayúscula, una letra en minúscula
-										con una longitud entre 8 y 16 caracteres)</div>
-								</div>
-
-								<!-- *****************INPUT CONFIRMACIÓN CONTRASEÑA***************** -->
-
-								<div class="mb-3">
-									<label class="label-white" for="passwordConfirm">Confirme su contraseña</label>
-									<input type="text" id="passwordConfirm" name="passwordConfirm" required
-										formControlName="passwordConfirm" class="form-control">
+		<div class="mb-3">
+			<label class="label-white" for="email">Dirección de correo electronico</label>
+			<input type="text" id="surname" name="email" required formControlName="email" class="form-control">
 
 
-									<div *ngIf="userForm.get('passwordConfirm')?.touched && userForm.get('passwordConfirm')?.errors?.['required'] "
-										class="text-danger"> Campo requerido</div>
+			<div *ngIf="userForm.get('email')?.touched && userForm.get('email')?.errors?.['required']"
+				class="text-danger"> Campo requerido</div>
 
-									<div *ngIf=" userForm.get('passwordConfirm')?.touched && !checkPasswords(userForm)"
-										class="text-danger">
-										Las contraseñas no coinciden</div>
-								</div>
+			<div *ngIf="userForm.get('email')?.touched && userForm.get('email')?.errors?.['pattern']"
+				class="text-danger"> Por favor, introduzca un correo valido</div>
+		</div>
+
+		<!-- *****************INPUT CONTRASEÑA***************** -->
+
+		<div class="mb-3">
+			<label class="label-white" for="email">Contraseña</label>
+			<input type="password" id="password" name="password" required formControlName="password" class="form-control">
 
 
-								<div class="mb-3 text-center lg">
-									<button class=" btn btn-primary ms-auto form-control" type="submit"
-										[disabled]="userForm.invalid">
-										Registarse
-									</button>
-								</div>
+			<div *ngIf="userForm.get('password')?.touched && userForm.get('password')?.errors?.['required']"
+				class="text-danger"> Campo requerido</div>
 
-								<div class="mb-3 text-center lg">
+			<div *ngIf="userForm.get('password')?.touched && userForm.get('password')?.errors?.['pattern']"
+				class="text-danger">
+				Por favor, introduzca una contraseña valida.
+				(Al menos un número, un caracter, una letra en mayúscula, una letra en minúscula
+				con una longitud entre 8 y 16 caracteres)</div>
+		</div>
 
-									<div class="alert alert-danger" *ngIf="msgError"> Ha surgido un problema. Intentelo de nuevo.
-									</div>
-									<div class="alert alert-success" *ngIf="msgError == false"> El usuario ha sido creado correctamente.
-										<a href="/">
-											Inicie sesión
-										</a>
-									</div>
+		<!-- *****************INPUT CONFIRMACIÓN CONTRASEÑA***************** -->
 
-								</div>
-							</form>
+		<div class="mb-3">
+			<label class="label-white" for="passwordConfirm">Confirme su contraseña</label>
+			<input type="password" id="passwordConfirm" name="passwordConfirm" required formControlName="passwordConfirm"
+				class="form-control">
 
-					</div>
-					
+
+			<div *ngIf="userForm.get('passwordConfirm')?.touched && userForm.get('passwordConfirm')?.errors?.['required'] "
+				class="text-danger"> Campo requerido</div>
+
+			<div *ngIf=" userForm.get('passwordConfirm')?.touched && !checkPasswords(userForm)" class="text-danger">
+				Las contraseñas no coinciden</div>
+		</div>
+
+
+		<div class="mb-3 text-center lg">
+			<button class=" btn btn-primary ms-auto form-control" type="submit" [disabled]="userForm.invalid">
+				Registarse
+			</button>
+		</div>
+
+		<div class="mb-3 text-center lg">
+
+			<div class="alert alert-danger" *ngIf="msgError"> Ha surgido un problema. Intentelo de nuevo.
+			</div>
+			<div class="alert alert-success" *ngIf="msgError == false"> El usuario ha sido creado correctamente.
+				<a href="/">
+					Inicie sesión
+				</a>
+			</div>
+
+		</div>
+	</form>
+
+</div>
+
 
 </html>

@@ -12,9 +12,10 @@ import { UserChecklistComponent } from '../user-checklist/user-checklist.compone
 export class UserDashboardComponent implements OnInit {
 
   conexionForm: FormGroup;
-  error: string;
+  error: String;
   msgError: boolean;
   checklist: UserChecklistComponent;
+  BDname:any;
 
 
 
@@ -28,38 +29,22 @@ export class UserDashboardComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.initForm();
   }
 
   onSubmit() {
-
-    this.connectBD();
-  }
-
-  connectBD() {
-    this.userService.connectBD([this.conexionForm.value['cadena'],this.userService.getUser().email]).subscribe(
-      dato => {
-        this.msgError = false;
-        this.router.navigate(['user/checklist']);
-
-        //console.log(dato)
-
-      }, err => {
-
-        this.msgError = true
-      })
+    this.router.navigate(['']);
 
   }
 
+  getBDname(){
+    return this.userService.getBDName();
+  }
 
-  initForm() {
-
-    this.conexionForm = this.fb.group({
-      cadena: ['', [Validators.required, Validators.pattern("^jdbc:sqlserver://[^;]+;databaseName=[^;]+;user=[^;]+;password=[^;]+;trustServerCertificate=true;$")]],
-    })
+  
+  
 
   
 }
 
 
-}
+

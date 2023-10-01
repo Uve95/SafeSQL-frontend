@@ -12,7 +12,7 @@ export class UpdateUserComponent implements OnInit{
 
   user: any = null;
   userUpdateForm: FormGroup;
-  email: String;
+  email: any;
   name : String;
   surname : String;
   password : String;
@@ -30,8 +30,8 @@ export class UpdateUserComponent implements OnInit{
 
 
     ngOnInit() {
-      this.token = this.activatedRoute.snapshot.params['token'];
-      this.userService.details(this.token).subscribe(data => {
+      this.email = this.userService.getEmail();
+      this.userService.details(this.userService.getUser().token).subscribe(data => {
         this.user = data;
         this.name = data.name;
         this.surname = data.surname;
@@ -39,9 +39,10 @@ export class UpdateUserComponent implements OnInit{
 
       },
         err => {
-          this.router.navigate(['']);
+          window.history.back();
         }
       );
+
      this.initForm();
     }
  
@@ -69,8 +70,7 @@ export class UpdateUserComponent implements OnInit{
 
 
   updateUser(): void {
-    const email = this.activatedRoute.snapshot.params['email'];
-    this.userService.updateUser(this.userUpdateForm.value, email).subscribe(dato=>{
+    this.userService.updateUser(this.userUpdateForm.value, this.userService.getUser().token).subscribe(dato=>{
       console.log(dato);
       this.msgError = false
 

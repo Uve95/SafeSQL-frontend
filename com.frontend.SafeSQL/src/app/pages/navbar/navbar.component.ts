@@ -12,8 +12,7 @@ export class NavbarComponent implements OnInit {
 
   user: any = null;
   token: any;
-  name: string;
-  surname: string;
+  email: any;
 
   //isLoggedIn = false;
   //userRole:any = null;
@@ -61,10 +60,8 @@ export class NavbarComponent implements OnInit {
   }
 
   public userToken(){
-
-    this.token = this.userService.getUser().token;
-    console.log(this.token)
-    return this.token;
+    setTimeout(this.userToken, 1000);
+    return this.userService.getUser().token;
   }
 
   public back() {

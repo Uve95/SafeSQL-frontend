@@ -25,6 +25,7 @@ import { UpdateAdminComponent } from './pages/update-admin/update-admin.componen
 import { ReportComponent } from './pages/report/report.component';
 import { ReportOKComponent } from './pages/report-ok/report-ok.component';
 import { ReportNOKComponent } from "./pages/report-nok/report-nok.component";
+import { UserConnectionComponent } from './pages/user-connection/user-connection.component';
 
 
 
@@ -47,7 +48,8 @@ import { ReportNOKComponent } from "./pages/report-nok/report-nok.component";
     UpdateAdminComponent,
     ReportComponent,
     ReportOKComponent,
-    ReportNOKComponent  
+    ReportNOKComponent,
+    UserConnectionComponent
 
   ],
   imports: [
