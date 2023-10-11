@@ -18,8 +18,8 @@ export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   error: string;
   msgError: boolean;
-  showPassword:boolean = false;
-  hidePassword:boolean = true;
+  showPassword: boolean = false;
+  hidePassword: boolean = true;
 
   constructor(
     private userService: UserService,
@@ -30,6 +30,7 @@ export class LoginComponent implements OnInit {
 
 
   ngOnInit(): void {
+    localStorage.clear();
 
     this.initForm();
 
@@ -40,22 +41,22 @@ export class LoginComponent implements OnInit {
     this.generateToken();
   }
 
-  show(event: any){
-    if(event){
-    this.showPassword = true;
-    this.hidePassword = false;
-    }else{
+  show(event: any) {
+    if (event) {
+      this.showPassword = true;
+      this.hidePassword = false;
+    } else {
       this.showPassword = false;
       this.hidePassword = true;
     }
 
   }
 
-  hide(event: any){
-    if(event){
-    this.showPassword = false;
-    this.hidePassword = true;
-    }else{
+  hide(event: any) {
+    if (event) {
+      this.showPassword = false;
+      this.hidePassword = true;
+    } else {
       this.showPassword = true;
       this.hidePassword = false;
     }
@@ -85,13 +86,13 @@ export class LoginComponent implements OnInit {
           this.router.navigate(['/user/connection'])
           this.userService.loginStatusSubject.next(true);
 
-        } 
-         else if (this.userService.getUserRole() == "ADMIN") {
+        }
+        else if (this.userService.getUserRole() == "ADMIN") {
           //window.location.href = 'user/forgotPassword';
           this.router.navigate(['/admin/list'])
           this.userService.loginStatusSubject.next(true);
 
-        }else{
+        } else {
           this.userService.logout();
         }
       })

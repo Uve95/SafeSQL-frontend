@@ -14,9 +14,8 @@ export class NavbarComponent implements OnInit {
   token: any;
   email: any;
 
-  //isLoggedIn = false;
-  //userRole:any = null;
-  //user:any = null;
+  isLoggedIn = false;
+  userRole:any = null;
 
   constructor(
     private userService: UserService,
@@ -24,31 +23,23 @@ export class NavbarComponent implements OnInit {
     private router: Router,
   ) {
   }
+
   ngOnInit(): void {
-    //this.isLoggedIn = this.userService.isLoggedIn();
-    //this.user = this.userService.getUser();
-    //this.userRole = this.userService.getUserRole();
-    //this.userService.loginStatusSubject.asObservable().subscribe(
-    //data => {
-    // this.isLoggedIn = this.userService.isLoggedIn();
-    // this.user = this.userService.getUser();
-    //}
-    // )
+    this.isLoggedIn = this.userService.isLoggedIn();
+    this.user = this.userService.getUser();
+    this.userRole = this.role();
+    this.userService.loginStatusSubject.asObservable().subscribe(
+    data => {
+     this.isLoggedIn = this.userService.isLoggedIn();
+     this.user = this.userService.getUser();
+    }
+     )
   }
 
 
-  public isLoggedIn():boolean {
 
-    if (this.userService.isLoggedIn() == true) {
-      return true;
-    }
-    else {
-      return false;
-    }
 
-  }
-
-  public userRole(){
+  public role(){
 
     if(localStorage.getItem("rol")?.replace(/['"]+/g, '') == "ADMIN"){
       return 'ADMIN';
@@ -60,12 +51,13 @@ export class NavbarComponent implements OnInit {
   }
 
   public userToken(){
-    setTimeout(this.userToken, 1000);
+    setTimeout(this.userService.getUser().token, 1000);
     return this.userService.getUser().token;
   }
 
   public back() {
     localStorage.clear();
+    this.isLoggedIn = false
     this.userService.logout();
     //window.location.reload();
     this.router.navigate(['']);

@@ -8,17 +8,19 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 
-<div *ngIf="loadingService.isLoading$ | async" class="loading-overlay">
-	<!-- Contenido de la ventana de carga (puedes personalizarlo) -->
-	<div class="loading-spinner">
-		<img src="./assets/logoweb.svg" height="100" width="100" loading="lazy" />
+<div class="overlay" *ngIf="!showPrincipal">
 
+	<!-- Contenido de la ventana de carga (puedes personalizarlo) -->
+	<div class="gif-container">
+		<img class="imgGif" src="./assets/loading.png" />
 	</div>
-  </div>
-  
-  <!-- Resto de tu contenido -->
-  
-<div class="form container s-center">
+	<label class="h-white">Conectando con la base de datos ...</label>
+
+</div>
+
+<!-- Resto de tu contenido -->
+
+<div class="form container s-center" *ngIf="showPrincipal">
 	<h1 class="fs-4 card-title fw-bold mb-4 text-center ms-auto label-white">Analice su base de datos SQL server</h1>
 	<form [formGroup]="conexionForm" (ngSubmit)="onSubmit()" autocomplete="off">
 

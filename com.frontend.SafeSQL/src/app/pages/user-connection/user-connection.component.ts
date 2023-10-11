@@ -16,6 +16,7 @@ export class UserConnectionComponent implements OnInit {
   error: string;
   msgError: boolean;
   checklist: UserChecklistComponent;
+  showPrincipal = true;
 
 
 
@@ -26,7 +27,9 @@ export class UserConnectionComponent implements OnInit {
     public loadingService: LoadingService
 
   ) {
+
   }
+
 
 
   ngOnInit(): void {
@@ -69,23 +72,23 @@ export class UserConnectionComponent implements OnInit {
 
   nextPage() {
 
-    this.loadingService.showLoading();
-
     let dataAvailable = this.connectBD();
 
     if (dataAvailable) {
       // Los datos están disponibles, puedes navegar a la página principal
-      this.loadingService.hideLoading();
 
       this.router.navigate(['user/dashboard']);
     } else {
       // Los datos aún no están disponibles, puedes mantener al usuario en la página de carga
-      //this.router.navigate(['loading']);
-      this.loadingService.showLoading();
+      this.showPrincipal = false;
 
-      setTimeout(this.nextPage, 1000);
+      setTimeout(() => {
+        // Navega a la página principal una vez que los datos se han cargado
+        this.nextPage();
+      }, 3000); // Simula una carga de 3 segundos
     }
   }
+
 
 
   initForm() {
@@ -97,13 +100,6 @@ export class UserConnectionComponent implements OnInit {
 
   }
 
-  realizarOperacion() {
-    this.loadingService.showLoading();
 
-    // Simula una operación asíncrona
-    setTimeout(() => {
-      this.loadingService.hideLoading();
-    }, 3000);
-  }
 
 }

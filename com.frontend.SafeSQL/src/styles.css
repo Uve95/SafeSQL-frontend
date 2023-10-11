@@ -8,6 +8,7 @@ body{
     /* Ajustar la imagen al tamaño de la ventana */
     background-size: cover;
     animation: animacion-geometrica 10s linear infinite alternate;
+    height: 300px; /* Ajusta la altura según tus necesidades */
 
 }
 

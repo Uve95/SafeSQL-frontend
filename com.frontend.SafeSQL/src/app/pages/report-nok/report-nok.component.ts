@@ -20,7 +20,7 @@ export class ReportNOKComponent implements OnInit {
   checkMaintenance: string
   checkSensitive: string
   checkRols: string
-  BDName:any
+  BDName:string
 
 
   constructor(
@@ -43,9 +43,7 @@ export class ReportNOKComponent implements OnInit {
 
   getBDName (){
 
-    let aux: string[] = this.getChecklist();
-
-    return aux[0];
+    return this.userService.getBDName();
 
   }
 

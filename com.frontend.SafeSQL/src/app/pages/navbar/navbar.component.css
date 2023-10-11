@@ -1,10 +1,12 @@
 
 
-.btn.btn-success, 
 .btn.btn-link {
   color: white;
   border-color: white;
   background-color: inherit;
+
 }
 
-
+.btn.btn-link:active {
+  background-color:  #ff00ff;; /* Cambio de color al hacer clic */
+}

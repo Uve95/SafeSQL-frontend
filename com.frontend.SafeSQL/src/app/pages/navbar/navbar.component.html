@@ -25,19 +25,19 @@
             <!-- Left links -->
 
             <div class="ml-auto">
-                <button type="button" class="btn btn-link px-3 me-2" routerLink="" *ngIf = "!isLoggedIn()">
+                <button type="button" class="btn btn-link px-3 me-2" routerLink="" *ngIf = "isLoggedIn == false">
                     Login
                 </button>
-                <button type="button" class="btn btn-success" routerLink="user/register"  *ngIf = "!isLoggedIn()">
+                <button type="button" class="btn btn-link px-3 me-2"  routerLink="user/register"  *ngIf = "isLoggedIn == false">
                     Registrate
                 </button>
-                <button type="button" class="btn btn-success" routerLink="user/update/{{this.userToken()}}" *ngIf = "isLoggedIn() && userRole() == 'USER'">
+                <button type="button" class="btn btn-link px-3 me-2"  routerLink="user/update/{{this.userToken()}}" *ngIf = "isLoggedIn == true && role() == 'USER'">
                     Mi cuenta
                 </button>
-                <button type="button" class="btn btn-success" routerLink="admin/update/{{this.userToken()}}"  *ngIf = "isLoggedIn() && userRole() == 'ADMIN'">
+                <button type="button" class="btn btn-link px-3 me-2"  routerLink="admin/update/{{this.userToken()}}"  *ngIf = "isLoggedIn == true && role() == 'ADMIN'">
                     Mi cuenta
                 </button>
-                <button type="button" class="btn btn-success" (click)="back()"  *ngIf = "isLoggedIn()">
+                <button type="button" class="btn btn-link px-3 me-2"  (click)="back()"  *ngIf = "isLoggedIn == true">
                     Salir
                 </button>
             </div>

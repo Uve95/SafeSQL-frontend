@@ -8,13 +8,24 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 
+<div class="overlay" *ngIf="!showPrincipal">
+
+	<!-- Contenido de la ventana de carga (puedes personalizarlo) -->
+	<div class="gif-container">
+		<img class="imgGif" src="./assets/loading.png" />
+	</div>
+	<label class="h-white">Conectando con la base de datos ...</label>
+
+</div>
+
+
 <div class="form container s-center">
 	<h1 class="fs-4 card-title fw-bold mb-4 text-center ms-auto label-white">Se ha conectado correctamente a la base de
-		datos {{this.getBDname()}}<img src="./assets/OK.gif" height="80" width="ms-auto"/>
+		datos {{this.getBDname()}}<img src="./assets/OK.gif" height="80" width="ms-auto" />
 	</h1>
 	<div class="mb-3 text-center lg">
 
-		<button type="submit" class=" btn btn-primary ms-auto form-control" >
+		<button type="button" class=" btn btn-primary ms-auto form-control" routerLink="/user/checklist">
 
 			Configurar análisis
 		</button>

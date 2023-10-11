@@ -16,6 +16,7 @@ export class UserDashboardComponent implements OnInit {
   msgError: boolean;
   checklist: UserChecklistComponent;
   BDname:any;
+  showPrincipal = true; // Muestra la capa de carga inicialmente
 
 
 
@@ -24,6 +25,8 @@ export class UserDashboardComponent implements OnInit {
     private router: Router,
     private readonly fb: FormBuilder,
   ) {
+
+   
   }
 
 
@@ -31,10 +34,6 @@ export class UserDashboardComponent implements OnInit {
 
   }
 
-  onSubmit() {
-    this.router.navigate(['']);
-
-  }
 
   getBDname(){
     return this.userService.getBDName();
