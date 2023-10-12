@@ -1,63 +1,96 @@
+.btn.btn-primary,
+.btn.btn-primary.active {
+  color: #ffffff;
+  background-color: #ff00ff;
+  /* Rosa neón brillante */
+
+  border-color: #ff00ff;
+  /* Rosa neón brillante */
+
+  border: 2px solid #ff00ff;
+  /* Borde sólido de 2px de ancho y color azul (#007bff) */
+  padding: 10px 20px;
+  /* Espacio alrededor del texto del botón */
+  color: rgb(255, 255, 255);
+  /* Color del texto */
+  cursor: pointer;
+  /* Cambiar el cursor al pasar el mouse */
+}
+
+
+.form {
+
+  width: 70%;
+  height: 50%;
+  margin-top: 5%;
+  border-radius: 30px;
+  /* Radio de las esquinas redondeadas */
+  padding: 30px;
+  /* Espacio alrededor del formulario */
+  background-color: rgba(0, 0, 0, 0.719);
+  /* Fondo transparente negro */
+  align-items: center;
+
+
+}
 
 
 .h-white {
-    color: rgb(12, 2, 5);
-    font-size: 150%;
-    text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.5); /* Aplica un efecto de borde luminoso */
-    font-weight: bold; /* Aplica la negrita al texto del label */
-  
+  color: rgb(12, 2, 5);
+  font-size: 150%;
+  text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.5); /* Aplica un efecto de borde luminoso */
+  font-weight: bold; /* Aplica la negrita al texto del label */
+
+}
+
+.gif-container {
+  /* Asegura que el contenedor tenga un ancho y alto definido para que la rotación sea visible. */
+
+  /* Aplica una animación de rotación llamada "rotate" con una duración de 2 segundos y la hace infinita. */
+  animation: rotate 2s infinite linear;
+  mix-blend-mode: hard-light;
+
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+    /* Ángulo inicial de rotación */
   }
-  
-  .gif-container {
-    /* Asegura que el contenedor tenga un ancho y alto definido para que la rotación sea visible. */
-  
-    /* Aplica una animación de rotación llamada "rotate" con una duración de 2 segundos y la hace infinita. */
-    animation: rotate 2s infinite linear;
-    mix-blend-mode: hard-light;
-  
+
+  to {
+    transform: rotate(360deg);
+    /* Ángulo final de rotación (una vuelta completa) */
   }
-  
-  @keyframes rotate {
-    from {
-        transform: rotate(0deg);
-        /* Ángulo inicial de rotación */
-    }
-  
-    to {
-        transform: rotate(360deg);
-        /* Ángulo final de rotación (una vuelta completa) */
-    }
+}
+
+
+.overlay {
+  text-align: center;
+  /* Centra horizontalmente los elementos */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  mix-blend-mode: hard-light;
+
+}
+
+
+
+/* Definición de la animación */
+@keyframes animacion-geometrica {
+  0% {
+    background-position: 0 0;
+    /* Posición inicial del patrón */
   }
-  
-  
-  .overlay {
-    text-align: center; /* Centra horizontalmente los elementos */
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-    mix-blend-mode: hard-light;
-  
+
+  100% {
+    background-position: 40px 40px;
+    /* Posición final del patrón (mueve el patrón) */
   }
-  
-  
-  
-  /* Definición de la animación */
-  @keyframes animacion-geometrica {
-    0% {
-        background-position: 0 0;
-        /* Posición inicial del patrón */
-    }
-  
-    100% {
-        background-position: 40px 40px;
-        /* Posición final del patrón (mueve el patrón) */
-    }
-  }
-  
-  
-  
+}

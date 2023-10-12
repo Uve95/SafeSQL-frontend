@@ -304,7 +304,7 @@
 
 		<div class="mb-3 text-center lg">
 
-			<button type="submit" class=" btn btn-primary ms-auto form-control">
+			<button  class=" btn btn-primary ms-auto form-control" (click)="valid()">
 
 				Iniciar analisis
 			</button>
@@ -315,7 +315,7 @@
 				nuevo
 			</div>
 
-			<div class="alert alert-danger" *ngIf="msgOpt"> No hay ninguna opción seleccionada
+			<div class="alert alert-danger" *ngIf="!valid()"> No hay ninguna opción seleccionada
 			</div>
 
 		</div>

@@ -48,7 +48,7 @@ const routes: Routes = [
   {
     path: 'user/checklist',
     component: UserChecklistComponent,
-    //canActivate: [UserGuard]
+    canActivate: [UserGuard]
 
   },
   {

@@ -75,7 +75,7 @@
 
     /* Aplica una animación de rotación llamada "rotate" con una duración de 2 segundos y la hace infinita. */
     animation: rotate 2s infinite linear;
-    mix-blend-mode: hard-light;
+    mix-blend-mode: screen;
 
 }
 

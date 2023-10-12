@@ -1,0 +1,56 @@
+
+
+/* Definir la animación de movimiento llamada "movimiento-fondo" */
+th[scope="col"] {
+  color: white;
+  background-color: #0b0c0c;
+  text-align: center;
+
+
+}
+
+th[scope="row"] {
+  color: #0b0c0c;
+
+
+
+}
+
+table {
+  border-radius: 10px;
+  border-collapse: collapse; /* Fusiona los bordes de las celdas */
+
+}
+
+
+td,
+th {
+
+  text-align: center;
+  word-wrap: break-word;
+  /* Ajusta el texto dentro de las celdas */
+}
+
+.btn.btn-primary,
+.btn.btn-primary.active {
+  color: #ffffff;
+  background-color: #ff00ff;
+  /* Rosa neón brillante */
+
+  border-color: #ff00ff;
+  /* Rosa neón brillante */
+
+  border: 2px solid #ff00ff;
+  /* Borde sólido de 2px de ancho y color azul (#007bff) */
+  padding: 10px 20px;
+  /* Espacio alrededor del texto del botón */
+  color: rgb(255, 255, 255);
+  /* Color del texto */
+  cursor: pointer;
+  /* Cambiar el cursor al pasar el mouse */
+}
+
+
+.label-white {
+  color: white;
+}

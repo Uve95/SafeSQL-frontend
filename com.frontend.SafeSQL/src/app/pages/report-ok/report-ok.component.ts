@@ -36,6 +36,8 @@ export class ReportOKComponent implements OnInit {
   getChecklist() {
 
     this.infoSelect = this.userService.getChecklist()
+    console.log("lista")
+    console.log(this.infoSelect)
     return this.infoSelect;
 
   }

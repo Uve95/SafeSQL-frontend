@@ -56,6 +56,7 @@ export class NavbarComponent implements OnInit {
   }
 
   public back() {
+    this.userService.deleteInfo(this.userService.getUser().email)
     localStorage.clear();
     this.isLoggedIn = false
     this.userService.logout();

@@ -14,7 +14,7 @@ export class UserChecklistComponent implements OnInit {
   msgError: boolean;
   msgOpt: boolean = false;
   showPrincipal = true;
-  msgState : string = "Iniciando análisis ...";
+  msgState: string = "Iniciando análisis ...";
 
 
 
@@ -213,7 +213,18 @@ export class UserChecklistComponent implements OnInit {
   ) {
   }
 
+  valid() {
 
+    console.log(this.listchecks)
+
+    if (this.listchecks.filter(elemento => elemento === false).length == 17) {
+      return false;
+    } else {
+      return true;
+    }
+
+
+  }
   ngOnInit(): void {
 
     this.initForm()
@@ -246,7 +257,7 @@ export class UserChecklistComponent implements OnInit {
 
   onSubmit() {
 
-    
+
     /*this.showPrincipal = false;
 
 
@@ -317,7 +328,7 @@ export class UserChecklistComponent implements OnInit {
   checklistConfiguration() {
 
     console.log(this.listchecks.values)
-console.log(this.userService.getUser().email)
+    console.log(this.userService.getUser().email)
     this.userService.checklistConfiguration(this.listchecks, this.userService.getUser().email).subscribe(
       dato => {
         this.msgError = false
@@ -439,7 +450,7 @@ console.log(this.userService.getUser().email)
 
       })
 
-      console.log(this.userService.getChecklist())
+    console.log(this.userService.getChecklist())
   }
 
 

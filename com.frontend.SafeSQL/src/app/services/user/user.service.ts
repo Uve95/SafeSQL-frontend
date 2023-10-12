@@ -205,6 +205,10 @@ public checklistRol(listchecks:boolean[], info:string): Observable<any[]> {
     return true;
   }
 
+  public deleteInfo(info:string) {
+ 
+    return this.httpClient.post(this.baseURL + `delete-info`, info);
+  }
 
   public logout() {
     localStorage.removeItem('token');
