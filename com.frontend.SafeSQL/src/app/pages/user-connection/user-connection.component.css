@@ -52,6 +52,8 @@
 
 .label-white {
     color: white;
+    font-weight: bold; /* Aplica la negrita al texto del label */
+
 }
 
 .label-string {
@@ -61,14 +63,6 @@
 
 }
 
-
-.h-white {
-    color: rgb(12, 2, 5);
-    font-size: 150%;
-    text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.5); /* Aplica un efecto de borde luminoso */
-    font-weight: bold; /* Aplica la negrita al texto del label */
-
-}
 
 .gif-container {
     /* Asegura que el contenedor tenga un ancho y alto definido para que la rotación sea visible. */
@@ -121,4 +115,18 @@
     }
 }
 
-
+.h-black {
+    color: rgb(12, 2, 5);
+    font-size: 150%;
+    text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.5); /* Aplica un efecto de borde luminoso */
+    font-weight: bold; /* Aplica la negrita al texto del label */
+  
+  }
+  
+  .h-white {
+    color: rgb(247, 246, 246);
+    font-size: 150%;
+    text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.5); /* Aplica un efecto de borde luminoso */
+    font-weight: bold; /* Aplica la negrita al texto del label */
+  
+  }

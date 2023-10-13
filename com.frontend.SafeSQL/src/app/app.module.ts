@@ -23,8 +23,6 @@ import { UserChecklistComponent } from "./pages/user-checklist/user-checklist.co
 import { GraphicsComponent } from "./pages/graphics/graphics.component";
 import { UpdateAdminComponent } from './pages/update-admin/update-admin.component';
 import { ReportComponent } from './pages/report/report.component';
-import { ReportOKComponent } from './pages/report-ok/report-ok.component';
-import { ReportNOKComponent } from "./pages/report-nok/report-nok.component";
 import { UserConnectionComponent } from './pages/user-connection/user-connection.component';
 
 
@@ -47,8 +45,6 @@ import { UserConnectionComponent } from './pages/user-connection/user-connection
     GraphicsComponent,
     UpdateAdminComponent,
     ReportComponent,
-    ReportOKComponent,
-    ReportNOKComponent,
     UserConnectionComponent
 
   ],

@@ -29,9 +29,11 @@
 }
 
 .label-white {
-    color: white;
-  
-  }
+  color: white;
+  font-weight: bold; /* Aplica la negrita al texto del label */
+
+
+}
 .label-fucsia {
   color: white;
 

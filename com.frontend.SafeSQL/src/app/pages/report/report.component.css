@@ -35,8 +35,16 @@
 }
 
 
-.h-white {
+.h-black {
   color: rgb(12, 2, 5);
+  font-size: 150%;
+  text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.5); /* Aplica un efecto de borde luminoso */
+  font-weight: bold; /* Aplica la negrita al texto del label */
+
+}
+
+.h-white {
+  color: rgb(247, 246, 246);
   font-size: 150%;
   text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.5); /* Aplica un efecto de borde luminoso */
   font-weight: bold; /* Aplica la negrita al texto del label */
@@ -94,3 +102,33 @@
     /* Posición final del patrón (mueve el patrón) */
   }
 }
+
+
+
+/* Definir la animación de movimiento llamada "movimiento-fondo" */
+th[scope="col"] {
+  color: white;
+  background-color: #0b0c0c;
+  text-align: center;
+
+
+}
+
+th[scope="row"] {
+  color: #0b0c0c;
+
+
+
+}
+
+.text-warning{
+  color: #df7f03;
+}
+
+td,
+th {
+
+  word-wrap: break-word;
+  /* Ajusta el texto dentro de las celdas */
+}
+

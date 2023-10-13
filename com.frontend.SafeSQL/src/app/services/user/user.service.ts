@@ -13,11 +13,12 @@ const cabecera = { headers: new HttpHeaders({ 'Content-TYpe': 'application/json'
 export class UserService {
 
   public loginStatusSubject = new Subject<boolean>();
-  infoSelect: string[];
   infoConnect:string [];
   BDName: any;
   dataLoaded:boolean= false;
   infochecks:boolean[];
+  checkResult: string[];
+
 
   //Endpoint del Backend
 
@@ -143,13 +144,12 @@ public checklistRol(listchecks:boolean[], info:string): Observable<any[]> {
 }
 
   public setChecklist(info:string[]){
-    this.infoSelect = info;
-    console.log(this.infoSelect)
+    this.checkResult = info;
   }
 
   public getChecklist(){
     
-    return this.infoSelect;
+    return this.checkResult;
   }
 
 

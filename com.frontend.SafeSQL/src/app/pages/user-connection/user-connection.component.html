@@ -14,14 +14,14 @@
 	<div class="gif-container">
 		<img class="imgGif" src="./assets/loading.png" />
 	</div>
-	<label class="h-white">Conectando con la base de datos ...</label>
+	<label class="h-black">Conectando con la base de datos ...</label>
 
 </div>
 
 <!-- Resto de tu contenido -->
 
 <div class="form container s-center" *ngIf="showPrincipal">
-	<h1 class="fs-4 card-title fw-bold mb-4 text-center ms-auto label-white">Analice su base de datos SQL server</h1>
+	<h1 class="fs-4 card-title fw-bold mb-4 text-center ms-auto h-white">Analice su base de datos SQL server</h1>
 	<form [formGroup]="conexionForm" (ngSubmit)="onSubmit()" autocomplete="off">
 
 		<!-- *****************INPUT CADENA DE CONEXION***************** -->

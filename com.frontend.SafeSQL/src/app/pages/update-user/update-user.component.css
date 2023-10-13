@@ -52,4 +52,15 @@
 
 .label-white {
     color: white;
+    font-weight: bold; /* Aplica la negrita al texto del label */
+
+
 }
+
+.h-white {
+    color: rgb(255, 255, 255);
+    font-size: 150%;
+    text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.5); /* Aplica un efecto de borde luminoso */
+    font-weight: bold; /* Aplica la negrita al texto del label */
+  
+  }

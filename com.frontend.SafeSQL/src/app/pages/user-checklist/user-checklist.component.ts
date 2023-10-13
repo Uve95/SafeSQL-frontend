@@ -19,6 +19,7 @@ export class UserChecklistComponent implements OnInit {
 
 
   listchecks: boolean[] = Array.from({ length: 71 }, () => true);
+  checkResult: string[] =  Array.from({ length: 71 }, () => '');
 
 
   checks(event: any, id: string) {
@@ -215,8 +216,6 @@ export class UserChecklistComponent implements OnInit {
 
   valid() {
 
-    console.log(this.listchecks)
-
     if (this.listchecks.filter(elemento => elemento === false).length == 17) {
       return false;
     } else {
@@ -325,153 +324,5 @@ export class UserChecklistComponent implements OnInit {
 
 
 
-  checklistConfiguration() {
-
-    console.log(this.listchecks.values)
-    console.log(this.userService.getUser().email)
-    this.userService.checklistConfiguration(this.listchecks, this.userService.getUser().email).subscribe(
-      dato => {
-        this.msgError = false
-        let info: any = dato;
-        this.userService.setChecklist(info);
-
-
-      }, err => {
-
-        this.msgError = true
-
-      })
-  }
-
-
-
-  checklistNetwork() {
-
-
-    this.userService.checklistNetwork(this.listchecks, this.userService.getUser().email).subscribe(
-      dato => {
-        this.msgError = false
-        let info: any = dato;
-        this.userService.setChecklist(info);
-
-
-      }, err => {
-
-        this.msgError = true
-
-      })
-  }
-
-
-  checklistPermission() {
-
-    this.userService.checklistPermission(this.listchecks, this.userService.getUser().email).subscribe(
-      dato => {
-        this.msgError = false
-        let info: any = dato;
-        this.userService.setChecklist(info);
-
-
-      }, err => {
-
-        this.msgError = true
-
-      })
-  }
-
-
-
-  checklistPassword() {
-
-    this.userService.checklistPassword(this.listchecks, this.userService.getUser().email).subscribe(
-      dato => {
-        this.msgError = false
-        let info: any = dato;
-        this.userService.setChecklist(info);
-
-
-      }, err => {
-
-        this.msgError = true
-
-      })
-  }
-
-
-
-
-
-  checklistSession() {
-
-    this.userService.checklistSession(this.listchecks, this.userService.getUser().email).subscribe(
-      dato => {
-        this.msgError = false
-        let info: any = dato;
-        this.userService.setChecklist(info);
-
-
-      }, err => {
-
-        this.msgError = true
-
-      })
-  }
-
-
-  checklistMaintenance() {
-
-    this.userService.checklistMaintenance(this.listchecks, this.userService.getUser().email).subscribe(
-      dato => {
-        this.msgError = false
-        let info: any = dato;
-        this.userService.setChecklist(info);
-
-
-      }, err => {
-
-        this.msgError = true
-
-      })
-
-  }
-
-  checklistData() {
-
-    this.userService.checklistData(this.listchecks, this.userService.getUser().email).subscribe(
-      dato => {
-        this.msgError = false
-        let info: any = dato;
-        this.userService.setChecklist(info);
-
-
-      }, err => {
-
-        this.msgError = true
-
-      })
-
-    console.log(this.userService.getChecklist())
-  }
-
-
-  checklistRol() {
-
-    this.userService.checklistRol(this.listchecks, this.userService.getUser().email).subscribe(
-      dato => {
-        this.msgError = false
-        let info: any = dato;
-        this.userService.setChecklist(info);
-
-
-      }, err => {
-
-        this.msgError = true
-
-      })
-
-
-  }
 }
-
-
 
