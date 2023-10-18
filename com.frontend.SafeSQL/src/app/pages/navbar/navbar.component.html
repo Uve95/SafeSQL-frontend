@@ -1,12 +1,11 @@
-    
-    <!-- Navbar -->
+<!-- Navbar -->
 <nav class="navbar navbar-expand-lg">
     <!-- Container wrapper -->
     <div class="container">
         <!-- Navbar brand -->
-        <a class="navbar-brand me-2" href="">
-            <img src="./assets/logo.png" height="80" alt="" loading="lazy" style="margin-top: 1px;" />
-        
+        <a class="navbar-brand me-2" href="user/connection">
+            <img src="./assets/logo.png" height="80" alt="" loading="lazy" style="margin-top: 1px;" /><label class = "h-white">SafeSQL</label>
+
         </a>
 
         <!-- Toggle button -->
@@ -25,19 +24,19 @@
             <!-- Left links -->
 
             <div class="ml-auto">
-                <button type="button" class="btn btn-link px-3 me-2" routerLink="" *ngIf = "isLoggedIn == false">
+                <button type="button" class="btn btn-link px-3 me-2" routerLink="" *ngIf="isLoggedIn == false">
                     Login
                 </button>
-                <button type="button" class="btn btn-link px-3 me-2"  routerLink="user/register"  *ngIf = "isLoggedIn == false">
+                <button type="button" class="btn btn-link px-3 me-2" routerLink="user/register"
+                    *ngIf="isLoggedIn == false">
                     Registrate
                 </button>
-                <button type="button" class="btn btn-link px-3 me-2"  routerLink="user/update/{{this.userToken()}}" *ngIf = "isLoggedIn == true && role() == 'USER'">
+                <button type="button" class="btn btn-link px-3 me-2" (click)="onSubmit()"
+                     *ngIf="isLoggedIn == true">
                     Mi cuenta
                 </button>
-                <button type="button" class="btn btn-link px-3 me-2"  routerLink="admin/update/{{this.userToken()}}"  *ngIf = "isLoggedIn == true && role() == 'ADMIN'">
-                    Mi cuenta
-                </button>
-                <button type="button" class="btn btn-link px-3 me-2"  (click)="back()"  *ngIf = "isLoggedIn == true">
+
+                <button type="button" class="btn btn-link px-3 me-2" (click)="back()" *ngIf="isLoggedIn == true">
                     Salir
                 </button>
             </div>

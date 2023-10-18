@@ -36,4 +36,8 @@
 
 }
 
+.text-danger{
+  font-weight: bold; /* Aplica la negrita al texto del label */
+}
+
 

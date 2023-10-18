@@ -26,6 +26,8 @@ const routes: Routes = [
   {
     path: 'user/dashboard',
     component: UserDashboardComponent,
+    canActivate: [UserGuard]
+
 
   }
   ,
@@ -33,7 +35,7 @@ const routes: Routes = [
   {
     path: 'user/connection',
     component: UserConnectionComponent,
-    //canActivate: [UserGuard]
+    canActivate: [UserGuard]
 
   },
 

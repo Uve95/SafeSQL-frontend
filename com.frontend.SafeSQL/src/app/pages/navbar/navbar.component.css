@@ -1,5 +1,7 @@
 
-
+.navbar{
+  margin-top: -1%;
+}
 .btn.btn-link {
   color: white;
   border-color: white;
@@ -9,4 +11,11 @@
 
 .btn.btn-link:active {
   background-color:  #ff00ff;; /* Cambio de color al hacer clic */
+}
+
+.h-white {
+  color: rgb(247, 246, 246);
+  font-size: 100%;
+  text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.5); /* Aplica un efecto de borde luminoso */
+  font-weight: bold; /* Aplica la negrita al texto del label */
 }

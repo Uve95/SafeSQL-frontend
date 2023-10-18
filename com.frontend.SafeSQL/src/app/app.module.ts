@@ -20,7 +20,6 @@ import { NavbarComponent } from './pages/navbar/navbar.component';
 import { ColorPickerModule } from "ngx-color-picker";
 import { NgChartsModule } from 'ng2-charts';
 import { UserChecklistComponent } from "./pages/user-checklist/user-checklist.component";
-import { GraphicsComponent } from "./pages/graphics/graphics.component";
 import { UpdateAdminComponent } from './pages/update-admin/update-admin.component';
 import { ReportComponent } from './pages/report/report.component';
 import { UserConnectionComponent } from './pages/user-connection/user-connection.component';
@@ -42,7 +41,6 @@ import { UserConnectionComponent } from './pages/user-connection/user-connection
     UserDashboardComponent,
     NavbarComponent,
     UserChecklistComponent ,
-    GraphicsComponent,
     UpdateAdminComponent,
     ReportComponent,
     UserConnectionComponent

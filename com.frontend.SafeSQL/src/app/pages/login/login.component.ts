@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
 
 
   ngOnInit(): void {
-    localStorage.clear();
+    //localStorage.clear();
 
     this.initForm();
 
@@ -65,7 +65,7 @@ export class LoginComponent implements OnInit {
 
   initForm() {
 
-    localStorage.clear()
+    //localStorage.clear()
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.pattern("[a-zA-Z0-9!#$%&'*_+-]([\.]?[a-zA-Z0-9!#$%&'*_+-])+@[a-zA-Z0-9]([^@&%$\/()=?¿!.,:;]|\d)+[a-zA-Z0-9][\.][a-zA-Z]{2,4}([\.][a-zA-Z]{2})?")]],
       password: ['',],
@@ -79,16 +79,15 @@ export class LoginComponent implements OnInit {
       this.userService.loginUser(data.token);
       this.userService.getCurrentUser().subscribe((user: any) => {
         this.userService.setUser(user);
-        console.log(user);
 
         if (this.userService.getUserRole() == "USER") {
-          //window.location.href = 'user/register';
+          localStorage.setItem('rol', 'USER')
           this.router.navigate(['/user/connection'])
           this.userService.loginStatusSubject.next(true);
 
         }
-        else if (this.userService.getUserRole() == "ADMIN") {
-          //window.location.href = 'user/forgotPassword';
+        else if (this.userService.getUserRole() == 'ADMIN') {
+          localStorage.setItem('rol', "ADMIN")
           this.router.navigate(['/admin/list'])
           this.userService.loginStatusSubject.next(true);
 
@@ -97,8 +96,6 @@ export class LoginComponent implements OnInit {
         }
       })
     }, err => {
-
-      console.log(err)
 
       this.msgError = true
     })

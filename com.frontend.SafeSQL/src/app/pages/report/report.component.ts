@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
+
 import { UserService } from 'src/app/services/user/user.service';
+
 
 @Component({
   selector: 'app-report',
@@ -26,6 +28,8 @@ export class ReportComponent implements OnInit {
   checkRols: string
   BDName: any
 
+  @ViewChild('inform') informeElement: ElementRef;
+
 
   constructor(
     private userService: UserService,
@@ -35,9 +39,10 @@ export class ReportComponent implements OnInit {
 
   async ngOnInit() {
 
+    this.showPrincipal = false;
+
     this.listchecks = this.userService.getlistchecks();
 
-    this.showPrincipal = false;
     await delay(2000);
 
 
@@ -48,11 +53,7 @@ export class ReportComponent implements OnInit {
       await delay(2000);
 
     }
-
-    await delay(2000);
-
-
-    if (!this.checklistConfiguration()) {
+    else {
 
       if (this.listchecks[1] == true || this.listchecks[2] == true || this.listchecks[3] == true || this.listchecks[4] == true || this.listchecks[5] == true) {
         this.msgState = "Analizando la configuración ..."
@@ -70,8 +71,7 @@ export class ReportComponent implements OnInit {
       this.updateMessage(this.msgState);
       await delay(2000);
     }
-
-    if (!this.checklistNetwork()) {
+    else {
 
       if (this.listchecks[10] == true) {
 
@@ -89,8 +89,7 @@ export class ReportComponent implements OnInit {
       this.updateMessage(this.msgState);
       await delay(2000);
     }
-
-    if (!this.checklistPermission()) {
+    else {
 
       if (this.listchecks[20] == true || this.listchecks[21] == true) {
 
@@ -106,9 +105,9 @@ export class ReportComponent implements OnInit {
       this.updateMessage(this.msgState);
       await delay(2000);
     }
-    if (!this.checklistPassword()) {
+    else {
 
-      if (!this.listchecks[30] == true || this.listchecks[31] == true || this.listchecks[3] == true || this.listchecks[4] == true || this.listchecks[5] == true) {
+      if (this.listchecks[30] == true || this.listchecks[31] == true) {
 
         this.msgState = "Verificando politicas de contraseñas ..."
         this.updateMessage(this.msgState);
@@ -123,7 +122,7 @@ export class ReportComponent implements OnInit {
       this.updateMessage(this.msgState);
       await delay(2000);
     }
-    if (!this.checklistSession()) {
+    else {
 
       if (this.listchecks[40] == true || this.listchecks[41] == true || this.listchecks[42] == true) {
 
@@ -139,8 +138,7 @@ export class ReportComponent implements OnInit {
       this.updateMessage(this.msgState);
       await delay(2000);
     }
-
-    if (!this.checklistMaintenance()) {
+    else {
 
       if (this.listchecks[50] == true) {
 
@@ -156,10 +154,7 @@ export class ReportComponent implements OnInit {
       this.updateMessage(this.msgState);
       await delay(2000);
     }
-
-    await delay(2000);
-
-    if (!this.checklistData()) {
+    else {
 
 
       if (this.listchecks[60] == true || this.listchecks[61] == true) {
@@ -176,7 +171,7 @@ export class ReportComponent implements OnInit {
       this.updateMessage(this.msgState);
       await delay(2000);
     }
-    if (!this.checklistRol()) {
+    else {
 
       if (this.listchecks[70] == true) {
 
@@ -189,7 +184,7 @@ export class ReportComponent implements OnInit {
 
     await delay(2000);
 
-console.log(this.checkResult)
+    console.log(this.checkResult)
     this.showPrincipal = true;
 
   }
@@ -466,11 +461,57 @@ console.log(this.checkResult)
 
   }
 
+  downloadReport() {
 
+
+    // Obtener el contenido del documento HTML
+    const elementoInicio = document.getElementById('inform');
+    const htmlOriginal = elementoInicio?.outerHTML + document.body.outerHTML;
+
+    const htmlModificado = htmlOriginal
+      .replace(/<img.*?alt=["'](.*?)["'].*?>/g, (match, alt) => {
+        return alt; // Reemplazar la etiqueta <img> con el texto alternativo
+      })
+      .replace(/<button.*?<\/button>/g, '') // Eliminar las etiquetas <button>
+      .replace("undefined", '') // Eliminar las etiquetas <a>
+      .replace("SafeSQL", '');// Eliminar las etiquetas <a>
+  
+
+    // Crear un enlace para descargar el HTML modificado
+    const blob = new Blob([htmlModificado], { type: 'text/html' });
+
+    const url = window.URL.createObjectURL(blob);
+
+    // Crea un enlace temporal para la descarga
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'SafeSQLReport.html';
+    a.click();
+
+    // Libera los recursos
+    window.URL.revokeObjectURL(url);
+  }
+
+
+  shareOnWhatsApp() {
+
+
+    const textToShare = 'Echa un vistazo a este reporte obtenido por SafeSQL';
+    const whatsappLink = `https://web.whatsapp.com/send?text=${encodeURIComponent(textToShare)}`;
+
+    window.open(whatsappLink);
+  }
+
+  newReport(){
+    this.router.navigate(['/user/connection'])
+
+  }
 }
+
 
 function delay(ms: number) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
+
 
 

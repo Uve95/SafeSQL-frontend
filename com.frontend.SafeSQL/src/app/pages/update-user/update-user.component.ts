@@ -16,9 +16,9 @@ export class UpdateUserComponent implements OnInit{
   name : String;
   surname : String;
   password : String;
-  token:String
 
   msgError: boolean;
+  token:String
 
 
   constructor(private userService: UserService,
@@ -30,8 +30,8 @@ export class UpdateUserComponent implements OnInit{
 
 
     ngOnInit() {
-      this.email = this.userService.getEmail();
-      this.userService.details(this.userService.getUser().token).subscribe(data => {
+
+      this.userService.details(localStorage.getItem('tokenP')).subscribe(data => {
         this.user = data;
         this.name = data.name;
         this.surname = data.surname;
@@ -39,7 +39,7 @@ export class UpdateUserComponent implements OnInit{
 
       },
         err => {
-          window.history.back();
+          this.router.navigate(['/user/connection'])
         }
       );
 
@@ -82,7 +82,8 @@ export class UpdateUserComponent implements OnInit{
   }
 
   back(): void {
-    this.router.navigate(['/user/dashboard']);
+    this.router.navigate(['/user/connection'])
+
   }
 
 }

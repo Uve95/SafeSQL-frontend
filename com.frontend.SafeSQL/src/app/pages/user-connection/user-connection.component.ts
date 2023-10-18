@@ -39,12 +39,15 @@ export class UserConnectionComponent implements OnInit {
 
   onSubmit() {
 
-    this.nextPage();
+    this.connectBD();
 
   }
 
 
-  connectBD(): boolean {
+  connectBD() {
+
+    this.showPrincipal = false;
+
     this.userService.connectBD([this.conexionForm.value['cadena'], this.userService.getUser().email]).subscribe(
       dato => {
         this.msgError = false;
@@ -57,36 +60,25 @@ export class UserConnectionComponent implements OnInit {
           }
 
         }
+        this.showPrincipal = true;
 
-        this.userService.markDataAsLoaded();
+        this.router.navigate(['user/dashboard']);
+
 
       }, err => {
 
         this.msgError = true
+        this.showPrincipal = false;
+
+        setTimeout(() => {
+          // Navega a la página principal una vez que los datos se han cargado
+          this.connectBD();
+        }, 3000); // Simula una carga de 3 segundos
+
       })
 
-    return this.userService.isDataLoaded();
 
 
-  }
-
-  nextPage() {
-
-    let dataAvailable = this.connectBD();
-
-    if (dataAvailable) {
-      // Los datos están disponibles, puedes navegar a la página principal
-
-      this.router.navigate(['user/dashboard']);
-    } else {
-      // Los datos aún no están disponibles, puedes mantener al usuario en la página de carga
-      this.showPrincipal = false;
-
-      setTimeout(() => {
-        // Navega a la página principal una vez que los datos se han cargado
-        this.nextPage();
-      }, 3000); // Simula una carga de 3 segundos
-    }
   }
 
 

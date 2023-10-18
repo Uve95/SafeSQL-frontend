@@ -40,6 +40,8 @@
   font-size: 150%;
   text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.5); /* Aplica un efecto de borde luminoso */
   font-weight: bold; /* Aplica la negrita al texto del label */
+  margin-top: -10000%;
+
 
 }
 
@@ -57,6 +59,8 @@
   /* Aplica una animación de rotación llamada "rotate" con una duración de 2 segundos y la hace infinita. */
   animation: rotate 2s infinite linear;
   mix-blend-mode: hard-light;
+  margin-top: 5%;
+
 
 }
 
