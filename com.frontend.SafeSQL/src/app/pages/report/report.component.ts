@@ -184,7 +184,6 @@ export class ReportComponent implements OnInit {
 
     await delay(2000);
 
-    console.log(this.checkResult)
     this.showPrincipal = true;
 
   }
@@ -369,9 +368,16 @@ export class ReportComponent implements OnInit {
   }
 
   getBDName() {
+    this.userService.getBDName().subscribe((response) => {
 
-    return this.checkResult[0];
+      this.BDName = response;
 
+
+    },
+      (err) => {
+        console.error(err);
+      }
+    );
   }
 
   getChecklist1(): any {
@@ -512,7 +518,7 @@ export class ReportComponent implements OnInit {
       .replace(/<button.*?<\/button>/g, '') // Eliminar las etiquetas <button>
       .replace("undefined", '') // Eliminar las etiquetas <a>
       .replace("SafeSQL", '');// Eliminar las etiquetas <a>
-  
+
 
     // Crear un enlace para descargar el HTML modificado
     const blob = new Blob([htmlModificado], { type: 'text/html' });
@@ -539,7 +545,7 @@ export class ReportComponent implements OnInit {
     window.open(whatsappLink);
   }
 
-  newReport(){
+  newReport() {
     this.router.navigate(['/user/connection'])
 
   }

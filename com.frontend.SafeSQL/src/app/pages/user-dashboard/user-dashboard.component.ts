@@ -15,7 +15,7 @@ export class UserDashboardComponent implements OnInit {
   error: String;
   msgError: boolean;
   checklist: UserChecklistComponent;
-  BDname:any;
+  BDName:any;
   showPrincipal = true; // Muestra la capa de carga inicialmente
 
 
@@ -31,15 +31,25 @@ export class UserDashboardComponent implements OnInit {
 
 
   ngOnInit(): void {
+    this.getBDName();
+    console.log(this.BDName)
 
   }
 
 
-  getBDname(){
-    return this.userService.getBDName();
-  }
 
+  getBDName() {
+    this.userService.getBDName().subscribe(  (response) => {
+
+      this.BDName = response;
+       
   
+      },
+      (err) => {
+        console.error(err);
+      }
+    );
+  }
   
 
   

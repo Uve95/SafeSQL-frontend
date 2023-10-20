@@ -1,0 +1,83 @@
+
+
+/* Definir la animación de movimiento llamada "movimiento-fondo" */
+
+
+.btn.btn-primary,
+.btn.btn-primary.active {
+  background-color: #ff00ff; /* Rosa neón brillante */
+
+  border-color:#ff00ff; /* Rosa neón brillante */
+  word-wrap: break-word;
+
+  border: 1px solid #ff00ff; /* Borde sólido de 2px de ancho y color azul (#007bff) */
+  padding: 10px 10px; /* Espacio alrededor del texto del botón */
+  color: rgb(255, 255, 255); /* Color del texto */
+  cursor: pointer; /* Cambiar el cursor al pasar el mouse */
+}
+
+
+
+.form {
+
+  width: 80%;
+  height: auto;
+  margin-top: 5%;
+  border-radius: 30px; /* Radio de las esquinas redondeadas */
+  padding: 40px; /* Espacio alrededor del formulario */
+  background-color: rgba(0, 0, 0, 0.719); /* Fondo transparente negro */
+  display: inline-table; /* Hace que la imagen se comporte como un bloque en línea */
+  margin-left: 10%;
+
+}
+
+.label-white {
+  color: white;
+  font-weight: bold; /* Aplica la negrita al texto del label */
+
+
+}
+
+
+.h-white {
+  color: rgb(247, 246, 246);
+  font-size: 150%;
+  text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.5); /* Aplica un efecto de borde luminoso */
+  font-weight: bold; /* Aplica la negrita al texto del label */
+
+}
+
+
+
+
+
+th[scope="col"] {
+  color: white;
+  background-color: #0b0c0c;
+
+
+}
+
+th[scope="row"] {
+  color: #0b0c0c;
+
+
+
+}
+
+.text-warning{
+  color: #df7f03;
+}
+
+td,
+th {
+
+
+  font-size: 14px;
+  word-wrap: break-word;
+  /* Ajusta el texto dentro de las celdas */
+}
+
+
+
+

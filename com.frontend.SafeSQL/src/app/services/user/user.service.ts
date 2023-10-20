@@ -12,10 +12,9 @@ import { User } from './user';
 export class UserService {
 
   public loginStatusSubject = new Subject<boolean>();
-  infoConnect:string [];
-  BDName: any;
-  dataLoaded:boolean= false;
-  infochecks:boolean[];
+  infoConnect: string[];
+  dataLoaded: boolean = false;
+  infochecks: boolean[];
   checkResult: string[];
 
 
@@ -28,7 +27,7 @@ export class UserService {
 
 
   public register(user: User): Observable<User> {
-  
+
     return this.httpClient.post<User>(this.userURL + `register`, user);
   }
 
@@ -45,7 +44,7 @@ export class UserService {
 
 
   public updateAdmin(user: User, token: String): Observable<User> {
- 
+
     return this.httpClient.put<User>(this.adminURL + `update/${token}`, user);
   }
 
@@ -55,7 +54,7 @@ export class UserService {
   }
 
   public delete(email: String): Observable<any> {
- 
+
     return this.httpClient.delete<any>(this.adminURL + `delete/${email}`);
   }
 
@@ -65,128 +64,126 @@ export class UserService {
   }
 
   public changePassword(password: string, token: string, email: string): Observable<Object> {
-  
+
 
     return this.httpClient.post<User>(this.userURL + `changePassword`, { 'email': email, 'password': password, 'token': token });
   }
 
-  public connectBD(info: string []): Observable<User> {
+  public connectBD(info: string[]): Observable<User> {
 
     this.infoConnect = info;
     return this.httpClient.post<User>(this.userURL + `connectBD`, info);
   }
 
-  public deleteInfo(info:any): Observable<User> {
+  public deleteInfo(info: any): Observable<User> {
 
     return this.httpClient.post<User>(this.userURL + `delete-info`, info);
   }
 
-  public getCurrentToken(info:any):Observable<User>{
+
+
+  public checklistConfiguration(listchecks: boolean[], info: string): Observable<any[]> {
+
+    let infos: string[] = [];
+    infos.push(String(listchecks));
+    infos.push(info);
+
+    return this.httpClient.post<any[]>(this.userURL + `checklistConfiguration`, infos);
+  }
+
+  public checklistNetwork(listchecks: boolean[], info: string): Observable<any[]> {
+
+    let infos: string[] = [];
+    infos.push(String(listchecks));
+    infos.push(info);
+
+    return this.httpClient.post<any[]>(this.userURL + `checklistNetwork`, infos);
+  }
+
+  public checklistPermission(listchecks: boolean[], info: string): Observable<any[]> {
+
+    let infos: string[] = [];
+    infos.push(String(listchecks));
+    infos.push(info);
+
+    return this.httpClient.post<any[]>(this.userURL + `checklistPermission`, infos);
+  }
+
+  public checklistPassword(listchecks: boolean[], info: string): Observable<any[]> {
+
+    let infos: string[] = [];
+    infos.push(String(listchecks));
+    infos.push(info);
+
+    return this.httpClient.post<any[]>(this.userURL + `checklistPassword`, infos);
+  }
+
+  public checklistSession(listchecks: boolean[], info: string): Observable<any[]> {
+
+    let infos: string[] = [];
+    infos.push(String(listchecks));
+    infos.push(info);
+
+    return this.httpClient.post<any[]>(this.userURL + `checklistSession`, infos);
+  }
+
+  public checklistMaintenance(listchecks: boolean[], info: string): Observable<any[]> {
+
+    let infos: string[] = [];
+    infos.push(String(listchecks));
+    infos.push(info);
+
+    return this.httpClient.post<any[]>(this.userURL + `checklistMaintenance`, infos);
+  }
+
+  public checklistData(listchecks: boolean[], info: string): Observable<any[]> {
+
+    let infos: string[] = [];
+    infos.push(String(listchecks));
+    infos.push(info);
+
+    return this.httpClient.post<any[]>(this.userURL + `checklistData`, infos);
+  }
+
+  public checklistRol(listchecks: boolean[], info: string): Observable<any[]> {
+
+    let infos: string[] = [];
+    infos.push(String(listchecks));
+    infos.push(info);
+
+    return this.httpClient.post<any[]>(this.userURL + `checklistRol`, infos);
+  }
+
+
+  public setChecklist(info: string[]) {
+    this.checkResult = info;
+  }
+
+  public getChecklist() {
+
+    return this.checkResult;
+  }
+
+
+  public getBDName(): Observable<string> {
+    let email = localStorage.getItem('email')?.replace(/['"]+/g, '');
+    return this.httpClient.get(this.userURL + `actual-bd/${email}`, { responseType: 'text' });
+  }
+  
+
+  public getCurrentToken(info: any): Observable<User> {
 
     let infos = info.replace(/"/g, '');
 
     return this.httpClient.get<User>(this.userURL + `actual-token/${infos}`);
   }
   
-  public checklistConfiguration(listchecks:boolean[], info:string): Observable<any[]> {
- 
-      let infos:string[] = [];
-      infos.push(String(listchecks));
-      infos.push(info);
+  public setlistchecks(info: boolean[]) {
 
-      return this.httpClient.post<any[]>(this.userURL + `checklistConfiguration`, infos);
-  }
-
-  public checklistNetwork(listchecks:boolean[], info:string): Observable<any[]> {
-
-    let infos:string[] = [];
-    infos.push(String(listchecks));
-    infos.push(info);
-
-    return this.httpClient.post<any[]>(this.userURL + `checklistNetwork`, infos);
-}
-
-public checklistPermission(listchecks:boolean[], info:string): Observable<any[]> {
-
-  let infos:string[] = [];
-  infos.push(String(listchecks));
-  infos.push(info);
-
-  return this.httpClient.post<any[]>(this.userURL + `checklistPermission`, infos);
-}
-
-public checklistPassword(listchecks:boolean[], info:string): Observable<any[]> {
-
-  let infos:string[] = [];
-  infos.push(String(listchecks));
-  infos.push(info);
-
-  return this.httpClient.post<any[]>(this.userURL + `checklistPassword`, infos);
-}
-
-public checklistSession(listchecks:boolean[], info:string): Observable<any[]> {
-
-  let infos:string[] = [];
-  infos.push(String(listchecks));
-  infos.push(info);
-
-  return this.httpClient.post<any[]>(this.userURL + `checklistSession`, infos);
-}
-
-public checklistMaintenance(listchecks:boolean[], info:string): Observable<any[]> {
-
-  let infos:string[] = [];
-  infos.push(String(listchecks));
-  infos.push(info);
-
-  return this.httpClient.post<any[]>(this.userURL + `checklistMaintenance`, infos);
-}
-
-public checklistData(listchecks:boolean[], info:string): Observable<any[]> {
-
-  let infos:string[] = [];
-  infos.push(String(listchecks));
-  infos.push(info);
-
-  return this.httpClient.post<any[]>(this.userURL + `checklistData`, infos);
-}
-
-public checklistRol(listchecks:boolean[], info:string): Observable<any[]> {
-
-  let infos:string[] = [];
-  infos.push(String(listchecks));
-  infos.push(info);
-
-  return this.httpClient.post<any[]>(this.userURL + `checklistRol`, infos);
-}
-
-
-  public setChecklist(info:string[]){
-    this.checkResult = info;
-  }
-
-  public getChecklist(){
-    
-    return this.checkResult;
-  }
-
-
-  public setBDName(info:string){
-  
-    this.BDName = info;
-  }
-
-  public getBDName(){
-
-    return this.BDName;
-  }
-
-  public setlistchecks(info:boolean[]){
-  
     this.infochecks = info;
   }
 
-  public getlistchecks(){
+  public getlistchecks() {
 
     return this.infochecks;
   }
@@ -197,7 +194,7 @@ public checklistRol(listchecks:boolean[], info:string): Observable<any[]> {
   //Login
 
   generateToken(user: any) {
-// Supongamos que tienes el token JWT almacenado en la variable userToken
+    // Supongamos que tienes el token JWT almacenado en la variable userToken
 
     return this.httpClient.post(this.baseURL + `generate-token`, user);
   }
@@ -211,7 +208,7 @@ public checklistRol(listchecks:boolean[], info:string): Observable<any[]> {
       throw new Error("Token JWT mal formado");
     }
   }
-  
+
 
   public isLoggedIn() {
 
@@ -265,7 +262,7 @@ public checklistRol(listchecks:boolean[], info:string): Observable<any[]> {
   }
 
   public getCurrentUser() {
- 
+
     return this.httpClient.get(this.baseURL + `actual-user`);
   }
 }

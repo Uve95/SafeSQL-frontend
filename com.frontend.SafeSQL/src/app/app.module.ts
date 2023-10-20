@@ -23,6 +23,7 @@ import { UserChecklistComponent } from "./pages/user-checklist/user-checklist.co
 import { UpdateAdminComponent } from './pages/update-admin/update-admin.component';
 import { ReportComponent } from './pages/report/report.component';
 import { UserConnectionComponent } from './pages/user-connection/user-connection.component';
+import { ErrorPageComponent } from './pages/error-page/error-page.component';
 
 
 
@@ -43,7 +44,8 @@ import { UserConnectionComponent } from './pages/user-connection/user-connection
     UserChecklistComponent ,
     UpdateAdminComponent,
     ReportComponent,
-    UserConnectionComponent
+    UserConnectionComponent,
+    ErrorPageComponent
 
   ],
   imports: [

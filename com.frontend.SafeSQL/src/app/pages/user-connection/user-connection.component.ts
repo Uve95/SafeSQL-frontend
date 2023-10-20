@@ -51,15 +51,6 @@ export class UserConnectionComponent implements OnInit {
     this.userService.connectBD([this.conexionForm.value['cadena'], this.userService.getUser().email]).subscribe(
       dato => {
         this.msgError = false;
-
-        const parts = this.conexionForm.value['cadena'].split(';');
-        for (const part of parts) {
-          const keyValue = part.split('=');
-          if (keyValue.length === 2 && keyValue[0] === 'databaseName') {
-            this.userService.setBDName(keyValue[1])
-          }
-
-        }
         this.showPrincipal = true;
 
         this.router.navigate(['user/dashboard']);

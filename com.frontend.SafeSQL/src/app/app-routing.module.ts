@@ -14,6 +14,7 @@ import { UserChecklistComponent } from './pages/user-checklist/user-checklist.co
 import { UpdateAdminComponent } from './pages/update-admin/update-admin.component';
 import { ReportComponent } from './pages/report/report.component';
 import { UserConnectionComponent } from './pages/user-connection/user-connection.component';
+import { ErrorPageComponent } from './pages/error-page/error-page.component';
 
 
 const routes: Routes = [
@@ -102,7 +103,9 @@ const routes: Routes = [
     component: DetailsUserComponent,
     canActivate: [AdminGuard]
 
-  }
+  },
+  { path: '404', component: ErrorPageComponent, data: { errorType: '404' } },
+  { path: '500', component: ErrorPageComponent, data: { errorType: '500' } },
 
 ];
 

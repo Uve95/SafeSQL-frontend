@@ -1,0 +1,31 @@
+.h-white {
+    color: rgb(247, 246, 246);
+    font-size: 100%;
+    text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.5); /* Aplica un efecto de borde luminoso */
+    font-weight: bold; /* Aplica la negrita al texto del label */
+  }
+
+  .form {
+
+
+    width: 40%;
+    height: 40%;
+    margin-bottom: 5%;
+    border-radius: 30px;
+    /* Radio de las esquinas redondeadas */
+    padding: 40px;
+    align-items: center;
+    text-align: center; /* Centrar horizontalmente */
+
+    /* Espacio alrededor del formulario */
+    background-color: rgba(0, 0, 0, 0.719);
+    /* Fondo transparente negro */
+}
+
+.img{
+    height: auto;
+    width: 70%;
+    display: inline-block; /* Hace que la imagen se comporte como un bloque en línea */
+
+  
+}

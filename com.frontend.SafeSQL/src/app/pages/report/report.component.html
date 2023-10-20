@@ -21,7 +21,7 @@
 
 <div class="form container s-center" *ngIf="showPrincipal">
 
-  <h1 class="fs-4 card-title fw-bold mb-4 text-center ms-auto h-white">Reporte de base de datos {{this.getBDName()}}
+  <h1 class="fs-4 card-title fw-bold mb-4 text-center ms-auto h-white">Reporte de base de datos {{this.BDName}}
     <img src="./assets/download.jpg" alt='' height="30" width="30" loading="lazy" (click)="downloadReport()" /><img
       src="./assets/share.jpg" height="30" width="30" alt='' loading="lazy" (click)="shareOnWhatsApp()" />
   </h1>
@@ -48,7 +48,7 @@
               <img src="./assets/OK.jpg" height="30" width="30" alt="Correcto" loading="lazy" />
             </div>
             <div *ngIf="getChecklist1() == '1'" class="text-danger">
-              <img src="./assets/NOK.jpg" height="30" width="30" alt="No ha pasado el análisis" loading="lazy" />
+              <img src="./assets/NOK.jpg" height="30" width="30" alt="No ha pasado el análisis." loading="lazy" />
               El modo de autenticacion es mixto.
             </div>
             <div *ngIf="getChecklist1() == '-1' " class="text-warning">
@@ -73,7 +73,7 @@
               <img src="./assets/OK.jpg" height="30" width="30" alt="Correcto" loading="lazy" />
             </div>
             <div *ngIf="this.getChecklist2()== '1'" class="text-danger">
-              <img src="./assets/NOK.jpg" height="30" width="30" alt="No ha pasado el análisis" loading="lazy" />
+              <img src="./assets/NOK.jpg" height="30" width="30" alt="No ha pasado el análisis." loading="lazy" />
               Pueden existir troyanos.
             </div>
             <div *ngIf="this.getChecklist2()== '-1'" class="text-warning">
@@ -96,7 +96,7 @@
               <img src="./assets/OK.jpg" height="30" width="30" alt="Correcto" loading="lazy" />
             </div>
             <div *ngIf="this.getChecklist3()=='1'" class="text-danger">
-              <img src="./assets/NOK.jpg" height="30" width="30" alt="No ha pasado el análisis" loading="lazy" />
+              <img src="./assets/NOK.jpg" height="30" width="30" alt="No ha pasado el análisis." loading="lazy" />
               Al menos un procedimiento potencialmente peligroso puede ser ejecutado por miembros no pertenecientes a la
               función sysadmin.
             </div>
@@ -121,7 +121,7 @@
               <img src="./assets/OK.jpg" height="30" width="30" alt="Correcto" loading="lazy" />
             </div>
             <div *ngIf="this.getChecklist4()=='1'" class="text-danger">
-              <img src="./assets/NOK.jpg" height="30" width="30" alt="No ha pasado el análisis" loading="lazy" />
+              <img src="./assets/NOK.jpg" height="30" width="30" alt="No ha pasado el análisis." loading="lazy" />
               No hay ninguna auditoria de acceso habilitada.
             </div>
             <div *ngIf="this.getChecklist4()=='-1'" class="text-warning">
@@ -144,7 +144,7 @@
               <img src="./assets/OK.jpg" height="30" width="30" alt="Correcto" loading="lazy" />
             </div>
             <div *ngIf="this.getChecklist5()=='1'" class="text-danger">
-              <img src="./assets/NOK.jpg" height="30" width="30" alt="No ha pasado el análisis" loading="lazy" />
+              <img src="./assets/NOK.jpg" height="30" width="30" alt="No ha pasado el análisis." loading="lazy" />
               Verifique que tiene implementadas las ultimas actualizaciones.
             </div>
             <div *ngIf="this.getChecklist5()=='-1'" class="text-warning">
@@ -167,7 +167,7 @@
               <img src="./assets/OK.jpg" height="30" width="30" alt="Correcto" loading="lazy" />
             </div>
             <div *ngIf="this.getChecklist10()=='1'" class="text-danger">
-              <img src="./assets/NOK.jpg" height="30" width="30" alt="No ha pasado el análisis" loading="lazy" />
+              <img src="./assets/NOK.jpg" height="30" width="30" alt="No ha pasado el análisis." loading="lazy" />
               El cifrado de conexiones entrantes esta desactivado.
             </div>
             <div *ngIf="this.getChecklist10()=='-1'" class="text-warning">
@@ -188,7 +188,7 @@
               <img src="./assets/OK.jpg" height="30" width="30" alt="Correcto" loading="lazy" />
             </div>
             <div *ngIf="this.getChecklist11()=='1'" class="text-danger">
-              <img src="./assets/NOK.jpg" height="30" width="30" alt="No ha pasado el análisis" loading="lazy" />
+              <img src="./assets/NOK.jpg" height="30" width="30" alt="No ha pasado el análisis." loading="lazy" />
               La autenticación anónima esta habilitada.
             </div>
             <div *ngIf="this.getChecklist11()=='-1'" class="text-warning">
@@ -209,7 +209,7 @@
               <img src="./assets/OK.jpg" height="30" width="30" alt="Correcto" loading="lazy" />
             </div>
             <div *ngIf="this.getChecklist12()=='1'" class="text-danger">
-              <img src="./assets/NOK.jpg" height="30" width="30" alt="No ha pasado el análisis" loading="lazy" />
+              <img src="./assets/NOK.jpg" height="30" width="30" alt="No ha pasado el análisis." loading="lazy" />
               Se estan usando diferentes puertos.
             </div>
             <div *ngIf="this.getChecklist12()=='-1'" class="text-warning">
@@ -230,7 +230,7 @@
               <img src="./assets/OK.jpg" height="30" width="30" alt="Correcto" loading="lazy" />
             </div>
             <div *ngIf="this.getChecklist13()=='1'" class="text-danger">
-              <img src="./assets/NOK.jpg" height="30" width="30" alt="No ha pasado el análisis" loading="lazy" />
+              <img src="./assets/NOK.jpg" height="30" width="30" alt="No ha pasado el análisis." loading="lazy" />
               Las conexiones remotas no estan cifradas mediante SSL/TLS.
             </div>
             <div *ngIf="this.getChecklist13()=='-1'" class="text-warning">
@@ -251,7 +251,7 @@
               <img src="./assets/OK.jpg" height="30" width="30" alt="Correcto" loading="lazy" />
             </div>
             <div *ngIf="this.getChecklist14()=='1'" class="text-danger">
-              <img src="./assets/NOK.jpg" height="30" width="30" alt="No ha pasado el análisis" loading="lazy" />
+              <img src="./assets/NOK.jpg" height="30" width="30" alt="No ha pasado el análisis." loading="lazy" />
               Las conexiones no requieren autenticación.
             </div>
             <div *ngIf="this.getChecklist14()=='-1'" class="text-warning">
@@ -273,7 +273,7 @@
               <img src="./assets/OK.jpg" height="30" width="30" alt="Correcto" loading="lazy" />
             </div>
             <div *ngIf="this.getChecklist20()=='1'" class="text-danger">
-              <img src="./assets/NOK.jpg" height="30" width="30" alt="No ha pasado el análisis" loading="lazy" />
+              <img src="./assets/NOK.jpg" height="30" width="30" alt="No ha pasado el análisis." loading="lazy" />
               El usuario guest tiene permisos asociados.
 
             </div>
@@ -297,7 +297,7 @@
               <img src="./assets/OK.jpg" height="30" width="30" alt="Correcto" loading="lazy" />
             </div>
             <div *ngIf="this.getChecklist21()=='1'" class="text-danger">
-              <img src="./assets/NOK.jpg" height="30" width="30" alt="No ha pasado el análisis" loading="lazy" />
+              <img src="./assets/NOK.jpg" height="30" width="30" alt="No ha pasado el análisis." loading="lazy" />
               La función public tiene permisos asignados.
             </div>
             <div *ngIf="this.getChecklist21()=='-1'" class="text-warning">
@@ -319,7 +319,7 @@
               <img src="./assets/OK.jpg" height="30" width="30" alt="Correcto" loading="lazy" />
             </div>
             <div *ngIf="this.getChecklist30()=='1'" class="text-danger">
-              <img src="./assets/NOK.jpg" height="30" width="30" alt="No ha pasado el análisis" loading="lazy" />
+              <img src="./assets/NOK.jpg" height="30" width="30" alt="No ha pasado el análisis." loading="lazy" />
               Las contraseñas tienen más de 30 dias de antiguedad.
             </div>
             <div *ngIf="this.getChecklist30()=='-1'" class="text-warning">
@@ -341,7 +341,7 @@
               <img src="./assets/OK.jpg" height="30" width="30" alt="Correcto" loading="lazy" />
             </div>
             <div *ngIf="this.getChecklist31()=='1'" class="text-danger">
-              <img src="./assets/NOK.jpg" height="30" width="30" alt="No ha pasado el análisis" loading="lazy" />
+              <img src="./assets/NOK.jpg" height="30" width="30" alt="No ha pasado el análisis." loading="lazy" />
               No hay revision periodica ya que hay contraseñas sin actualizar con más de 30 días.
             </div>
             <div *ngIf="this.getChecklist31()=='-1'" class="text-warning">
@@ -363,7 +363,7 @@
               <img src="./assets/OK.jpg" height="30" width="30" alt="Correcto" loading="lazy" />
             </div>
             <div *ngIf="this.getChecklist40()=='1'" class="text-danger">
-              <img src="./assets/NOK.jpg" height="30" width="30" alt="No ha pasado el análisis" loading="lazy" />
+              <img src="./assets/NOK.jpg" height="30" width="30" alt="No ha pasado el análisis." loading="lazy" />
               Existe algún inicio de sesión que no tiene politica de contraseñas seguras.
             </div>
             <div *ngIf="this.getChecklist40()=='-1'" class="text-warning">
@@ -385,7 +385,7 @@
               <img src="./assets/OK.jpg" height="30" width="30" alt="Correcto" loading="lazy" />
             </div>
             <div *ngIf="this.getChecklist41()=='1'" class="text-danger">
-              <img src="./assets/NOK.jpg" height="30" width="30" alt="No ha pasado el análisis" loading="lazy" />
+              <img src="./assets/NOK.jpg" height="30" width="30" alt="No ha pasado el análisis." loading="lazy" />
               No se eliminan los inicios de sesión que ya no se utilizan.
             </div>
             <div *ngIf="this.getChecklist41()=='-1'" class="text-warning">
@@ -407,7 +407,7 @@
               <img src="./assets/OK.jpg" height="30" width="30" alt="Correcto" loading="lazy" />
             </div>
             <div *ngIf="this.getChecklist42()=='1'" class="text-danger">
-              <img src="./assets/NOK.jpg" height="30" width="30" alt="No ha pasado el análisis" loading="lazy" />
+              <img src="./assets/NOK.jpg" height="30" width="30" alt="No ha pasado el análisis." loading="lazy" />
               Hay inicios de sesion fallidos en el ultimo mes.
 
             </div>
@@ -430,7 +430,7 @@
               <img src="./assets/OK.jpg" height="30" width="30" alt="Correcto" loading="lazy" />
             </div>
             <div *ngIf="this.getChecklist50()=='1'" class="text-danger">
-              <img src="./assets/NOK.jpg" height="30" width="30" alt="No ha pasado el análisis" loading="lazy" />
+              <img src="./assets/NOK.jpg" height="30" width="30" alt="No ha pasado el análisis." loading="lazy" />
               No existen planes de mantenimiento.
             </div>
             <div *ngIf="this.getChecklist50()=='-1'" class="text-warning">
@@ -452,7 +452,7 @@
               <img src="./assets/OK.jpg" height="30" width="30" alt="Correcto" loading="lazy" />
             </div>
             <div *ngIf="this.getChecklist51()=='1'" class="text-danger">
-              <img src="./assets/NOK.jpg" height="30" width="30" alt="No ha pasado el análisis" loading="lazy" />
+              <img src="./assets/NOK.jpg" height="30" width="30" alt="No ha pasado el análisis." loading="lazy" />
               Se realizo hace un mes o incluso mas.
             </div>
             <div *ngIf="this.getChecklist51()=='-1'" class="text-warning">
@@ -474,7 +474,7 @@
               <img src="./assets/OK.jpg" height="30" width="30" alt="Correcto" loading="lazy" />
             </div>
             <div *ngIf="this.getChecklist52()=='1'" class="text-danger">
-              <img src="./assets/NOK.jpg" height="30" width="30" alt="No ha pasado el análisis" loading="lazy" />
+              <img src="./assets/NOK.jpg" height="30" width="30" alt="No ha pasado el análisis." loading="lazy" />
               La fragmentacion es del 10% o superior.
             </div>
             <div *ngIf="this.getChecklist52()=='-1'" class="text-warning">
@@ -496,7 +496,7 @@
               <img src="./assets/OK.jpg" height="30" width="30" alt="Correcto" loading="lazy" />
             </div>
             <div *ngIf="this.getChecklist53()=='1'" class="text-danger">
-              <img src="./assets/NOK.jpg" height="30" width="30" alt="No ha pasado el análisis" loading="lazy" />
+              <img src="./assets/NOK.jpg" height="30" width="30" alt="No ha pasado el análisis." loading="lazy" />
               El uso medio de CPU es del 40% o superior.
             </div>
             <div *ngIf="this.getChecklist53()=='-1'" class="text-warning">
@@ -518,7 +518,7 @@
               <img src="./assets/OK.jpg" height="30" width="30" alt="Correcto" loading="lazy" />
             </div>
             <div *ngIf="this.getChecklist60()=='1'" class="text-danger">
-              <img src="./assets/NOK.jpg" height="30" width="30" alt="No ha pasado el análisis" loading="lazy" />
+              <img src="./assets/NOK.jpg" height="30" width="30" alt="No ha pasado el análisis." loading="lazy" />
               Hay un porcentaje alto de datos sensibles.
             </div>
             <div *ngIf="this.getChecklist60()=='-1'" class="text-warning">
@@ -539,7 +539,7 @@
               <img src="./assets/OK.jpg" height="30" width="30" alt="Correcto" loading="lazy" />
             </div>
             <div *ngIf="this.getChecklist61()=='1'" class="text-danger">
-              <img src="./assets/NOK.jpg" height="30" width="30" alt="No ha pasado el análisis" loading="lazy" />
+              <img src="./assets/NOK.jpg" height="30" width="30" alt="No ha pasado el análisis." loading="lazy" />
               Hay columnas de datos sensibles que no se encuentran cifradas.
             </div>
             <div *ngIf="this.getChecklist61()=='-1'" class="text-warning">
@@ -561,7 +561,7 @@
               <img src="./assets/OK.jpg" height="30" width="30" alt="Correcto" loading="lazy" />
             </div>
             <div *ngIf="this.getChecklist70()=='1'" class="text-danger">
-              <img src="./assets/NOK.jpg" height="30" width="30" alt="No ha pasado el análisis" loading="lazy" />
+              <img src="./assets/NOK.jpg" height="30" width="30" alt="No ha pasado el análisis." loading="lazy" />
               Un porcentaje alto de usuarios son miembros de “sysadmin”.
             </div>
             <div *ngIf="this.getChecklist70()=='-1'" class="text-warning">
