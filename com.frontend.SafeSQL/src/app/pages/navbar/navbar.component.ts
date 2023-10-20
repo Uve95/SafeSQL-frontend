@@ -52,7 +52,7 @@ export class NavbarComponent implements OnInit {
         localStorage.setItem('tokenP', userToken);
       },
         err => {
-          this.router.navigate(['user/connection']);
+          //this.router.navigate(['user/connection']);
         }
       );
     }, 1000); // 60000 milisegundos = 60 segundos

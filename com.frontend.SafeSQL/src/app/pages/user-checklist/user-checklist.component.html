@@ -19,7 +19,7 @@
 
 </div>
 
-<div class="form container s-center"  *ngIf="showPrincipal">
+<div class="form container s-center" *ngIf="showPrincipal">
 	<h1 class="fs-4 card-title fw-bold mb-4 text-center ms-auto h-white">Configure el analisis</h1>
 
 	<form [formGroup]="checklistForm" (ngSubmit)="onSubmit()" autocomplete="off">
@@ -81,32 +81,59 @@
 			</div>
 		</div>
 
-			<!-- *****************INPUT RED***************** -->
-			<div class="accordion" id="accordion2">
+		<!-- *****************INPUT RED***************** -->
+		<div class="accordion" id="accordion2">
 
-				<div class="accordion-item">
-					<h2 class="accordion-header" id="heading2">
-						<button class="accordion-button" type="button" data-bs-toggle="collapse"
-							data-bs-target="#collapse2" aria-expanded="true" aria-controls="collapse2">
+			<div class="accordion-item">
+				<h2 class="accordion-header" id="heading2">
+					<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2"
+						aria-expanded="true" aria-controls="collapse2">
 
-							<label class="fw-bold h6 label-fucsia">Red</label>
-						</button>
-					</h2>
-					<div id="collapse2" class="accordion-collapse collapse" aria-labelledby="heading2"
-						data-bs-parent="#accordion">
-						<div class="accordion-body">
-							<div class="form-check">
-								<input class="form-check-input" type="checkbox" checked name="check10"
-									(change)="checks($event, 'check10')" id="check10">
-								<label class="font-weight-normal h6" for="flexCheckChecked">
-									Cifrado de conexiones entrantes
-								</label>
-							</div>
-
+						<label class="fw-bold h6 label-fucsia">Red</label>
+					</button>
+				</h2>
+				<div id="collapse2" class="accordion-collapse collapse" aria-labelledby="heading2"
+					data-bs-parent="#accordion">
+					<div class="accordion-body">
+						<div class="form-check">
+							<input class="form-check-input" type="checkbox" checked name="check10"
+								(change)="checks($event, 'check10')" id="check10">
+							<label class="font-weight-normal h6" for="flexCheckChecked">
+								Cifrado de conexiones entrantes
+							</label>
+						</div>
+						<div class="form-check">
+							<input class="form-check-input" type="checkbox" checked name="check11"
+								(change)="checks($event, 'check11')" id="check11">
+							<label class="font-weight-normal h6" for="flexCheckChecked">
+								Autenticación anónima en SQL Server
+							</label>
+						</div>
+						<div class="form-check">
+							<input class="form-check-input" type="checkbox" checked name="check12"
+								(change)="checks($event, 'check12')" id="check12">
+							<label class="font-weight-normal h6" for="flexCheckChecked">
+								Uso de puertos no estándar
+							</label>
+						</div>
+						<div class="form-check">
+							<input class="form-check-input" type="checkbox" checked name="check13"
+								(change)="checks($event, 'check13')" id="check13">
+							<label class="font-weight-normal h6" for="flexCheckChecked">
+								Conexiones remotas cifradas mediante SSL/TLS
+							</label>
+						</div>
+						<div class="form-check">
+							<input class="form-check-input" type="checkbox" checked name="check14"
+								(change)="checks($event, 'check14')" id="check14">
+							<label class="font-weight-normal h6" for="flexCheckChecked">
+								Conexiones con autenticación
+							</label>
 						</div>
 					</div>
 				</div>
 			</div>
+		</div>
 
 
 		<!-- *****************INPUT CHECKLIST PERMISOS***************** -->
@@ -235,6 +262,29 @@
 							</label>
 						</div>
 
+						<div class="form-check">
+							<input class="form-check-input" type="checkbox" checked name="check51"
+								(change)="checks($event, 'check51')" id="check51">
+							<label class="font-weight-normal h6" for="flexCheckChecked">
+								Última copia de seguridad
+							</label>
+						</div>
+						<div class="form-check">
+							<input class="form-check-input" type="checkbox" checked name="check52"
+								(change)="checks($event, 'check52')" id="check52">
+							<label class="font-weight-normal h6" for="flexCheckChecked">
+								Fragmentación óptima
+							</label>
+						</div>
+
+						<div class="form-check">
+							<input class="form-check-input" type="checkbox" checked name="check53"
+								(change)="checks($event, 'check53')" id="check53">
+							<label class="font-weight-normal h6" for="flexCheckChecked">
+								Uso medio de CPU por sesión
+							</label>
+						</div>
+
 					</div>
 				</div>
 			</div>
@@ -295,7 +345,15 @@
 							</label>
 						</div>
 
+						<div class="form-check">
 
+							<input class="form-check-input" type="checkbox" checked name="check71"
+								(change)="checks($event, 'check71')" id="check71">
+
+							<label class="font-weight-normal h6" for="flexCheckChecked">
+								Uso de roles fijos db_datareader y db_datawriter
+							</label>
+						</div>
 
 					</div>
 				</div>
@@ -304,7 +362,7 @@
 
 		<div class="mb-3 text-center lg">
 
-			<button  class=" btn btn-primary ms-auto form-control" (click)="valid()">
+			<button class=" btn btn-primary ms-auto form-control" (click)="valid()">
 
 				Iniciar analisis
 			</button>

@@ -39,7 +39,7 @@ export class UpdateUserComponent implements OnInit{
 
       },
         err => {
-          this.router.navigate(['/user/connection'])
+          //this.router.navigate(['/user/connection'])
         }
       );
 

@@ -12,8 +12,8 @@ import { UserService } from 'src/app/services/user/user.service';
 export class ReportComponent implements OnInit {
   showPrincipal = true;
   msgState: string = "Iniciando análisis ...";
-  listchecks: boolean[] = Array.from({ length: 71 }, () => true);
-  checkResult: string[] = Array.from({ length: 71 }, () => '');
+  listchecks: boolean[] = Array.from({ length: 72 }, () => true);
+  checkResult: string[] = Array.from({ length: 72 }, () => '');
 
   msgError: boolean;
   infoSelect: string[]
@@ -73,7 +73,7 @@ export class ReportComponent implements OnInit {
     }
     else {
 
-      if (this.listchecks[10] == true) {
+      if (this.listchecks[10] == true || this.listchecks[11] == true || this.listchecks[12] == true || this.listchecks[13] == true || this.listchecks[14] == true) {
 
         this.msgState = "Revisando las conexiones de red ..."
         this.updateMessage(this.msgState);
@@ -140,7 +140,7 @@ export class ReportComponent implements OnInit {
     }
     else {
 
-      if (this.listchecks[50] == true) {
+      if (this.listchecks[50] == true || this.listchecks[51] == true || this.listchecks[52] == true || this.listchecks[53] == true) {
 
         this.msgState = "Comprobando el plan de mantenimiento ..."
         this.updateMessage(this.msgState);
@@ -173,7 +173,7 @@ export class ReportComponent implements OnInit {
     }
     else {
 
-      if (this.listchecks[70] == true) {
+      if (this.listchecks[70] == true || this.listchecks[71] == true) {
 
         this.msgState = "Revisando roles ..."
         this.updateMessage(this.msgState);
@@ -405,6 +405,25 @@ export class ReportComponent implements OnInit {
 
   }
 
+  getChecklist11(): any {
+    return this.checkResult[11];
+
+  }
+  getChecklist12(): any {
+    return this.checkResult[12];
+
+  }
+
+  getChecklist13(): any {
+    return this.checkResult[13];
+
+  }
+  getChecklist14(): any {
+    return this.checkResult[14];
+
+  }
+
+
   getChecklist20(): any {
     return this.checkResult[20];
 
@@ -445,6 +464,19 @@ export class ReportComponent implements OnInit {
 
   }
 
+  getChecklist51(): any {
+    return this.checkResult[51];
+
+  }
+  getChecklist52(): any {
+    return this.checkResult[52];
+
+  }
+  getChecklist53(): any {
+    return this.checkResult[53];
+
+  }
+
   getChecklist60(): any {
     return this.checkResult[60];
 
@@ -458,6 +490,11 @@ export class ReportComponent implements OnInit {
 
   getChecklist70(): any {
     return this.checkResult[70];
+
+  }
+
+  getChecklist71(): any {
+    return this.checkResult[71];
 
   }
 

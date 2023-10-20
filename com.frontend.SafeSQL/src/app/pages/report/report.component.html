@@ -21,8 +21,10 @@
 
 <div class="form container s-center" *ngIf="showPrincipal">
 
-  <h1 class="fs-4 card-title fw-bold mb-4 text-center ms-auto h-white">Reporte de base de datos {{this.getBDName()}} <img src="./assets/download.jpg" alt ='' height="30" width="30" loading="lazy" (click)="downloadReport()"/><img src="./assets/share.jpg" height="30" width="30" alt =''  loading="lazy" (click)="shareOnWhatsApp()"/>
-  </h1> 
+  <h1 class="fs-4 card-title fw-bold mb-4 text-center ms-auto h-white">Reporte de base de datos {{this.getBDName()}}
+    <img src="./assets/download.jpg" alt='' height="30" width="30" loading="lazy" (click)="downloadReport()" /><img
+      src="./assets/share.jpg" height="30" width="30" alt='' loading="lazy" (click)="shareOnWhatsApp()" />
+  </h1>
   <div #inform>
     <table class="table">
       <thead>
@@ -171,10 +173,94 @@
             <div *ngIf="this.getChecklist10()=='-1'" class="text-warning">
               <img src="./assets/WARNING.jpg" height="30" width="30" alt="Sin revisión" loading="lazy" />
               No ha sido revisado.
-
             </div>
           </td>
         </tr>
+        <tr>
+          <th scope="row"></th>
+          <td>Autenticación anónima en SQL Server</td>
+          <td>
+            <div *ngIf="getChecklist11() == ''">
+              <img src="./assets/SC.jpg" height="30" width="30" alt="Sin conexión" loading="lazy" />
+              Error de conexión al comprobar.
+            </div>
+            <div *ngIf="this.getChecklist11()=='0'">
+              <img src="./assets/OK.jpg" height="30" width="30" alt="Correcto" loading="lazy" />
+            </div>
+            <div *ngIf="this.getChecklist11()=='1'" class="text-danger">
+              <img src="./assets/NOK.jpg" height="30" width="30" alt="No ha pasado el análisis" loading="lazy" />
+              La autenticación anónima esta habilitada.
+            </div>
+            <div *ngIf="this.getChecklist11()=='-1'" class="text-warning">
+              <img src="./assets/WARNING.jpg" height="30" width="30" alt="Sin revisión" loading="lazy" />
+              No ha sido revisado.
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row"></th>
+          <td>Uso de puertos no estándar</td>
+          <td>
+            <div *ngIf="getChecklist12() == ''">
+              <img src="./assets/SC.jpg" height="30" width="30" alt="Sin conexión" loading="lazy" />
+              Error de conexión al comprobar.
+            </div>
+            <div *ngIf="this.getChecklist12()=='0'">
+              <img src="./assets/OK.jpg" height="30" width="30" alt="Correcto" loading="lazy" />
+            </div>
+            <div *ngIf="this.getChecklist12()=='1'" class="text-danger">
+              <img src="./assets/NOK.jpg" height="30" width="30" alt="No ha pasado el análisis" loading="lazy" />
+              Se estan usando diferentes puertos.
+            </div>
+            <div *ngIf="this.getChecklist12()=='-1'" class="text-warning">
+              <img src="./assets/WARNING.jpg" height="30" width="30" alt="Sin revisión" loading="lazy" />
+              No ha sido revisado.
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row"></th>
+          <td>Conexiones remotas cifradas mediante SSL/TLS</td>
+          <td>
+            <div *ngIf="getChecklist13() == ''">
+              <img src="./assets/SC.jpg" height="30" width="30" alt="Sin conexión" loading="lazy" />
+              Error de conexión al comprobar.
+            </div>
+            <div *ngIf="this.getChecklist13()=='0'">
+              <img src="./assets/OK.jpg" height="30" width="30" alt="Correcto" loading="lazy" />
+            </div>
+            <div *ngIf="this.getChecklist13()=='1'" class="text-danger">
+              <img src="./assets/NOK.jpg" height="30" width="30" alt="No ha pasado el análisis" loading="lazy" />
+              Las conexiones remotas no estan cifradas mediante SSL/TLS.
+            </div>
+            <div *ngIf="this.getChecklist13()=='-1'" class="text-warning">
+              <img src="./assets/WARNING.jpg" height="30" width="30" alt="Sin revisión" loading="lazy" />
+              No ha sido revisado.
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row"></th>
+          <td>Conexiones con autenticación</td>
+          <td>
+            <div *ngIf="getChecklist14() == ''">
+              <img src="./assets/SC.jpg" height="30" width="30" alt="Sin conexión" loading="lazy" />
+              Error de conexión al comprobar.
+            </div>
+            <div *ngIf="this.getChecklist14()=='0'">
+              <img src="./assets/OK.jpg" height="30" width="30" alt="Correcto" loading="lazy" />
+            </div>
+            <div *ngIf="this.getChecklist14()=='1'" class="text-danger">
+              <img src="./assets/NOK.jpg" height="30" width="30" alt="No ha pasado el análisis" loading="lazy" />
+              Las conexiones no requieren autenticación.
+            </div>
+            <div *ngIf="this.getChecklist14()=='-1'" class="text-warning">
+              <img src="./assets/WARNING.jpg" height="30" width="30" alt="Sin revisión" loading="lazy" />
+              No ha sido revisado.
+            </div>
+          </td>
+        </tr>
+        <tr>
         <tr>
           <th scope="row">Permisos</th>
           <td>Permisos asociados al usuario guest</td>
@@ -197,6 +283,7 @@
 
             </div>
           </td>
+
         </tr>
         <tr>
           <th scope="row"></th>
@@ -349,6 +436,72 @@
             <div *ngIf="this.getChecklist50()=='-1'" class="text-warning">
               <img src="./assets/WARNING.jpg" height="30" width="30" alt="Sin revisión" loading="lazy" />
               No ha sido revisado.
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row"></th>
+
+          <td>Última copia de seguridad</td>
+          <td>
+            <div *ngIf="getChecklist51() == ''">
+              <img src="./assets/SC.jpg" height="30" width="30" alt="Sin conexión" loading="lazy" />
+              Error de conexión al comprobar.
+            </div>
+            <div *ngIf="this.getChecklist51()=='0'">
+              <img src="./assets/OK.jpg" height="30" width="30" alt="Correcto" loading="lazy" />
+            </div>
+            <div *ngIf="this.getChecklist51()=='1'" class="text-danger">
+              <img src="./assets/NOK.jpg" height="30" width="30" alt="No ha pasado el análisis" loading="lazy" />
+              Se realizo hace un mes o incluso mas.
+            </div>
+            <div *ngIf="this.getChecklist51()=='-1'" class="text-warning">
+              <img src="./assets/WARNING.jpg" height="30" width="30" alt="Sin revisión" loading="lazy" />
+              No ha sido revisado.
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row"></th>
+
+          <td>Fragmentación óptima</td>
+          <td>
+            <div *ngIf="getChecklist52() == ''">
+              <img src="./assets/SC.jpg" height="30" width="30" alt="Sin conexión" loading="lazy" />
+              Error de conexión al comprobar.
+            </div>
+            <div *ngIf="this.getChecklist52()=='0'">
+              <img src="./assets/OK.jpg" height="30" width="30" alt="Correcto" loading="lazy" />
+            </div>
+            <div *ngIf="this.getChecklist52()=='1'" class="text-danger">
+              <img src="./assets/NOK.jpg" height="30" width="30" alt="No ha pasado el análisis" loading="lazy" />
+              La fragmentacion es del 10% o superior.
+            </div>
+            <div *ngIf="this.getChecklist52()=='-1'" class="text-warning">
+              <img src="./assets/WARNING.jpg" height="30" width="30" alt="Sin revisión" loading="lazy" />
+              No ha sido revisado.
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row"></th>
+
+          <td>Uso medio de CPU por sesión</td>
+          <td>
+            <div *ngIf="getChecklist53() == ''">
+              <img src="./assets/SC.jpg" height="30" width="30" alt="Sin conexión" loading="lazy" />
+              Error de conexión al comprobar.
+            </div>
+            <div *ngIf="this.getChecklist53()=='0'">
+              <img src="./assets/OK.jpg" height="30" width="30" alt="Correcto" loading="lazy" />
+            </div>
+            <div *ngIf="this.getChecklist53()=='1'" class="text-danger">
+              <img src="./assets/NOK.jpg" height="30" width="30" alt="No ha pasado el análisis" loading="lazy" />
+              El uso medio de CPU es del 40% o superior.
+            </div>
+            <div *ngIf="this.getChecklist53()=='-1'" class="text-warning">
+              <img src="./assets/WARNING.jpg" height="30" width="30" alt="Sin revisión" loading="lazy" />
+              No ha sido revisado.
 
             </div>
           </td>
@@ -409,9 +562,31 @@
             </div>
             <div *ngIf="this.getChecklist70()=='1'" class="text-danger">
               <img src="./assets/NOK.jpg" height="30" width="30" alt="No ha pasado el análisis" loading="lazy" />
-              Un porcentaje alto de usuarios son miembros de “sysadmin”
+              Un porcentaje alto de usuarios son miembros de “sysadmin”.
             </div>
             <div *ngIf="this.getChecklist70()=='-1'" class="text-warning">
+              <img src="./assets/WARNING.jpg" height="30" width="30" alt="Sin revisión" loading="lazy" />
+              No ha sido revisado.
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row"></th>
+
+          <td>Uso de roles fijos db_datareader y db_datawriter</td>
+          <td>
+            <div *ngIf="getChecklist71() == ''">
+              <img src="./assets/SC.jpg" height="30" width="30" alt="Sin conexión" loading="lazy" />
+              Error de conexión al comprobar.
+            </div>
+            <div *ngIf="this.getChecklist71()=='0'">
+              <img src="./assets/OK.jpg" height="30" width="30" alt="Correcto" loading="lazy" />
+            </div>
+            <div *ngIf="this.getChecklist71()=='1'" class="text-danger">
+              <img src="./assets/NOK.jpg" height="30" width="30" alt="No ha pasado el análisis" loading="lazy" />
+              Hay mas de un miembro en alguno de estos roles.
+            </div>
+            <div *ngIf="this.getChecklist71()=='-1'" class="text-warning">
               <img src="./assets/WARNING.jpg" height="30" width="30" alt="Sin revisión" loading="lazy" />
               No ha sido revisado.
 
@@ -420,7 +595,7 @@
         </tr>
       </tbody>
     </table>
-    <button  class=" btn btn-primary ms-auto form-control" (click)="newReport()">
+    <button class=" btn btn-primary ms-auto form-control" (click)="newReport()">
       Realizar nuevo análisis
     </button>
   </div>
