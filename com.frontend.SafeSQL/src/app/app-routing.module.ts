@@ -15,6 +15,8 @@ import { UpdateAdminComponent } from './pages/update-admin/update-admin.componen
 import { ReportComponent } from './pages/report/report.component';
 import { UserConnectionComponent } from './pages/user-connection/user-connection.component';
 import { ErrorPageComponent } from './pages/error-page/error-page.component';
+import { AdminDashboardComponent } from './pages/admin-dashboard/admin-dashboard.component';
+import { AdminScriptsComponent } from './pages/admin-scripts/admin-scripts.component';
 
 
 const routes: Routes = [
@@ -101,6 +103,21 @@ const routes: Routes = [
   {
     path: 'admin/details/:token',
     component: DetailsUserComponent,
+    canActivate: [AdminGuard]
+
+  },
+  
+  {
+    path: 'admin/dashboard',
+    component: AdminDashboardComponent,
+    canActivate: [AdminGuard]
+
+  }
+  ,
+  
+  {
+    path: 'admin/scripts',
+    component: AdminScriptsComponent,
     canActivate: [AdminGuard]
 
   },

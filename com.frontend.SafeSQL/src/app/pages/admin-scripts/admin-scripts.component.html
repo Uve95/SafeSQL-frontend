@@ -1,0 +1,1048 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href=".\admin-scripts.component.css" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+
+
+<div class="form container s-center">
+    <h1 class="fs-4 card-title fw-bold mb-4 text-center ms-auto h-white">Scripts configurados</h1>
+
+    <form>
+        <!-- *****************INPUT CHECKLIST CONFIGURACION***************** -->
+
+        <div class="accordion" id="accordion1">
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="heading1">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1"
+                        aria-expanded="true" aria-controls="collapse1">
+                        <label class="fw-bold h6 label-fucsia">Configuración</label>
+                    </button>
+                </h2>
+                <div id="collapse1" class="accordion-collapse collapse" aria-labelledby="heading1"
+                    data-bs-parent="#accordion">
+                    <div class="accordion-body">
+                        <div class="form-check">
+
+                            <div class="accordion" id="check1">
+
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingcheck1">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#collapsecheck1" aria-expanded="true"
+                                            aria-controls="collapsecheck1">
+
+                                            <label class="fw-bold h6 label-fucsia"> Modo de autenticación
+                                            </label>
+                                        </button>
+                                    </h2>
+                                    <div id="collapsecheck1" class="accordion-collapse collapse"
+                                        aria-labelledby="headingcheck1" data-bs-parent="#accordion">
+                                        <div class="accordion-body">
+                                            <div class="form-check">
+
+                                                <label class="font-weight-normal h6" for="flexCheckChecked">
+                                                    SELECT CASE WHEN SERVERPROPERTY('IsIntegratedSecurityOnly') = 1 THEN
+                                                    '0' ELSE '1' END AS 'Authentication Mode'; </label>
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                        <div class="form-check">
+
+
+                            <div class="accordion" id="check2">
+
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingcheck2">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#collapsecheck2" aria-expanded="true"
+                                            aria-controls="collapsecheck2">
+
+                                            <label class="fw-bold h6 label-fucsia"> Existencia de troyanos
+                                            </label>
+                                        </button>
+                                    </h2>
+                                    <div id="collapsecheck2" class="accordion-collapse collapse"
+                                        aria-labelledby="headingcheck2" data-bs-parent="#accordion">
+                                        <div class="accordion-body">
+                                            <div class="form-check">
+
+                                                <label class="font-weight-normal h6" for="flexCheckChecked">
+                                                    SELECT CASE count(*) WHEN 0 THEN '0' ELSE '1' END FROM sysconfigures
+                                                    WHERE status=0 </label>
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-check">
+
+
+
+                            <div class="accordion" id="check3">
+
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingcheck3">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#collapsecheck3" aria-expanded="true"
+                                            aria-controls="collapsecheck3">
+
+                                            <label class="fw-bold h6 label-fucsia"> Restricciones de acceso para
+                                                procedimientos peligrosos
+                                            </label>
+                                        </button>
+                                    </h2>
+                                    <div id="collapsecheck3" class="accordion-collapse collapse"
+                                        aria-labelledby="headingcheck3" data-bs-parent="#accordion">
+                                        <div class="accordion-body">
+                                            <div class="form-check">
+
+                                                <label class="font-weight-normal h6" for="flexCheckChecked">
+                                                    SELECT CASE count(*) WHEN 0 THEN '0' ELSE '1' END FROM sysusers a,
+                                                    sysprotects b, master.dbo.syslogins c WHERE a.sid=c.sid AND
+                                                    sysadmin=0 AND a.uid=b.uid </label>
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-check">
+
+
+
+                            <div class="accordion" id="check4">
+
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingcheck4">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#collapsecheck4" aria-expanded="true"
+                                            aria-controls="collapsecheck4">
+
+                                            <label class="fw-bold h6 label-fucsia"> Auditorias de acceso
+                                            </label>
+                                        </button>
+                                    </h2>
+                                    <div id="collapsecheck4" class="accordion-collapse collapse"
+                                        aria-labelledby="headingcheck4" data-bs-parent="#accordion">
+                                        <div class="accordion-body">
+                                            <div class="form-check">
+
+                                                <label class="font-weight-normal h6" for="flexCheckChecked">
+                                                    SELECT CASE count(*) WHEN 0 THEN '1' ELSE '0' END FROM
+                                                    sys.server_audits WHERE is_state_enabled = 1 </label>
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-check">
+
+
+                            <div class="accordion" id="check5">
+
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingcheck5">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#collapsecheck5" aria-expanded="true"
+                                            aria-controls="collapsecheck5">
+
+                                            <label class="fw-bold h6 label-fucsia"> Actualizaciones SQL Server
+                                            </label>
+                                        </button>
+                                    </h2>
+                                    <div id="collapsecheck5" class="accordion-collapse collapse"
+                                        aria-labelledby="headingcheck5" data-bs-parent="#accordion">
+                                        <div class="accordion-body">
+                                            <div class="form-check">
+
+                                                <label class="font-weight-normal h6" for="flexCheckChecked">
+                                                    SELECT CASE WHEN @@VERSION LIKE '%2022%' THEN '0' ELSE '1' END AS
+                                                    'Version_Check'; </label>
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- *****************INPUT RED***************** -->
+        <div class="accordion" id="accordion2">
+
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="heading2">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2"
+                        aria-expanded="true" aria-controls="collapse2">
+
+                        <label class="fw-bold h6 label-fucsia">Red</label>
+                    </button>
+                </h2>
+                <div id="collapse2" class="accordion-collapse collapse" aria-labelledby="heading2"
+                    data-bs-parent="#accordion">
+                    <div class="accordion-body">
+                        <div class="form-check">
+
+                            <div class="accordion" id="check6">
+
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingcheck6">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#collapsecheck6" aria-expanded="true"
+                                            aria-controls="collapsecheck6">
+
+                                            <label class="fw-bold h6 label-fucsia"> Cifrado de conexiones entrantes
+                                            </label>
+                                        </button>
+                                    </h2>
+                                    <div id="collapsecheck6" class="accordion-collapse collapse"
+                                        aria-labelledby="headingcheck6" data-bs-parent="#accordion">
+                                        <div class="accordion-body">
+                                            <div class="form-check">
+
+                                                <label class="font-weight-normal h6" for="flexCheckChecked">
+                                                    SELECT CASE WHEN (SELECT count(distinct (encrypt_option)) FROM
+                                                    sys.dm_exec_connections) >= 1 THEN '1' ELSE '0' END </label>
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-check">
+
+
+
+                            <div class="accordion" id="check1">
+
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingcheck7">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#collapsecheck7" aria-expanded="true"
+                                            aria-controls="collapsecheck7">
+
+                                            <label class="fw-bold h6 label-fucsia"> Autenticación anónima en SQL Server
+                                            </label>
+                                        </button>
+                                    </h2>
+                                    <div id="collapsecheck7" class="accordion-collapse collapse"
+                                        aria-labelledby="headingcheck7" data-bs-parent="#accordion">
+                                        <div class="accordion-body">
+                                            <div class="form-check">
+
+                                                <label class="font-weight-normal h6" for="flexCheckChecked">
+                                                    SELECT CASE WHEN EXISTS ( SELECT 1 FROM sys.configurations WHERE
+                                                    (name = 'contained database authentication' OR name = 'common
+                                                    criteria compliance enabled') AND value_in_use = 0 ) THEN 0 ELSE 1
+                                                    END; </label>
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-check">
+
+
+                            <div class="accordion" id="check8">
+
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingcheck8">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#collapsecheck8" aria-expanded="true"
+                                            aria-controls="collapsecheck8">
+
+                                            <label class="fw-bold h6 label-fucsia"> Uso de puertos no estándar
+                                            </label>
+                                        </button>
+                                    </h2>
+                                    <div id="collapsecheck8" class="accordion-collapse collapse"
+                                        aria-labelledby="headingcheck8" data-bs-parent="#accordion">
+                                        <div class="accordion-body">
+                                            <div class="form-check">
+
+                                                <label class="font-weight-normal h6" for="flexCheckChecked">
+                                                    SELECT CASE WHEN EXISTS ( SELECT 1 FROM sys.dm_exec_connections
+                                                    WHERE local_net_address = '0.0.0.0' AND local_tcp_port != 1433 )
+                                                    THEN 1 ELSE 0 END; </label>
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-check">
+
+
+
+                            <div class="accordion" id="check1">
+
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingcheck9">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#collapsecheck9" aria-expanded="true"
+                                            aria-controls="collapsecheck9">
+
+                                            <label class="fw-bold h6 label-fucsia"> Conexiones remotas cifradas mediante
+                                                SSL/TLS
+                                            </label>
+                                        </button>
+                                    </h2>
+                                    <div id="collapsecheck9" class="accordion-collapse collapse"
+                                        aria-labelledby="headingcheck9" data-bs-parent="#accordion">
+                                        <div class="accordion-body">
+                                            <div class="form-check">
+
+                                                <label class="font-weight-normal h6" for="flexCheckChecked">
+                                                    SELECT CASE WHEN value_in_use = 1 THEN 0 ELSE 1 END AS IsEncrypted
+                                                    FROM sys.configurations WHERE name = 'remote access'; </label>
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-check">
+
+
+                            <div class="accordion" id="check10">
+
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingcheck10">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#collapsecheck10" aria-expanded="true"
+                                            aria-controls="collapsecheck10">
+
+                                            <label class="fw-bold h6 label-fucsia"> Conexiones con autenticación
+                                            </label>
+                                        </button>
+                                    </h2>
+                                    <div id="collapsecheck10" class="accordion-collapse collapse"
+                                        aria-labelledby="headingcheck10" data-bs-parent="#accordion">
+                                        <div class="accordion-body">
+                                            <div class="form-check">
+
+                                                <label class="font-weight-normal h6" for="flexCheckChecked">
+                                                    SELECT CASE WHEN value_in_use = 1 THEN 0 ELSE 1 END AS
+                                                    IsAuthenticationRequired FROM sys.configurations WHERE name LIKE
+                                                    'remote login %';</label>
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- *****************INPUT CHECKLIST PERMISOS***************** -->
+        <div class="accordion" id="accordion3">
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="heading3">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3"
+                        aria-expanded="true" aria-controls="collapse3">
+                        <label class="fw-bold h6 label-fucsia">Permisos</label>
+                    </button>
+                </h2>
+                <div id="collapse3" class="accordion-collapse collapse" aria-labelledby="heading3"
+                    data-bs-parent="#accordion">
+                    <div class="accordion-body">
+                        <div class="form-check">
+
+
+                            <div class="accordion" id="check11">
+
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingcheck11">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#collapsecheck11" aria-expanded="true"
+                                            aria-controls="collapsecheck11">
+
+                                            <label class="fw-bold h6 label-fucsia"> Permisos asociados al usuario guest
+                                            </label>
+                                        </button>
+                                    </h2>
+                                    <div id="collapsecheck11" class="accordion-collapse collapse"
+                                        aria-labelledby="headingcheck11" data-bs-parent="#accordion">
+                                        <div class="accordion-body">
+                                            <div class="form-check">
+
+                                                <label class="font-weight-normal h6" for="flexCheckChecked">
+                                                    SELECT CASE count(*) WHEN '0' THEN '0' ELSE '1' END FROM
+                                                    fn_my_permissions('guest', 'USER'); </label>
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-check">
+
+
+
+                            <div class="accordion" id="check12">
+
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingcheck12">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#collapsecheck12" aria-expanded="true"
+                                            aria-controls="collapsecheck12">
+
+                                            <label class="fw-bold h6 label-fucsia"> Permisos de la función base de datos
+                                                publica
+                                            </label>
+                                        </button>
+                                    </h2>
+                                    <div id="collapsecheck12" class="accordion-collapse collapse"
+                                        aria-labelledby="headingcheck12" data-bs-parent="#accordion">
+                                        <div class="accordion-body">
+                                            <div class="form-check">
+
+                                                <label class="font-weight-normal h6" for="flexCheckChecked">
+                                                    SELECT CASE count(*) WHEN '0' THEN '0' ELSE '1' END FROM sysusers a,
+                                                    syspermissions b WHERE a.uid=b.grantee AND a.name='public' </label>
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <!-- *****************INPUT CHECKLIST POLITICAS ***************** -->
+        <div class="accordion" id="accordion4">
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="heading4">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4"
+                        aria-expanded="true" aria-controls="collapse4">
+                        <label class="fw-bold h6 label-fucsia">Políticas de contraseña </label>
+                    </button>
+                </h2>
+                <div id="collapse4" class="accordion-collapse collapse" aria-labelledby="heading4"
+                    data-bs-parent="#accordion">
+                    <div class="accordion-body">
+                        <div class="form-check">
+
+
+                            <div class="accordion" id="check13">
+
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingcheck13">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#collapsecheck13" aria-expanded="true"
+                                            aria-controls="collapsecheck13">
+
+                                            <label class="fw-bold h6 label-fucsia"> Contraseñas inseguras
+                                            </label>
+                                        </button>
+                                    </h2>
+                                    <div id="collapsecheck13" class="accordion-collapse collapse"
+                                        aria-labelledby="headingcheck13" data-bs-parent="#accordion">
+                                        <div class="accordion-body">
+                                            <div class="form-check">
+
+                                                <label class="font-weight-normal h6" for="flexCheckChecked">
+                                                    SELECT CASE WHEN (SELECT count(name) FROM master.dbo.syslogins WHERE
+                                                    password is null) < 30 THEN '0' ELSE '1' END </label>
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-check">
+
+                            <label class="font-weight-normal h6" for="flexCheckChecked">
+
+                            </label>
+
+                            <div class="accordion" id="check14">
+
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingcheck14">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#collapsecheck14" aria-expanded="true"
+                                            aria-controls="collapsecheck14">
+
+                                            <label class="fw-bold h6 label-fucsia"> Revisiones periodicas de contraseñas
+                                                no seguras
+                                            </label>
+                                        </button>
+                                    </h2>
+                                    <div id="collapsecheck14" class="accordion-collapse collapse"
+                                        aria-labelledby="headingcheck14" data-bs-parent="#accordion">
+                                        <div class="accordion-body">
+                                            <div class="form-check">
+
+                                                <label class="font-weight-normal h6" for="flexCheckChecked">
+                                                    SELECT CASE count(inicios_sesion.dias_sin_modificar) WHEN '0' THEN
+                                                    '0' ELSE '1' END FROM (SELECT name,
+                                                    datediff(dd,updatedate,getdate()) AS dias_sin_modificar FROM
+                                                    syslogins) AS inicios_sesion </label>
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- *****************INPUT CHECKLIST INICIOS DE SESIÓN ***************** -->
+        <div class="accordion" id="accordion5">
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="heading5">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse5"
+                        aria-expanded="true" aria-controls="collapse4">
+                        <label class="fw-bold h6 label-fucsia">Revision de inicios de sesión</label>
+                    </button>
+                </h2>
+                <div id="collapse5" class="accordion-collapse collapse" aria-labelledby="heading5"
+                    data-bs-parent="#accordion">
+                    <div class="accordion-body">
+
+
+                        <div class="form-check">
+
+
+
+                            <div class="accordion" id="check1">
+
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingcheck15">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#collapsecheck15" aria-expanded="true"
+                                            aria-controls="collapsecheck15">
+
+                                            <label class="fw-bold h6 label-fucsia"> Inicios de sesion sin politica
+                                                segura
+                                            </label>
+                                        </button>
+                                    </h2>
+                                    <div id="collapsecheck15" class="accordion-collapse collapse"
+                                        aria-labelledby="headingcheck15" data-bs-parent="#accordion">
+                                        <div class="accordion-body">
+                                            <div class="form-check">
+
+                                                <label class="font-weight-normal h6" for="flexCheckChecked">
+                                                    SELECT CASE count(datos.name) WHEN '0' THEN '0' ELSE '1' END FROM
+                                                    (SELECT [name], RemediationCmd = N'ALTER LOGIN ' + QUOTENAME([name])
+                                                    + ' WITH CHECK_POLICY = ON;' FROM sys.sql_logins AS s WHERE
+                                                    s.is_policy_checked = 0 AND s.is_disabled = 0 AND s.[name] NOT LIKE
+                                                    N'##MS[_]%##') AS datos </label>
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-check">
+
+
+                            <div class="accordion" id="check16">
+
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingcheck16">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#collapsecheck16" aria-expanded="true"
+                                            aria-controls="collapsecheck16">
+
+                                            <label class="fw-bold h6 label-fucsia">Inicios de sesion no utilizados
+                                            </label>
+                                        </button>
+                                    </h2>
+                                    <div id="collapsecheck16" class="accordion-collapse collapse"
+                                        aria-labelledby="headingcheck16" data-bs-parent="#accordion">
+                                        <div class="accordion-body">
+                                            <div class="form-check">
+
+                                                <label class="font-weight-normal h6" for="flexCheckChecked">
+                                                    SELECT CASE count(*) WHEN '0' THEN '0' ELSE '1' END AS
+                                                    inicios_de_sesion FROM syslogins; </label>
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-check">
+
+
+                            <div class="accordion" id="check17">
+
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingcheck17">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#collapsecheck17" aria-expanded="true"
+                                            aria-controls="collapsecheck17">
+
+                                            <label class="fw-bold h6 label-fucsia"> Inicios de sesión fallidos
+                                            </label>
+                                        </button>
+                                    </h2>
+                                    <div id="collapsecheck17" class="accordion-collapse collapse"
+                                        aria-labelledby="headingcheck17" data-bs-parent="#accordion">
+                                        <div class="accordion-body">
+                                            <div class="form-check">
+
+                                                <label class="font-weight-normal h6" for="flexCheckChecked">
+                                                    SELECT CASE WHEN (SELECT round(info.resultado*100,2) FROM( SELECT
+                                                    ((SELECT cast(count(*) AS float) AS intentos_f FROM inicios_fallidos
+                                                    WHERE convert(date,logdate)= convert(date,getdate()))/ (SELECT cast(
+                                                    CASE count(*) WHEN '0' THEN '1' END as float) intentos_b FROM
+                                                    inicios_buenos WHERE convert(date,logdate)=
+                                                    convert(date,getdate()))) resultado) AS info) = 0 THEN '0' ELSE '1'
+                                                    END </label>
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- *****************INPUT CHECKLIST MANTENIMIENTO***************** -->
+        <div class="accordion" id="accordion6">
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="heading6">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse6"
+                        aria-expanded="true" aria-controls="collapse6">
+                        <label class="fw-bold h6 label-fucsia">Mantenimiento</label>
+                    </button>
+                </h2>
+                <div id="collapse6" class="accordion-collapse collapse" aria-labelledby="heading6"
+                    data-bs-parent="#accordion">
+                    <div class="accordion-body">
+                        <div class="form-check">
+
+
+
+                            <div class="accordion" id="check1">
+
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingcheck18">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#collapsecheck18" aria-expanded="true"
+                                            aria-controls="collapsecheck18">
+
+                                            <label class="fw-bold h6 label-fucsia"> Plan de mantenimiento
+                                            </label>
+                                        </button>
+                                    </h2>
+                                    <div id="collapsecheck18" class="accordion-collapse collapse"
+                                        aria-labelledby="headingcheck18" data-bs-parent="#accordion">
+                                        <div class="accordion-body">
+                                            <div class="form-check">
+
+                                                <label class="font-weight-normal h6" for="flexCheckChecked">
+                                                    SELECT CASE count(*) WHEN '0' THEN '1' ELSE '0' END FROM
+                                                    msdb.dbo.sysmaintplan_plans AS s INNER JOIN
+                                                    msdb.dbo.sysmaintplan_subplans AS sp ON sp.plan_id=s.id </label>
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-check">
+
+
+
+                            <div class="accordion" id="check19">
+
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingcheck19">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#collapsecheck19" aria-expanded="true"
+                                            aria-controls="collapsecheck19">
+
+                                            <label class="fw-bold h6 label-fucsia"> Última copia de seguridad
+                                            </label>
+                                        </button>
+                                    </h2>
+                                    <div id="collapsecheck19" class="accordion-collapse collapse"
+                                        aria-labelledby="headingcheck19" data-bs-parent="#accordion">
+                                        <div class="accordion-body">
+                                            <div class="form-check">
+
+                                                <label class="font-weight-normal h6" for="flexCheckChecked">
+                                                    SELECT CASE WHEN MAX(backup_finish_date) >= DATEADD(MONTH, -1,
+                                                    GETDATE()) THEN 0 ELSE 1 END AS 'Estado' FROM msdb.dbo.backupset
+                                                    GROUP BY database_name; </label>
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-check">
+
+                            <label class="font-weight-normal h6" for="flexCheckChecked">
+
+                            </label>
+
+                            <div class="accordion" id="check20">
+
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingcheck20">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#collapsecheck20" aria-expanded="true"
+                                            aria-controls="collapsecheck20">
+
+                                            <label class="fw-bold h6 label-fucsia"> Fragmentación óptima
+                                            </label>
+                                        </button>
+                                    </h2>
+                                    <div id="collapsecheck20" class="accordion-collapse collapse"
+                                        aria-labelledby="headingcheck20" data-bs-parent="#accordion">
+                                        <div class="accordion-body">
+                                            <div class="form-check">
+
+                                                <label class="font-weight-normal h6" for="flexCheckChecked">
+                                                    SELECT CASE WHEN AVG(avg_fragmentation_in_percent) < 10 THEN 0 ELSE
+                                                        1 END AS 'Estado de Fragmentación' FROM
+                                                        sys.dm_db_index_physical_stats (DB_ID(), NULL, NULL, NULL,
+                                                        NULL); </label>
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-check">
+
+
+                            <div class="accordion" id="check21">
+
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingcheck21">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#collapsecheck21" aria-expanded="true"
+                                            aria-controls="collapsecheck21">
+
+                                            <label class="fw-bold h6 label-fucsia"> Uso medio de CPU por sesión
+                                            </label>
+                                        </button>
+                                    </h2>
+                                    <div id="collapsecheck21" class="accordion-collapse collapse"
+                                        aria-labelledby="headingcheck21" data-bs-parent="#accordion">
+                                        <div class="accordion-body">
+                                            <div class="form-check">
+
+                                                <label class="font-weight-normal h6" for="flexCheckChecked">
+                                                    SELECT CASE WHEN (AVG(cpu_time * 1.0) / MAX(cpu_time)) * 100 < 40
+                                                        THEN 0 ELSE 1 END AS Resultado FROM sys.dm_exec_requests WHERE
+                                                        session_id> 50; </label>
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- *****************INPUT CHECKLIST DATOS SENSIBLES***************** -->
+        <div class="accordion" id="accordion7">
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="heading7">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse7"
+                        aria-expanded="true" aria-controls="collapse7">
+                        <label class="fw-bold h6 label-fucsia">Datos sensibles</label>
+                    </button>
+                </h2>
+                <div id="collapse7" class="accordion-collapse collapse" aria-labelledby="heading7"
+                    data-bs-parent="#accordion">
+                    <div class="accordion-body">
+                        <div class="form-check">
+
+
+
+                            <div class="accordion" id="check22">
+
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingcheck22">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#collapsecheck22" aria-expanded="true"
+                                            aria-controls="collapsecheck22">
+
+                                            <label class="fw-bold h6 label-fucsia"> Datos sensibles
+                                            </label>
+                                        </button>
+                                    </h2>
+                                    <div id="collapsecheck22" class="accordion-collapse collapse"
+                                        aria-labelledby="headingcheck22" data-bs-parent="#accordion">
+                                        <div class="accordion-body">
+                                            <div class="form-check">
+
+                                                <label class="font-weight-normal h6" for="flexCheckChecked">
+                                                    SELECT CASE WHEN (SELECT round(datos_sensibles.numero*100,2) from(
+                                                    SELECT ( (SELECT cast(count(*) as float) as contar_sensibles from
+                                                    diccionario d join (SELECT column_name from
+                                                    information_schema.columns) as nombre_columnas ON
+                                                    nombre_columnas.column_name like d.nombre) / (SELECT cast(count(*)
+                                                    as float) numero from sys.all_columns)) numero) as datos_sensibles)
+                                                    >= 0 AND (SELECT round(datos_sensibles.numero*100,2) from( SELECT (
+                                                    (SELECT cast(count(*) as float) as contar_sensibles from diccionario
+                                                    d join (SELECT column_name from information_schema.columns) as
+                                                    nombre_columnas ON nombre_columnas.column_name like d.nombre) /
+                                                    (SELECT cast(count(*) as float) numero from sys.all_columns))
+                                                    numero) as datos_sensibles) < 30 THEN '0' ELSE '1' END </label>
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-check">
+
+
+
+                            <div class="accordion" id="check23">
+
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingcheck23">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#collapsecheck23" aria-expanded="true"
+                                            aria-controls="collapsecheck23">
+
+                                            <label class="fw-bold h6 label-fucsia"> Datos cifrados
+                                            </label>
+                                        </button>
+                                    </h2>
+                                    <div id="collapsecheck23" class="accordion-collapse collapse"
+                                        aria-labelledby="headingcheck23" data-bs-parent="#accordion">
+                                        <div class="accordion-body">
+                                            <div class="form-check">
+
+                                                <label class="font-weight-normal h6" for="flexCheckChecked">
+                                                    SELECT CASE round(cast(resultado_cifradas.resultado*100 as float),2)
+                                                    WHEN '0' THEN '0' ELSE '1' END from ( SELECT ( SELECT( SELECT(
+                                                    (SELECT cast(count(*) as float) as contar_encriptados from
+                                                    diccionario d join (SELECT name from sys.columns where
+                                                    [encryption_type] IS NOT NULL) as columnas_encriptadas on
+                                                    columnas_encriptadas.name like d.nombre)) as columnas_encriptadas) /
+                                                    (SELECT cast(count(*) as float) as contar_sensibles from diccionario
+                                                    d join (SELECT column_name from information_schema.columns) as
+                                                    nombre_columnas on nombre_columnas.column_name like d.nombre) as
+                                                    columnas_sensibles) resultado) as resultado_cifradas </label>
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- *****************INPUT CHECKLIST ROLES***************** -->
+        <div class="accordion" id="accordion8">
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="heading8">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse8"
+                        aria-expanded="true" aria-controls="collapse8">
+                        <label class="fw-bold h6 label-fucsia">Roles</label>
+                    </button>
+                </h2>
+                <div id="collapse8" class="accordion-collapse collapse" aria-labelledby="heading8"
+                    data-bs-parent="#accordion">
+                    <div class="accordion-body">
+                        <div class="form-check">
+
+
+                            <div class="accordion" id="check24">
+
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingcheck24">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#collapsecheck24" aria-expanded="true"
+                                            aria-controls="collapsecheck24">
+
+                                            <label class="fw-bold h6 label-fucsia"> Miembros con rol sysadmin
+                                            </label>
+                                        </button>
+                                    </h2>
+                                    <div id="collapsecheck24" class="accordion-collapse collapse"
+                                        aria-labelledby="headingcheck24" data-bs-parent="#accordion">
+                                        <div class="accordion-body">
+                                            <div class="form-check">
+
+                                                <label class="font-weight-normal h6" for="flexCheckChecked">
+                                                    SELECT CASE WHEN (SELECT round(cast(miembros.rol_miembros*100 as
+                                                    float),2) FROM ( SELECT(( SELECT cast(count(*) as float) FROM
+                                                    sys.server_principals r INNER JOIN sys.server_role_members m ON
+                                                    r.principal_id = m.role_principal_id INNER JOIN
+                                                    sys.server_principals p ON p.principal_id = m.member_principal_id
+                                                    WHERE r.type = 'R' and r.name = N'sysadmin') /(SELECT cast(count(*)
+                                                    as float) FROM sys.sysusers)) rol_miembros) AS miembros) >= 0 AND
+                                                    (SELECT round(cast(miembros.rol_miembros*100 as float),2) FROM (
+                                                    SELECT(( SELECT cast(count(*) as float) FROM sys.server_principals r
+                                                    INNER JOIN sys.server_role_members m ON r.principal_id =
+                                                    m.role_principal_id INNER JOIN sys.server_principals p ON
+                                                    p.principal_id = m.member_principal_id WHERE r.type = 'R' and r.name
+                                                    = N'sysadmin') /(SELECT cast(count(*) as float) FROM sys.sysusers))
+                                                    rol_miembros) AS miembros) < 25 THEN '0' ELSE '1' END ; </label>
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-check">
+
+
+                            <div class="accordion" id="check25">
+
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingcheck25">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#collapsecheck25" aria-expanded="true"
+                                            aria-controls="collapsecheck25">
+
+                                            <label class="fw-bold h6 label-fucsia"> Uso de roles fijos db_datareader y
+                                                db_datawriter
+                                            </label>
+                                        </button>
+                                    </h2>
+                                    <div id="collapsecheck25" class="accordion-collapse collapse"
+                                        aria-labelledby="headingcheck25" data-bs-parent="#accordion">
+                                        <div class="accordion-body">
+                                            <div class="form-check">
+
+                                                <label class="font-weight-normal h6" for="flexCheckChecked">
+                                                    SELECT CASE WHEN (SELECT COUNT(*) FROM sys.database_principals AS dp
+                                                    JOIN sys.database_role_members AS drm ON dp.principal_id =
+                                                    drm.member_principal_id JOIN sys.database_principals AS dp_role ON
+                                                    drm.role_principal_id = dp_role.principal_id WHERE dp_role.name =
+                                                    'db_datareader') <= 1 AND (SELECT COUNT(*) FROM
+                                                        sys.database_principals AS dp JOIN sys.database_role_members AS
+                                                        drm ON dp.principal_id=drm.member_principal_id JOIN
+                                                        sys.database_principals AS dp_role ON
+                                                        drm.role_principal_id=dp_role.principal_id WHERE
+                                                        dp_role.name='db_datawriter' ) <=1 THEN 0 ELSE 1 END; </label>
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </form>
+    <button class=" btn btn-secondary ms-auto form-control"  (click)="back()">
+        Volver
+    </button>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+
+</html>

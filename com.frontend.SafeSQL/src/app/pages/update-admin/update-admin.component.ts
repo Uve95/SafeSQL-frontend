@@ -30,7 +30,9 @@ export class UpdateAdminComponent implements OnInit{
 
     ngOnInit() {
 
-      this.userService.details(localStorage.getItem('tokenP')).subscribe(data => {
+      const token = this.activatedRoute.snapshot.params['token'];
+
+      this.userService.details(token).subscribe(data => {
         this.user = data;
         this.name = data.name;
         this.surname = data.surname;
@@ -68,8 +70,9 @@ export class UpdateAdminComponent implements OnInit{
 
 
   updateUser(): void {
-    const email = this.activatedRoute.snapshot.params['email'];
-    this.userService.updateAdmin(this.adminUpdateForm.value, email).subscribe(dato=>{
+    const token = this.activatedRoute.snapshot.params['token'];
+
+    this.userService.updateAdmin(this.adminUpdateForm.value, token).subscribe(dato=>{
       console.log(dato);
       this.msgError = false
 
@@ -81,7 +84,8 @@ export class UpdateAdminComponent implements OnInit{
   }
 
   back(): void {
-    window.history.back();
+    this.router.navigate(['/admin/dashboard'])
+
   }
 
 }

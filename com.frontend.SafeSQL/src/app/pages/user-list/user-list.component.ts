@@ -11,36 +11,40 @@ import { Router } from '@angular/router';
 })
 
 export class UserListComponent implements OnInit {
- 
+
   users: User[] = []
 
-  constructor(private userService: UserService, private router:Router ) { }
- 
+  constructor(private userService: UserService, private router: Router) { }
+
   //De la documentación: A lifecycle hook that is called after Angular 
   //has initialized all data-bound properties of a directive.
   ngOnInit(): void {
     this.loadUsers();
   }
 
-  loadUsers(){
-    this.userService.list().subscribe((dato: User[]) =>{
-      this.users=dato;
+  loadUsers() {
+    this.userService.list().subscribe((dato: User[]) => {
+      this.users = dato;
     }),
       (err: any) => {
-      console.log(err);
-    }
+        console.log(err);
+      }
     setTimeout(this.loadUsers, 1000);
 
   }
 
-  delete(email:String): void {
+  delete(email: String): void {
     if (confirm('¿Estás seguro?')) {
       this.userService.delete(email).subscribe(() => {
         this.loadUsers();
       });
     }
   }
-  
 
- 
+  public back() {
+
+    this.router.navigate(['/admin/dashboard']);
+
+  }
+
 }

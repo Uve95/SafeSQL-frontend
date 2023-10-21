@@ -45,7 +45,7 @@ export class UserService {
 
   public updateAdmin(user: User, token: String): Observable<User> {
 
-    return this.httpClient.put<User>(this.adminURL + `update/${token}`, user);
+    return this.httpClient.post<User>(this.adminURL + `update/${token}`, user);
   }
 
   public updateUser(user: User, token: String): Observable<User> {

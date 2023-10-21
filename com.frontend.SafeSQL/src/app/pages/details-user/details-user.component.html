@@ -1,47 +1,31 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href=".\details-user.component.css" type="text/css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 
-<body>
-	<section class="h-100">
-		<div class="container h-100">
-			<div class="row justify-content-sm-center h-100">
-					<div class="card shadow-lg">
-						<div class="card-body">
-							<h1 class="fs-4 card-title fw-bold mb-40 text-center ms-auto">Detalles del usuario {{user.email}}</h1>
-                            <div *ngIf="user">
-                                <div class="container">
-                                  <p><b>Nombre del usuario: </b>{{user.name}}</p>
-								  <p><b>Apellido del usuario: </b>{{user.surname}}</p>
-                                  <p><b>Correo electronico del usuario: </b>{{user.email}}</p>
-								  <p><b>Token del usuario: </b>{{user.token}}</p>
-                                </div>
+<div class="form container s-center">
+	<h1 class="fs-4 card-title fw-bold mb-4 text-center label-white">Detalles del usuario {{user.email}}</h1>
+	<div *ngIf="user">
+		<div class="container">
+			<p><b class="label-white">Nombre del usuario: </b>{{user.name}}</p>
+			<p><b>Apellido del usuario: </b>{{user.surname}}</p>
+			<p><b>Correo electronico del usuario: </b>{{user.email}}</p>
+			<p><b>Token del usuario: </b>{{user.token}}</p>
+		</div>
 
-								<div class="mb-3">
+		<div class="mb-3">
 
-									<div class="text-center">
-										<button class=" btn btn-secondary ms-auto btn-lg" (click)="back()">
-											Volver
-										</button>
-									</div>
-								</div>
-                              </div>
-
-						</div>
-
-					</div>
-					<div class="text-center mt-5 text-muted">
-						Copyright &copy; 2017-2021 &mdash; Your Company
-					</div>
-				</div>
+			<div class="text-center">
+				<button class=" btn btn-secondary ms-auto btn-lg" (click)="back()">
+					Volver
+				</button>
 			</div>
-	</section>
+		</div>
+	</div>
 
-	<script src="js/login.js"></script>
-</body>
-
-</html>
+</div>

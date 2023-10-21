@@ -88,7 +88,7 @@ export class LoginComponent implements OnInit {
         }
         else if (this.userService.getUserRole() == 'ADMIN') {
           localStorage.setItem('rol', "ADMIN")
-          this.router.navigate(['/admin/list'])
+          this.router.navigate(['/admin/dashboard'])
           this.userService.loginStatusSubject.next(true);
 
         } else {

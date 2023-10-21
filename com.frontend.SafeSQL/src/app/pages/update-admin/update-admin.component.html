@@ -2,135 +2,119 @@
 <html lang="en">
 
 <head>
-
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href=".\update-admin.component.css" type="text/css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 
-<body>
-	<section class="h-100">
-		<div class="container h-100">
-			<div class="row justify-content-sm-center h-100">
-				<div class="col-xxl-4 col-xl-5 col-lg-5 col-md-7 col-sm-9">
-					<div class="card shadow-lg">
-						<div class="card-body p-5">
-							<h1 class="fs-4 card-title fw-bold mb-40 text-center ms-auto">Actualizar el usuario
-								{{email}}</h1>
+<div class="form container s-center">
+	<h1 class="fs-4 card-title fw-bold mb-40 text-center ms-auto h-white">Actualizar el usuario
+		{{email}}</h1>
 
-							<form [formGroup]="adminUpdateForm" (ngSubmit)="ngOnInit()" autocomplete="off">
+	<form [formGroup]="adminUpdateForm" (ngSubmit)="ngOnInit()" autocomplete="off">
 
-								<!-- *****************INPUT NAME***************** -->
+		<!-- *****************INPUT NAME***************** -->
 
-								<div class="mb-3">
-									<label class="mb-2 text-muted" for="name">Nombre</label>
-									<input type="text" id="name" name="name" placeholder={{name}} formControlName="name"
-										class="form-control">
+		<div class="mb-3">
+			<label class="label-white" for="name">Nombre</label>
+			<input type="text" id="name" name="name" placeholder={{name}} formControlName="name" class="form-control">
 
-									<div *ngIf="adminUpdateForm.get('name')?.touched && adminUpdateForm.get('name')?.errors?.['required']"
-										class="text-danger"> Campo requerido</div>
+			<div *ngIf="adminUpdateForm.get('name')?.touched && adminUpdateForm.get('name')?.errors?.['required']"
+				class="text-danger"> Campo requerido</div>
 
-									<div *ngIf="adminUpdateForm.get('name')?.touched && adminUpdateForm.get('name')?.errors?.['minlength']"
-										class="text-danger"> Por favor, introduzca un nombre valido</div>
-								</div>
+			<div *ngIf="adminUpdateForm.get('name')?.touched && adminUpdateForm.get('name')?.errors?.['minlength']"
+				class="text-danger"> Por favor, introduzca un nombre valido</div>
+		</div>
 
 
-								<!-- *****************INPUT APELLIDOS***************** -->
+		<!-- *****************INPUT APELLIDOS***************** -->
 
-								<div class="mb-3">
-									<label class="mb-2 text-muted" for="surname">Apellidos</label>
-									<input type="text" id="surname" name="surname" placeholder={{surname}}
-										formControlName="surname" class="form-control">
-
-
-									<div *ngIf="adminUpdateForm.get('surname')?.touched && adminUpdateForm.get('surname')?.errors?.['required']"
-										class="text-danger"> Campo requerido</div>
-
-									<div *ngIf="adminUpdateForm.get('surname')?.touched && adminUpdateForm.get('surname')?.errors?.['minlength']"
-										class="text-danger"> Por favor, introduzca un apellido valido</div>
-								</div>
+		<div class="mb-3">
+			<label class="label-white" for="surname">Apellidos</label>
+			<input type="text" id="surname" name="surname" placeholder={{surname}} formControlName="surname"
+				class="form-control">
 
 
-								<!-- *****************INPUT CORREO***************** -->
+			<div *ngIf="adminUpdateForm.get('surname')?.touched && adminUpdateForm.get('surname')?.errors?.['required']"
+				class="text-danger"> Campo requerido</div>
 
-								<div class="mb-3">
-									<label class="mb-2 text-muted" for="email">Dirección de correo electronico</label>
-									<input type="text" id="surname" name="email" placeholder={{email}}
-										formControlName="email" class="form-control" readonly>
-
-								</div>
-
-								<!-- *****************INPUT CONTRASEÑA***************** -->
-
-								<div class="mb-3">
-									<label class="mb-2 text-muted" for="email">Contraseña</label>
-									<input type="password" id="password" name="password" placeholder="****"
-										formControlName="password" class="form-control">
+			<div *ngIf="adminUpdateForm.get('surname')?.touched && adminUpdateForm.get('surname')?.errors?.['minlength']"
+				class="text-danger"> Por favor, introduzca un apellido valido</div>
+		</div>
 
 
-									<div *ngIf="adminUpdateForm.get('password')?.touched && adminUpdateForm.get('password')?.errors?.['required']"
-										class="text-danger"> Campo requerido</div>
+		<!-- *****************INPUT CORREO***************** -->
 
-									<div *ngIf="adminUpdateForm.get('password')?.touched && adminUpdateForm.get('password')?.errors?.['pattern']"
-										class="text-danger">
-										Por favor, introduzca una contraseña valida.
-										(Al menos un número, un caracter, una letra en mayúscula, una letra en minúscula
-										con una longitud entre 8 y 16 caracteres)</div>
-								</div>
+		<div class="mb-3">
+			<label class="label-white" for="email">Dirección de correo electronico</label>
+			<input type="text" id="surname" name="email" placeholder={{email}} formControlName="email"
+				class="form-control" readonly>
 
-								<!-- *****************INPUT CONFIRMACIÓN CONTRASEÑA***************** -->
+		</div>
 
-								<div class="mb-3">
-									<label class="mb-2 text-muted" for="passwordConfirm">Confirme su contraseña</label>
-									<input type="password" id="passwordConfirm" name="passwordConfirm" placeholder="****"
-										formControlName="passwordConfirm" class="form-control">
+		<!-- *****************INPUT CONTRASEÑA***************** -->
 
-
-									<div *ngIf="adminUpdateForm.get('passwordConfirm')?.touched && adminUpdateForm.get('passwordConfirm')?.errors?.['required'] "
-										class="text-danger"> Campo requerido</div>
-
-									<div *ngIf=" adminUpdateForm.get('passwordConfirm')?.touched && !checkPasswords(adminUpdateForm)"
-										class="text-danger">
-										Las contraseñas no coinciden</div>
-								</div>
-								<div class="mb-3">
-
-									<div class="text-center">
-										<button class=" btn btn-primary ms-auto btn-lg" type="submit"
-											(click)="updateUser()">
-											Actualizar usuario
-										</button>
-				
-										<button class=" btn btn-secondary ms-auto btn-lg" (click)="back()">
-											Volver
-										</button>
-									</div>
-								</div>
+		<div class="mb-3">
+			<label class="label-white" for="email">Contraseña</label>
+			<input type="password" id="password" name="password" placeholder="****" formControlName="password"
+				class="form-control">
 
 
-								<div class="mb-3">
+			<div *ngIf="adminUpdateForm.get('password')?.touched && adminUpdateForm.get('password')?.errors?.['required']"
+				class="text-danger"> Campo requerido</div>
 
-									<div class="alert alert-danger" *ngIf="msgError"> Los cambios no han sido guardados
-									</div>
+			<div *ngIf="adminUpdateForm.get('password')?.touched && adminUpdateForm.get('password')?.errors?.['pattern']"
+				class="text-danger">
+				Por favor, introduzca una contraseña valida.
+				(Al menos un número, un caracter, una letra en mayúscula, una letra en minúscula
+				con una longitud entre 8 y 16 caracteres)</div>
+		</div>
 
-									<div class="alert alert-success" *ngIf="msgError == false"> El usuario ha sido
-										actualizado correctamente
+		<!-- *****************INPUT CONFIRMACIÓN CONTRASEÑA***************** -->
 
-									</div>
-								</div>
-							</form>
+		<div class="mb-3">
+			<label class="label-white" for="passwordConfirm">Confirme su contraseña</label>
+			<input type="password" id="passwordConfirm" name="passwordConfirm" placeholder="****"
+				formControlName="passwordConfirm" class="form-control">
 
 
+			<div *ngIf="adminUpdateForm.get('passwordConfirm')?.touched && adminUpdateForm.get('passwordConfirm')?.errors?.['required'] "
+				class="text-danger"> Campo requerido</div>
 
-						</div>
+			<div *ngIf=" adminUpdateForm.get('passwordConfirm')?.touched && !checkPasswords(adminUpdateForm)"
+				class="text-danger">
+				Las contraseñas no coinciden</div>
+		</div>
+		<div class="mb-3">
 
-					</div>
-					<div class="text-center mt-5 text-muted">
-						Copyright &copy; 2017-2021 &mdash; Your Company
-					</div>
-				</div>
+			<div class="text-center">
+				<button class=" btn btn-primary ms-auto btn-lg" type="submit" (click)="updateUser()">
+					Actualizar usuario
+				</button>
+
+				<button class=" btn btn-secondary ms-auto btn-lg" (click)="back()">
+					Volver
+				</button>
 			</div>
 		</div>
-	</section>
 
-	<script src="js/login.js"></script>
-</body>
+
+		<div class="mb-3">
+
+			<div class="alert alert-danger" *ngIf="msgError"> Los cambios no han sido guardados
+			</div>
+
+			<div class="alert alert-success" *ngIf="msgError == false"> El usuario ha sido
+				actualizado correctamente
+
+			</div>
+		</div>
+	</form>
+
+
+
+</div>
+
 
 </html>
