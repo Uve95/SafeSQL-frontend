@@ -69,10 +69,10 @@ export class UserService {
     return this.httpClient.post<User>(this.userURL + `changePassword`, { 'email': email, 'password': password, 'token': token });
   }
 
-  public connectBD(info: string[]): Observable<User> {
+  public connectBD(info: string[]): Observable<boolean> {
 
     this.infoConnect = info;
-    return this.httpClient.post<User>(this.userURL + `connectBD`, info);
+    return this.httpClient.post<boolean>(this.userURL + `connectBD`, info);
   }
 
   public deleteInfo(info: any): Observable<User> {

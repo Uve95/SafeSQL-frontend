@@ -32,7 +32,6 @@ export class UserDashboardComponent implements OnInit {
 
   ngOnInit(): void {
     this.getBDName();
-    console.log(this.BDName)
 
   }
 

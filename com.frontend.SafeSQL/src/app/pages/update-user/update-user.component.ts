@@ -71,7 +71,6 @@ export class UpdateUserComponent implements OnInit{
 
   updateUser(): void {
     this.userService.updateUser(this.userUpdateForm.value, localStorage.getItem('tokenP')).subscribe(dato=>{
-      console.log(dato);
       this.msgError = false
 
 

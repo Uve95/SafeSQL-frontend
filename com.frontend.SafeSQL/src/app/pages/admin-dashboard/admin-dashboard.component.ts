@@ -29,7 +29,6 @@ export class AdminDashboardComponent  implements OnInit {
 
   ngOnInit(): void {
     this.getBDName();
-    console.log(this.BDName)
 
   }
 

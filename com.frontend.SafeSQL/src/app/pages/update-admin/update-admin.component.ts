@@ -73,7 +73,6 @@ export class UpdateAdminComponent implements OnInit{
     const token = this.activatedRoute.snapshot.params['token'];
 
     this.userService.updateAdmin(this.adminUpdateForm.value, token).subscribe(dato=>{
-      console.log(dato);
       this.msgError = false
 
 

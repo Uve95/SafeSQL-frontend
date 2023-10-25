@@ -95,7 +95,6 @@ export class NavbarComponent implements OnInit {
     this.router.navigate(['']);
   },
     err => {
-      console.log(false)
     }
   );
 

@@ -27,7 +27,6 @@ export class UserListComponent implements OnInit {
       this.users = dato;
     }),
       (err: any) => {
-        console.log(err);
       }
     setTimeout(this.loadUsers, 1000);
 

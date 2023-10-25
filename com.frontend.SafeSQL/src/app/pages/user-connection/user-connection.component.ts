@@ -45,32 +45,42 @@ export class UserConnectionComponent implements OnInit {
 
 
   connectBD() {
-
     this.showPrincipal = false;
 
-    this.userService.connectBD([this.conexionForm.value['cadena'], this.userService.getUser().email]).subscribe(
-      dato => {
-        this.msgError = false;
-        this.showPrincipal = true;
+    this.userService.connectBD([this.conexionForm.value['cadena'], this.userService.getUser().email])
+      .subscribe(
+        dato => {
 
-        this.router.navigate(['user/dashboard']);
+          if (dato == true) {
 
+            this.msgError = false;
+            this.showPrincipal = true;
+            this.router.navigate(['user/dashboard']);
+          } else {
+            this.showPrincipal = true;
+            this.msgError = true;
 
-      }, err => {
+          }
 
-        this.msgError = true
-        this.showPrincipal = false;
+        },
+        err => {
+          // Manejar errores del servidor
+          this.msgError = true;
+          this.showPrincipal = true;
+          console.error("Error:", err);
 
-        setTimeout(() => {
-          // Navega a la página principal una vez que los datos se han cargado
-          this.connectBD();
-        }, 3000); // Simula una carga de 3 segundos
-
-      })
-
-
-
+          // Opcional: Si no deseas reintentar automáticamente, elimina este bloque.
+          setTimeout(() => {
+            this.connectBD(); // Reintenta la conexión después de un tiempo
+          }, 3000); // Simula una carga de 3 segundos
+        }
+      );
   }
+
+
+
+
+
 
 
 
