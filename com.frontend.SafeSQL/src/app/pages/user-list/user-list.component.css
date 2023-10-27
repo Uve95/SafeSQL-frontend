@@ -5,12 +5,12 @@
 
 .btn.btn-primary,
 .btn.btn-primary.active {
-  background-color: #ff00ff; /* Rosa neón brillante */
+  background-color: #3c02c4; /* Rosa neón brillante */
 
-  border-color:#ff00ff; /* Rosa neón brillante */
+  border-color:#3c02c4; /* Rosa neón brillante */
   word-wrap: break-word;
 
-  border: 1px solid #ff00ff; /* Borde sólido de 2px de ancho y color azul (#007bff) */
+  border: 1px solid #3c02c4; /* Borde sólido de 2px de ancho y color azul (#007bff) */
   padding: 10px 10px; /* Espacio alrededor del texto del botón */
   color: rgb(255, 255, 255); /* Color del texto */
   cursor: pointer; /* Cambiar el cursor al pasar el mouse */

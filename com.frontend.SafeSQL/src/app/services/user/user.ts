@@ -6,5 +6,6 @@ export class User {
     password:string;
     passwordConfirm:string;
     token:string;
+    date: string;
 
 }

@@ -9,28 +9,32 @@
 </head>
 
 
-
 <div class="form container s-center">
+
+	<h1 class="fs-6 card-title fw-bold text-center mb-6 ms-auto label-white">¡Bienvenido {{this.nameUser}}!</h1>
+
+
 	<h1 class="fs-4 card-title fw-bold mb-4 text-center ms-auto h-white">Gestión de usuarios y scripts
-	</h1>
-	<div class="mb-3 text-center lg" >
 
+	</h1> 
+	<h4 class="label-white">Último acceso: {{this.date}}</h4>
+
+
+	<div class="mb-3 text-center lg">
 		<button type="button" class=" btn btn-primary ms-auto form-control" routerLink="/admin/list">
-
 			Gestionar usuarios
 		</button>
 
-      
+
 	</div>
 	<div class="mb-3 text-center lg">
 
 
-        <button type="button" class=" btn btn-primary ms-auto form-control" routerLink="/admin/scripts">
+		<button type="button" class=" btn btn-primary ms-auto form-control" routerLink="/admin/scripts">
 
 			Gestionar scripts
 		</button>
 	</div>
-
 
 </div>
 

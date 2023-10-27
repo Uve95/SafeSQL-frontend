@@ -121,6 +121,7 @@ export class ReportComponent implements OnInit {
       this.msgState = "Error al analizar inicios de sesión ..."
       this.updateMessage(this.msgState);
       await delay(2000);
+
     }
     else {
 
@@ -130,6 +131,7 @@ export class ReportComponent implements OnInit {
         this.updateMessage(this.msgState);
         await delay(2000);
 
+
       }
     }
     if (this.checklistMaintenance()) {
@@ -137,6 +139,7 @@ export class ReportComponent implements OnInit {
       this.msgState = "Error al comprobar si existe plan de mantenimiento ..."
       this.updateMessage(this.msgState);
       await delay(2000);
+
     }
     else {
 
@@ -146,6 +149,7 @@ export class ReportComponent implements OnInit {
         this.updateMessage(this.msgState);
         await delay(2000);
 
+
       }
     }
     if (this.checklistData()) {
@@ -153,6 +157,7 @@ export class ReportComponent implements OnInit {
       this.msgState = "Error al revisar si existen datos sensibles ..."
       this.updateMessage(this.msgState);
       await delay(2000);
+
     }
     else {
 
@@ -163,6 +168,7 @@ export class ReportComponent implements OnInit {
         this.updateMessage(this.msgState);
         await delay(2000);
 
+
       }
     }
     if (this.checklistRol()) {
@@ -170,6 +176,7 @@ export class ReportComponent implements OnInit {
       this.msgState = "Error al revisar roles ..."
       this.updateMessage(this.msgState);
       await delay(2000);
+
     }
     else {
 
@@ -178,6 +185,7 @@ export class ReportComponent implements OnInit {
         this.msgState = "Revisando roles ..."
         this.updateMessage(this.msgState);
         await delay(2000);
+
       }
 
     }
@@ -504,8 +512,42 @@ export class ReportComponent implements OnInit {
 
   }
 
+  saveReport() {
+
+    // Obtener el contenido del documento HTML
+    const elementoInicio = document.getElementById('inform');
+    const htmlOriginal = elementoInicio?.outerHTML + document.body.outerHTML;
+
+    const htmlModificado = htmlOriginal
+      .replace(/<img.*?alt=["'](.*?)["'].*?>/g, (match, alt) => {
+        return alt; // Reemplazar la etiqueta <img> con el texto alternativo
+      })
+      .replace(/<button.*?<\/button>/g, '') // Eliminar las etiquetas <button>
+      .replace("undefined", '') // Eliminar las etiquetas <a>
+      .replace("SafeSQL", '');// Eliminar las etiquetas <a>
+
+
+
+      let htmlGuardado = htmlModificado.replace(null,'');
+       htmlGuardado = `<!-- INICIO -->${htmlGuardado}<!-- FIN -->`;
+
+      this.userService.setReport(this.userService.getUser().email, htmlGuardado).subscribe((response) => {
+
+        console.log(response)
+  
+      },
+        (err) => {
+          console.error(err);
+        }
+      );
+
+   
+  }
+
+  
   downloadReport() {
 
+    this.saveReport();
 
     // Obtener el contenido del documento HTML
     const elementoInicio = document.getElementById('inform');

@@ -19,17 +19,34 @@
 .form {
 
     width: 50%;
-    height: 40%;
+    height: auto;
     margin-top: 5%;
     margin-bottom: 5%;
     border-radius: 30px;
     /* Radio de las esquinas redondeadas */
-    padding: 40px;
+    padding: 20px;
     /* Espacio alrededor del formulario */
     background-color: rgba(0, 0, 0, 0.719);
     /* Fondo transparente negro */
+    display: flex;
+
+
+
 }
 
+.div1 {
+    width: 15%; /* Dividir el ancho del div general en dos partes iguales */
+    float: left; /* Hace que div1 y div2 se coloquen uno al lado del otro */
+    box-sizing: border-box; /* Incluye el borde y el relleno en el ancho total */
+    padding: 10px; /* Espacio interno para div1 y div2 */
+  }
+
+  .div2 {
+    width: 85%; /* Dividir el ancho del div general en dos partes iguales */
+    float: center; /* Hace que div1 y div2 se coloquen uno al lado del otro */
+    box-sizing: border-box; /* Incluye el borde y el relleno en el ancho total */
+    padding: 40px; /* Espacio interno para div1 y div2 */
+  }
 
 .btn.btn-primary,
 .btn.btn-primary.active {
@@ -56,10 +73,22 @@
 
 }
 
+.label-time {
+    margin-top: -5%;
+    color: rgb(243, 243, 248);
+    font-size: 50%;
+    font-weight: bold; /* Aplica la negrita al texto del label */
+    text-align: right;
+
+
+}
+
 .label-string {
     width: 100%;
     color: white;
     overflow-wrap: break-word;
+    font-style: italic;
+
 
 }
 
@@ -135,3 +164,32 @@
   .text-danger{
     font-weight: bold; /* Aplica la negrita al texto del label */
 }
+
+
+th[scope="col"] {
+    color: white;
+    background-color: #ff00ff;
+  
+  
+  }
+  
+  th[scope="row"] {
+    color: #0b0c0c;
+  
+  
+  
+  }
+  
+
+  
+  td,
+  th {
+    border: 1px solid black;
+    padding: 5px;
+    font-size: 50%;
+  }
+
+  table {
+    width: 50px; /* Establece el ancho fijo en píxeles o el valor deseado */
+    border-collapse: collapse;
+  }

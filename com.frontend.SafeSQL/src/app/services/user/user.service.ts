@@ -75,12 +75,34 @@ export class UserService {
     return this.httpClient.post<boolean>(this.userURL + `connectBD`, info);
   }
 
+  public setTime(date: String, info: String): Observable<any[]> {
+
+    let infos: String[] = [];
+    infos.push(date);
+    infos.push(info);
+    return this.httpClient.post<any[]>(this.userURL + `info-time`, infos);
+  }
+
+  public getTime(): Observable<String> {
+    let email = localStorage.getItem('email')?.replace(/['"]+/g, '');
+    return this.httpClient.get(this.userURL + `info-time/${email}`, { responseType: 'text' });  }
+
   public deleteInfo(info: any): Observable<User> {
 
     return this.httpClient.post<User>(this.userURL + `delete-info`, info);
   }
 
+  public setReport(report: String, info: String): Observable<any[]> {
 
+    let infos: String[] = [];
+    infos.push(report);
+    infos.push(info);
+    return this.httpClient.post<any[]>(this.userURL + `info-report`, infos);
+  }
+
+  public getReport(): Observable<String> {
+    let email = localStorage.getItem('email')?.replace(/['"]+/g, '');
+    return this.httpClient.get(this.userURL + `info-report/${email}`, { responseType: 'text' });  }
 
   public checklistConfiguration(listchecks: boolean[], info: string): Observable<any[]> {
 
@@ -169,7 +191,7 @@ export class UserService {
     let email = localStorage.getItem('email')?.replace(/['"]+/g, '');
     return this.httpClient.get(this.userURL + `actual-bd/${email}`, { responseType: 'text' });
   }
-  
+
 
   public getCurrentToken(info: any): Observable<User> {
 
@@ -177,7 +199,7 @@ export class UserService {
 
     return this.httpClient.get<User>(this.userURL + `actual-token/${infos}`);
   }
-  
+
   public setlistchecks(info: boolean[]) {
 
     this.infochecks = info;

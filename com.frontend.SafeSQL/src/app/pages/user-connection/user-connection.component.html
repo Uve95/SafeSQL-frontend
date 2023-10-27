@@ -21,47 +21,82 @@
 <!-- Resto de tu contenido -->
 
 <div class="form container s-center" *ngIf="showPrincipal">
-	<h1 class="fs-4 card-title fw-bold mb-4 text-center ms-auto h-white">Analice su base de datos SQL server</h1>
-	<form [formGroup]="conexionForm" (ngSubmit)="onSubmit()" autocomplete="off">
 
-		<!-- *****************INPUT CADENA DE CONEXION***************** -->
+	<div class="div1">
+		<table class="table">
+			<thead>
+				<tr>
+					<th scope="col">Reporte</th>
 
-		<div class="mb-3">
-			<label class="label-white" for="cadena">Introduzca la cadena de conexion a su base de
-				datos</label>
-			<input type="text" id="cadena" name="cadena" formControlName="cadena" class="form-control" required>
-			<label class="label-string" style="font-size: 14px;" for="cadena">
-				jdbc:sqlserver://your_server;databaseName=your_database_name;
-				user=your_user;password=your_password;trustServerCertificate=true;
-			</label>
+				</tr>
 
 
-			<div *ngIf="conexionForm.get('cadena')?.touched && conexionForm.get('cadena')?.errors?.['required']"
-				class="text-danger"> Campo requerido</div>
+			</thead>
 
-			<div *ngIf="conexionForm.get('cadena')?.touched && conexionForm.get('cadena')?.errors?.['pattern']"
-				class="text-danger"> Por favor, introduzca una cadena de conexión valida</div>
+			<tbody>
+				<ng-container *ngFor="let report of reports; let i = index; let first = first">
+					<tr *ngIf="!first">
+						<td>
+							<a (click)="lastReports(report)">{{ (i + 1).toString().padStart(3, '0') }}</a>
+						</td>
+					</tr>
+				</ng-container>
+			</tbody>
+		</table>
 
-		</div>
-		<div class="mb-3 text-center lg">
+	</div>
 
-			<button type="submit" class=" btn btn-primary ms-auto form-control" [disabled]="conexionForm.invalid">
+	<div class="div2">
 
-				Conectar
-			</button>
-		</div>
-		<div class="mb-3">
 
-			<div class="alert alert-danger" *ngIf="msgError"> Error al conectar con su base de datos.
-				Compruebe que la conexión remota este correctamente configurada.
+		<h1 class="fs-6 card-title fw-bold text-center mb-6 ms-auto label-white">¡Bienvenido {{this.nameUser}}!
+			<label class="label-time"> Último acceso: {{this.date}}</label>
+		</h1>
+		<h1 class="fs-4 card-title fw-bold mb-4 text-center ms-auto h-white">Analice su base de datos SQL server
+
+		</h1>
+
+		<form [formGroup]="conexionForm" (ngSubmit)="onSubmit()" autocomplete="off">
+
+			<!-- *****************INPUT CADENA DE CONEXION***************** -->
+
+			<div class="mb-3">
+				<label class="label-white" for="cadena">Introduzca la cadena de conexion a su base de
+					datos</label>
+				<input type="text" id="cadena" name="cadena" formControlName="cadena" class="form-control" required>
+				<label class="label-string" style="font-size: 12px;" for="cadena">
+					Ejemplo: jdbc:sqlserver://your_server;databaseName=your_database_name;
+					user=your_user;password=your_password;trustServerCertificate=true;
+				</label>
+
+
+				<div *ngIf="conexionForm.get('cadena')?.touched && conexionForm.get('cadena')?.errors?.['required']"
+					class="text-danger"> Campo requerido</div>
+
+				<div *ngIf="conexionForm.get('cadena')?.touched && conexionForm.get('cadena')?.errors?.['pattern']"
+					class="text-danger"> Por favor, introduzca una cadena de conexión valida</div>
+
+			</div>
+			<div class="mb-3 text-center lg">
+
+				<button type="submit" class=" btn btn-primary ms-auto form-control" [disabled]="conexionForm.invalid">
+
+					Conectar
+				</button>
+			</div>
+			<div class="mb-3">
+
+				<div class="alert alert-danger" *ngIf="msgError"> Error al conectar con su base de datos.
+					Compruebe que la conexión remota este correctamente configurada.
+				</div>
+
 			</div>
 
-		</div>
+		</form>
 
-	</form>
+	</div>
 
 </div>
-
 
 
 </html>
