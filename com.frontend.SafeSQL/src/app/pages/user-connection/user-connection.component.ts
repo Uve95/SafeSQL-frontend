@@ -62,7 +62,6 @@ export class UserConnectionComponent implements OnInit {
 
     this.userService.setTime(this.userService.getUser().email, this.date).subscribe((response) => {
 
-      console.log(response)
 
     },
       (err) => {

@@ -22,7 +22,7 @@
     height: auto;
     margin-top: 5%;
     margin-bottom: 5%;
-    border-radius: 30px;
+    border-radius: 40px;
     /* Radio de las esquinas redondeadas */
     padding: 20px;
     /* Espacio alrededor del formulario */
@@ -35,14 +35,15 @@
 }
 
 .div1 {
-    width: 15%; /* Dividir el ancho del div general en dos partes iguales */
+    width: 20%; /* Dividir el ancho del div general en dos partes iguales */
     float: left; /* Hace que div1 y div2 se coloquen uno al lado del otro */
     box-sizing: border-box; /* Incluye el borde y el relleno en el ancho total */
-    padding: 10px; /* Espacio interno para div1 y div2 */
+    padding: 30px; /* Espacio interno para div1 y div2 */
+
   }
 
   .div2 {
-    width: 85%; /* Dividir el ancho del div general en dos partes iguales */
+    width: 80%; /* Dividir el ancho del div general en dos partes iguales */
     float: center; /* Hace que div1 y div2 se coloquen uno al lado del otro */
     box-sizing: border-box; /* Incluye el borde y el relleno en el ancho total */
     padding: 40px; /* Espacio interno para div1 y div2 */
@@ -51,13 +52,13 @@
 .btn.btn-primary,
 .btn.btn-primary.active {
     color: #ffffff;
-    background-color: #ff00ff;
+    background-color: #ff00aa;
     /* Rosa neón brillante */
 
-    border-color: #ff00ff;
+    border-color: #ff00aa;
     /* Rosa neón brillante */
 
-    border: 2px solid #ff00ff;
+    border: 2px solid #ff00aa;
     /* Borde sólido de 2px de ancho y color azul (#007bff) */
     padding: 10px 20px;
     /* Espacio alrededor del texto del botón */
@@ -168,7 +169,7 @@
 
 th[scope="col"] {
     color: white;
-    background-color: #ff00ff;
+    background-color: #0c020c;
   
   
   }
@@ -184,12 +185,18 @@ th[scope="col"] {
   
   td,
   th {
-    border: 1px solid black;
-    padding: 5px;
-    font-size: 50%;
+    border: 1px solid rgb(240, 227, 227);
+    font-size: 60%;
+    word-wrap: break-word;
+    color: white;
+    background-color: #0b0c0c;
+
   }
 
   table {
-    width: 50px; /* Establece el ancho fijo en píxeles o el valor deseado */
+    width: 20px; /* Establece el ancho fijo en píxeles o el valor deseado */
     border-collapse: collapse;
+    word-wrap: break-word;
+
+
   }

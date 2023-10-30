@@ -3,15 +3,15 @@
   margin-top: -1%;
 }
 .btn.btn-link {
-  color: #ff00ff;
-  border-color: #ff00ff;
+  color: white;
+  border-color: #ff00aa;
   border-width: 3px; /* Grosor del borde */
   background-color: inherit;
 
 }
 
 .btn.btn-link:active {
-  background-color:  #ff00ff;; /* Cambio de color al hacer clic */
+  background-color:  #ff00aa; /* Cambio de color al hacer clic */
 }
 
 .h-white {

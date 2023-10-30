@@ -29,6 +29,7 @@ export class ReportComponent implements OnInit {
   BDName: any
 
   @ViewChild('inform') informeElement: ElementRef;
+  date: string;
 
 
   constructor(
@@ -38,6 +39,25 @@ export class ReportComponent implements OnInit {
 
 
   async ngOnInit() {
+
+    const date = new Date();
+
+    const day = date.getDate();
+    const month = date.getMonth() + 1;
+    const year = date.getFullYear();
+    const hour = date.getHours();
+    const minute = date.getMinutes();
+    const second = date.getSeconds();
+
+    // Formatea los componentes de fecha y hora como cadenas de dos dígitos
+    const dayStr = day.toString().padStart(2, '0');
+    const monthStr = month.toString().padStart(2, '0');
+    const hourStr = hour.toString().padStart(2, '0');
+    const minuteStr = minute.toString().padStart(2, '0');
+    const secondStr = second.toString().padStart(2, '0');
+
+    // Combina los componentes en una cadena de fecha y hora
+    this.date = `${year}-${month}-${day} ${hour}:${minute}`;
 
     this.showPrincipal = false;
 
@@ -591,7 +611,95 @@ export class ReportComponent implements OnInit {
     this.router.navigate(['/user/connection'])
 
   }
-}
+
+  details(vulnerability:string) {
+    const autentication = "La autenticación de Windows es más segura que la autenticación de SQL Server, ya que aprovecha la seguridad integrada en el sistema operativo. Utiliza la autenticación de Windows para las conexiones a SQL Server siempre que sea posible.";
+    
+    
+    const popup = window.open('', 'Detalles',  'width=auto,height=auto,resizable=no,scrollbars=no');
+      
+      if(vulnerability=="autentication"){
+        popup.document.body.innerHTML = `<p>${autentication}</p>`;
+      }
+      if(vulnerability=="autentication"){
+        popup.document.body.innerHTML = `<p>${autentication}</p>`;
+      }
+      if(vulnerability=="autentication"){
+        popup.document.body.innerHTML = `<p>${autentication}</p>`;
+      }
+      if(vulnerability=="autentication"){
+        popup.document.body.innerHTML = `<p>${autentication}</p>`;
+      }
+      if(vulnerability=="autentication"){
+        popup.document.body.innerHTML = `<p>${autentication}</p>`;
+      }
+      if(vulnerability=="autentication"){
+        popup.document.body.innerHTML = `<p>${autentication}</p>`;
+      }
+      if(vulnerability=="autentication"){
+        popup.document.body.innerHTML = `<p>${autentication}</p>`;
+      }
+      if(vulnerability=="autentication"){
+        popup.document.body.innerHTML = `<p>${autentication}</p>`;
+      }
+      if(vulnerability=="autentication"){
+        popup.document.body.innerHTML = `<p>${autentication}</p>`;
+      }
+      if(vulnerability=="autentication"){
+        popup.document.body.innerHTML = `<p>${autentication}</p>`;
+      }
+      if(vulnerability=="autentication"){
+        popup.document.body.innerHTML = `<p>${autentication}</p>`;
+      }
+      if(vulnerability=="autentication"){
+        popup.document.body.innerHTML = `<p>${autentication}</p>`;
+      }
+      if(vulnerability=="autentication"){
+        popup.document.body.innerHTML = `<p>${autentication}</p>`;
+      }
+      if(vulnerability=="autentication"){
+        popup.document.body.innerHTML = `<p>${autentication}</p>`;
+      }
+      if(vulnerability=="autentication"){
+        popup.document.body.innerHTML = `<p>${autentication}</p>`;
+      }
+      if(vulnerability=="autentication"){
+        popup.document.body.innerHTML = `<p>${autentication}</p>`;
+      }
+      if(vulnerability=="autentication"){
+        popup.document.body.innerHTML = `<p>${autentication}</p>`;
+      }
+      if(vulnerability=="autentication"){
+        popup.document.body.innerHTML = `<p>${autentication}</p>`;
+      }
+      if(vulnerability=="autentication"){
+        popup.document.body.innerHTML = `<p>${autentication}</p>`;
+      }
+      if(vulnerability=="autentication"){
+        popup.document.body.innerHTML = `<p>${autentication}</p>`;
+      }
+      if(vulnerability=="autentication"){
+        popup.document.body.innerHTML = `<p>${autentication}</p>`;
+      }
+      if(vulnerability=="autentication"){
+        popup.document.body.innerHTML = `<p>${autentication}</p>`;
+      }
+      if(vulnerability=="autentication"){
+        popup.document.body.innerHTML = `<p>${autentication}</p>`;
+      }
+      if(vulnerability=="autentication"){
+        popup.document.body.innerHTML = `<p>${autentication}</p>`;
+      }
+      if(vulnerability=="autentication"){
+        popup.document.body.innerHTML = `<p>${autentication}</p>`;
+      }
+      if(vulnerability=="autentication"){
+        popup.document.body.innerHTML = `<p>${autentication}</p>`;
+      }
+
+    }
+  }
+
 
 
 function delay(ms: number) {
