@@ -145,3 +145,9 @@ th {
 
 
 }
+
+.link-style {
+  color: blue; /* Cambia el color del texto a azul */
+  text-decoration: underline; /* Agrega un subrayado al texto */
+  cursor: pointer; /* Cambia el cursor a una mano para indicar que es interactivo */
+}

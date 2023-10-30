@@ -37,7 +37,7 @@
 				<ng-container *ngFor="let report of reports; let i = index; let first = first">
 					<tr *ngIf="!first">
 						<td>
-							<a (click)="lastReports(report)">{{ (i + 1).toString().padStart(3, '0') }}</a>
+							<a (click)="lastReports(report)">{{ (i).toString().padStart(3, '0') }}</a>
 						</td>
 					</tr>
 				</ng-container>

@@ -8,7 +8,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 
-<div class="overlay" *ngIf="showPrincipal">
+<div class="overlay" *ngIf="!showPrincipal">
 
   <!-- Contenido de la ventana de carga (puedes personalizarlo) -->
   <div class="gif-container">
@@ -19,7 +19,7 @@
 </div>
 
 
-<div class="form container s-center" *ngIf="!showPrincipal">
+<div class="form container s-center" *ngIf="showPrincipal">
 
   <h1 class="fs-4 card-title fw-bold mb-4 text-center ms-auto h-white">Reporte de base de datos {{this.BDName}}
 
@@ -52,8 +52,9 @@
             <div *ngIf="getChecklist1() == '1'" class="text-danger">
               <img src="./assets/NOK.jpg" height="30" width="30" alt="No ha pasado el análisis." />
               El modo de autenticacion es mixto. 
+              <p class="link-style"(click)="details('c1')"><i>Más detalles</i></p>
 
-            </div><a (click)="details('autentication')">Más detalles</a>
+            </div>
             <div *ngIf="getChecklist1() == '-1' " class="text-warning">
               <img src="./assets/WARNING.jpg" height="30" width="30" alt="Sin revisión" />
               No ha sido revisado.
@@ -78,7 +79,10 @@
             <div *ngIf="this.getChecklist2()== '1'" class="text-danger">
               <img src="./assets/NOK.jpg" height="30" width="30" alt="No ha pasado el análisis." />
               Pueden existir troyanos.
+              <p class="link-style"(click)="details('c2')"><i>Más detalles</i></p>
+
             </div>
+
             <div *ngIf="this.getChecklist2()== '-1'" class="text-warning">
               <img src="./assets/WARNING.jpg" height="30" width="30" alt="Sin revisión" />
               No ha sido revisado.
@@ -98,11 +102,15 @@
             <div *ngIf="this.getChecklist3()=='0'">
               <img src="./assets/OK.jpg" height="30" width="30" alt="Correcto" />
             </div>
+            
             <div *ngIf="this.getChecklist3()=='1'" class="text-danger">
               <img src="./assets/NOK.jpg" height="30" width="30" alt="No ha pasado el análisis." />
               Al menos un procedimiento potencialmente peligroso puede ser ejecutado por miembros no pertenecientes a la
               función sysadmin.
+              <p class="link-style"(click)="details('c3')"><i>Más detalles</i></p>
+
             </div>
+
             <div *ngIf="this.getChecklist3()=='-1'" class="text-warning">
               <img src="./assets/WARNING.jpg" height="30" width="30" alt="Sin revisión" />
               No ha sido revisado.
@@ -126,7 +134,10 @@
             <div *ngIf="this.getChecklist4()=='1'" class="text-danger">
               <img src="./assets/NOK.jpg" height="30" width="30" alt="No ha pasado el análisis." />
               No hay ninguna auditoria de acceso habilitada.
+              <p class="link-style"(click)="details('c4')"><i>Más detalles</i></p>
+
             </div>
+
             <div *ngIf="this.getChecklist4()=='-1'" class="text-warning">
               <img src="./assets/WARNING.jpg" height="30" width="30" alt="Sin revisión" />
               No ha sido revisado.
@@ -149,7 +160,10 @@
             <div *ngIf="this.getChecklist5()=='1'" class="text-danger">
               <img src="./assets/NOK.jpg" height="30" width="30" alt="No ha pasado el análisis." />
               Verifique que tiene implementadas las ultimas actualizaciones.
+              <p class="link-style"(click)="details('c5')"><i>Más detalles</i></p>
+
             </div>
+
             <div *ngIf="this.getChecklist5()=='-1'" class="text-warning">
               <img src="./assets/WARNING.jpg" height="30" width="30" alt="Sin revisión" />
               No ha sido revisado.
@@ -172,7 +186,10 @@
             <div *ngIf="this.getChecklist10()=='1'" class="text-danger">
               <img src="./assets/NOK.jpg" height="30" width="30" alt="No ha pasado el análisis." />
               El cifrado de conexiones entrantes esta desactivado.
+              <p class="link-style"(click)="details('c6')"><i>Más detalles</i></p>
+
             </div>
+
             <div *ngIf="this.getChecklist10()=='-1'" class="text-warning">
               <img src="./assets/WARNING.jpg" height="30" width="30" alt="Sin revisión" />
               No ha sido revisado.
@@ -193,7 +210,10 @@
             <div *ngIf="this.getChecklist11()=='1'" class="text-danger">
               <img src="./assets/NOK.jpg" height="30" width="30" alt="No ha pasado el análisis." />
               La autenticación anónima esta habilitada.
+              <p class="link-style"(click)="details('c7')"><i>Más detalles</i></p>
+
             </div>
+
             <div *ngIf="this.getChecklist11()=='-1'" class="text-warning">
               <img src="./assets/WARNING.jpg" height="30" width="30" alt="Sin revisión" />
               No ha sido revisado.
@@ -214,7 +234,10 @@
             <div *ngIf="this.getChecklist12()=='1'" class="text-danger">
               <img src="./assets/NOK.jpg" height="30" width="30" alt="No ha pasado el análisis." />
               Se estan usando diferentes puertos.
+              <p class="link-style"(click)="details('c8')"><i>Más detalles</i></p>
+
             </div>
+
             <div *ngIf="this.getChecklist12()=='-1'" class="text-warning">
               <img src="./assets/WARNING.jpg" height="30" width="30" alt="Sin revisión" />
               No ha sido revisado.
@@ -235,7 +258,10 @@
             <div *ngIf="this.getChecklist13()=='1'" class="text-danger">
               <img src="./assets/NOK.jpg" height="30" width="30" alt="No ha pasado el análisis." />
               Las conexiones remotas no estan cifradas mediante SSL/TLS.
+              <p class="link-style"(click)="details('c9')"><i>Más detalles</i></p>
+
             </div>
+
             <div *ngIf="this.getChecklist13()=='-1'" class="text-warning">
               <img src="./assets/WARNING.jpg" height="30" width="30" alt="Sin revisión" />
               No ha sido revisado.
@@ -256,7 +282,10 @@
             <div *ngIf="this.getChecklist14()=='1'" class="text-danger">
               <img src="./assets/NOK.jpg" height="30" width="30" alt="No ha pasado el análisis." />
               Las conexiones no requieren autenticación.
+              <p class="link-style"(click)="details('c10')"><i>Más detalles</i></p>
+
             </div>
+
             <div *ngIf="this.getChecklist14()=='-1'" class="text-warning">
               <img src="./assets/WARNING.jpg" height="30" width="30" alt="Sin revisión" />
               No ha sido revisado.
@@ -278,8 +307,10 @@
             <div *ngIf="this.getChecklist20()=='1'" class="text-danger">
               <img src="./assets/NOK.jpg" height="30" width="30" alt="No ha pasado el análisis." />
               El usuario guest tiene permisos asociados.
+              <p class="link-style"(click)="details('c11')"><i>Más detalles</i></p>
 
             </div>
+
             <div *ngIf="this.getChecklist20()=='-1'" class="text-warning">
               <img src="./assets/WARNING.jpg" height="30" width="30" alt="Sin revisión" />
               No ha sido revisado.
@@ -302,7 +333,10 @@
             <div *ngIf="this.getChecklist21()=='1'" class="text-danger">
               <img src="./assets/NOK.jpg" height="30" width="30" alt="No ha pasado el análisis." />
               La función public tiene permisos asignados.
+              <p class="link-style"(click)="details('c12')"><i>Más detalles</i></p>
+
             </div>
+
             <div *ngIf="this.getChecklist21()=='-1'" class="text-warning">
               <img src="./assets/WARNING.jpg" height="30" width="30" alt="Sin revisión" />
               No ha sido revisado.
@@ -324,7 +358,10 @@
             <div *ngIf="this.getChecklist30()=='1'" class="text-danger">
               <img src="./assets/NOK.jpg" height="30" width="30" alt="No ha pasado el análisis." />
               Las contraseñas tienen más de 30 dias de antiguedad.
+              <p class="link-style"(click)="details('c13')"><i>Más detalles</i></p>
+
             </div>
+
             <div *ngIf="this.getChecklist30()=='-1'" class="text-warning">
               <img src="./assets/WARNING.jpg" height="30" width="30" alt="Sin revisión" />
               No ha sido revisado.
@@ -346,7 +383,10 @@
             <div *ngIf="this.getChecklist31()=='1'" class="text-danger">
               <img src="./assets/NOK.jpg" height="30" width="30" alt="No ha pasado el análisis." />
               No hay revision periodica ya que hay contraseñas sin actualizar con más de 30 días.
+              <p class="link-style"(click)="details('c14')"><i>Más detalles</i></p>
+
             </div>
+
             <div *ngIf="this.getChecklist31()=='-1'" class="text-warning">
               <img src="./assets/WARNING.jpg" height="30" width="30" alt="Sin revisión" />
               No ha sido revisado.
@@ -368,7 +408,10 @@
             <div *ngIf="this.getChecklist40()=='1'" class="text-danger">
               <img src="./assets/NOK.jpg" height="30" width="30" alt="No ha pasado el análisis." />
               Existe algún inicio de sesión que no tiene politica de contraseñas seguras.
+              <p class="link-style"(click)="details('c15')"><i>Más detalles</i></p>
+
             </div>
+
             <div *ngIf="this.getChecklist40()=='-1'" class="text-warning">
               <img src="./assets/WARNING.jpg" height="30" width="30" alt="Sin revisión" />
               No ha sido revisado.
@@ -390,7 +433,10 @@
             <div *ngIf="this.getChecklist41()=='1'" class="text-danger">
               <img src="./assets/NOK.jpg" height="30" width="30" alt="No ha pasado el análisis." />
               No se eliminan los inicios de sesión que ya no se utilizan.
+              <p class="link-style"(click)="details('c16')"><i>Más detalles</i></p>
+
             </div>
+
             <div *ngIf="this.getChecklist41()=='-1'" class="text-warning">
               <img src="./assets/WARNING.jpg" height="30" width="30" alt="Sin revisión" />
               No ha sido revisado.
@@ -412,8 +458,11 @@
             <div *ngIf="this.getChecklist42()=='1'" class="text-danger">
               <img src="./assets/NOK.jpg" height="30" width="30" alt="No ha pasado el análisis." />
               Hay inicios de sesion fallidos en el ultimo mes.
+              <p class="link-style"(click)="details('c17')"><i>Más detalles</i></p>
+
 
             </div>
+
             <div *ngIf="this.getChecklist42()=='-1'" class="text-warning">
               <img src="./assets/WARNING.jpg" height="30" width="30" alt="Sin revisión" />
               No ha sido revisado.
@@ -435,7 +484,10 @@
             <div *ngIf="this.getChecklist50()=='1'" class="text-danger">
               <img src="./assets/NOK.jpg" height="30" width="30" alt="No ha pasado el análisis." />
               No existen planes de mantenimiento.
+              <p class="link-style"(click)="details('c18')"><i>Más detalles</i></p>
+
             </div>
+
             <div *ngIf="this.getChecklist50()=='-1'" class="text-warning">
               <img src="./assets/WARNING.jpg" height="30" width="30" alt="Sin revisión" />
               No ha sido revisado.
@@ -457,7 +509,10 @@
             <div *ngIf="this.getChecklist51()=='1'" class="text-danger">
               <img src="./assets/NOK.jpg" height="30" width="30" alt="No ha pasado el análisis." />
               Se realizo hace un mes o incluso mas.
+              <p class="link-style"(click)="details('c19')"><i>Más detalles</i></p>
+
             </div>
+
             <div *ngIf="this.getChecklist51()=='-1'" class="text-warning">
               <img src="./assets/WARNING.jpg" height="30" width="30" alt="Sin revisión" />
               No ha sido revisado.
@@ -479,7 +534,10 @@
             <div *ngIf="this.getChecklist52()=='1'" class="text-danger">
               <img src="./assets/NOK.jpg" height="30" width="30" alt="No ha pasado el análisis." />
               La fragmentacion es del 10% o superior.
+              <p class="link-style"(click)="details('c20')"><i>Más detalles</i></p>
+
             </div>
+
             <div *ngIf="this.getChecklist52()=='-1'" class="text-warning">
               <img src="./assets/WARNING.jpg" height="30" width="30" alt="Sin revisión" />
               No ha sido revisado.
@@ -501,7 +559,10 @@
             <div *ngIf="this.getChecklist53()=='1'" class="text-danger">
               <img src="./assets/NOK.jpg" height="30" width="30" alt="No ha pasado el análisis." />
               El uso medio de CPU es del 40% o superior.
+              <p class="link-style"(click)="details('c21')"><i>Más detalles</i></p>
+
             </div>
+
             <div *ngIf="this.getChecklist53()=='-1'" class="text-warning">
               <img src="./assets/WARNING.jpg" height="30" width="30" alt="Sin revisión" />
               No ha sido revisado.
@@ -523,7 +584,10 @@
             <div *ngIf="this.getChecklist60()=='1'" class="text-danger">
               <img src="./assets/NOK.jpg" height="30" width="30" alt="No ha pasado el análisis." />
               Hay un porcentaje alto de datos sensibles.
+              <p class="link-style"(click)="details('c22')"><i>Más detalles</i></p>
+
             </div>
+
             <div *ngIf="this.getChecklist60()=='-1'" class="text-warning">
               <img src="./assets/WARNING.jpg" height="30" width="30" alt="Sin revisión" />
               No ha sido revisado.
@@ -544,7 +608,10 @@
             <div *ngIf="this.getChecklist61()=='1'" class="text-danger">
               <img src="./assets/NOK.jpg" height="30" width="30" alt="No ha pasado el análisis." />
               Hay columnas de datos sensibles que no se encuentran cifradas.
+              <p class="link-style"(click)="details('c23')"><i>Más detalles</i></p>
+
             </div>
+
             <div *ngIf="this.getChecklist61()=='-1'" class="text-warning">
               <img src="./assets/WARNING.jpg" height="30" width="30" alt="Sin revisión" />
               No ha sido revisado.
@@ -566,7 +633,10 @@
             <div *ngIf="this.getChecklist70()=='1'" class="text-danger">
               <img src="./assets/NOK.jpg" height="30" width="30" alt="No ha pasado el análisis." />
               Un porcentaje alto de usuarios son miembros de “sysadmin”.
+              <p class="link-style"(click)="details('c24')"><i>Más detalles</i></p>
+
             </div>
+
             <div *ngIf="this.getChecklist70()=='-1'" class="text-warning">
               <img src="./assets/WARNING.jpg" height="30" width="30" alt="Sin revisión" />
               No ha sido revisado.
@@ -588,7 +658,10 @@
             <div *ngIf="this.getChecklist71()=='1'" class="text-danger">
               <img src="./assets/NOK.jpg" height="30" width="30" alt="No ha pasado el análisis" />
               Hay mas de un miembro en alguno de estos roles.
+              <p class="link-style"(click)="details('c25')"><i>Más detalles</i></p>
+
             </div>
+
             <div *ngIf="this.getChecklist71()=='-1'" class="text-warning">
               <img src="./assets/WARNING.jpg" height="30" width="30" alt="Sin revisión" />
               No ha sido revisado.
