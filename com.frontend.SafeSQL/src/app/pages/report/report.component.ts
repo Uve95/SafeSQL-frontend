@@ -57,7 +57,7 @@ export class ReportComponent implements OnInit {
     const secondStr = second.toString().padStart(2, '0');
 
     // Combina los componentes en una cadena de fecha y hora
-    this.date = `${year}-${month}-${day} ${hour}:${minute}`;
+    this.date = `${year}-${month}-${day} ${hour}:${minute}:${second}`;
 
     this.showPrincipal = false;
 
