@@ -85,7 +85,13 @@ export class UserService {
 
   public getTime(): Observable<String> {
     let email = localStorage.getItem('email')?.replace(/['"]+/g, '');
-    return this.httpClient.get(this.userURL + `info-time/${email}`, { responseType: 'text' });  }
+    return this.httpClient.get(this.userURL + `info-time/${email}`, { responseType: 'text' });
+  }
+
+  public getInfo(): Observable<String> {
+    let email = localStorage.getItem('email')?.replace(/['"]+/g, '');
+    return this.httpClient.get(this.userURL + `info/${email}`, { responseType: 'text' });
+  }
 
   public deleteInfo(info: any): Observable<User> {
 
@@ -102,7 +108,8 @@ export class UserService {
 
   public getReport(): Observable<String> {
     let email = localStorage.getItem('email')?.replace(/['"]+/g, '');
-    return this.httpClient.get(this.userURL + `info-report/${email}`, { responseType: 'text' });  }
+    return this.httpClient.get(this.userURL + `info-report/${email}`, { responseType: 'text' });
+  }
 
   public checklistConfiguration(listchecks: boolean[], info: string): Observable<any[]> {
 

@@ -17,7 +17,7 @@
 	<h1 class="fs-4 card-title fw-bold mb-4 text-center ms-auto h-white">Gestión de usuarios y scripts
 
 	</h1> 
-	<h4 class="label-white">Último acceso: {{this.date}}</h4>
+	<label class="label-time"> Último acceso: {{ getTime() | date: 'yyyy-MM-dd HH:mm:ss' }}</label>
 
 
 	<div class="mb-3 text-center lg">

@@ -14,8 +14,9 @@ export class AdminDashboardComponent implements OnInit {
   msgError: boolean;
   BDName: any;
   showPrincipal = true; // Muestra la capa de carga inicialmente
-  date: String;
+  date: any;
   nameUser: String;
+  dateFormat: Date;
 
 
 
@@ -48,7 +49,7 @@ export class AdminDashboardComponent implements OnInit {
     const secondStr = second.toString().padStart(2, '0');
 
     // Combina los componentes en una cadena de fecha y hora
-    this.date = `${year}-${month}-${day} ${hour}:${minute}:${second}`;
+    this.date = `${year}-${month}-${day} ${hour}:${minute}`;
 
     this.userService.setTime(this.userService.getUser().email, this.date).subscribe((response) => {
 
@@ -62,21 +63,14 @@ export class AdminDashboardComponent implements OnInit {
   }
 
 
-  setTime() {
 
-  }
-
-  getTime(): String {
+  getTime(): Date {
 
     this.userService.getTime().subscribe((response) => {
 
       this.date = response;
-      if (response = "Primer acceso") {
-        this.date = "Primer acceso";
-      } else {
-        this.date = response;
-
-      }
+      this.dateFormat = new Date(this.date)
+  
 
 
     },
@@ -85,7 +79,7 @@ export class AdminDashboardComponent implements OnInit {
       }
     );
 
-    return this.date;
+    return this.dateFormat;
   }
 
 }

@@ -15,7 +15,12 @@ export class UserDashboardComponent implements OnInit {
   error: String;
   msgError: boolean;
   checklist: UserChecklistComponent;
-  BDName:any;
+  BDName: any;
+  info: any;
+  server: any;
+  database: any;
+  date: String;
+  user: any;
   showPrincipal = true; // Muestra la capa de carga inicialmente
 
 
@@ -26,32 +31,77 @@ export class UserDashboardComponent implements OnInit {
     private readonly fb: FormBuilder,
   ) {
 
-   
+
   }
 
 
   ngOnInit(): void {
     this.getBDName();
+    this.getInfo();
+
+    const date = new Date();
+
+    const day = date.getDate();
+    const month = date.getMonth() + 1;
+    const year = date.getFullYear();
+    const hour = date.getHours();
+    const minute = date.getMinutes();
+    const second = date.getSeconds();
+
+    // Formatea los componentes de fecha y hora como cadenas de dos dígitos
+    const dayStr = day.toString().padStart(2, '0');
+    const monthStr = month.toString().padStart(2, '0');
+    const hourStr = hour.toString().padStart(2, '0');
+    const minuteStr = minute.toString().padStart(2, '0');
+    const secondStr = second.toString().padStart(2, '0');
+
+    // Combina los componentes en una cadena de fecha y hora
+    this.date = `${year}-${month}-${day} ${hour}:${minute}:${second}`;
 
   }
 
 
 
   getBDName() {
-    this.userService.getBDName().subscribe(  (response) => {
+    this.userService.getBDName().subscribe((response) => {
 
       this.BDName = response;
-       
-  
-      },
+
+
+    },
       (err) => {
         console.error(err);
       }
     );
   }
-  
 
-  
+  getInfo() {
+    this.userService.getInfo().subscribe((response) => {
+
+      this.info = response;
+      this.info = this.info.split(';');
+      console.log(this.info)
+      this.server = this.info[0];
+      this.server = this.server.replace('jdbc:sqlserver://', '')
+      this.database = this.info[1];
+      this.database = this.database.replace('databaseName=','')
+      this.user = this.info[2];
+      this.user = this.user.replace('user=','')
+
+
+      
+
+
+
+    },
+      (err) => {
+        console.error(err);
+      }
+    );
+
+
+  }
+
 }
 
 

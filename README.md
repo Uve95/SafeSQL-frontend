@@ -1,1 +1,0 @@
-# SafeSQL-frontend
