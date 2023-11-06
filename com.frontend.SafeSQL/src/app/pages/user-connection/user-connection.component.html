@@ -50,7 +50,7 @@
 
 
 		<h1 class="fs-6 card-title fw-bold text-center mb-6 ms-auto label-white">¡Bienvenido {{this.nameUser}}!
-			<label class="label-time"> Último acceso: {{ getTime() | date: 'yyyy-MM-dd HH:mm:ss' }}</label>
+			<label *ngIf="getTime() == true" class="label-time"> Último acceso: {{ this.dateFormat | date: 'yyyy-MM-dd HH:mm:ss' }}</label>
 		</h1>
 		<h1 class="fs-4 card-title fw-bold mb-4 text-center ms-auto h-white">Analice su base de datos SQL server
 

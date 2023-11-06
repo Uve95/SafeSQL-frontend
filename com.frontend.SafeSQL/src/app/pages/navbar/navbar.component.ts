@@ -17,6 +17,7 @@ export class NavbarComponent implements OnInit {
   isLoggedIn = false;
   userRole: any = null;
   userToken: any = '';
+  date: string;
 
   constructor(
     private userService: UserService,
@@ -60,18 +61,18 @@ export class NavbarComponent implements OnInit {
 
 
 
-  public role(){
+  public role() {
 
-  if (localStorage.getItem("rol")?.replace(/['"]+/g, '') == "ADMIN") {
-    return 'ADMIN';
-  } else {
-    return 'USER';
+    if (localStorage.getItem("rol")?.replace(/['"]+/g, '') == "ADMIN") {
+      return 'ADMIN';
+    } else {
+      return 'USER';
+    }
+
+
   }
 
-
-}
-
-  public onSubmit(){
+  public onSubmit() {
 
 
     if (this.role() == 'ADMIN') {
@@ -83,22 +84,50 @@ export class NavbarComponent implements OnInit {
       this.router.navigate(['/user/update', localStorage.getItem('tokenP')])
 
     }
-  
-}
+
+  }
   public back() {
 
-  this.userService.deleteInfo(localStorage.getItem('email')?.replace(/"/g, '')).subscribe(data => {
-    localStorage.clear();
-    this.isLoggedIn = false
-    this.userService.logout();
-    //window.location.reload();
-    this.router.navigate(['']);
-  },
-    err => {
-    }
-  );
+    const date = new Date();
+
+    const day = date.getDate();
+    const month = date.getMonth() + 1;
+    const year = date.getFullYear();
+    const hour = date.getHours();
+    const minute = date.getMinutes();
+    const second = date.getSeconds();
+
+    // Formatea los componentes de fecha y hora como cadenas de dos dígitos
+    const dayStr = day.toString().padStart(2, '0');
+    const monthStr = month.toString().padStart(2, '0');
+    const hourStr = hour.toString().padStart(2, '0');
+    const minuteStr = minute.toString().padStart(2, '0');
+    const secondStr = second.toString().padStart(2, '0');
+
+    // Combina los componentes en una cadena de fecha y hora
+    this.date = `${year}-${month}-${day} ${hour}:${minute}`;
+
+    this.userService.setTime(this.userService.getUser().email, this.date).subscribe((response) => {
 
 
-}
+    },
+      (err) => {
+        console.error(err);
+      }
+    );
+
+    this.userService.deleteInfo(localStorage.getItem('email')?.replace(/"/g, '')).subscribe(data => {
+      localStorage.clear();
+      this.isLoggedIn = false
+      this.userService.logout();
+      //window.location.reload();
+      this.router.navigate(['']);
+    },
+      err => {
+      }
+    );
+
+
+  }
 
 }
