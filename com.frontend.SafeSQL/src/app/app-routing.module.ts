@@ -17,6 +17,7 @@ import { UserConnectionComponent } from './pages/user-connection/user-connection
 import { ErrorPageComponent } from './pages/error-page/error-page.component';
 import { AdminDashboardComponent } from './pages/admin-dashboard/admin-dashboard.component';
 import { AdminScriptsComponent } from './pages/admin-scripts/admin-scripts.component';
+import { ReportHistoryComponent } from './pages/report-history/report-history.component';
 
 
 const routes: Routes = [
@@ -94,6 +95,12 @@ const routes: Routes = [
   }
   ,
   {
+    path: 'user/history-reports',
+    component: ReportHistoryComponent,
+    canActivate: [UserGuard]
+
+  },
+  {
     path: 'admin/update/:token',
     component: UpdateAdminComponent,
     canActivate: [AdminGuard]
@@ -121,6 +128,8 @@ const routes: Routes = [
     canActivate: [AdminGuard]
 
   },
+
+
   { path: '404', component: ErrorPageComponent, data: { errorType: '404' } },
   { path: '500', component: ErrorPageComponent, data: { errorType: '500' } },
 

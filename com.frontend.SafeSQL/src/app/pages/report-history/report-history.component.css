@@ -5,13 +5,14 @@
 
 .btn.btn-primary,
 .btn.btn-primary.active {
-  background-color: #3c02c4; /* Rosa neón brillante */
+  background-color:  #ff00aa;; /* Rosa neón brillante */
+  border-radius: 20px; /* Ajusta el valor según la cantidad de redondeo deseada */
 
-  border-color:#3c02c4; /* Rosa neón brillante */
+  border-color: #ff00aa;; /* Rosa neón brillante */
   word-wrap: break-word;
 
-  border: 1px solid #3c02c4; /* Borde sólido de 2px de ancho y color azul (#007bff) */
-  padding: 10px 10px; /* Espacio alrededor del texto del botón */
+  border: 1px solid  #ff00aa;; /* Borde sólido de 2px de ancho y color azul (#007bff) */
+  padding: 3px 3px; /* Ajusta el espaciado interno según tus necesidades */
   color: rgb(255, 255, 255); /* Color del texto */
   cursor: pointer; /* Cambiar el cursor al pasar el mouse */
 }
@@ -28,6 +29,8 @@
   background-color: rgba(0, 0, 0, 0.719); /* Fondo transparente negro */
   display: inline-table; /* Hace que la imagen se comporte como un bloque en línea */
   margin-left: 10%;
+  font-size: 18px;
+
 
 }
 
@@ -73,7 +76,7 @@ td,
 th {
 
 
-  font-size: 14px;
+  font-size: 16px;
   word-wrap: break-word;
   /* Ajusta el texto dentro de las celdas */
 }
@@ -87,5 +90,8 @@ table {
   border-collapse: separate;
   border-spacing: 0 10px; /* Ajusta el valor vertical según sea necesario */
 }
+
+
+
 
 

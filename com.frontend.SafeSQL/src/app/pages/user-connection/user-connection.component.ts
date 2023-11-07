@@ -20,7 +20,6 @@ export class UserConnectionComponent implements OnInit {
   date: any;
   dateFormat: Date
   nameUser: String;
-  reports = []
   showDate: boolean;
 
 
@@ -41,7 +40,6 @@ export class UserConnectionComponent implements OnInit {
 
   ngOnInit(): void {
     this.initForm();
-    this.getReport();
     this.nameUser = this.userService.getUser().name;
 
   }
@@ -109,7 +107,6 @@ export class UserConnectionComponent implements OnInit {
       this.date = response;
       this.dateFormat = new Date(this.date)
       this.showDate = true
-      console.log(this.showDate)
       return this.showDate
 
 
@@ -122,32 +119,6 @@ export class UserConnectionComponent implements OnInit {
     return this.showDate
   }
 
-  getReport(): String {
-
-    this.userService.getReport().subscribe((response) => {
-
-      const cadena = response;
-      const cadenaFormat = cadena.replace(/null/gi, "");
-      this.reports = cadenaFormat.split('<!-- INICIO -->');
-
-    },
-      (err) => {
-        console.error(err);
-      }
-    );
-
-
-
-    return this.date;
-  }
-
-  lastReports(report:string) {
-    const informe = report;
-    const popup = window.open('', 'Informe', 'width=600,height=400');
-    if (popup) {
-      popup.document.body.innerHTML = informe;
-    }
-  }
 
 
 

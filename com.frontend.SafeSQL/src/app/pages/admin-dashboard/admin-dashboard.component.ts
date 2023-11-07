@@ -32,7 +32,6 @@ export class AdminDashboardComponent implements OnInit {
 
   ngOnInit(): void {
     this.nameUser = this.userService.getUser().name;
-    console.log(this.showDate)
 
   }
 
@@ -45,7 +44,6 @@ export class AdminDashboardComponent implements OnInit {
       this.date = response;
       this.dateFormat = new Date(this.date)
       this.showDate = true
-      console.log(this.showDate)
       return this.showDate
 
 

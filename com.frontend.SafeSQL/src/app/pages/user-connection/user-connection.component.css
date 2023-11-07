@@ -17,37 +17,18 @@
 }
 
 .form {
-
     width: 50%;
-    height: auto;
+    height: 50%;
     margin-top: 5%;
-    margin-bottom: 5%;
-    border-radius: 40px;
+    border-radius: 30px;
     /* Radio de las esquinas redondeadas */
-    padding: 20px;
+    padding: 30px;
     /* Espacio alrededor del formulario */
     background-color: rgba(0, 0, 0, 0.719);
     /* Fondo transparente negro */
-    display: flex;
-
-
-
-}
-
-.div1 {
-    width: 20%; /* Dividir el ancho del div general en dos partes iguales */
-    float: left; /* Hace que div1 y div2 se coloquen uno al lado del otro */
-    box-sizing: border-box; /* Incluye el borde y el relleno en el ancho total */
-    padding: 30px; /* Espacio interno para div1 y div2 */
-
+    align-items: center;
   }
 
-  .div2 {
-    width: 80%; /* Dividir el ancho del div general en dos partes iguales */
-    float: center; /* Hace que div1 y div2 se coloquen uno al lado del otro */
-    box-sizing: border-box; /* Incluye el borde y el relleno en el ancho total */
-    padding: 40px; /* Espacio interno para div1 y div2 */
-  }
 
 .btn.btn-primary,
 .btn.btn-primary.active {

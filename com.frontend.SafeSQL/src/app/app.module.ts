@@ -26,6 +26,7 @@ import { UserConnectionComponent } from './pages/user-connection/user-connection
 import { ErrorPageComponent } from './pages/error-page/error-page.component';
 import { AdminDashboardComponent } from './pages/admin-dashboard/admin-dashboard.component';
 import { AdminScriptsComponent } from './pages/admin-scripts/admin-scripts.component';
+import { ReportHistoryComponent } from './pages/report-history/report-history.component';
 
 
 
@@ -49,7 +50,8 @@ import { AdminScriptsComponent } from './pages/admin-scripts/admin-scripts.compo
     UserConnectionComponent,
     ErrorPageComponent,
     AdminDashboardComponent,
-    AdminScriptsComponent
+    AdminScriptsComponent,
+    ReportHistoryComponent
 
   ],
   imports: [

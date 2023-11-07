@@ -7,5 +7,7 @@ export class User {
     passwordConfirm:string;
     token:string;
     date: string;
+    report: string [];
+    date_report: string [];
 
 }

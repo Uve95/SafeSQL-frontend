@@ -98,18 +98,21 @@ export class UserService {
     return this.httpClient.post<User>(this.userURL + `delete-info`, info);
   }
 
-  public setReport(report: String, info: String): Observable<any[]> {
+  public setReport(report: String, date: String, bdname: String, info: String): Observable<any[]> {
 
     let infos: String[] = [];
     infos.push(report);
+    infos.push(date);
+    infos.push(bdname);
     infos.push(info);
     return this.httpClient.post<any[]>(this.userURL + `info-report`, infos);
   }
 
-  public getReport(): Observable<String> {
+  public getReport(): Observable<String []> {
     let email = localStorage.getItem('email')?.replace(/['"]+/g, '');
-    return this.httpClient.get(this.userURL + `info-report/${email}`, { responseType: 'text' });
+    return this.httpClient.get<String []>(this.userURL + `info-report/${email}`);
   }
+
 
   public checklistConfiguration(listchecks: boolean[], info: string): Observable<any[]> {
 

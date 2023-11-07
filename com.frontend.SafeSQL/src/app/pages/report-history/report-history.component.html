@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href=".\report-history.component.css" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+
+<!-- Resto de tu contenido -->
+
+<div class="form container s-center">
+
+    <h1 class="fs-4 card-title fw-bold mb-40 text-center ms-auto h-white">Historial de reportes realizados</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Número de reporte</th>
+                <th scope="col">Fecha de análisis</th>
+                <th scope="col">Nombre base de datos</th>
+                <th scope="col">Ver reporte</th>
+
+
+            </tr>
+
+
+        </thead>
+
+        <tbody>
+            <tr *ngFor="let report of reports; let i = index">
+                <ng-container *ngIf="i >= 1">
+                  <td>
+                    {{ (i).toString().padStart(3, '0') }}
+                  </td>
+                  <td>
+                    {{ bdname[i] }}
+                  </td>
+                  <td>
+                    {{ date_reports[i] }}
+                  </td>
+                  <td>
+                    <button class="btn btn-primary" (click)="lastReports(report)">Ver informe</button>
+                  </td>
+                </ng-container>
+              </tr>
+              
+              
+              
+
+        </tbody>
+        <button class=" btn btn-secondary ms-auto btn-lg" (click)="back()">
+            Volver
+        </button>
+
+    </table>
+
+
+</div>
+
+
+</html>

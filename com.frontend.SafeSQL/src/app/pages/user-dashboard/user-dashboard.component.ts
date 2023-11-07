@@ -36,7 +36,6 @@ export class UserDashboardComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.getBDName();
     this.getInfo();
 
     const date = new Date();
@@ -62,25 +61,11 @@ export class UserDashboardComponent implements OnInit {
 
 
 
-  getBDName() {
-    this.userService.getBDName().subscribe((response) => {
-
-      this.BDName = response;
-
-
-    },
-      (err) => {
-        console.error(err);
-      }
-    );
-  }
-
   getInfo() {
     this.userService.getInfo().subscribe((response) => {
 
       this.info = response;
       this.info = this.info.split(';');
-      console.log(this.info)
       this.server = this.info[0];
       this.server = this.server.replace('jdbc:sqlserver://', '')
       this.database = this.info[1];
