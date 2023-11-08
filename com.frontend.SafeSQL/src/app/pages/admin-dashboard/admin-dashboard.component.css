@@ -43,8 +43,6 @@
     border: 2px solid #3c02c4;
     /* Borde sólido de 2px de ancho y color azul (#007bff) */
     padding: 20px 20px;
-    /* Espacio alrededor del texto del botón */
-    color: rgb(255, 255, 255);
     /* Color del texto */
     cursor: pointer;
     /* Cambiar el cursor al pasar el mouse */
