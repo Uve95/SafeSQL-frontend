@@ -18,7 +18,7 @@ import { ErrorPageComponent } from './pages/error-page/error-page.component';
 import { AdminDashboardComponent } from './pages/admin-dashboard/admin-dashboard.component';
 import { AdminScriptsComponent } from './pages/admin-scripts/admin-scripts.component';
 import { ReportHistoryComponent } from './pages/report-history/report-history.component';
-
+ 
 
 const routes: Routes = [
 
