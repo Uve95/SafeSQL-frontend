@@ -277,7 +277,6 @@ export class UserService {
     localStorage.setItem('user', JSON.stringify(user));
     localStorage.setItem('rol', JSON.stringify(user.authorities[0].authority));
     localStorage.setItem('email', JSON.stringify(user.email));
-    //localStorage.setItem('token', JSON.stringify(user.token));
 
 
 

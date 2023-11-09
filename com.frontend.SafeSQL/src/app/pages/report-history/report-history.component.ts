@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
-import { LoadingService } from 'src/app/services/user/loading.service';
 import { User } from 'src/app/services/user/user';
 import { UserService } from 'src/app/services/user/user.service';
 
@@ -26,7 +25,6 @@ export class ReportHistoryComponent implements OnInit {
     private userService: UserService,
     private router: Router,
     private readonly fb: FormBuilder,
-    public loadingService: LoadingService
 
   ) {
 

@@ -3,7 +3,6 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/user/user.service';
 import { UserChecklistComponent } from '../user-checklist/user-checklist.component';
-import { LoadingService } from 'src/app/services/user/loading.service';
 
 @Component({
   selector: 'app-user-connection',
@@ -30,7 +29,6 @@ export class UserConnectionComponent implements OnInit {
     private userService: UserService,
     private router: Router,
     private readonly fb: FormBuilder,
-    public loadingService: LoadingService
 
   ) {
 

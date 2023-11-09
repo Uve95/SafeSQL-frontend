@@ -53,7 +53,6 @@ export class NavbarComponent implements OnInit {
         localStorage.setItem('tokenP', userToken);
       },
         err => {
-          //this.router.navigate(['user/connection']);
         }
       );
     }, 1000); // 60000 milisegundos = 60 segundos
@@ -105,7 +104,7 @@ export class NavbarComponent implements OnInit {
     const secondStr = second.toString().padStart(2, '0');
 
     // Combina los componentes en una cadena de fecha y hora
-    this.date = `${year}-${month}-${day} ${hour}:${minute}`;
+    this.date = `${year}-${monthStr}-${dayStr} ${hourStr}:${minuteStr}:${secondStr}`;
 
     this.userService.setTime(this.userService.getUser().email, this.date).subscribe((response) => {
 
@@ -120,7 +119,6 @@ export class NavbarComponent implements OnInit {
       localStorage.clear();
       this.isLoggedIn = false
       this.userService.logout();
-      //window.location.reload();
       this.router.navigate(['']);
     },
       err => {
