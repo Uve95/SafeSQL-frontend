@@ -28,7 +28,7 @@ export class ReportComponent implements OnInit {
   checkRols: string
   BDName: any
 
-  dateFormat: String
+  dateFormat: string
 
   @ViewChild('inform') informeElement: ElementRef;
   date: string;
@@ -53,17 +53,15 @@ export class ReportComponent implements OnInit {
     const minute = date.getMinutes();
     const second = date.getSeconds();
 
-    // Formatea los componentes de fecha y hora como cadenas de dos dígitos
     const dayStr = day.toString().padStart(2, '0');
     const monthStr = month.toString().padStart(2, '0');
     const hourStr = hour.toString().padStart(2, '0');
     const minuteStr = minute.toString().padStart(2, '0');
     const secondStr = second.toString().padStart(2, '0');
 
-    // Combina los componentes en una cadena de fecha y hora
-    this.date = `${year}-${month}-${day} ${hour}:${minute}:${second}`;
+    this.date = `${year}-${monthStr}-${dayStr} ${hourStr}:${minuteStr}:${secondStr}`;
 
-    this.showPrincipal = false;
+    this.showPrincipal = false; 
 
     this.listchecks = this.userService.getlistchecks();
 
@@ -385,7 +383,6 @@ export class ReportComponent implements OnInit {
   }
 
   updateMessage(msgState: string) {
-    // Simula una actualización de contenido cada 2 segundos
     setInterval(() => {
       msgState = msgState + new Date().toLocaleTimeString();
     }, 2000);
@@ -538,7 +535,6 @@ export class ReportComponent implements OnInit {
 
   saveReport() {
 
-    // Obtener el contenido del documento HTML
     const elementoInicio = document.getElementById('inform');
     const htmlOriginal = elementoInicio?.outerHTML + document.body.outerHTML;
 

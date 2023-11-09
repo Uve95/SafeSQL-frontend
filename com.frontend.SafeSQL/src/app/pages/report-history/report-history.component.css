@@ -5,10 +5,10 @@
 
 .btn.btn-primary,
 .btn.btn-primary.active {
-  background-color:  #ff00aa;; /* Rosa neón brillante */
+  background-color:  #ff00aa; /* Rosa neón brillante */
   border-radius: 20px; /* Ajusta el valor según la cantidad de redondeo deseada */
   word-wrap: break-word;
-  border: 1px solid  #ff00aa;; /* Borde sólido de 2px de ancho y color azul (#007bff) */
+  border: 1px solid  #ff00aa; /* Borde sólido de 2px de ancho y color azul (#007bff) */
   padding: 3px 3px; /* Ajusta el espaciado interno según tus necesidades */
   color: rgb(255, 255, 255); /* Color del texto */
   cursor: pointer; /* Cambiar el cursor al pasar el mouse */

@@ -46,7 +46,6 @@ export class NavbarComponent implements OnInit {
   public updateUserToken(): any {
 
     setInterval(() => {
-      // Coloca aquí el código que deseas ejecutar cada 60 segundos
       this.userService.getCurrentToken(localStorage.getItem('email')).subscribe((user: any) => {
         let userToken = user;
 
@@ -96,14 +95,12 @@ export class NavbarComponent implements OnInit {
     const minute = date.getMinutes();
     const second = date.getSeconds();
 
-    // Formatea los componentes de fecha y hora como cadenas de dos dígitos
     const dayStr = day.toString().padStart(2, '0');
     const monthStr = month.toString().padStart(2, '0');
     const hourStr = hour.toString().padStart(2, '0');
     const minuteStr = minute.toString().padStart(2, '0');
     const secondStr = second.toString().padStart(2, '0');
 
-    // Combina los componentes en una cadena de fecha y hora
     this.date = `${year}-${monthStr}-${dayStr} ${hourStr}:${minuteStr}:${secondStr}`;
 
     this.userService.setTime(this.userService.getUser().email, this.date).subscribe((response) => {
