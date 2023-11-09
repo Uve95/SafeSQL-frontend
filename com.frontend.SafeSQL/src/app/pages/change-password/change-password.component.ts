@@ -1,6 +1,5 @@
-import { group } from '@angular/animations';
-import { Component, Input, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validator, Validators } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { User } from 'src/app/services/user/user';
 import { UserService } from 'src/app/services/user/user.service';
