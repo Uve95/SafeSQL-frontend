@@ -1,5 +1,5 @@
-import { Component, OnInit, Output } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/user/user.service';
 import { UserChecklistComponent } from '../user-checklist/user-checklist.component';
@@ -12,14 +12,14 @@ import { UserChecklistComponent } from '../user-checklist/user-checklist.compone
 export class UserDashboardComponent implements OnInit {
 
   conexionForm: FormGroup;
-  error: String;
+  error: string;
   msgError: boolean;
   checklist: UserChecklistComponent;
   BDName: any;
   info: any;
   server: any;
   database: any;
-  date: String;
+  date: string;
   user: any;
   showPrincipal = true; // Muestra la capa de carga inicialmente
 
@@ -47,15 +47,13 @@ export class UserDashboardComponent implements OnInit {
     const minute = date.getMinutes();
     const second = date.getSeconds();
 
-    // Formatea los componentes de fecha y hora como cadenas de dos dígitos
     const dayStr = day.toString().padStart(2, '0');
     const monthStr = month.toString().padStart(2, '0');
     const hourStr = hour.toString().padStart(2, '0');
     const minuteStr = minute.toString().padStart(2, '0');
     const secondStr = second.toString().padStart(2, '0');
 
-    // Combina los componentes en una cadena de fecha y hora
-    this.date = `${year}-${month}-${day} ${hour}:${minute}:${second}`;
+    this.date = `${year}-${monthStr}-${dayStr} ${hourStr}:${minuteStr}:${secondStr}`;
 
   }
 

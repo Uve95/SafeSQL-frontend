@@ -10,12 +10,12 @@ import { UserService } from 'src/app/services/user/user.service';
 })
 export class AdminDashboardComponent implements OnInit {
 
-  error: String;
+  error: string;
   msgError: boolean;
   BDName: any;
   showPrincipal = true; // Muestra la capa de carga inicialmente
   date: any;
-  nameUser: String;
+  nameUser: string;
   dateFormat: Date;
   showDate : boolean;
 

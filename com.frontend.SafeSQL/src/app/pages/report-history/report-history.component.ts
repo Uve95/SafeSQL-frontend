@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
-import { User } from 'src/app/services/user/user';
 import { UserService } from 'src/app/services/user/user.service';
 
 @Component({
@@ -12,7 +11,7 @@ import { UserService } from 'src/app/services/user/user.service';
 export class ReportHistoryComponent implements OnInit {
 
 
-  date: String;
+  date: string;
   info: any;
   database: any;
   reports: string [];

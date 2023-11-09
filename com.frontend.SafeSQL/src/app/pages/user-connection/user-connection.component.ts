@@ -1,4 +1,4 @@
-import { Component, OnInit, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/user/user.service';
@@ -18,7 +18,7 @@ export class UserConnectionComponent implements OnInit {
   showPrincipal = true;
   date: any;
   dateFormat: Date
-  nameUser: String;
+  nameUser: string;
   showDate: boolean;
 
 
@@ -74,7 +74,6 @@ export class UserConnectionComponent implements OnInit {
           this.showPrincipal = true;
           console.error("Error:", err);
 
-          // Opcional: Si no deseas reintentar automáticamente, elimina este bloque.
           setTimeout(() => {
             this.connectBD(); // Reintenta la conexión después de un tiempo
           }, 3000); // Simula una carga de 3 segundos

@@ -32,7 +32,7 @@ export class UserListComponent implements OnInit {
 
   }
 
-  delete(email: String): void {
+  delete(email: string): void {
     if (confirm('¿Estás seguro?')) {
       this.userService.delete(email).subscribe(() => {
         this.loadUsers();

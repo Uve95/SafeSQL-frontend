@@ -12,10 +12,10 @@ export class UpdateAdminComponent implements OnInit{
 
   user: any = null;
   adminUpdateForm: FormGroup;
-  email: String;
-  name : String;
-  surname : String;
-  password : String;
+  email: string;
+  name : string;
+  surname : string;
+  password : string;
 
   msgError: boolean;
 

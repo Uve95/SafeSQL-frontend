@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Observable, Subject } from 'rxjs';
 import { User } from './user';
 
@@ -43,17 +43,17 @@ export class UserService {
   }
 
 
-  public updateAdmin(user: User, token: String): Observable<User> {
+  public updateAdmin(user: User, token: string): Observable<User> {
 
     return this.httpClient.post<User>(this.adminURL + `update/${token}`, user);
   }
 
-  public updateUser(user: User, token: String): Observable<User> {
+  public updateUser(user: User, token: string): Observable<User> {
 
     return this.httpClient.post<User>(this.userURL + `update/${token}`, user);
   }
 
-  public delete(email: String): Observable<any> {
+  public delete(email: string): Observable<any> {
 
     return this.httpClient.delete<any>(this.adminURL + `delete/${email}`);
   }
@@ -75,20 +75,20 @@ export class UserService {
     return this.httpClient.post<boolean>(this.userURL + `connectBD`, info);
   }
 
-  public setTime(date: String, info: String): Observable<any[]> {
+  public setTime(date: string, info: string): Observable<any[]> {
 
-    let infos: String[] = [];
+    let infos: string[] = [];
     infos.push(date);
     infos.push(info);
     return this.httpClient.post<any[]>(this.userURL + `info-time`, infos);
   }
 
-  public getTime(): Observable<String> {
+  public getTime(): Observable<string> {
     let email = localStorage.getItem('email')?.replace(/['"]+/g, '');
     return this.httpClient.get(this.userURL + `info-time/${email}`, { responseType: 'text' });
   }
 
-  public getInfo(): Observable<String> {
+  public getInfo(): Observable<string> {
     let email = localStorage.getItem('email')?.replace(/['"]+/g, '');
     return this.httpClient.get(this.userURL + `info/${email}`, { responseType: 'text' });
   }
@@ -98,9 +98,9 @@ export class UserService {
     return this.httpClient.post<User>(this.userURL + `delete-info`, info);
   }
 
-  public setReport(report: String, date: String, bdname: String, info: String): Observable<any[]> {
+  public setReport(report: string, date: string, bdname: string, info: string): Observable<any[]> {
 
-    let infos: String[] = [];
+    let infos: string[] = [];
     infos.push(report);
     infos.push(date);
     infos.push(bdname);
@@ -108,9 +108,9 @@ export class UserService {
     return this.httpClient.post<any[]>(this.userURL + `info-report`, infos);
   }
 
-  public getReport(): Observable<String []> {
+  public getReport(): Observable<string []> {
     let email = localStorage.getItem('email')?.replace(/['"]+/g, '');
-    return this.httpClient.get<String []>(this.userURL + `info-report/${email}`);
+    return this.httpClient.get<string []>(this.userURL + `info-report/${email}`);
   }
 
 
@@ -226,12 +226,10 @@ export class UserService {
   //Login
 
   generateToken(user: any) {
-    // Supongamos que tienes el token JWT almacenado en la variable userToken
 
     return this.httpClient.post(this.baseURL + `generate-token`, user);
   }
 
-  //Iniciamos sesion y lo almacenamos en localStorage (guardar el token por un tiempo para la sesion)
 
   loginUser(token: any) {
     try {

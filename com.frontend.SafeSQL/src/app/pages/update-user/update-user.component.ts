@@ -13,12 +13,12 @@ export class UpdateUserComponent implements OnInit{
   user: any = null;
   userUpdateForm: FormGroup;
   email: any;
-  name : String;
-  surname : String;
-  password : String;
+  name : string;
+  surname : string;
+  password : string;
 
   msgError: boolean;
-  token:String
+  token:string
 
 
   constructor(private userService: UserService,
