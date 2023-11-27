@@ -33,13 +33,16 @@ export class UserListComponent implements OnInit {
   }
 
   delete(email: string): void {
+    console.log('Entrando en delete');
     if (confirm('¿Estás seguro?')) {
       this.userService.delete(email).subscribe(() => {
+        console.log('Eliminación exitosa');
         this.loadUsers();
+        window.location.reload();
       });
     }
   }
-
+  
   public back() {
 
     this.router.navigate(['/admin/dashboard']);
